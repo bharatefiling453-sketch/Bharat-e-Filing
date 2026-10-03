@@ -151,6 +151,8 @@
     },
   };
 
+  var leadSubmitted = false;
+
   document.querySelectorAll("form[data-lead-form]").forEach(function (form) {
     var started = false;
     form.addEventListener("input", function () {
@@ -184,13 +186,145 @@
       }
 
       // TODO(dev): POST to CRM / WooCommerce / Zoho endpoint here, then show success.
+      var plan =
+        form.querySelector("[name='plan']:checked") || form.elements.plan;
+      var planOption =
+        plan && plan.options ? plan.options[plan.selectedIndex] : plan;
       track("generate_lead", {
         form_id: form.id,
-        value: Number(form.dataset.value || 0),
+        plan: plan ? plan.value : "",
+        value: Number(
+          (planOption && planOption.dataset.price) || form.dataset.value || 0,
+        ),
         currency: "INR",
       });
+      leadSubmitted = true;
+      try {
+        sessionStorage.setItem("bef_lead", "1");
+      } catch (err) {
+        /* ignore */
+      }
       form.innerHTML =
         '<p class="form-success" role="status">Thank you! A GST expert will call you within 30 working minutes.</p>';
     });
   });
+  /* ---- "In view" markers for timeline dots and the process stepper ---- */
+  var inViewEls = document.querySelectorAll(".timeline__item, .stepper");
+  if ("IntersectionObserver" in window) {
+    var inView = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-in");
+            inView.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -25% 0px" },
+    );
+    inViewEls.forEach(function (el) {
+      inView.observe(el);
+    });
+  } else {
+    inViewEls.forEach(function (el) {
+      el.classList.add("is-in");
+    });
+  }
+
+  /* ---- Timeline line fills with scroll ---- */
+  var timelines = document.querySelectorAll(".timeline");
+  var ticking = false;
+  function paintTimelines() {
+    ticking = false;
+    var mid = window.innerHeight * 0.6;
+    timelines.forEach(function (tl) {
+      var r = tl.getBoundingClientRect();
+      var p = Math.min(1, Math.max(0, (mid - r.top) / r.height));
+      tl.style.setProperty("--progress", p.toFixed(3));
+    });
+  }
+  if (timelines.length) {
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!ticking) {
+          ticking = true;
+          window.requestAnimationFrame(paintTimelines);
+        }
+      },
+      { passive: true },
+    );
+    paintTimelines();
+  }
+
+  /* ---- Lead pop-up: opens from CTAs, on exit intent, or after 45 s (once per session) ---- */
+  var modal = document.getElementById("lead-modal");
+  var canModal = modal && typeof modal.showModal === "function";
+
+  function seen(key) {
+    try {
+      return sessionStorage.getItem(key) === "1";
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function remember(key) {
+    try {
+      sessionStorage.setItem(key, "1");
+    } catch (err) {
+      /* ignore */
+    }
+  }
+
+  function openModal(trigger, plan) {
+    if (!canModal || modal.open) return false;
+    var select = modal.querySelector("select[name='plan']");
+    if (select && plan) select.value = plan;
+    modal.showModal();
+    remember("bef_popup_seen");
+    track("popup_open", { trigger: trigger });
+    return true;
+  }
+
+  document.addEventListener("click", function (e) {
+    var opener = e.target.closest("[data-modal-open]");
+    if (!opener) return;
+    if (openModal(opener.dataset.location || "button", opener.dataset.plan))
+      e.preventDefault();
+  });
+
+  if (canModal) {
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) modal.close();
+    });
+    modal.querySelectorAll("[data-modal-close]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        modal.close();
+      });
+    });
+
+    var autoAllowed = function () {
+      return !leadSubmitted && !seen("bef_popup_seen") && !seen("bef_lead");
+    };
+    // Desktop exit intent: pointer leaves through the top of the window
+    document.addEventListener("mouseout", function (e) {
+      if (
+        !e.relatedTarget &&
+        e.clientY <= 0 &&
+        window.innerWidth >= 1024 &&
+        autoAllowed()
+      ) {
+        openModal("exit_intent");
+      }
+    });
+    // Gentle timed prompt — only if the visitor has been reading for a while
+    window.setTimeout(function () {
+      var scrolled = window.scrollY > window.innerHeight * 0.8;
+      var typing =
+        document.activeElement &&
+        /INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName);
+      if (scrolled && !typing && autoAllowed()) openModal("timer");
+    }, 45000);
+  }
 })();

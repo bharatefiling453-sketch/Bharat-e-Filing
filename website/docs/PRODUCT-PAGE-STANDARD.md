@@ -29,29 +29,24 @@ service page is the only indexed URL for the keyword (avoids cannibalisation).
 | OG title         | Title without brand                                                                           | ≤ 70 chars    |
 | OG image         | 1200 × 630, brand navy background, service name, one icon                                     | < 200 KB      |
 
-## 3. Page section order (do not reorder — it is tuned for conversions + answer engines)
+## 3. Page section order (tuned for conversions + answer engines)
 
-1. Top bar (phone, email, hours) → sticky header (logo, 6 nav items, one CTA)
-2. **Hero**: breadcrumb · "Updated {date}" badge · H1 · **AEO answer box (40–60 words)** · 4 benefit bullets · 2 CTAs (primary + WhatsApp) · trust numbers · **lead form card** on the right
-3. Highlights strip (4 cards: time, fee, quality, language)
-4. Main content with sticky **"On this page"** table of contents:
-   1. What is {service}? (definition + law reference + **illustration**)
-   2. Who needs it? (eligibility table + **2 worked examples** with Indian names/cities)
-   3. What changed recently? (dated, cites notification numbers)
-   4. Types / options (table)
-   5. Documents required (table by entity type + downloadable PDF)
-   6. Step-by-step process (numbered timeline with day estimates + statutory timeline callout)
-   7. Fees & plans (3 tiers, middle one featured; govt fee stated separately)
-   8. Penalties / risks (with a worked rupee example)
-   9. After you get it (compliance calendar)
-   10. Income-tax angle — **Income-tax Act, 2025 section + the earlier 1961 Act section side by side**
-   11. Why us (DIY vs us table) + **real** Google reviews widget
-   12. Bundles (2) + related services (6 cards)
-   13. Reviewer box (CA name, ICAI no., last fact-checked date) + official sources list
-5. FAQ (10–15 questions, accordion, first one open)
-6. CTA band (start · WhatsApp · call)
-7. Footer (brand + address, 4 link columns, social, disclaimer, legal links)
-8. Mobile sticky bar (WhatsApp + primary CTA)
+1. Announcement ribbon (latest change) → global nav (logo, menu, **Log in**, Get started) → sticky local nav (section links + Apply now)
+2. **Hero, kept minimal:** breadcrumb · "New" pill · H1 · one-line promise · 2 buttons · 3 short ticks. Right: **lead form with a
+   built-in plan picker** (prices next to the enquiry form).
+3. **Live updates ticker** (latest notifications, pauses on hover).
+4. **Pricing** (3 plans, middle one featured), directly below the form. Plan buttons open the pop-up with that plan selected.
+5. "At a glance" bento tiles.
+6. Guide on white: Overview with the **quick answer card (40–60 words)** → Eligibility (+2 worked examples) → **What's new
+   timeline** (scroll-animated, newest first) → Types → Documents.
+7. **Process stepper** (animated, 5 steps) + statutory-timeline note.
+8. Penalties → After registration → Income-tax Act 2025 ↔ 1961 → DIY vs us.
+9. Bundles + related services → reviewer box + sources → FAQ → CTA band → footer → mobile action bar.
+10. **Lead pop-up:** opens from CTAs, on desktop exit intent, or after 45 s if the visitor has scrolled; at most once per
+    session automatically and never after a lead is submitted.
+
+**Messaging rules:** backgrounds stay white (colour comes from cards, callouts and gradients, never grey bands). Do not mention
+government fees. Talk about our fee only, shown before the customer starts.
 
 ## 4. SEO checklist
 
