@@ -40,6 +40,16 @@ Load `bef-design-system.css` and `bef-page.js` from the child theme; build each 
 GenerateBlocks/Kadence pattern using the same class names; let Rank Math output the schema graph (paste the
 FAQ/Service/HowTo JSON from this page into Rank Math's custom schema) — do not output schema twice.
 
+## Sharing the page as one file (Discord, email, WhatsApp)
+
+```bash
+npm run build:single   # → dist/bharat-efiling-gst-registration.html
+```
+
+The output embeds everything (styles, scripts, logo, favicon and the Inter + Noto Sans Devanagari fonts), so it looks
+identical on any computer, even offline. Re-run it after every edit. Recipients download the file from Discord and open it
+in Chrome, Edge, Safari or Firefox (Discord shows `.html` attachments as a download, not a rendered page).
+
 ## Before launch — placeholders to replace
 
 | Placeholder                                                  | Meaning                                                        |
