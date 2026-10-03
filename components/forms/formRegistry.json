@@ -1,0 +1,26 @@
+[
+  {
+    "id": "itr1",
+    "label": "ITR-1 (Sahaj)",
+    "desc": "Salary & Interest",
+    "componentName": "ITR1Filing"
+  },
+  {
+    "id": "itr2",
+    "label": "ITR-2",
+    "desc": "Capital Gains & Property",
+    "componentName": "ITR2Placeholder"
+  },
+  {
+    "id": "itr3",
+    "label": "ITR-3",
+    "desc": "Business & Profession",
+    "componentName": "ITR3Placeholder"
+  },
+  {
+    "id": "itr4",
+    "label": "ITR-4 (Sugam)",
+    "desc": "Presumptive Income",
+    "componentName": "ITR4Placeholder"
+  }
+]
