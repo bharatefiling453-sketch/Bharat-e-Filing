@@ -1,0 +1,18 @@
+# Bharat eFiling
+
+> Bharat eFiling (bharatefiling.com) is an Indian online platform for CA-assisted income-tax return filing, GST registration and returns, business registration, trademark and compliance services for individuals, startups and MSMEs.
+
+Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, the CGST Rules, 2017 and the Income-tax Act, 2025 (in force from 1 April 2026).
+
+## GST services
+- [GST Registration](https://bharatefiling.com/gst-registration/): eligibility, turnover limits, Rule 14A 3-day registration, documents, process, fees, penalties and FAQs
+- [GST Return Filing](https://bharatefiling.com/gst-return-filing/): GSTR-1, GSTR-3B, GSTR-9 filing
+- [GST LUT Filing](https://bharatefiling.com/gst-lut-filing/): export without paying IGST
+
+## Income tax
+- [ITR Filing](https://bharatefiling.com/income-tax-return-filing/)
+- [Income-tax Act, 2025 changes](https://bharatefiling.com/learn/income-tax-act-2025-changes/)
+
+## Company
+- [About](https://bharatefiling.com/about-us/)
+- [Contact](https://bharatefiling.com/contact-us/)

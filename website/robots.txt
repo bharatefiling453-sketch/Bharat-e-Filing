@@ -1,0 +1,25 @@
+# bharatefiling.com/robots.txt
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /my-account/
+Disallow: /*?add-to-cart=
+Disallow: /*?s=
+Disallow: /*?orderby=
+
+# AI answer engines — allowed on purpose (GEO). Block GPTBot/CCBot here only if
+# management decides not to be quoted in ChatGPT / other LLM answers.
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://bharatefiling.com/sitemap_index.xml

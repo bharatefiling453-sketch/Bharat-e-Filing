@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Example service sitemap. On WordPress, Rank Math / Yoast generate this automatically
+     at /sitemap_index.xml — use this file only as the reference for which URLs must appear. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://bharatefiling.com/gst-registration/</loc>
+    <lastmod>2026-10-03</lastmod>
+    <image:image>
+      <image:loc>https://bharatefiling.com/wp-content/uploads/og/gst-registration-1200x630.jpg</image:loc>
+    </image:image>
+  </url>
+  <url><loc>https://bharatefiling.com/gst-return-filing/</loc><lastmod>2026-10-03</lastmod></url>
+  <url><loc>https://bharatefiling.com/gst-lut-filing/</loc><lastmod>2026-10-03</lastmod></url>
+  <url><loc>https://bharatefiling.com/gst-registration-amendment/</loc><lastmod>2026-10-03</lastmod></url>
+  <url><loc>https://bharatefiling.com/gst-cancellation/</loc><lastmod>2026-10-03</lastmod></url>
+  <url><loc>https://bharatefiling.com/gst-notice-reply/</loc><lastmod>2026-10-03</lastmod></url>
+</urlset>
