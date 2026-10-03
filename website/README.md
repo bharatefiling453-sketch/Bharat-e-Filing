@@ -6,6 +6,7 @@ Design system, reference service page and QA toolchain for rebuilding every Bhar
 ```
 website/
 ├── gst-registration/index.html     ← reference service page (copy for every product)
+├── gst-return-filing/index.html    ← GST Return Filing page (with due-date finder + late fee calculator)
 ├── assets/css/bef-design-system.css ← colours, fonts, spacing, all components
 ├── assets/js/bef-page.js           ← nav, TOC, FAQ, form validation, dataLayer events
 ├── docs/PRODUCT-PAGE-STANDARD.md   ← the rules: slug, SEO, AEO, GEO, schema, linking, design, launch checklist
@@ -43,7 +44,7 @@ FAQ/Service/HowTo JSON from this page into Rank Math's custom schema) — do not
 ## Sharing the page as one file (Discord, email, WhatsApp)
 
 ```bash
-npm run build:single   # → dist/bharat-efiling-gst-registration.html
+npm run build:single   # → dist/bharat-efiling-gst-registration.html and dist/bharat-efiling-gst-return-filing.html
 ```
 
 The output embeds everything (styles, scripts, logo, favicon and the Inter + Noto Sans Devanagari fonts), so it looks

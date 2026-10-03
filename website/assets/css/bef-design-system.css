@@ -2250,6 +2250,253 @@ a.card:hover {
   color: var(--ink);
 }
 
+/* =============================== 16c. TOOLS (calculators) =============================== */
+.tools {
+  display: grid;
+  gap: var(--s-5);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr));
+}
+
+.tool {
+  display: flex;
+  flex-direction: column;
+  padding: var(--s-8);
+  border-radius: var(--r-xl);
+  background: #fff;
+  box-shadow:
+    0 0 0 1px var(--hairline),
+    var(--shadow-2);
+}
+
+@media (width < 640px) {
+  .tool {
+    padding: var(--s-5);
+  }
+}
+
+.tool__head {
+  display: flex;
+  gap: var(--s-4);
+  align-items: center;
+  margin-bottom: var(--s-6);
+}
+
+.tool__icon {
+  display: grid;
+  flex: 0 0 48px;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--brand-gradient);
+  color: var(--navy-ink);
+  font-size: var(--fs-21);
+  font-weight: 750;
+}
+
+.tool__head h3 {
+  margin: 0;
+  font-size: var(--fs-21);
+}
+
+.tool__head p {
+  margin: 2px 0 0;
+  font-size: var(--fs-14);
+  color: var(--ink-3);
+}
+
+.seg {
+  display: flex;
+  gap: 4px;
+  margin: 0 0 var(--s-4);
+  padding: 4px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--canvas-2);
+}
+
+.seg legend {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.seg label {
+  flex: 1;
+  position: relative;
+  padding: 8px 12px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-14);
+  font-weight: 600;
+  text-align: center;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+}
+
+.seg input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.seg label:has(input:checked) {
+  background: #fff;
+  color: var(--navy);
+  box-shadow: var(--shadow-1);
+}
+
+.seg label:has(input:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.result {
+  margin-top: auto;
+  padding: var(--s-6);
+  border-radius: var(--r-lg);
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: #c7cde0;
+}
+
+.result__rows {
+  display: grid;
+  gap: var(--s-3);
+  margin: 0;
+}
+
+.result__rows div {
+  display: flex;
+  gap: var(--s-4);
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.result__rows dt {
+  font-size: var(--fs-14);
+}
+
+.result__rows dd {
+  margin: 0;
+  font-size: var(--fs-19);
+  font-weight: 700;
+  color: #fff;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.result__rows .is-total {
+  margin-top: var(--s-2);
+  padding-top: var(--s-3);
+  border-top: 1px solid rgb(255 255 255 / 14%);
+}
+
+.result__rows .is-total dd {
+  font-size: var(--fs-h3);
+  color: var(--amber);
+}
+
+.result__note {
+  margin: var(--s-4) 0 0;
+  font-size: var(--fs-12);
+  color: #b9c1da;
+}
+
+/* Data-flow strip (GSTR-1 → IMS → GSTR-2B → GSTR-3B) */
+.flow {
+  display: grid;
+  gap: var(--s-3);
+  grid-template-columns: repeat(4, 1fr);
+  margin: var(--s-8) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flow li {
+  position: relative;
+  padding: var(--s-5) var(--s-4);
+  border-radius: var(--r-lg);
+  background: #fff;
+  box-shadow:
+    0 0 0 1px var(--hairline),
+    var(--shadow-1);
+  text-align: center;
+}
+
+.flow li:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  right: -14px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-top: -11px;
+  border-radius: 50%;
+  background: var(--brand-gradient);
+  color: var(--navy-ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.flow strong {
+  display: block;
+  font-size: var(--fs-19);
+  color: var(--navy);
+}
+
+.flow span {
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
+@media (width < 640px) {
+  .flow {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .flow li:nth-child(2)::after {
+    display: none;
+  }
+}
+
+/* Monthly rhythm (bento) */
+.rhythm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin: var(--s-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rhythm li {
+  display: grid;
+  gap: 4px;
+  min-width: 92px;
+  padding: 10px 14px;
+  border-radius: var(--r-sm);
+  background: rgb(255 255 255 / 8%);
+  font-size: 12px;
+  color: #b9c1da;
+}
+
+.rhythm b {
+  font-size: var(--fs-21);
+  color: #fff;
+}
+
+.rhythm .is-key {
+  background: rgb(255 136 19 / 22%);
+}
+
 /* =============================== 17. MOTION =============================== */
 @media (prefers-reduced-motion: no-preference) {
   .js .reveal {
