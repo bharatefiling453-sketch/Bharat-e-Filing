@@ -2,7 +2,7 @@
 <html lang="en-IN">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
     <!-- ===== PRIMARY SEO ===== -->
     <title>GST Registration Online – GSTIN in 3–7 Days | Bharat eFiling</title>
@@ -14,9 +14,9 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <link rel="alternate" hreflang="en-IN" href="https://bharatefiling.com/gst-registration/" />
     <link rel="alternate" hreflang="x-default" href="https://bharatefiling.com/gst-registration/" />
-    <!-- Add when Hindi page goes live: <link rel="alternate" hreflang="hi-IN" href="https://bharatefiling.com/hi/gst-registration/" /> -->
+    <!-- Add when the Hindi page is live: <link rel="alternate" hreflang="hi-IN" href="https://bharatefiling.com/hi/gst-registration/" /> -->
     <meta name="author" content="Bharat eFiling Tax Desk" />
-    <meta name="theme-color" content="#0a1f44" />
+    <meta name="theme-color" content="#ffffff" />
     <meta name="format-detection" content="telephone=no" />
 
     <!-- ===== OPEN GRAPH / SOCIAL ===== -->
@@ -24,10 +24,7 @@
     <meta property="og:locale" content="en_IN" />
     <meta property="og:site_name" content="Bharat eFiling" />
     <meta property="og:title" content="GST Registration Online – Get Your GSTIN in 3–7 Days" />
-    <meta
-      property="og:description"
-      content="CA-assisted GST registration with document checklist, Rule 14A fast-track and post-registration compliance support."
-    />
+    <meta property="og:description" content="CA-assisted GST registration with document checklist, Rule 14A fast-track and post-registration compliance support." />
     <meta property="og:url" content="https://bharatefiling.com/gst-registration/" />
     <meta property="og:image" content="https://bharatefiling.com/wp-content/uploads/og/gst-registration-1200x630.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -62,9 +59,8 @@
       dataLayer.push({ event: "page_meta", page_type: "service", service: "gst-registration", service_category: "gst" });
     </script>
 
-    <!-- ===== GOOGLE TAG MANAGER — the ONLY tracking snippet on the page.
-         GA4, Google Ads, Meta Pixel, Microsoft Clarity & Microsoft UET are all fired from inside GTM.
-         See docs/TRACKING.md. Replace GTM-XXXXXXX. ===== -->
+    <!-- ===== GOOGLE TAG MANAGER — the ONLY tracking snippet. GA4, Google Ads, Meta Pixel,
+         Microsoft Clarity & Microsoft UET all fire inside GTM (docs/TRACKING.md). ===== -->
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -78,17 +74,18 @@
       })(window, document, "script", "dataLayer", "GTM-XXXXXXX");
     </script>
 
-    <!-- ===== PERFORMANCE: fonts ===== -->
+    <!-- ===== PERFORMANCE ===== -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&family=Noto+Sans+Devanagari:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=Noto+Sans+Devanagari:wght@400;600&display=swap"
     />
+    <link rel="preload" as="image" href="../assets/img/bef-logo.webp" imagesrcset="../assets/img/bef-logo.webp 1x, ../assets/img/bef-logo@2x.webp 2x" />
     <link rel="stylesheet" href="../assets/css/bef-design-system.css" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="../assets/img/bef-mark.svg" type="image/svg+xml" />
 
-    <!-- ===== STRUCTURED DATA (one @graph — Organization, WebSite, WebPage, Breadcrumb, Service, HowTo, FAQPage) ===== -->
+    <!-- ===== STRUCTURED DATA (one @graph) ===== -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -98,12 +95,7 @@
             "@id": "https://bharatefiling.com/#organization",
             "name": "Bharat eFiling",
             "url": "https://bharatefiling.com/",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://bharatefiling.com/wp-content/uploads/logo-512.png",
-              "width": 512,
-              "height": 512
-            },
+            "logo": { "@type": "ImageObject", "url": "https://bharatefiling.com/wp-content/uploads/bef-logo.png", "width": 480, "height": 150 },
             "image": "https://bharatefiling.com/wp-content/uploads/og/gst-registration-1200x630.jpg",
             "description": "Online tax, GST, company registration and compliance services for individuals, startups and MSMEs across India.",
             "telephone": "+91-00000-00000",
@@ -119,13 +111,7 @@
               "addressCountry": "IN"
             },
             "contactPoint": [
-              {
-                "@type": "ContactPoint",
-                "telephone": "+91-00000-00000",
-                "contactType": "customer support",
-                "areaServed": "IN",
-                "availableLanguage": ["English", "Hindi"]
-              }
+              { "@type": "ContactPoint", "telephone": "+91-00000-00000", "contactType": "customer support", "areaServed": "IN", "availableLanguage": ["English", "Hindi"] }
             ],
             "sameAs": [
               "https://www.facebook.com/bharatefiling",
@@ -142,11 +128,7 @@
             "name": "Bharat eFiling",
             "inLanguage": "en-IN",
             "publisher": { "@id": "https://bharatefiling.com/#organization" },
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://bharatefiling.com/?s={search_term_string}",
-              "query-input": "required name=search_term_string"
-            }
+            "potentialAction": { "@type": "SearchAction", "target": "https://bharatefiling.com/?s={search_term_string}", "query-input": "required name=search_term_string" }
           },
           {
             "@type": "WebPage",
@@ -161,16 +143,8 @@
             "datePublished": "2026-10-03",
             "dateModified": "2026-10-03",
             "author": { "@id": "https://bharatefiling.com/#organization" },
-            "reviewedBy": {
-              "@type": "Person",
-              "name": "REPLACE_CA_NAME",
-              "jobTitle": "Chartered Accountant",
-              "url": "https://bharatefiling.com/team/REPLACE_CA_SLUG/"
-            },
-            "speakable": {
-              "@type": "SpeakableSpecification",
-              "cssSelector": [".answer-box", "#what-is-gst-registration p:first-of-type"]
-            },
+            "reviewedBy": { "@type": "Person", "name": "REPLACE_CA_NAME", "jobTitle": "Chartered Accountant", "url": "https://bharatefiling.com/team/REPLACE_CA_SLUG/" },
+            "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".answer", "#what-is-gst-registration p:first-of-type"] },
             "primaryImageOfPage": "https://bharatefiling.com/wp-content/uploads/og/gst-registration-1200x630.jpg"
           },
           {
@@ -188,7 +162,7 @@
             "name": "GST Registration",
             "alternateName": ["GSTIN Registration", "New GST Number Application", "GST Registration Online"],
             "serviceType": "Goods and Services Tax registration",
-            "description": "End-to-end GST registration under Section 22/24/25 of the CGST Act, 2017 including document review, REG-01 filing, Aadhaar authentication support, clarification replies and GST certificate (REG-06) delivery.",
+            "description": "End-to-end GST registration under Sections 22, 24 and 25 of the CGST Act, 2017 including document review, REG-01 filing, Aadhaar authentication support, clarification replies and GST certificate (REG-06) delivery.",
             "provider": { "@id": "https://bharatefiling.com/#organization" },
             "areaServed": { "@type": "Country", "name": "India" },
             "audience": { "@type": "BusinessAudience", "audienceType": "Proprietors, partnerships, LLPs, companies, freelancers and e-commerce sellers" },
@@ -197,30 +171,9 @@
               "@type": "OfferCatalog",
               "name": "GST Registration Plans",
               "itemListElement": [
-                {
-                  "@type": "Offer",
-                  "name": "Basic",
-                  "price": "999",
-                  "priceCurrency": "INR",
-                  "availability": "https://schema.org/InStock",
-                  "url": "https://bharatefiling.com/gst-registration/#pricing"
-                },
-                {
-                  "@type": "Offer",
-                  "name": "Standard",
-                  "price": "1999",
-                  "priceCurrency": "INR",
-                  "availability": "https://schema.org/InStock",
-                  "url": "https://bharatefiling.com/gst-registration/#pricing"
-                },
-                {
-                  "@type": "Offer",
-                  "name": "Business",
-                  "price": "4999",
-                  "priceCurrency": "INR",
-                  "availability": "https://schema.org/InStock",
-                  "url": "https://bharatefiling.com/gst-registration/#pricing"
-                }
+                { "@type": "Offer", "name": "Basic", "price": "999", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://bharatefiling.com/gst-registration/#pricing" },
+                { "@type": "Offer", "name": "Standard", "price": "1999", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://bharatefiling.com/gst-registration/#pricing" },
+                { "@type": "Offer", "name": "Business", "price": "4999", "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": "https://bharatefiling.com/gst-registration/#pricing" }
               ]
             }
           },
@@ -239,7 +192,7 @@
             "step": [
               { "@type": "HowToStep", "position": 1, "name": "Generate TRN (Part A of REG-01)", "text": "Enter PAN, mobile and email on the GST portal and verify OTPs to get a Temporary Reference Number." },
               { "@type": "HowToStep", "position": 2, "name": "Fill Part B of REG-01", "text": "Add business, promoter, place-of-business, goods/services (HSN/SAC) and authorised-signatory details and upload documents." },
-              { "@type": "HowToStep", "position": 3, "name": "Opt for Aadhaar authentication", "text": "Complete OTP or biometric Aadhaar authentication; this decides whether registration can be granted without physical verification." },
+              { "@type": "HowToStep", "position": 3, "name": "Complete Aadhaar authentication", "text": "Complete Aadhaar authentication, including biometric verification and photograph at a GST Suvidha Kendra where required." },
               { "@type": "HowToStep", "position": 4, "name": "Submit with DSC or EVC and receive ARN", "text": "Sign the application with DSC (mandatory for companies and LLPs) or EVC and note the Application Reference Number." },
               { "@type": "HowToStep", "position": 5, "name": "Reply to queries and download REG-06", "text": "Answer any REG-03 clarification within 7 working days through REG-04; on approval download the GST certificate (REG-06) with your GSTIN." }
             ]
@@ -248,18 +201,19 @@
             "@type": "FAQPage",
             "@id": "https://bharatefiling.com/gst-registration/#faq",
             "mainEntity": [
-              { "@type": "Question", "name": "What is the turnover limit for GST registration in 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Registration is mandatory once aggregate turnover in a financial year crosses ₹40 lakh for suppliers of goods or ₹20 lakh for suppliers of services. In special category states (Manipur, Mizoram, Nagaland and Tripura) the limits are ₹20 lakh for goods and ₹10 lakh for services; a few other states have also kept ₹20 lakh for goods." } },
+              { "@type": "Question", "name": "What is the turnover limit for GST registration in 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Registration is mandatory once aggregate turnover in a financial year crosses ₹40 lakh for suppliers of only goods or ₹20 lakh for suppliers of services. The goods limit is ₹20 lakh in Arunachal Pradesh, Manipur, Meghalaya, Mizoram, Nagaland, Puducherry, Sikkim, Telangana, Tripura and Uttarakhand, and the services limit is ₹10 lakh in Manipur, Mizoram, Nagaland and Tripura." } },
               { "@type": "Question", "name": "Is there any government fee for GST registration?", "acceptedAnswer": { "@type": "Answer", "text": "No. The GST portal charges no government fee for new registration. You pay only the professional fee of your consultant if you choose assisted filing." } },
-              { "@type": "Question", "name": "How long does GST registration take?", "acceptedAnswer": { "@type": "Answer", "text": "With successful Aadhaar authentication the officer must act within 7 working days. Eligible small B2B suppliers opting for Rule 14A (from 1 November 2025) get registration electronically within 3 working days. If Aadhaar authentication is not done or the application is risk-flagged, physical verification can extend it up to 30 days." } },
+              { "@type": "Question", "name": "How long does GST registration take?", "acceptedAnswer": { "@type": "Answer", "text": "Once Aadhaar authentication is complete, the officer must act within 7 working days, and eligible small B2B suppliers opting for Rule 14A get registration within 3 working days. If Aadhaar authentication is not done or the application is flagged for physical verification, it can take up to 30 days. Booking a biometric appointment at a GST Suvidha Kendra can add a few days." } },
+              { "@type": "Question", "name": "Is biometric Aadhaar verification mandatory for GST registration?", "acceptedAnswer": { "@type": "Answer", "text": "Rule 8(4A) already required biometric Aadhaar authentication at a GST Suvidha Kendra for applicants flagged by the portal. On 8 September 2026 the Delhi High Court, by an interim order, directed GST authorities across India not to grant any new registration without biometric Aadhaar authentication. The matter is still before the court, so we confirm the current process when you apply." } },
               { "@type": "Question", "name": "What is Rule 14A GST registration?", "acceptedAnswer": { "@type": "Answer", "text": "Rule 14A of the CGST Rules, inserted by Notification 18/2025-Central Tax with effect from 1 November 2025, is an optional fast-track for applicants whose output tax liability on supplies to registered persons will not exceed ₹2.5 lakh per month. After Aadhaar authentication, registration is granted electronically within 3 working days. Only one such registration per PAN per state is allowed." } },
               { "@type": "Question", "name": "Can I get GST registration without a shop or office?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can register using your residential address as the principal place of business, supported by an electricity bill or property tax receipt and, if the property is not in your name, a consent letter or rent agreement from the owner." } },
-              { "@type": "Question", "name": "Is GST registration mandatory for selling on Amazon or Flipkart?", "acceptedAnswer": { "@type": "Answer", "text": "Generally yes under Section 24 of the CGST Act. However, since 1 October 2023 small suppliers of goods below the threshold may sell intra-state through e-commerce operators without registration, subject to notified conditions, and service providers below the threshold selling through e-commerce operators are exempt." } },
-              { "@type": "Question", "name": "Is a bank account required at the time of GST registration?", "acceptedAnswer": { "@type": "Answer", "text": "Under Rule 10A you can furnish bank account details within 30 days of grant of registration or before filing GSTR-1, whichever is earlier. Many applicants add it in the application itself to avoid a missed deadline." } },
-              { "@type": "Question", "name": "What is the penalty for not taking GST registration?", "acceptedAnswer": { "@type": "Answer", "text": "Under Section 122 of the CGST Act, the penalty is ₹10,000 or the tax evaded (100% in cases of fraud), whichever is higher, plus 18% interest under Section 50 on the unpaid tax." } },
+              { "@type": "Question", "name": "Is GST registration mandatory for selling on Amazon or Flipkart?", "acceptedAnswer": { "@type": "Answer", "text": "Generally yes under Section 24 of the CGST Act. However, since 1 October 2023 small suppliers of goods below the threshold may sell within their own state through e-commerce operators without registration, subject to the conditions of Notification 34/2023-Central Tax, and service providers below the threshold selling through e-commerce operators are exempt." } },
+              { "@type": "Question", "name": "Is a bank account required at the time of GST registration?", "acceptedAnswer": { "@type": "Answer", "text": "Under Rule 10A you must furnish bank account details within 30 days of grant of registration or before filing GSTR-1 or IFF, whichever is earlier; otherwise the registration can be suspended. Many applicants add it in the application itself." } },
+              { "@type": "Question", "name": "What is the penalty for not taking GST registration?", "acceptedAnswer": { "@type": "Answer", "text": "Under Section 122(1) of the CGST Act, a person who is liable but fails to register faces a penalty of ₹10,000 or the amount of tax evaded, whichever is higher, plus 18% interest under Section 50 on the unpaid tax." } },
               { "@type": "Question", "name": "Can I register for GST voluntarily below the threshold?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Section 25(3) allows voluntary registration. It lets you claim input tax credit, issue tax invoices to B2B customers and sell inter-state or online, but you must then file all GST returns." } },
               { "@type": "Question", "name": "How is the 15-digit GSTIN structured?", "acceptedAnswer": { "@type": "Answer", "text": "Digits 1–2 are the state code, 3–12 are the PAN, 13 is the entity number for that PAN in the state, 14 is 'Z' by default and 15 is a check digit." } },
               { "@type": "Question", "name": "Does the Income-tax Act, 2025 change anything for GST-registered businesses?", "acceptedAnswer": { "@type": "Answer", "text": "GST law is unaffected, but from 1 April 2026 the Income-tax Act, 2025 replaces the 1961 Act. 'Previous year' and 'assessment year' become 'tax year', presumptive taxation under sections 44AD/44ADA/44AE moves to section 58, tax audit under section 44AB moves to section 63, and most TDS sections (194C, 194J, 194-O, 194Q) are consolidated in section 393. Your GST turnover should still reconcile with the turnover in your income-tax return." } },
-              { "@type": "Question", "name": "Which returns do I file after GST registration?", "acceptedAnswer": { "@type": "Answer", "text": "Regular taxpayers file GSTR-1 (outward supplies) and GSTR-3B (summary and tax payment) monthly or quarterly under QRMP, and GSTR-9 annually if applicable. Composition taxpayers file CMP-08 quarterly and GSTR-4 annually." } }
+              { "@type": "Question", "name": "Which returns do I file after GST registration?", "acceptedAnswer": { "@type": "Answer", "text": "Regular taxpayers file GSTR-1 and GSTR-3B monthly, or quarterly under the QRMP scheme if turnover is up to ₹5 crore. GSTR-9 is mandatory only if aggregate turnover exceeds ₹2 crore. Composition taxpayers file CMP-08 quarterly and GSTR-4 annually." } }
             ]
           }
         ]
@@ -268,7 +222,6 @@
   </head>
 
   <body data-service="gst-registration">
-    <!-- GTM noscript -->
     <noscript
       ><iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
@@ -281,91 +234,78 @@
 
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- SVG icon sprite (inline = zero extra requests) -->
+    <!-- Icon sprite -->
     <svg width="0" height="0" style="position: absolute" aria-hidden="true">
-      <symbol id="i-phone" viewBox="0 0 24 24">
-        <path
-          fill="currentColor"
-          d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"
-        />
-      </symbol>
-      <symbol id="i-wa" viewBox="0 0 24 24">
-        <path
-          fill="currentColor"
-          d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.1c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1a17 17 0 0 1-1.7-.6 13.5 13.5 0 0 1-5.2-4.6 6 6 0 0 1-1.2-3.1c0-1.5.8-2.2 1-2.5.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.3.5-.5.5c-.1.2-.3.3-.1.6a9 9 0 0 0 1.7 2.1 8 8 0 0 0 2.4 1.5c.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.2.5.2.5.4.1.1.1.7-.1 1.4z"
-        />
-      </symbol>
-      <symbol id="i-doc" viewBox="0 0 24 24">
-        <path fill="none" stroke="currentColor" stroke-width="2" d="M14 3H6v18h12V7zM14 3v4h4M9 12h6M9 16h6" />
-      </symbol>
-      <symbol id="i-shield" viewBox="0 0 24 24">
-        <path fill="none" stroke="currentColor" stroke-width="2" d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z M9 12l2 2 4-4" />
-      </symbol>
-      <symbol id="i-clock" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" />
-        <path fill="none" stroke="currentColor" stroke-width="2" d="M12 7v5l3 3" />
-      </symbol>
-      <symbol id="i-rupee" viewBox="0 0 24 24">
-        <path fill="none" stroke="currentColor" stroke-width="2" d="M6 4h12M6 9h12M9 4c4 0 6 1.5 6 5s-3 5-6 5H6l8 7" />
-      </symbol>
-      <symbol id="i-user" viewBox="0 0 24 24">
-        <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2" />
-        <path fill="none" stroke="currentColor" stroke-width="2" d="M4 21c1-4 4-6 8-6s7 2 8 6" />
-      </symbol>
-      <symbol id="i-chat" viewBox="0 0 24 24">
-        <path fill="none" stroke="currentColor" stroke-width="2" d="M4 5h16v11H9l-5 4z" />
-      </symbol>
+      <symbol id="i-check" viewBox="0 0 20 20"><path d="M5 10.5l3 3L15 6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" /></symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.1c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1a17 17 0 0 1-1.7-.6 13.5 13.5 0 0 1-5.2-4.6 6 6 0 0 1-1.2-3.1c0-1.5.8-2.2 1-2.5.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.3.5-.5.5c-.1.2-.3.3-.1.6a9 9 0 0 0 1.7 2.1 8 8 0 0 0 2.4 1.5c.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 .9c.3.2.5.2.5.4.1.1.1.7-.1 1.4z" /></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></symbol>
+      <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M14 8.5V7c0-.6.4-1 1-1h2V2.5h-3c-2.8 0-4 1.9-4 4.2v1.8H7.5V12H10v9.5h4V12h2.7l.5-3.5z" /></symbol>
+      <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8" /><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" /></symbol>
+      <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M4 9h3.6v11H4zM5.8 3.5a2.1 2.1 0 1 1 0 4.2 2.1 2.1 0 0 1 0-4.2zM9.8 9h3.5v1.6c.5-.9 1.7-1.9 3.5-1.9 3.7 0 4.4 2.4 4.4 5.6V20h-3.6v-5c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V20H9.8z" /></symbol>
+      <symbol id="i-yt" viewBox="0 0 24 24"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="1.8" /><path fill="currentColor" d="M10 9.2v5.6l4.8-2.8z" /></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.8 8 10.2h-6.3l-4.9-6.4L5.3 21H2.2l7.3-8.3L1.8 3h6.4l4.4 5.9zm-1.1 16.2h1.7L7.4 4.7H5.5z" /></symbol>
     </svg>
 
-    <!-- ================= HEADER ================= -->
-    <div class="topbar">
-      <div class="container">
-        <span class="topbar__tagline">India's CA-assisted GST, tax &amp; company compliance platform</span>
-        <span
-          >📞 <a href="tel:+910000000000" data-track="click_call" data-location="topbar">+91&nbsp;00000&nbsp;00000</a> ·
-          <a href="mailto:care@bharatefiling.com">care@bharatefiling.com</a> · Mon–Sat, 9:30–7:00</span
-        >
-      </div>
-    </div>
+    <!-- ================= ANNOUNCEMENT ================= -->
+    <p class="ribbon">
+      New: Rule 14A lets small B2B suppliers get a GSTIN in 3 working days.
+      <a href="#whats-new" data-track="cta_click" data-location="ribbon">See what changed ›</a>
+    </p>
 
-    <header class="site-header">
-      <div class="container">
-        <a class="logo" href="https://bharatefiling.com/" aria-label="Bharat eFiling home">
-          <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
-            <rect width="34" height="34" rx="8" fill="#0f2b5b" />
-            <path d="M9 23V11h8a4 4 0 0 1 0 8h-8" fill="none" stroke="#f47c20" stroke-width="3" />
-            <circle cx="24" cy="23" r="2.4" fill="#128a3c" />
-          </svg>
-          Bharat<span>eFiling</span>
+    <!-- ================= GLOBAL NAV ================= -->
+    <header class="globalnav">
+      <div class="wrap">
+        <a class="brand" href="https://bharatefiling.com/" aria-label="Bharat eFiling home">
+          <img src="../assets/img/bef-logo.webp" srcset="../assets/img/bef-logo.webp 1x, ../assets/img/bef-logo@2x.webp 2x" width="122" height="38" alt="Bharat eFiling" />
         </a>
         <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
           <span class="visually-hidden">Menu</span>
-          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" />
-          </svg>
+          <svg width="22" height="22" aria-hidden="true"><use href="#i-menu" /></svg>
         </button>
-        <nav class="nav" id="primary-nav" aria-label="Primary">
-          <ul>
+        <nav aria-label="Primary">
+          <ul class="menu" id="primary-nav">
             <li><a href="https://bharatefiling.com/income-tax/">Income Tax</a></li>
             <li><a href="https://bharatefiling.com/gst/" aria-current="page">GST</a></li>
             <li><a href="https://bharatefiling.com/business-registration/">Start a Business</a></li>
-            <li><a href="https://bharatefiling.com/trademark/">Trademark &amp; IP</a></li>
+            <li><a href="https://bharatefiling.com/trademark/">Trademark</a></li>
             <li><a href="https://bharatefiling.com/compliance/">Compliance</a></li>
             <li><a href="https://bharatefiling.com/learn/">Guides</a></li>
           </ul>
         </nav>
-        <a class="btn btn--cta btn--sm header-cta" href="#get-started" data-track="cta_click" data-location="header"
-          >Talk to an Expert</a
-        >
+        <div class="nav-actions">
+          <a class="btn btn--ghost btn--sm link-call" href="tel:+910000000000" data-track="click_call" data-location="header"
+            ><svg width="14" height="14" aria-hidden="true"><use href="#i-phone" /></svg>&nbsp;Call&nbsp;us</a
+          >
+          <a class="btn btn--primary btn--sm" href="#get-started" data-track="cta_click" data-location="header">Get started</a>
+        </div>
       </div>
     </header>
+
+    <!-- ================= LOCAL NAV (sticky, Apple-style) ================= -->
+    <nav class="localnav" aria-label="On this page">
+      <div class="wrap">
+        <span class="localnav__title">GST Registration</span>
+        <ul>
+          <li><a href="#what-is-gst-registration">Overview</a></li>
+          <li><a href="#who-should-register">Eligibility</a></li>
+          <li><a href="#whats-new">What’s new</a></li>
+          <li><a href="#documents">Documents</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#income-tax-link">Income tax</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+        </ul>
+        <a class="btn btn--brand btn--sm" href="#get-started" data-track="cta_click" data-location="localnav">Apply now</a>
+      </div>
+    </nav>
 
     <main id="main">
       <!-- ================= HERO ================= -->
       <section class="hero" aria-labelledby="page-title">
-        <div class="container hero__grid">
+        <div class="wrap hero__grid">
           <div>
-            <nav class="breadcrumb" aria-label="Breadcrumb">
+            <nav class="crumbs" aria-label="Breadcrumb">
               <ol>
                 <li><a href="https://bharatefiling.com/">Home</a></li>
                 <li><a href="https://bharatefiling.com/gst/">GST Services</a></li>
@@ -373,54 +313,36 @@
               </ol>
             </nav>
 
-            <p class="hero__updated">
-              ✓ Updated <time datetime="2026-10-03">3 Oct 2026</time> · Includes Rule 14A &amp; Income-tax Act, 2025
+            <p class="chip"><span class="chip__dot" aria-hidden="true"></span>Fact-checked <time datetime="2026-10-03">3 Oct 2026</time> · Rule 14A, biometric Aadhaar &amp; Income-tax Act, 2025</p>
+
+            <h1 id="page-title">GST Registration Online. <span class="text-gradient">Your GSTIN in <span class="nowrap">3–7</span> working days.</span></h1>
+
+            <!-- AEO: 40–60-word direct answer, quoted by Google AI Overviews, ChatGPT, Perplexity & voice assistants -->
+            <p class="answer">
+              <strong>GST registration</strong> gives your business a 15-digit GSTIN. It is mandatory once annual turnover crosses
+              <strong>₹40 lakh for goods</strong> or <strong>₹20 lakh for services</strong> (lower in some states), or if you sell
+              inter-state or through most marketplaces. The government fee is <strong>₹0</strong>, and approval usually takes
+              <strong>3–7 working days</strong> after Aadhaar authentication.
             </p>
 
-            <h1 id="page-title">GST Registration Online – Get Your GSTIN in <span class="nowrap">3–7</span> Working Days</h1>
-
-            <!-- AEO: 40–60 word direct answer. Google AI Overviews, ChatGPT, Perplexity & voice assistants quote this. -->
-            <div class="answer-box">
-              <p>
-                <strong>GST registration</strong> is the process of obtaining a 15-digit GSTIN from the GST portal.
-                It is mandatory once your annual turnover crosses <strong>₹40 lakh (goods)</strong> or
-                <strong>₹20 lakh (services)</strong>, or if you sell inter-state or online. The government fee is
-                <strong>₹0</strong> and approval usually takes <strong>3–7 working days</strong>.
-              </p>
-            </div>
-
-            <ul class="check-list">
-              <li>Application prepared &amp; filed by GST practitioners, reviewed by a Chartered Accountant</li>
-              <li>Rule 14A 3-day fast-track eligibility check for small B2B suppliers</li>
-              <li>Free reply to officer queries (REG-03) until your GSTIN is approved</li>
-              <li>Free first-month GSTR-1 &amp; GSTR-3B filing with the Standard plan</li>
-            </ul>
-
             <div class="btn-row">
-              <a class="btn btn--cta" href="#get-started" data-track="cta_click" data-location="hero">Start GST Registration</a>
-              <a
-                class="btn btn--whatsapp"
-                href="https://wa.me/910000000000?text=Hi%2C%20I%20need%20GST%20registration"
-                rel="noopener"
-                target="_blank"
-                data-track="click_whatsapp"
-                data-location="hero"
-                ><svg width="18" height="18" aria-hidden="true"><use href="#i-wa" /></svg> WhatsApp us</a
+              <a class="btn btn--brand" href="#get-started" data-track="cta_click" data-location="hero">Start my registration</a>
+              <a class="btn btn--ghost" href="https://wa.me/910000000000?text=Hi%2C%20I%20need%20GST%20registration" rel="noopener" target="_blank" data-track="click_whatsapp" data-location="hero"
+                ><svg width="18" height="18" aria-hidden="true"><use href="#i-wa" /></svg> Chat on WhatsApp</a
               >
             </div>
 
-            <!-- Replace with REAL, verifiable numbers only. Never invent counts or ratings. -->
-            <div class="trust-row">
-              <div><strong>REPLACE+</strong>GSTINs registered</div>
-              <div><strong>REPLACE ★</strong>Google rating</div>
-              <div><strong>₹0</strong>Hidden charges</div>
-            </div>
+            <!-- Add real, verifiable numbers here later (GSTINs filed, Google rating). Never estimate. -->
+            <ul class="assurances">
+              <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check" /></svg>Reviewed by a Chartered Accountant</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check" /></svg>Free replies to officer queries</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check" /></svg>Hindi &amp; English support</li>
+            </ul>
           </div>
 
-          <!-- Lead form -->
           <div class="form-card" id="get-started">
             <h2>Get your GSTIN started</h2>
-            <p class="muted">Free eligibility check. A GST expert calls you back in 30 working minutes.</p>
+            <p>Free eligibility check. An expert calls you back within 30 working minutes.</p>
             <form id="gst-lead-form" data-lead-form data-value="1999" novalidate>
               <div class="field">
                 <label for="f-name">Full name</label>
@@ -429,16 +351,7 @@
               </div>
               <div class="field">
                 <label for="f-phone">Mobile number</label>
-                <input
-                  id="f-phone"
-                  name="phone"
-                  type="tel"
-                  inputmode="numeric"
-                  autocomplete="tel"
-                  maxlength="16"
-                  required
-                  aria-describedby="f-phone-err"
-                />
+                <input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="16" required aria-describedby="f-phone-err" />
                 <p class="field__error" id="f-phone-err" aria-live="polite"></p>
               </div>
               <div class="field">
@@ -465,775 +378,563 @@
               <input type="hidden" name="gclid" />
               <input type="hidden" name="fbclid" />
               <input type="hidden" name="msclkid" />
-              <button class="btn btn--cta btn--block" type="submit">Get Free Consultation</button>
+              <button class="btn btn--primary btn--block" type="submit">Get free consultation</button>
               <p class="form-note">
-                🔒 Your data is safe — we follow the DPDP Act, 2023. See our
-                <a href="https://bharatefiling.com/privacy-policy/">privacy policy</a>.
+                Your data is protected under the DPDP Act, 2023. Read our <a href="https://bharatefiling.com/privacy-policy/">privacy policy</a>.
               </p>
             </form>
           </div>
         </div>
       </section>
 
-      <!-- ================= HIGHLIGHTS ================= -->
-      <section class="section section--alt" aria-label="Service highlights" style="padding-block: var(--s-10)">
-        <div class="container grid grid--4">
-          <div class="card">
-            <div class="card__icon"><svg width="22" height="22" aria-hidden="true"><use href="#i-clock" /></svg></div>
-            <h3>3–7 working days</h3>
-            <p class="muted">Typical approval time with Aadhaar authentication.</p>
+      <!-- ================= AT A GLANCE (bento) ================= -->
+      <section class="section" aria-labelledby="h-glance">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2 id="h-glance">Everything about GST registration. At a glance.</h2>
+            <p>The numbers that matter, checked against the CGST Act and the latest CBIC notifications.</p>
           </div>
-          <div class="card">
-            <div class="card__icon"><svg width="22" height="22" aria-hidden="true"><use href="#i-rupee" /></svg></div>
-            <h3>₹0 government fee</h3>
-            <p class="muted">You pay only our transparent professional fee.</p>
-          </div>
-          <div class="card">
-            <div class="card__icon"><svg width="22" height="22" aria-hidden="true"><use href="#i-shield" /></svg></div>
-            <h3>CA-reviewed filing</h3>
-            <p class="muted">Every application checked to avoid rejection.</p>
-          </div>
-          <div class="card">
-            <div class="card__icon"><svg width="22" height="22" aria-hidden="true"><use href="#i-chat" /></svg></div>
-            <h3>Hindi &amp; English support</h3>
-            <p class="muted">Call, WhatsApp or email — a real expert answers.</p>
+          <div class="bento">
+            <div class="tile tile--wide tile--navy reveal">
+              <h3>Your GSTIN, decoded</h3>
+              <p>A PAN-based, state-wise 15-character number. Here is what each part means.</p>
+              <div class="gstin" role="img" aria-label="Example GSTIN 27AAPFB1234C1Z5: state code 27, PAN AAPFB1234C, entity number 1, default Z, check digit 5">
+                <span>27<small>State</small></span>
+                <span class="is-pan">AAPFB1234C<small>PAN of the business</small></span>
+                <span>1<small>Entity</small></span>
+                <span>Z<small>Default</small></span>
+                <span>5<small>Check</small></span>
+              </div>
+            </div>
+            <div class="tile tile--brand reveal">
+              <span class="tile__stat">₹0</span>
+              <h3>Government fee</h3>
+              <p>The GST portal charges nothing. You pay only for expert help.</p>
+            </div>
+            <div class="tile reveal">
+              <span class="tile__stat">3–7</span>
+              <h3>Working days</h3>
+              <p>Typical approval after Aadhaar authentication (Rule 9 and Rule 14A).</p>
+            </div>
+            <div class="tile tile--leaf reveal">
+              <span class="tile__stat">CA</span>
+              <h3>Reviewed filing</h3>
+              <p>Every application is checked by a Chartered Accountant before submission.</p>
+            </div>
+            <div class="tile reveal">
+              <span class="tile__stat">हिं · En</span>
+              <h3>Your language</h3>
+              <p>Talk to a GST expert in Hindi or English by call or WhatsApp.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ================= MAIN CONTENT + TOC ================= -->
-      <div class="section">
-        <div class="container layout-main">
-          <article>
-            <!-- 1 -->
-            <section id="what-is-gst-registration" class="prose" aria-labelledby="h-what">
-              <span class="eyebrow">Basics</span>
-              <h2 id="h-what">What is GST registration?</h2>
+      <!-- ================= GUIDE (reading column) ================= -->
+      <div class="section section--tint">
+        <article class="wrap wrap--read">
+          <section id="what-is-gst-registration" class="chapter prose reveal" aria-labelledby="h-what">
+            <span class="kicker">Overview</span>
+            <h2 id="h-what">What is GST registration?</h2>
+            <p class="lede">
+              GST registration enrols a supplier of goods or services under the Goods and Services Tax law and allots a unique
+              15-character Goods and Services Tax Identification Number (GSTIN).
+            </p>
+            <p>
+              It is governed by <strong>Sections 22 to 30 of the Central Goods and Services Tax (CGST) Act, 2017</strong> and
+              <strong>Rules 8 to 26 of the CGST Rules, 2017</strong>. Registration is PAN-based and state-specific, so a business needs a
+              separate GSTIN in every state or union territory from which it makes taxable supplies.
+            </p>
+            <p>
+              Once registered you can legally collect GST, claim <strong>input tax credit (ITC)</strong> on GST paid on purchases, issue tax
+              invoices and sell across state borders and on e-commerce marketplaces.
+            </p>
+          </section>
+
+          <section id="who-should-register" class="chapter prose reveal" aria-labelledby="h-who">
+            <span class="kicker">Eligibility</span>
+            <h2 id="h-who">Who needs GST registration? Turnover limits for 2026</h2>
+            <p>
+              Under <strong>Section 22</strong>, you must apply within <strong>30 days</strong> of your <em>aggregate turnover</em> (all-India,
+              same PAN, including exempt and inter-state supplies, excluding GST) crossing the limit in a financial year.
+            </p>
+            <div class="table" tabindex="0">
+              <table>
+                <caption>Registration thresholds — aggregate turnover per financial year</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Supplier</th>
+                    <th scope="col">Limit</th>
+                    <th scope="col">Lower limit applies in</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Only goods</th>
+                    <td>₹40 lakh</td>
+                    <td>₹20 lakh in Arunachal Pradesh, Manipur, Meghalaya, Mizoram, Nagaland, Puducherry, Sikkim, Telangana, Tripura, Uttarakhand</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Services, or goods + services</th>
+                    <td>₹20 lakh</td>
+                    <td>₹10 lakh in Manipur, Mizoram, Nagaland, Tripura</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Composition scheme (optional ceiling)</th>
+                    <td>₹1.5 crore goods · ₹50 lakh services</td>
+                    <td>₹75 lakh (goods) in special category states</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="muted" style="font-size: var(--fs-14)">
+              Source: Section 22 CGST Act and Notification 10/2019-Central Tax (states chose ₹20 lakh or ₹40 lakh for goods). We confirm your
+              state’s current limit before filing.
+            </p>
+
+            <h3>Compulsory registration, even with ₹0 turnover (Section 24)</h3>
+            <ul>
+              <li>Inter-state taxable supply of <strong>goods</strong></li>
+              <li>Casual taxable persons and non-resident taxable persons</li>
+              <li>Persons liable to pay tax under <strong>reverse charge (RCM)</strong></li>
+              <li>E-commerce operators, and persons required to deduct TDS or collect TCS under GST</li>
+              <li>Suppliers of goods through e-commerce operators (see relief below)</li>
+              <li>Input Service Distributors and agents supplying on behalf of others</li>
+              <li>Suppliers of online information and database access (OIDAR) services from outside India</li>
+            </ul>
+            <div class="note">
+              <span class="note__title">Relief for small online sellers</span>
               <p>
-                GST registration is the process by which a supplier of goods or services is enrolled under the Goods
-                and Services Tax law and allotted a unique <strong>15-digit Goods and Services Tax Identification
-                Number (GSTIN)</strong>. It is governed by <strong>Sections 22 to 30 of the Central Goods and Services
-                Tax (CGST) Act, 2017</strong> and <strong>Rules 8 to 26 of the CGST Rules, 2017</strong>. Registration
-                is PAN-based and state-specific: a business needs a separate GSTIN in every state or union territory
-                from which it makes taxable supplies.
+                Since <strong>1 October 2023</strong> (Notification 34/2023-Central Tax), suppliers of goods below the threshold can sell
+                <strong>within their own state</strong> on marketplaces without registration, using a PAN-based enrolment number. Service
+                providers below the threshold selling through e-commerce operators are also exempt.
               </p>
+            </div>
+
+            <div class="example">
+              <span class="example__label">Example · Goods</span>
               <p>
-                Once registered you can legally collect GST from customers, claim <strong>input tax credit (ITC)</strong>
-                on GST paid on purchases, issue tax invoices and sell across state borders and on e-commerce
-                marketplaces.
+                <strong>Priya runs a home bakery in Pune.</strong> Her sales for FY 2026-27 reach ₹38 lakh by February, all within Maharashtra,
+                so the ₹40 lakh goods limit has not been crossed. In March she receives a ₹5 lakh corporate order from Bengaluru. That
+                inter-state supply of goods triggers <strong>compulsory registration under Section 24</strong> before she ships, whatever her
+                turnover.
               </p>
-
-              <h3>How to read a GSTIN</h3>
-              <figure>
-                <svg viewBox="0 0 640 170" role="img" aria-labelledby="gstin-title gstin-desc" style="max-width: 640px">
-                  <title id="gstin-title">Structure of a 15-digit GSTIN</title>
-                  <desc id="gstin-desc">
-                    Example GSTIN 27AAPFB1234C1Z5: 27 is the Maharashtra state code, AAPFB1234C is the PAN, 1 is the
-                    entity number, Z is the default character and 5 is the check digit.
-                  </desc>
-                  <g font-family="Inter, sans-serif" text-anchor="middle">
-                    <rect x="10" y="20" width="90" height="56" rx="8" fill="#0f2b5b" />
-                    <text x="55" y="58" font-size="26" font-weight="700" fill="#fff">27</text>
-                    <rect x="108" y="20" width="300" height="56" rx="8" fill="#f47c20" />
-                    <text x="258" y="58" font-size="26" font-weight="700" fill="#0a1f44">AAPFB1234C</text>
-                    <rect x="416" y="20" width="62" height="56" rx="8" fill="#128a3c" />
-                    <text x="447" y="58" font-size="26" font-weight="700" fill="#fff">1</text>
-                    <rect x="486" y="20" width="62" height="56" rx="8" fill="#1f4fa0" />
-                    <text x="517" y="58" font-size="26" font-weight="700" fill="#fff">Z</text>
-                    <rect x="556" y="20" width="74" height="56" rx="8" fill="#374151" />
-                    <text x="593" y="58" font-size="26" font-weight="700" fill="#fff">5</text>
-                    <g font-size="13" fill="#374151">
-                      <text x="55" y="102">State code</text>
-                      <text x="55" y="120">(2 digits)</text>
-                      <text x="258" y="102">PAN of the business</text>
-                      <text x="258" y="120">(10 characters)</text>
-                      <text x="447" y="102">Entity no.</text>
-                      <text x="447" y="120">in state</text>
-                      <text x="517" y="102">Default</text>
-                      <text x="517" y="120">“Z”</text>
-                      <text x="593" y="102">Check</text>
-                      <text x="593" y="120">digit</text>
-                    </g>
-                  </g>
-                </svg>
-                <figcaption class="muted" style="font-size: var(--fs-xs)">
-                  Illustrative GSTIN. Digit 13 increases if the same PAN takes more than one registration in a state
-                  (e.g. separate business verticals).
-                </figcaption>
-              </figure>
-            </section>
-
-            <!-- 2 -->
-            <section id="who-should-register" class="prose" aria-labelledby="h-who">
-              <span class="eyebrow">Eligibility</span>
-              <h2 id="h-who">Who needs GST registration? Turnover limits for 2026</h2>
+            </div>
+            <div class="example">
+              <span class="example__label">Example · Services</span>
               <p>
-                Under <strong>Section 22</strong>, registration becomes mandatory within <strong>30 days</strong> of
-                your <em>aggregate turnover</em> (all-India, same PAN, including exempt and inter-state supplies but
-                excluding GST) crossing the threshold in a financial year.
+                <strong>Arjun is a freelance UI designer in Jaipur</strong> billing ₹1.8 lakh a month (₹21.6 lakh a year). Services carry the
+                ₹20 lakh limit, so he must register within 30 days of crossing it. Exports to a US client count towards aggregate turnover too,
+                and with a <strong>Letter of Undertaking (LUT)</strong> he can export without paying IGST.
               </p>
-              <div class="table-wrap" tabindex="0">
-                <table>
-                  <caption>
-                    GST registration threshold limits (aggregate turnover per financial year)
-                  </caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">Type of supplier</th>
-                      <th scope="col">Most states &amp; UTs</th>
-                      <th scope="col">Manipur, Mizoram, Nagaland, Tripura</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">Exclusively goods</th>
-                      <td>₹40 lakh*</td>
-                      <td>₹20 lakh</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Services, or goods + services</th>
-                      <td>₹20 lakh</td>
-                      <td>₹10 lakh</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Composition scheme (optional ceiling)</th>
-                      <td>₹1.5 crore (goods) / ₹50 lakh (services)</td>
-                      <td>₹75 lakh (goods)</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <p class="muted" style="font-size: var(--fs-xs)">
-                *The ₹40 lakh goods limit (Notification 10/2019-CT) is not available in every state — a few states and
-                UTs retained ₹20 lakh. We confirm the limit for your state before filing.
-              </p>
+            </div>
+          </section>
 
-              <h3>Compulsory registration — even with ₹0 turnover (Section 24)</h3>
-              <ul>
-                <li>Inter-state taxable supply of <strong>goods</strong></li>
-                <li>Casual taxable persons and non-resident taxable persons</li>
-                <li>Persons liable to pay tax under <strong>reverse charge (RCM)</strong></li>
-                <li>E-commerce operators and persons required to deduct TDS / collect TCS under GST</li>
-                <li>Suppliers of goods through e-commerce operators — <em>see relief below</em></li>
-                <li>Input Service Distributors (ISD) and agents supplying on behalf of others</li>
-                <li>Suppliers of online information &amp; database access (OIDAR) services from outside India</li>
-              </ul>
-              <div class="callout callout--info">
-                <span class="callout__title">Relief for small online sellers</span>
-                <p>
-                  Since <strong>1 October 2023</strong>, suppliers of goods below the threshold can sell
-                  <strong>within their own state</strong> on marketplaces without registration, subject to notified
-                  conditions (PAN, declared state, enrolment with the portal). Service providers below the threshold
-                  selling through e-commerce operators are also exempt.
-                </p>
-              </div>
+          <section id="whats-new" class="chapter prose reveal" aria-labelledby="h-new">
+            <span class="kicker">What’s new</span>
+            <h2 id="h-new">What changed in GST registration in 2025–26?</h2>
+            <div class="table" tabindex="0">
+              <table>
+                <caption>Recent changes, newest first</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Change</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">What it means for you</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Biometric Aadhaar for all new registrations <span class="tag">Court order</span></th>
+                    <td>8 Sep 2026</td>
+                    <td>
+                      Delhi High Court interim order directs GST authorities nationwide not to grant new registrations without biometric Aadhaar
+                      authentication. Still before the court; we confirm the live process when you apply.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Income-tax Act, 2025 in force</th>
+                    <td>1 Apr 2026</td>
+                    <td>Replaces the Income-tax Act, 1961. GST law unchanged; income-tax section numbers change (see below).</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Rule 14A simplified registration <span class="tag tag--leaf">New</span></th>
+                    <td>1 Nov 2025</td>
+                    <td>Optional route for output tax on B2B supplies up to ₹2.5 lakh a month. GSTIN in 3 working days after Aadhaar authentication (Notification 18/2025-CT).</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">GST 2.0 rate rationalisation</th>
+                    <td>22 Sep 2025</td>
+                    <td>Main slabs now 5% and 18%, plus 40% for specified luxury and sin goods (56th GST Council). Check your HSN/SAC rates.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">GSTR-9 relief for small taxpayers</th>
+                    <td>FY 2024-25 on</td>
+                    <td>Annual return optional up to ₹2 crore aggregate turnover (Notification 15/2025-CT).</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
-              <div class="example">
-                <span class="example__tag">Example</span>
-                <p>
-                  <strong>Priya runs a home bakery in Pune.</strong> Her sales for FY 2026-27 reach ₹38 lakh by
-                  February, all within Maharashtra. Bakery products are goods, so the ₹40 lakh limit applies and she
-                  need not register yet. But in March she receives a ₹5 lakh corporate order from Bengaluru —
-                  inter-state supply of goods triggers <strong>compulsory registration under Section 24</strong>
-                  before she ships, regardless of turnover.
-                </p>
-              </div>
+          <section id="types" class="chapter prose reveal" aria-labelledby="h-types">
+            <span class="kicker">Options</span>
+            <h2 id="h-types">Types of GST registration</h2>
+            <div class="table" tabindex="0">
+              <table>
+                <caption>Choose the right registration</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Best for</th>
+                    <th scope="col">Form</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Regular taxpayer</th><td>Most businesses: full ITC, inter-state sales</td><td>REG-01</td></tr>
+                  <tr><th scope="row">Composition scheme</th><td>Small traders, manufacturers, restaurants: tax at 1%/5%/6% of turnover, no ITC</td><td>REG-01 + CMP-02</td></tr>
+                  <tr><th scope="row">Rule 14A (simplified)</th><td>Low-liability B2B suppliers wanting a 3-day GSTIN</td><td>REG-01 (option)</td></tr>
+                  <tr><th scope="row">Casual taxable person</th><td>Exhibitions, fairs and seasonal stalls in another state (valid 90 days)</td><td>REG-01</td></tr>
+                  <tr><th scope="row">Non-resident taxable person</th><td>Foreign businesses supplying occasionally in India</td><td>REG-09</td></tr>
+                  <tr><th scope="row">TDS / TCS</th><td>Government departments and e-commerce operators</td><td>REG-07</td></tr>
+                  <tr><th scope="row">Input Service Distributor</th><td>Head offices distributing common input services credit to branches</td><td>REG-01</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
-              <div class="example">
-                <span class="example__tag">Example</span>
-                <p>
-                  <strong>Arjun is a freelance UI designer in Jaipur</strong> billing ₹1.8 lakh a month (₹21.6 lakh
-                  a year) to Indian clients. Services attract the ₹20 lakh limit, so he must register within 30 days
-                  of crossing ₹20 lakh. Exporting services to a US client counts towards aggregate turnover too —
-                  and with a <strong>Letter of Undertaking (LUT)</strong> he can export without paying IGST.
-                </p>
-              </div>
-            </section>
+          <section id="documents" class="chapter prose reveal" aria-labelledby="h-docs">
+            <span class="kicker">Checklist</span>
+            <h2 id="h-docs">Documents required for GST registration</h2>
+            <p>Clear PDF or JPEG scans, up to 1 MB each on the portal (photographs up to 100 KB).</p>
+            <div class="table" tabindex="0">
+              <table>
+                <caption>Documents by business type</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Document</th>
+                    <th scope="col">Proprietor</th>
+                    <th scope="col">Partnership / LLP</th>
+                    <th scope="col">Company</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">PAN</th><td>Proprietor</td><td>Firm/LLP + partners</td><td>Company + directors</td></tr>
+                  <tr><th scope="row">Aadhaar (mobile-linked)</th><td>✓</td><td>Partners &amp; signatory</td><td>Directors &amp; signatory</td></tr>
+                  <tr><th scope="row">Photograph</th><td>✓</td><td>All partners</td><td>All directors</td></tr>
+                  <tr><th scope="row">Constitution proof</th><td>—</td><td>Deed / LLP agreement &amp; certificate</td><td>Incorporation certificate, MoA, AoA</td></tr>
+                  <tr>
+                    <th scope="row">Place of business</th>
+                    <td colspan="3">Owned: latest electricity bill or property-tax receipt. Rented: rent agreement + owner’s bill. Relative’s or shared: consent letter (NOC) + owner’s bill.</td>
+                  </tr>
+                  <tr><th scope="row">Authorisation</th><td>—</td><td>Authorisation letter</td><td>Board resolution</td></tr>
+                  <tr><th scope="row">Bank proof</th><td colspan="3">Cancelled cheque, passbook page or statement (within 30 days if not added at filing — Rule 10A)</td></tr>
+                  <tr><th scope="row">Digital signature</th><td>Optional (EVC allowed)</td><td>Mandatory for LLP</td><td>Mandatory</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>
+              <a class="link-arrow" href="https://bharatefiling.com/downloads/gst-registration-checklist.pdf" data-track="file_download" data-location="documents">Download the printable checklist (PDF)</a>
+            </p>
+          </section>
 
-            <!-- 3 -->
-            <section id="whats-new" class="prose" aria-labelledby="h-new">
-              <span class="eyebrow">Latest updates</span>
-              <h2 id="h-new">What changed in GST registration in 2025–26?</h2>
-              <div class="table-wrap" tabindex="0">
-                <table>
-                  <caption>
-                    Key changes — fact-checked against CBIC notifications
-                  </caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">Change</th>
-                      <th scope="col">Effective</th>
-                      <th scope="col">What it means for you</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">Rule 14A simplified registration <span class="badge badge--new">New</span></th>
-                      <td>1 Nov 2025</td>
-                      <td>
-                        Optional route for applicants whose output tax on B2B supplies is ≤ ₹2.5 lakh/month. GSTIN
-                        granted electronically within 3 working days of Aadhaar authentication (Notification
-                        18/2025-CT).
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">GST 2.0 rate rationalisation</th>
-                      <td>22 Sep 2025</td>
-                      <td>
-                        Main slabs simplified to 5% and 18%, with a 40% rate for specified luxury/sin goods (56th GST
-                        Council). Check your HSN/SAC rates while registering.
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Biometric Aadhaar authentication</th>
-                      <td>Phased, state-wise</td>
-                      <td>
-                        Applicants identified by risk parameters may be asked to visit a GST Suvidha Kendra (GSK) for
-                        biometric verification and photograph (Rule 8(4A)).
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Income-tax Act, 2025 in force</th>
-                      <td>1 Apr 2026</td>
-                      <td>Replaces the Income-tax Act, 1961. GST law unaffected; section references for income tax change (see below).</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </section>
-
-            <!-- 4 -->
-            <section id="types" class="prose" aria-labelledby="h-types">
-              <span class="eyebrow">Options</span>
-              <h2 id="h-types">Types of GST registration</h2>
-              <div class="table-wrap" tabindex="0">
-                <table>
-                  <caption>
-                    Choose the right registration type
-                  </caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">Type</th>
-                      <th scope="col">Best for</th>
-                      <th scope="col">Form</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">Regular taxpayer</th>
-                      <td>Most businesses; full ITC, inter-state sales</td>
-                      <td>REG-01</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Composition scheme</th>
-                      <td>Small traders, manufacturers, restaurants; tax at 1%/5%/6% of turnover, no ITC</td>
-                      <td>REG-01 + CMP-02</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Rule 14A (simplified)</th>
-                      <td>Low-liability B2B suppliers wanting a 3-day GSTIN</td>
-                      <td>REG-01 (option)</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Casual taxable person</th>
-                      <td>Exhibitions, fairs, seasonal stalls in another state (valid 90 days)</td>
-                      <td>REG-01</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Non-resident taxable person</th>
-                      <td>Foreign businesses supplying occasionally in India</td>
-                      <td>REG-09</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">TDS / TCS deductor</th>
-                      <td>Government departments; e-commerce operators</td>
-                      <td>REG-07</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Input Service Distributor</th>
-                      <td>Head offices distributing common service ITC to branches</td>
-                      <td>REG-01</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </section>
-
-            <!-- 5 -->
-            <section id="documents" class="prose" aria-labelledby="h-docs">
-              <span class="eyebrow">Checklist</span>
-              <h2 id="h-docs">Documents required for GST registration</h2>
-              <p>Upload clear PDF/JPEG scans (max 1 MB each on the portal; photographs max 100 KB).</p>
-              <div class="table-wrap" tabindex="0">
-                <table>
-                  <caption>
-                    Document checklist by business type
-                  </caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">Document</th>
-                      <th scope="col">Proprietor</th>
-                      <th scope="col">Partnership / LLP</th>
-                      <th scope="col">Company</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">PAN</th>
-                      <td>Proprietor's PAN</td>
-                      <td>Firm/LLP PAN + partners' PAN</td>
-                      <td>Company PAN + directors' PAN</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Aadhaar (mobile-linked)</th>
-                      <td>✓</td>
-                      <td>Partners &amp; signatory</td>
-                      <td>Directors &amp; signatory</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Photograph</th>
-                      <td>✓</td>
-                      <td>All partners</td>
-                      <td>All directors</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Constitution proof</th>
-                      <td>—</td>
-                      <td>Partnership deed / LLP agreement &amp; certificate</td>
-                      <td>Certificate of Incorporation, MoA, AoA</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Place-of-business proof</th>
-                      <td colspan="3">
-                        Owned: latest electricity bill / property-tax receipt. Rented: rent agreement + owner's utility
-                        bill. Shared/relative's: consent letter (NOC) + owner's utility bill.
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Authorisation</th>
-                      <td>—</td>
-                      <td>Authorisation letter</td>
-                      <td>Board resolution</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Bank proof</th>
-                      <td colspan="3">Cancelled cheque / passbook first page / statement (can be added within 30 days — Rule 10A)</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Digital signature (DSC)</th>
-                      <td>Optional (EVC allowed)</td>
-                      <td>Mandatory for LLP</td>
-                      <td>Mandatory</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <p>
-                <a class="btn btn--outline btn--sm" href="https://bharatefiling.com/downloads/gst-registration-checklist.pdf" data-track="file_download" data-location="documents"
-                  ><svg width="16" height="16" aria-hidden="true"><use href="#i-doc" /></svg> Download printable checklist (PDF)</a
-                >
-              </p>
-            </section>
-
-            <!-- 6 -->
-            <section id="process" class="prose" aria-labelledby="h-process">
-              <span class="eyebrow">Process</span>
-              <h2 id="h-process">How to apply for GST registration online — step by step</h2>
-              <ol class="steps">
-                <li>
-                  <h3>Free eligibility call</h3>
-                  <p class="meta">Day 0 · 15 minutes</p>
-                  <p>We confirm whether you must register, the right type (regular, composition or Rule 14A) and your state's threshold.</p>
-                </li>
-                <li>
-                  <h3>Upload documents securely</h3>
-                  <p class="meta">Day 0–1</p>
-                  <p>Share documents on WhatsApp or our encrypted portal. A CA reviews names, addresses and HSN/SAC codes against PAN data.</p>
-                </li>
-                <li>
-                  <h3>We file Form GST REG-01</h3>
-                  <p class="meta">Day 1</p>
-                  <p>Part A (TRN via OTP) and Part B are filed on gst.gov.in. You complete Aadhaar OTP authentication on your phone — under 2 minutes.</p>
-                </li>
-                <li>
-                  <h3>ARN generated &amp; tracked</h3>
-                  <p class="meta">Day 1–7</p>
-                  <p>You get the Application Reference Number. If the officer raises a query (REG-03), we reply via REG-04 within the 7-working-day window at no extra cost.</p>
-                </li>
-                <li>
-                  <h3>GSTIN &amp; certificate delivered</h3>
-                  <p class="meta">Day 3–7</p>
-                  <p>Download your GST certificate (REG-06). We set up your invoice format, GST portal login and return calendar.</p>
-                </li>
-              </ol>
-              <div class="callout callout--law">
-                <span class="callout__title">Statutory timelines (Rule 9, CGST Rules)</span>
-                <p>
-                  Officer must approve or raise a query within <strong>7 working days</strong> if Aadhaar is
-                  authenticated. Without Aadhaar authentication, or if the application is risk-flagged, physical
-                  verification applies and the window extends up to <strong>30 days</strong>. If the officer takes no
-                  action in time, registration is <strong>deemed approved</strong>.
-                </p>
-              </div>
-            </section>
-
-            <!-- 7 -->
-            <section id="pricing" aria-labelledby="h-pricing">
-              <div class="prose">
-                <span class="eyebrow">Pricing</span>
-                <h2 id="h-pricing">GST registration fees — transparent plans</h2>
-                <p>Government fee for GST registration is <strong>₹0</strong>. Our professional fees (exclusive of 18% GST):</p>
-              </div>
-              <!-- PRICES BELOW ARE PLACEHOLDERS — confirm with management and keep in sync with JSON-LD offers. -->
-              <div class="grid grid--plans" style="margin-top: var(--s-10)">
-                <div class="price-card">
-                  <h3>Basic</h3>
-                  <p class="muted mb-0">For proprietors &amp; freelancers</p>
-                  <p class="price-card__price">₹999 <small>+ GST</small></p>
-                  <ul class="check-list">
-                    <li>Eligibility &amp; type advice</li>
-                    <li>REG-01 filing</li>
-                    <li>Query (REG-03) replies</li>
-                    <li>GST certificate</li>
-                  </ul>
-                  <a class="btn btn--outline btn--block" href="#get-started" data-track="select_plan" data-location="pricing-basic">Choose Basic</a>
-                </div>
-                <div class="price-card price-card--featured">
-                  <span class="price-card__badge">Most popular</span>
-                  <h3>Standard</h3>
-                  <p class="muted mb-0">Registration + first month compliance</p>
-                  <p class="price-card__price">₹1,999 <small>+ GST</small></p>
-                  <ul class="check-list">
-                    <li>Everything in Basic</li>
-                    <li>Rule 14A fast-track check</li>
-                    <li>GST invoice template</li>
-                    <li>First GSTR-1 &amp; GSTR-3B filing</li>
-                    <li>Dedicated GST expert</li>
-                  </ul>
-                  <a class="btn btn--cta btn--block" href="#get-started" data-track="select_plan" data-location="pricing-standard">Choose Standard</a>
-                </div>
-                <div class="price-card">
-                  <h3>Business</h3>
-                  <p class="muted mb-0">Companies, LLPs &amp; online sellers</p>
-                  <p class="price-card__price">₹4,999 <small>+ GST</small></p>
-                  <ul class="check-list">
-                    <li>Everything in Standard</li>
-                    <li>Class 3 DSC for signatory</li>
-                    <li>3 months GST return filing</li>
-                    <li>LUT filing for exporters</li>
-                    <li>Marketplace onboarding help</li>
-                  </ul>
-                  <a class="btn btn--outline btn--block" href="#get-started" data-track="select_plan" data-location="pricing-business">Choose Business</a>
-                </div>
-              </div>
-            </section>
-
-            <!-- 8 -->
-            <section id="penalty" class="prose" aria-labelledby="h-penalty" style="margin-top: var(--section-y)">
-              <span class="eyebrow">Risk</span>
-              <h2 id="h-penalty">Penalty for not registering under GST</h2>
-              <ul>
-                <li><strong>Penalty (Section 122):</strong> ₹10,000 or the tax evaded, whichever is higher; 100% of tax due where fraud is involved.</li>
-                <li><strong>Interest (Section 50):</strong> 18% p.a. on tax not paid from the date it was due.</li>
-                <li><strong>No input tax credit</strong> for the unregistered period, and buyers cannot claim ITC on your invoices.</li>
-                <li><strong>Prosecution (Section 132)</strong> for serious evasion above notified monetary limits.</li>
-              </ul>
-              <div class="example">
-                <span class="example__tag">Worked example</span>
-                <p>
-                  A trader in Indore crossed ₹40 lakh in October but registered only in March, missing GST of
-                  ₹1,20,000 on sales in between. Exposure: tax ₹1,20,000 + interest at 18% (≈ ₹9,000 for an average
-                  5-month delay) + penalty of at least ₹12,000 (10% of tax, minimum ₹10,000, in non-fraud cases under
-                  Section 122(2)). Registering on time would have cost ₹0 in government fees.
-                </p>
-              </div>
-            </section>
-
-            <!-- 9 -->
-            <section id="after-registration" class="prose" aria-labelledby="h-after">
-              <span class="eyebrow">Compliance</span>
-              <h2 id="h-after">What to do after you get your GSTIN</h2>
-              <div class="table-wrap" tabindex="0">
-                <table>
-                  <caption>
-                    GST return calendar for new registrants
-                  </caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">Return</th>
-                      <th scope="col">Who files</th>
-                      <th scope="col">Due date</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">GSTR-1</th>
-                      <td>Regular taxpayers</td>
-                      <td>11th of next month (QRMP: 13th after quarter)</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">GSTR-3B</th>
-                      <td>Regular taxpayers</td>
-                      <td>20th of next month (QRMP: 22nd/24th after quarter, by state)</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">CMP-08</th>
-                      <td>Composition dealers</td>
-                      <td>18th after each quarter</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">GSTR-4</th>
-                      <td>Composition dealers</td>
-                      <td>30 April after the financial year</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">GSTR-9</th>
-                      <td>Regular taxpayers (turnover &gt; ₹2 crore mandatory)</td>
-                      <td>31 December after the financial year</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <ul>
-                <li>Display your GSTIN and certificate at every place of business (Rule 18).</li>
-                <li>Add bank account within 30 days if not added earlier (Rule 10A) — else registration can be suspended.</li>
-                <li>Issue tax invoices; e-invoicing applies once aggregate turnover exceeds ₹5 crore.</li>
-                <li>File nil returns even in months with no sales — late fee applies otherwise.</li>
-              </ul>
-            </section>
-
-            <!-- 10 -->
-            <section id="income-tax-link" class="prose" aria-labelledby="h-ita">
-              <span class="eyebrow">GST × Income tax</span>
-              <h2 id="h-ita">GST registration and the Income-tax Act, 2025</h2>
-              <p>
-                The <strong>Income-tax Act, 2025</strong> replaced the Income-tax Act, 1961 from
-                <strong>1 April 2026</strong>. GST rules are unchanged, but the income-tax provisions every
-                GST-registered business deals with now have new section numbers. The income-tax department matches
-                GST turnover with the turnover in your ITR, so both must reconcile.
-              </p>
-              <div class="table-wrap" tabindex="0">
-                <table>
-                  <caption>
-                    Old vs new income-tax references relevant to GST-registered businesses
-                  </caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">Topic</th>
-                      <th scope="col">Income-tax Act, 1961</th>
-                      <th scope="col">Income-tax Act, 2025</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">Period of income</th>
-                      <td>Previous year &amp; assessment year</td>
-                      <td>Single “tax year”</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Presumptive taxation (business, profession, transport)</th>
-                      <td>Sections 44AD, 44ADA, 44AE</td>
-                      <td>Section 58</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Tax audit</th>
-                      <td>Section 44AB</td>
-                      <td>Section 63</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">TDS on contractors, professional fees, e-commerce, purchase of goods</th>
-                      <td>Sections 194C, 194J, 194-O, 194Q</td>
-                      <td>Section 393 (consolidated tables)</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="callout callout--warn">
-                <span class="callout__title">Transition note</span>
-                <p>
-                  Income of FY 2025-26 (AY 2026-27) is still assessed under the 1961 Act. The 2025 Act applies from
-                  tax year 2026-27 onwards. Under presumptive taxation, business income is deemed at 8% of turnover
-                  (6% for digital receipts) under both Acts — and your GST returns are the turnover evidence.
-                </p>
-              </div>
-              <p>
-                Need help with the income-tax side?
-                <a href="https://bharatefiling.com/income-tax-return-filing/">File your ITR with Bharat eFiling</a> or
-                read our guide on
-                <a href="https://bharatefiling.com/learn/income-tax-act-2025-changes/">Income-tax Act, 2025 changes</a>.
-              </p>
-            </section>
-
-            <!-- 11 -->
-            <section id="why-us" aria-labelledby="h-why">
-              <div class="prose">
-                <span class="eyebrow">Why Bharat eFiling</span>
-                <h2 id="h-why">Doing it yourself vs. Bharat eFiling</h2>
-              </div>
-              <div class="table-wrap" tabindex="0">
-                <table>
-                  <caption>
-                    Comparison
-                  </caption>
-                  <thead>
-                    <tr>
-                      <th scope="col">What matters</th>
-                      <th scope="col">DIY on GST portal</th>
-                      <th scope="col">Bharat eFiling</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">Correct registration type &amp; HSN/SAC codes</th>
-                      <td>You research</td>
-                      <td>✓ CA advice included</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Rejection risk (address proof, name mismatch)</th>
-                      <td>High for first-timers</td>
-                      <td>✓ Pre-filing document review</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Replies to officer queries</th>
-                      <td>You draft</td>
-                      <td>✓ Included free</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Post-registration returns</th>
-                      <td>Separate effort</td>
-                      <td>✓ First filing included (Standard)</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Language</th>
-                      <td>English portal</td>
-                      <td>✓ Hindi &amp; English experts</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <!-- REVIEWS: embed the REAL Google Business Profile reviews widget here.
-                   Never write testimonials yourself and never add self-serving AggregateRating schema —
-                   both violate Google's review guidelines and Consumer Protection (fake reviews) rules. -->
-              <div class="callout callout--info">
-                <span class="callout__title">Customer reviews</span>
-                <p>Real Google reviews widget goes here (see docs/PRODUCT-PAGE-STANDARD.md §9).</p>
-              </div>
-            </section>
-
-            <!-- 12 -->
-            <section id="related" aria-labelledby="h-related" style="margin-top: var(--section-y)">
-              <div class="prose">
-                <span class="eyebrow">Save more</span>
-                <h2 id="h-related">Bundles &amp; related services</h2>
-              </div>
-              <div class="grid grid--2" style="margin-bottom: var(--s-8)">
-                <a class="card card--link" href="https://bharatefiling.com/bundles/gst-registration-msme-udyam/" data-track="bundle_click" data-location="related">
-                  <span class="badge badge--new">Bundle</span>
-                  <h3 style="margin-top: var(--s-2)">GST + Udyam (MSME) Registration</h3>
-                  <p class="muted">Get MSME benefits — priority lending and 45-day payment protection — alongside your GSTIN.</p>
-                  <p class="card__more">View bundle →</p>
-                </a>
-                <a class="card card--link" href="https://bharatefiling.com/bundles/gst-registration-12-months-filing/" data-track="bundle_click" data-location="related">
-                  <span class="badge badge--new">Bundle</span>
-                  <h3 style="margin-top: var(--s-2)">GST Registration + 12 Months Return Filing</h3>
-                  <p class="muted">One price for registration and a full year of GSTR-1 and GSTR-3B.</p>
-                  <p class="card__more">View bundle →</p>
-                </a>
-              </div>
-              <div class="grid grid--3">
-                <a class="card card--link" href="https://bharatefiling.com/gst-return-filing/">
-                  <h3>GST Return Filing</h3>
-                  <p class="muted">GSTR-1, 3B, 9 &amp; 9C by experts.</p>
-                </a>
-                <a class="card card--link" href="https://bharatefiling.com/gst-lut-filing/">
-                  <h3>GST LUT Filing</h3>
-                  <p class="muted">Export goods/services without IGST.</p>
-                </a>
-                <a class="card card--link" href="https://bharatefiling.com/gst-registration-amendment/">
-                  <h3>GST Amendment</h3>
-                  <p class="muted">Change address, name or partners.</p>
-                </a>
-                <a class="card card--link" href="https://bharatefiling.com/gst-cancellation/">
-                  <h3>GST Cancellation</h3>
-                  <p class="muted">Surrender GSTIN the right way.</p>
-                </a>
-                <a class="card card--link" href="https://bharatefiling.com/gst-notice-reply/">
-                  <h3>GST Notice Reply</h3>
-                  <p class="muted">Respond to ASMT-10, DRC-01 &amp; more.</p>
-                </a>
-                <a class="card card--link" href="https://bharatefiling.com/private-limited-company-registration/">
-                  <h3>Company Registration</h3>
-                  <p class="muted">Incorporate a Pvt Ltd with PAN &amp; TAN.</p>
-                </a>
-              </div>
-            </section>
-
-            <!-- 13 E-E-A-T -->
-            <section id="author" style="margin-top: var(--section-y)" aria-label="About this page">
-              <div class="author-box">
-                <div class="author-box__avatar" aria-hidden="true">CA</div>
+          <section id="process" class="chapter prose reveal" aria-labelledby="h-process">
+            <span class="kicker">Process</span>
+            <h2 id="h-process">How to apply for GST registration online</h2>
+            <ol class="steps">
+              <li>
                 <div>
-                  <p class="mb-0"><strong>Reviewed by REPLACE_CA_NAME, Chartered Accountant</strong> (ICAI M. No. REPLACE)</p>
-                  <p>REPLACE: 1–2 lines on experience — e.g. years in indirect tax practice, number of GST registrations handled.</p>
-                  <div class="meta-row">
-                    <span>Published <time datetime="2026-10-03">3 Oct 2026</time></span>
-                    <span>Last fact-checked <time datetime="2026-10-03">3 Oct 2026</time></span>
-                    <a href="https://bharatefiling.com/editorial-policy/">Editorial policy</a>
-                  </div>
+                  <span class="when">Day 0 · 15 minutes</span>
+                  <h3>Free eligibility call</h3>
+                  <p>We confirm whether you must register, the right type (regular, composition or Rule 14A) and your state’s limit.</p>
                 </div>
-              </div>
-
-              <div class="prose" style="margin-top: var(--s-8)">
-                <h2 style="font-size: var(--fs-h4)">Sources &amp; official references</h2>
-                <ul style="font-size: var(--fs-sm)">
-                  <li><a href="https://www.gst.gov.in/" rel="noopener" target="_blank">GST Portal — gst.gov.in</a></li>
-                  <li><a href="https://cbic-gst.gov.in/" rel="noopener" target="_blank">CBIC — CGST Act, 2017 &amp; CGST Rules, 2017</a></li>
-                  <li><a href="https://taxinformation.cbic.gov.in/" rel="noopener" target="_blank">CBIC Tax Information Portal — Notification 18/2025-Central Tax (Rule 14A)</a></li>
-                  <li><a href="https://gstcouncil.gov.in/" rel="noopener" target="_blank">GST Council — 56th meeting recommendations</a></li>
-                  <li><a href="https://www.incometaxindia.gov.in/" rel="noopener" target="_blank">Income Tax Department — Income-tax Act, 2025</a></li>
-                  <li><a href="https://tutorial.gst.gov.in/userguide/registration/" rel="noopener" target="_blank">GST Portal user manual — New Registration</a></li>
-                </ul>
-              </div>
-            </section>
-          </article>
-
-          <!-- Sticky table of contents -->
-          <aside>
-            <nav class="toc" aria-label="On this page">
-              <h2>On this page</h2>
-              <ol>
-                <li><a href="#what-is-gst-registration">What is GST registration</a></li>
-                <li><a href="#who-should-register">Who must register</a></li>
-                <li><a href="#whats-new">2025–26 changes</a></li>
-                <li><a href="#types">Types of registration</a></li>
-                <li><a href="#documents">Documents required</a></li>
-                <li><a href="#process">Step-by-step process</a></li>
-                <li><a href="#pricing">Fees &amp; plans</a></li>
-                <li><a href="#penalty">Penalties</a></li>
-                <li><a href="#after-registration">After registration</a></li>
-                <li><a href="#income-tax-link">Income-tax Act, 2025</a></li>
-                <li><a href="#why-us">Why Bharat eFiling</a></li>
-                <li><a href="#faqs">FAQs</a></li>
-              </ol>
-              <a class="btn btn--cta btn--block btn--sm" style="margin-top: var(--s-5)" href="#get-started" data-track="cta_click" data-location="toc">Start now</a>
-            </nav>
-          </aside>
-        </div>
+              </li>
+              <li>
+                <div>
+                  <span class="when">Day 0–1</span>
+                  <h3>Share documents securely</h3>
+                  <p>Upload on WhatsApp or our encrypted portal. A CA matches names, addresses and HSN/SAC codes against PAN data.</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="when">Day 1</span>
+                  <h3>We file Form GST REG-01</h3>
+                  <p>Part A (TRN by OTP) and Part B are filed on gst.gov.in and signed with your EVC or DSC.</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="when">Day 1–3</span>
+                  <h3>Aadhaar authentication</h3>
+                  <p>Biometric verification and photograph at a GST Suvidha Kendra where required. We book the appointment and brief you on what to carry.</p>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <span class="when">Within 7 working days</span>
+                  <h3>GSTIN and certificate delivered</h3>
+                  <p>If the officer raises a query (REG-03), we reply via REG-04 at no extra cost. On approval you get the REG-06 certificate and a ready invoice format.</p>
+                </div>
+              </li>
+            </ol>
+            <div class="note note--law">
+              <span class="note__title">Statutory timelines (Rule 9, CGST Rules)</span>
+              <p>
+                The officer must approve or raise a query within <strong>7 working days</strong> after successful Aadhaar authentication. Without
+                it, or if the application is flagged for physical verification, the limit is <strong>30 days</strong>. If the officer does not act
+                in time, registration is <strong>deemed approved</strong>.
+              </p>
+            </div>
+          </section>
+        </article>
       </div>
 
+      <!-- ================= PRICING ================= -->
+      <section id="pricing" class="section" aria-labelledby="h-pricing">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Pricing</span>
+            <h2 id="h-pricing">Simple, transparent plans.</h2>
+            <p>Government fee is ₹0. You only pay our professional fee, shown before you start.</p>
+          </div>
+          <!-- PRICES ARE PLACEHOLDERS — confirm with management and keep in sync with the JSON-LD offers -->
+          <div class="plans">
+            <div class="plan reveal">
+              <h3>Basic</h3>
+              <p class="plan__for">For proprietors &amp; freelancers</p>
+              <p class="plan__price">₹999</p>
+              <p class="plan__tax">+ 18% GST · one-time</p>
+              <ul class="ticks">
+                <li>Eligibility &amp; registration-type advice</li>
+                <li>REG-01 preparation and filing</li>
+                <li>Replies to officer queries (REG-03)</li>
+                <li>GST certificate (REG-06)</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="#get-started" data-track="select_plan" data-location="pricing-basic">Choose Basic</a>
+            </div>
+            <div class="plan plan--featured reveal">
+              <span class="plan__badge">Most popular</span>
+              <h3>Standard</h3>
+              <p class="plan__for">Registration + first month of compliance</p>
+              <p class="plan__price">₹1,999</p>
+              <p class="plan__tax">+ 18% GST · one-time</p>
+              <ul class="ticks">
+                <li>Everything in Basic</li>
+                <li>Rule 14A fast-track eligibility check</li>
+                <li>GSK biometric appointment support</li>
+                <li>First GSTR-1 &amp; GSTR-3B filing</li>
+                <li>Dedicated GST expert</li>
+              </ul>
+              <a class="btn btn--brand btn--block" href="#get-started" data-track="select_plan" data-location="pricing-standard">Choose Standard</a>
+            </div>
+            <div class="plan reveal">
+              <h3>Business</h3>
+              <p class="plan__for">Companies, LLPs &amp; online sellers</p>
+              <p class="plan__price">₹4,999</p>
+              <p class="plan__tax">+ 18% GST · one-time</p>
+              <ul class="ticks">
+                <li>Everything in Standard</li>
+                <li>Class 3 DSC for the signatory</li>
+                <li>3 months of GST return filing</li>
+                <li>LUT filing for exporters</li>
+                <li>Marketplace onboarding help</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="#get-started" data-track="select_plan" data-location="pricing-business">Choose Business</a>
+            </div>
+          </div>
+          <p class="plans-note">No hidden charges. Full refund of our fee if we cannot file your application.</p>
+        </div>
+      </section>
+
+      <!-- ================= GUIDE CONTINUED ================= -->
+      <div class="section section--tint">
+        <article class="wrap wrap--read">
+          <section id="penalty" class="chapter prose reveal" aria-labelledby="h-penalty">
+            <span class="kicker">Risk</span>
+            <h2 id="h-penalty">Penalty for not registering under GST</h2>
+            <ul>
+              <li><strong>Penalty, Section 122(1):</strong> ₹10,000 or the tax evaded, whichever is higher.</li>
+              <li><strong>Interest, Section 50:</strong> 18% a year on tax not paid, from the date it was due.</li>
+              <li><strong>Lost credit:</strong> no input tax credit for the unregistered period, and your buyers cannot claim ITC on your invoices.</li>
+              <li><strong>Prosecution, Section 132:</strong> for serious evasion above the notified monetary limits.</li>
+            </ul>
+            <div class="example">
+              <span class="example__label">Worked example</span>
+              <p>
+                A trader in Indore crossed ₹40 lakh in October but registered only in March, missing GST of ₹1,20,000 on sales in between.
+                Exposure: tax ₹1,20,000 + interest at 18% (about ₹9,000 for an average five-month delay) + a penalty of ₹1,20,000 (the tax evaded,
+                being higher than ₹10,000). Registering on time would have cost ₹0 in government fees.
+              </p>
+            </div>
+          </section>
+
+          <section id="after-registration" class="chapter prose reveal" aria-labelledby="h-after">
+            <span class="kicker">Compliance</span>
+            <h2 id="h-after">What to do after you get your GSTIN</h2>
+            <div class="table" tabindex="0">
+              <table>
+                <caption>Return calendar for new registrants</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Return</th>
+                    <th scope="col">Who files</th>
+                    <th scope="col">Due date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">GSTR-1</th><td>Regular taxpayers</td><td>11th of next month (QRMP: 13th after the quarter)</td></tr>
+                  <tr><th scope="row">GSTR-3B</th><td>Regular taxpayers</td><td>20th of next month (QRMP: 22nd or 24th after the quarter, by state)</td></tr>
+                  <tr><th scope="row">CMP-08</th><td>Composition dealers</td><td>18th after each quarter</td></tr>
+                  <tr><th scope="row">GSTR-4</th><td>Composition dealers</td><td>30 April after the financial year</td></tr>
+                  <tr><th scope="row">GSTR-9</th><td>Mandatory above ₹2 crore turnover</td><td>31 December after the financial year</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <ul>
+              <li>Display your GSTIN and certificate at every place of business (Rule 18).</li>
+              <li>Add your bank account within 30 days, or before your first GSTR-1/IFF, or the registration can be suspended (Rule 10A).</li>
+              <li>Issue proper tax invoices; e-invoicing applies once aggregate turnover exceeds ₹5 crore in any year.</li>
+              <li>File nil returns even in months with no sales to avoid late fees.</li>
+            </ul>
+          </section>
+
+          <section id="income-tax-link" class="chapter prose reveal" aria-labelledby="h-ita">
+            <span class="kicker">GST × Income tax</span>
+            <h2 id="h-ita">GST registration and the Income-tax Act, 2025</h2>
+            <p>
+              The <strong>Income-tax Act, 2025</strong> (assented 21 August 2025) replaced the Income-tax Act, 1961 from
+              <strong>1 April 2026</strong>. GST rules are unchanged, but the income-tax provisions every GST-registered business deals with now
+              have new numbers. The tax department matches GST turnover with ITR turnover, so both must reconcile.
+            </p>
+            <div class="table" tabindex="0">
+              <table>
+                <caption>Old vs new income-tax references for GST-registered businesses</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Topic</th>
+                    <th scope="col">Income-tax Act, 1961</th>
+                    <th scope="col">Income-tax Act, 2025</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Period of income</th><td>Previous year &amp; assessment year</td><td>Single “tax year”</td></tr>
+                  <tr><th scope="row">Presumptive taxation</th><td>Sections 44AD, 44ADA, 44AE</td><td>Section 58</td></tr>
+                  <tr><th scope="row">Tax audit</th><td>Section 44AB</td><td>Section 63</td></tr>
+                  <tr><th scope="row">TDS on contractors, fees, e-commerce, purchase of goods</th><td>Sections 194C, 194J, 194-O, 194Q</td><td>Section 393 (consolidated tables)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="note note--alert">
+              <span class="note__title">Transition note</span>
+              <p>
+                Income of FY 2025-26 (AY 2026-27) is still assessed under the 1961 Act; the 2025 Act applies from tax year 2026-27. Under
+                presumptive taxation, business income is deemed at 8% of turnover (6% for digital receipts) under both Acts, and your GST returns
+                are the turnover evidence.
+              </p>
+            </div>
+            <p>
+              Need help with the income-tax side? <a href="https://bharatefiling.com/income-tax-return-filing/">File your ITR with Bharat eFiling</a>
+              or read our guide to <a href="https://bharatefiling.com/learn/income-tax-act-2025-changes/">Income-tax Act, 2025 changes</a>.
+            </p>
+          </section>
+
+          <section id="why-us" class="chapter prose reveal" aria-labelledby="h-why">
+            <span class="kicker">Why Bharat eFiling</span>
+            <h2 id="h-why">Doing it yourself vs. with us</h2>
+            <div class="table compare" tabindex="0">
+              <table>
+                <caption>Comparison</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">What matters</th>
+                    <th scope="col">DIY on the GST portal</th>
+                    <th scope="col">Bharat eFiling</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Right registration type &amp; HSN/SAC codes</th><td>You research</td><td class="yes">CA advice included</td></tr>
+                  <tr><th scope="row">Rejection risk (address proof, name mismatch)</th><td>High for first-timers</td><td class="yes">Pre-filing document review</td></tr>
+                  <tr><th scope="row">Biometric appointment at GSK</th><td>You find and book</td><td class="yes">We book and brief you</td></tr>
+                  <tr><th scope="row">Replies to officer queries</th><td>You draft</td><td class="yes">Included free</td></tr>
+                  <tr><th scope="row">First returns after registration</th><td>Separate effort</td><td class="yes">Included in Standard</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- REVIEWS: embed the REAL Google Business Profile reviews widget here. Never write testimonials and never add
+                 self-serving AggregateRating schema (Google review policy, CCPA fake-review guidelines). -->
+          </section>
+        </article>
+      </div>
+
+      <!-- ================= RELATED ================= -->
+      <section id="related" class="section" aria-labelledby="h-related">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Do more, pay less</span>
+            <h2 id="h-related">Bundles and related services.</h2>
+          </div>
+          <div class="grid grid--2">
+            <a class="card reveal" href="https://bharatefiling.com/bundles/gst-registration-msme-udyam/" data-track="bundle_click" data-location="related">
+              <span class="tag">Bundle</span>
+              <h3>GST + Udyam (MSME) Registration</h3>
+              <p>MSME benefits like priority lending and 45-day payment protection, alongside your GSTIN.</p>
+            </a>
+            <a class="card reveal" href="https://bharatefiling.com/bundles/gst-registration-12-months-filing/" data-track="bundle_click" data-location="related">
+              <span class="tag">Bundle</span>
+              <h3>GST Registration + 12 Months of Filing</h3>
+              <p>One price for registration and a full year of GSTR-1 and GSTR-3B.</p>
+            </a>
+          </div>
+          <div class="grid grid--3 mt-8">
+            <a class="card reveal" href="https://bharatefiling.com/gst-return-filing/"><h3>GST Return Filing</h3><p>GSTR-1, 3B, 9 &amp; 9C by experts.</p></a>
+            <a class="card reveal" href="https://bharatefiling.com/gst-lut-filing/"><h3>GST LUT Filing</h3><p>Export goods and services without IGST.</p></a>
+            <a class="card reveal" href="https://bharatefiling.com/gst-registration-amendment/"><h3>GST Amendment</h3><p>Change address, name or partners.</p></a>
+            <a class="card reveal" href="https://bharatefiling.com/gst-cancellation/"><h3>GST Cancellation</h3><p>Surrender your GSTIN the right way.</p></a>
+            <a class="card reveal" href="https://bharatefiling.com/gst-notice-reply/"><h3>GST Notice Reply</h3><p>Respond to ASMT-10, DRC-01 and more.</p></a>
+            <a class="card reveal" href="https://bharatefiling.com/private-limited-company-registration/"><h3>Company Registration</h3><p>Incorporate a Pvt Ltd with PAN and TAN.</p></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= REVIEWER & SOURCES (E-E-A-T) ================= -->
+      <section class="wrap wrap--read" aria-label="About this page">
+        <div class="reviewer reveal">
+          <div class="reviewer__avatar" aria-hidden="true">CA</div>
+          <div>
+            <p><strong>Reviewed by REPLACE_CA_NAME, Chartered Accountant</strong> · ICAI M. No. REPLACE</p>
+            <p class="muted">REPLACE: one line on indirect-tax experience.</p>
+            <div class="meta">
+              <span>Published <time datetime="2026-10-03">3 Oct 2026</time></span>
+              <span>Last fact-checked <time datetime="2026-10-03">3 Oct 2026</time></span>
+              <a href="https://bharatefiling.com/editorial-policy/">Editorial policy</a>
+            </div>
+          </div>
+        </div>
+        <h2 class="mt-16" style="font-size: var(--fs-19)">Sources and official references</h2>
+        <ul class="sources">
+          <li><a href="https://www.gst.gov.in/" rel="noopener" target="_blank">GST Portal — gst.gov.in</a></li>
+          <li><a href="https://cbic-gst.gov.in/" rel="noopener" target="_blank">CBIC — CGST Act &amp; CGST Rules, 2017</a></li>
+          <li><a href="https://taxinformation.cbic.gov.in/" rel="noopener" target="_blank">CBIC notifications 18/2025, 15/2025, 34/2023, 10/2019</a></li>
+          <li><a href="https://gstcouncil.gov.in/" rel="noopener" target="_blank">GST Council — 56th meeting</a></li>
+          <li><a href="https://delhihighcourt.nic.in/" rel="noopener" target="_blank">Delhi High Court — interim order, 8 Sep 2026</a></li>
+          <li><a href="https://www.incometaxindia.gov.in/" rel="noopener" target="_blank">Income Tax Department — Income-tax Act, 2025</a></li>
+          <li><a href="https://tutorial.gst.gov.in/userguide/registration/" rel="noopener" target="_blank">GST Portal user manual — New registration</a></li>
+        </ul>
+      </section>
+
       <!-- ================= FAQ ================= -->
-      <!-- Visible FAQ text MUST match the FAQPage JSON-LD in <head> word for word. -->
-      <section id="faqs" class="section section--alt" aria-labelledby="h-faq">
-        <div class="container">
-          <div class="section__head section__head--center">
-            <span class="eyebrow">FAQs</span>
-            <h2 id="h-faq">GST registration — frequently asked questions</h2>
+      <!-- Visible FAQ text MUST match the FAQPage JSON-LD word for word (npm run check:seo enforces this). -->
+      <section id="faqs" class="section" aria-labelledby="h-faq">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">FAQs</span>
+            <h2 id="h-faq">Questions? Answered.</h2>
           </div>
           <div class="faq">
             <details open>
               <summary>What is the turnover limit for GST registration in 2026?</summary>
-              <div class="faq__a"><p>Registration is mandatory once aggregate turnover in a financial year crosses ₹40 lakh for suppliers of goods or ₹20 lakh for suppliers of services. In special category states (Manipur, Mizoram, Nagaland and Tripura) the limits are ₹20 lakh for goods and ₹10 lakh for services; a few other states have also kept ₹20 lakh for goods.</p></div>
+              <div class="faq__a"><p>Registration is mandatory once aggregate turnover in a financial year crosses ₹40 lakh for suppliers of only goods or ₹20 lakh for suppliers of services. The goods limit is ₹20 lakh in Arunachal Pradesh, Manipur, Meghalaya, Mizoram, Nagaland, Puducherry, Sikkim, Telangana, Tripura and Uttarakhand, and the services limit is ₹10 lakh in Manipur, Mizoram, Nagaland and Tripura.</p></div>
             </details>
             <details>
               <summary>Is there any government fee for GST registration?</summary>
@@ -1241,7 +942,11 @@
             </details>
             <details>
               <summary>How long does GST registration take?</summary>
-              <div class="faq__a"><p>With successful Aadhaar authentication the officer must act within 7 working days. Eligible small B2B suppliers opting for Rule 14A (from 1 November 2025) get registration electronically within 3 working days. If Aadhaar authentication is not done or the application is risk-flagged, physical verification can extend it up to 30 days.</p></div>
+              <div class="faq__a"><p>Once Aadhaar authentication is complete, the officer must act within 7 working days, and eligible small B2B suppliers opting for Rule 14A get registration within 3 working days. If Aadhaar authentication is not done or the application is flagged for physical verification, it can take up to 30 days. Booking a biometric appointment at a GST Suvidha Kendra can add a few days.</p></div>
+            </details>
+            <details>
+              <summary>Is biometric Aadhaar verification mandatory for GST registration?</summary>
+              <div class="faq__a"><p>Rule 8(4A) already required biometric Aadhaar authentication at a GST Suvidha Kendra for applicants flagged by the portal. On 8 September 2026 the Delhi High Court, by an interim order, directed GST authorities across India not to grant any new registration without biometric Aadhaar authentication. The matter is still before the court, so we confirm the current process when you apply.</p></div>
             </details>
             <details>
               <summary>What is Rule 14A GST registration?</summary>
@@ -1253,15 +958,15 @@
             </details>
             <details>
               <summary>Is GST registration mandatory for selling on Amazon or Flipkart?</summary>
-              <div class="faq__a"><p>Generally yes under Section 24 of the CGST Act. However, since 1 October 2023 small suppliers of goods below the threshold may sell intra-state through e-commerce operators without registration, subject to notified conditions, and service providers below the threshold selling through e-commerce operators are exempt.</p></div>
+              <div class="faq__a"><p>Generally yes under Section 24 of the CGST Act. However, since 1 October 2023 small suppliers of goods below the threshold may sell within their own state through e-commerce operators without registration, subject to the conditions of Notification 34/2023-Central Tax, and service providers below the threshold selling through e-commerce operators are exempt.</p></div>
             </details>
             <details>
               <summary>Is a bank account required at the time of GST registration?</summary>
-              <div class="faq__a"><p>Under Rule 10A you can furnish bank account details within 30 days of grant of registration or before filing GSTR-1, whichever is earlier. Many applicants add it in the application itself to avoid a missed deadline.</p></div>
+              <div class="faq__a"><p>Under Rule 10A you must furnish bank account details within 30 days of grant of registration or before filing GSTR-1 or IFF, whichever is earlier; otherwise the registration can be suspended. Many applicants add it in the application itself.</p></div>
             </details>
             <details>
               <summary>What is the penalty for not taking GST registration?</summary>
-              <div class="faq__a"><p>Under Section 122 of the CGST Act, the penalty is ₹10,000 or the tax evaded (100% in cases of fraud), whichever is higher, plus 18% interest under Section 50 on the unpaid tax.</p></div>
+              <div class="faq__a"><p>Under Section 122(1) of the CGST Act, a person who is liable but fails to register faces a penalty of ₹10,000 or the amount of tax evaded, whichever is higher, plus 18% interest under Section 50 on the unpaid tax.</p></div>
             </details>
             <details>
               <summary>Can I register for GST voluntarily below the threshold?</summary>
@@ -1277,53 +982,45 @@
             </details>
             <details>
               <summary>Which returns do I file after GST registration?</summary>
-              <div class="faq__a"><p>Regular taxpayers file GSTR-1 (outward supplies) and GSTR-3B (summary and tax payment) monthly or quarterly under QRMP, and GSTR-9 annually if applicable. Composition taxpayers file CMP-08 quarterly and GSTR-4 annually.</p></div>
+              <div class="faq__a"><p>Regular taxpayers file GSTR-1 and GSTR-3B monthly, or quarterly under the QRMP scheme if turnover is up to ₹5 crore. GSTR-9 is mandatory only if aggregate turnover exceeds ₹2 crore. Composition taxpayers file CMP-08 quarterly and GSTR-4 annually.</p></div>
             </details>
           </div>
         </div>
       </section>
 
-      <!-- ================= CTA BAND ================= -->
-      <section class="section" aria-labelledby="h-cta">
-        <div class="container">
-          <div class="cta-band">
-            <h2 id="h-cta">Ready to get your GSTIN?</h2>
-            <p>Talk to a GST expert in Hindi or English. Free eligibility check, no obligation.</p>
-            <div class="btn-row">
-              <a class="btn btn--cta" href="#get-started" data-track="cta_click" data-location="cta-band">Start GST Registration</a>
-              <a class="btn btn--whatsapp" href="https://wa.me/910000000000?text=Hi%2C%20I%20need%20GST%20registration" rel="noopener" target="_blank" data-track="click_whatsapp" data-location="cta-band"
-                ><svg width="18" height="18" aria-hidden="true"><use href="#i-wa" /></svg> WhatsApp</a
-              >
-              <a class="btn btn--outline" style="color: #fff; border-color: #fff" href="tel:+910000000000" data-track="click_call" data-location="cta-band"
-                ><svg width="18" height="18" aria-hidden="true"><use href="#i-phone" /></svg>&nbsp;Call&nbsp;now</a
-              >
-            </div>
+      <!-- ================= CTA ================= -->
+      <section class="wrap" aria-labelledby="h-cta" style="padding-bottom: var(--section)">
+        <div class="cta reveal">
+          <h2 id="h-cta">Ready for your GSTIN?</h2>
+          <p>Talk to a GST expert in Hindi or English. Free eligibility check, no obligation.</p>
+          <div class="btn-row">
+            <a class="btn btn--brand" href="#get-started" data-track="cta_click" data-location="cta-band">Start my registration</a>
+            <a class="btn btn--outline-light" href="tel:+910000000000" data-track="click_call" data-location="cta-band"
+              ><svg width="16" height="16" aria-hidden="true"><use href="#i-phone" /></svg>&nbsp;Call&nbsp;us</a
+            >
           </div>
         </div>
       </section>
     </main>
 
     <!-- ================= FOOTER ================= -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer__grid">
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer__top">
           <div class="footer__brand">
-            <a class="logo" href="https://bharatefiling.com/" style="color: #fff">Bharat<span>eFiling</span></a>
-            <p style="margin-top: var(--s-4); max-width: 34ch">
-              CA-assisted income tax, GST, business registration and compliance services for India's individuals,
-              startups and MSMEs.
-            </p>
-            <address style="font-style: normal">
-              REPLACE_STREET, REPLACE_CITY, REPLACE_STATE – 000000<br />
+            <img src="../assets/img/bef-logo.webp" srcset="../assets/img/bef-logo.webp 1x, ../assets/img/bef-logo@2x.webp 2x" width="128" height="40" alt="Bharat eFiling" loading="lazy" />
+            <p>CA-assisted income tax, GST, business registration and compliance for India’s individuals, startups and MSMEs.</p>
+            <address>
+              REPLACE_STREET, REPLACE_CITY, REPLACE_STATE 000000<br />
               <a href="tel:+910000000000" data-track="click_call" data-location="footer">+91&nbsp;00000&nbsp;00000</a> ·
               <a href="mailto:care@bharatefiling.com">care@bharatefiling.com</a>
             </address>
             <div class="social">
-              <a href="https://www.facebook.com/bharatefiling" rel="noopener" target="_blank" aria-label="Facebook">f</a>
-              <a href="https://www.instagram.com/bharatefiling" rel="noopener" target="_blank" aria-label="Instagram">ig</a>
-              <a href="https://www.linkedin.com/company/bharatefiling" rel="noopener" target="_blank" aria-label="LinkedIn">in</a>
-              <a href="https://www.youtube.com/@bharatefiling" rel="noopener" target="_blank" aria-label="YouTube">▶</a>
-              <a href="https://x.com/bharatefiling" rel="noopener" target="_blank" aria-label="X (Twitter)">𝕏</a>
+              <a href="https://www.facebook.com/bharatefiling" rel="noopener" target="_blank"><span class="visually-hidden">Facebook</span><svg width="18" height="18" aria-hidden="true"><use href="#i-fb" /></svg></a>
+              <a href="https://www.instagram.com/bharatefiling" rel="noopener" target="_blank"><span class="visually-hidden">Instagram</span><svg width="18" height="18" aria-hidden="true"><use href="#i-ig" /></svg></a>
+              <a href="https://www.linkedin.com/company/bharatefiling" rel="noopener" target="_blank"><span class="visually-hidden">LinkedIn</span><svg width="18" height="18" aria-hidden="true"><use href="#i-in" /></svg></a>
+              <a href="https://www.youtube.com/@bharatefiling" rel="noopener" target="_blank"><span class="visually-hidden">YouTube</span><svg width="18" height="18" aria-hidden="true"><use href="#i-yt" /></svg></a>
+              <a href="https://x.com/bharatefiling" rel="noopener" target="_blank"><span class="visually-hidden">X</span><svg width="16" height="16" aria-hidden="true"><use href="#i-x" /></svg></a>
             </div>
           </div>
           <nav aria-labelledby="f-gst">
@@ -1365,10 +1062,9 @@
             </ul>
           </nav>
         </div>
-        <p class="disclaimer">
-          Disclaimer: Bharat eFiling is a private professional-services platform and is not affiliated with the GST
-          Network, CBIC or the Income Tax Department. Information on this page is for general guidance and is
-          reviewed periodically; please consult our experts for advice specific to your case.
+        <p class="footer__disclaimer">
+          Bharat eFiling is a private professional-services platform and is not affiliated with the GST Network, CBIC or the Income Tax
+          Department. Information on this page is general guidance, reviewed periodically; consult our experts for advice on your case.
         </p>
         <div class="footer__legal">
           <span>© 2026 Bharat eFiling. All rights reserved.</span>
@@ -1381,10 +1077,12 @@
       </div>
     </footer>
 
-    <!-- Mobile sticky CTA -->
-    <div class="sticky-cta">
-      <a class="btn btn--whatsapp btn--sm" href="https://wa.me/910000000000?text=Hi%2C%20I%20need%20GST%20registration" rel="noopener" target="_blank" data-track="click_whatsapp" data-location="sticky">WhatsApp</a>
-      <a class="btn btn--cta btn--sm" href="#get-started" data-track="cta_click" data-location="sticky">Get GSTIN</a>
+    <!-- Mobile action bar -->
+    <div class="actionbar">
+      <a class="btn btn--ghost btn--sm" href="https://wa.me/910000000000?text=Hi%2C%20I%20need%20GST%20registration" rel="noopener" target="_blank" data-track="click_whatsapp" data-location="actionbar"
+        ><svg width="16" height="16" aria-hidden="true"><use href="#i-wa" /></svg> WhatsApp</a
+      >
+      <a class="btn btn--brand btn--sm" href="#get-started" data-track="cta_click" data-location="actionbar">Apply now</a>
     </div>
 
     <script src="../assets/js/bef-page.js" defer></script>

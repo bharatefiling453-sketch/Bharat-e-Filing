@@ -43,7 +43,7 @@ $("main h2, main h3, main h4").each((_, el) => {
 });
 check(!skip, "no skipped heading levels inside <main>");
 
-const answer = $(".answer-box").text().trim().split(/\s+/).length;
+const answer = $(".answer").text().trim().split(/\s+/).length;
 check(
   answer >= 35 && answer <= 70,
   `AEO answer box 35–70 words (got ${answer})`,

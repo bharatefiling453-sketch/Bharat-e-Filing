@@ -20,7 +20,7 @@ for (const [name, viewport] of [
   ["desktop", { width: 1366, height: 900 }],
   ["mobile", { width: 390, height: 844 }],
 ]) {
-  const context = await browser.newContext({ viewport });
+  const context = await browser.newContext({ viewport, reducedMotion: "reduce" });
   const page = await context.newPage();
   await page.route(/googletagmanager|fonts\.g/, (r) => r.abort());
   await page.goto("file://" + file);

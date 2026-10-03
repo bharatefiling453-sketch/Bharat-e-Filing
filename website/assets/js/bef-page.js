@@ -6,6 +6,7 @@
 (function () {
   "use strict";
 
+  document.documentElement.classList.add("js");
   window.dataLayer = window.dataLayer || [];
   var page = document.body.dataset.service || "unknown";
 
@@ -24,8 +25,8 @@
     });
   }
 
-  /* ---- Table-of-contents scroll-spy ---- */
-  var tocLinks = document.querySelectorAll(".toc a[href^='#']");
+  /* ---- Local nav scroll-spy (highlights the section in view) ---- */
+  var tocLinks = document.querySelectorAll(".localnav ul a[href^='#']");
   if (tocLinks.length && "IntersectionObserver" in window) {
     var byId = {};
     tocLinks.forEach(function (a) {
@@ -47,6 +48,29 @@
     Object.keys(byId).forEach(function (id) {
       var el = document.getElementById(id);
       if (el) observer.observe(el);
+    });
+  }
+
+  /* ---- Gentle reveal-on-scroll (disabled by CSS for reduced-motion users) ---- */
+  var reveals = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var revealer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-in");
+            revealer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px" },
+    );
+    reveals.forEach(function (el) {
+      revealer.observe(el);
+    });
+  } else {
+    reveals.forEach(function (el) {
+      el.classList.add("is-in");
     });
   }
 

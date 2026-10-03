@@ -104,20 +104,31 @@ Required: `Organization` (+ `ProfessionalService`), `WebSite`, `WebPage` (with `
 - **Reviews and statistics must be real.** No invented customer counts, ratings or testimonials (Consumer Protection (E-Commerce) Rules & ASCI guidelines; Google spam policies).
 - Disclaimer in footer: not affiliated with GSTN/CBIC/ITD.
 
-## 10. Design system (`assets/css/bef-design-system.css`)
+## 10. Design system v2 (`assets/css/bef-design-system.css`)
 
-| Token               | Value                                                                                                 | Use                                                |
-| ------------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
-| Navy 900 / 800      | `#0a1f44` / `#0f2b5b`                                                                                 | Headings, footer, primary buttons — trust          |
-| Saffron 500         | `#f47c20`                                                                                             | Primary CTA fill (with navy text, 6.0:1 contrast)  |
-| Saffron 600         | `#b04e08`                                                                                             | Eyebrow labels, small accent text on white (≥ 5:1) |
-| India Green 600     | `#128a3c`                                                                                             | Success ticks, "Updated" badge                     |
-| Ink 900 / 700 / 500 | `#111827` / `#374151` / `#6b7280`                                                                     | Body, secondary, muted text                        |
-| Fonts               | Plus Jakarta Sans 700/800 (headings), Inter 400–700 (body), Noto Sans Devanagari (Hindi)              |                                                    |
-| Type scale          | Fluid, major-third: H1 30→48 px, H2 24→34 px, body 16→17 px, line-height 1.65, max 68 characters/line |                                                    |
-| Spacing             | 4 px grid: 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80; sections 48→88 px fluid                          |                                                    |
-| Radius              | 6 / 10 / 16 px; pills 999 px                                                                          |                                                    |
-| Buttons             | Min 48 px tall (WCAG 2.2 target size), 1 primary CTA style per screen                                 |                                                    |
+Visual language: calm, premium and editorial, in the style of Apple, Google and Stripe product pages. Lots of whitespace,
+one type family, big confident headlines, a neutral canvas, and brand colour used only where it carries meaning.
+
+| Token                  | Value                                                                        | Use                                                                           |
+| ---------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| Navy (logo)            | `#102161`, deep `#0a1640`, ink `#0b1433`                                     | Headings, primary buttons, featured plan, dark tiles                          |
+| Saffron → Amber (logo) | `#ff8813` → `#fcc224` gradient                                               | Main CTA ("Apply now"), "Most popular" badge, highlight tile, headline accent |
+| Saffron text           | `#b45309`                                                                    | Small accent labels on white (≥ 5:1)                                          |
+| Leaf green (logo)      | `#3c8c31` / `#4eb03f`, text `#2f6f27`                                        | Ticks, "fact-checked" dot, success states                                     |
+| Neutrals               | ink `#1d1d1f`, `#424245`, `#6e6e73`; canvas `#fff` / `#f5f5f7`               | Body text, secondary text, alternating section backgrounds                    |
+| Font                   | Inter (variable, optical sizing) + Noto Sans Devanagari                      | One family everywhere; tight tracking (−0.035em) on headlines                 |
+| Type scale             | H1 38→64 px, H2 30→48 px, body 17 px, line-height 1.6, reading column 760 px |                                                                               |
+| Spacing                | 4 px grid; sections 72→140 px fluid                                          |                                                                               |
+| Radius                 | 10 / 14 / 22 / 30 px; pill buttons                                           |                                                                               |
+| Depth                  | Soft navy-tinted shadows, frosted-glass sticky bars (`backdrop-filter`)      |                                                                               |
+| Motion                 | Fade-up on scroll, 0.8 s ease-out; switched off for `prefers-reduced-motion` |                                                                               |
+
+**Page furniture:** announcement ribbon → frosted global nav (logo, centred menu, Call + Get started) → sticky local nav
+(page title, section links with scroll-spy, "Apply now") → hero with glass lead-form card → bento "at a glance" grid →
+guide in a reading column on a grey canvas → full-width pricing → FAQ → gradient CTA → light Apple-style footer →
+floating mobile action bar.
+
+Logo files: `assets/img/bef-logo.webp` (+ `@2x`), `bef-logo.png`, and `bef-mark.svg` (vector icon / favicon).
 
 Accessibility gate: **WCAG 2.2 AA with zero axe violations** on desktop and mobile (`npm run check:a11y`).
 

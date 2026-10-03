@@ -51,8 +51,7 @@ into **either** route without rework.
 | ⭐  | [lucide-icons/lucide](https://github.com/lucide-icons/lucide)           | Consistent 24px stroke icons (matches the icons used on the page)                                          |
 | ➕  | [tabler/tabler-icons](https://github.com/tabler/tabler-icons)           | 5,000+ icons incl. finance/legal glyphs                                                                    |
 | ➕  | [tailwindlabs/heroicons](https://github.com/tailwindlabs/heroicons)     | Alternate icon set                                                                                         |
-| ⭐  | [rsms/inter](https://github.com/rsms/inter)                             | Body font (excellent ₹ and numeral rendering, tabular figures for tables)                                  |
-| ⭐  | [tokotype/PlusJakartaSans](https://github.com/tokotype/PlusJakartaSans) | Heading font — modern, friendly, by an Asian foundry                                                       |
+| ⭐  | [rsms/inter](https://github.com/rsms/inter)                             | The single brand font (v2): variable weights + optical sizing, excellent ₹ and tabular figures             |
 | ⭐  | [notofonts/devanagari](https://github.com/notofonts/devanagari)         | Noto Sans Devanagari for Hindi pages                                                                       |
 | ⭐  | [fontsource/fontsource](https://github.com/fontsource/fontsource)       | Self-host fonts (faster + no third-party request; DPDP-friendly)                                           |
 | ➕  | [airbnb/lottie-web](https://github.com/airbnb/lottie-web)               | Lightweight animated illustrations (process steps, success state)                                          |

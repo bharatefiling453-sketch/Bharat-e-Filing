@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-40 0 565 568" role="img" aria-label="Bharat eFiling">
+  <defs>
+    <linearGradient id="o" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FF8813"/>
+      <stop offset="1" stop-color="#FCC224"/>
+    </linearGradient>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2F6F27"/>
+      <stop offset="1" stop-color="#4EB03F"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#o)" d="M0 0h485v142H141v288h344v138H0z"/>
+  <path fill="url(#g)" d="M331 142h148L326 284l-72-68z"/>
+  <path fill="#4EB03F" d="M254 216l72 68 157 146H336l-82-76z"/>
+</svg>
