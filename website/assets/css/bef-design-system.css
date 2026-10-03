@@ -705,8 +705,8 @@ table {
 .hero__aurora span {
   position: absolute;
   border-radius: 50%;
-  filter: blur(70px);
   opacity: 0.55;
+  will-change: transform;
 }
 
 .hero__aurora span:nth-child(1) {

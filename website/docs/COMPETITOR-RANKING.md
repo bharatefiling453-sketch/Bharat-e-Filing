@@ -1,4 +1,4 @@
-# GST Registration page: competitor ranking & fact-check (3 Oct 2026)
+# GST Registration page: competitor ranking & fact-check (re-run 3 Oct 2026, page v3)
 
 ## How to read this ranking
 
@@ -11,26 +11,57 @@
   checklist in `PRODUCT-PAGE-STANDARD.md` §11.
 - The new Bharat eFiling page is scored **as it will be once the placeholders are filled** (real phone, address, CA name, prices).
 
-## Ranking (page quality, out of 100)
+## Ranking (page quality, out of 100) — re-run on page v3
 
-| #   | Page                                                | Score         | Entry price                         | Strongest point                                                                                                  | Biggest gap                                                                                                     |
-| --- | --------------------------------------------------- | ------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| 1   | **Bharat eFiling, new page** (`/gst-registration/`) | **88** (est.) | ₹999 (placeholder)                  | Freshest facts: Sep 2026 biometric order, Rule 14A, Income-tax Act 2025 ↔ 1961 mapping; full schema; WCAG 2.2 AA | No reviews, no real usage numbers, no domain authority yet                                                      |
-| 2   | ClearTax guide + service (`/s/gst-registration`)    | ~80           | ₹1,499                              | Very deep guide content, huge authority                                                                          | Guide and paid service split across URLs                                                                        |
-| 3   | IndiaFilings (`/gst-registration`)                  | ~76           | ₹1,500                              | Large "learn" library feeding internal links, brand trust                                                        | Generic layout; higher entry price                                                                              |
-| 4   | Vakilsearch / Zolvit (`/gst-registration`)          | ~74           | ₹399                                | Aggressive price, 2026 content, comparison articles                                                              | Quotes 7–10 working days; heavy upsell                                                                          |
-| 5   | Corpbiz (`/gst-registration`)                       | ~66           | ₹398                                | Lowest price, city-level landing pages                                                                           | City pages risk thin/duplicate content                                                                          |
-| 6   | RegisterKaro (`/gst-registration`)                  | ~64           | Range (₹500–₹2,500 for proprietors) | Fees explained by entity type                                                                                    | Price range instead of a clear price                                                                            |
-| 7   | LegalWiz (`/gst-registration-india`)                | ~62           | ₹1,999                              | Clean, simple guide                                                                                              | Highest entry price in the set                                                                                  |
-| 8   | Bharat eFiling, current (`/product-category/gst/`)  | ~35 (est.)    | —                                   | —                                                                                                                | It is a WooCommerce category listing, not a service page: no unique guide, schema or FAQ for "GST registration" |
+| #   | Page                                                   | Score                                                     | Entry price        | Strongest point                                                                                                                     | Biggest gap                                                                           |
+| --- | ------------------------------------------------------ | --------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| 1   | **Bharat eFiling, new page v3** (`/gst-registration/`) | **91** once placeholders are filled (**88** as it stands) | ₹999 (placeholder) | Only page in the set covering the 1 Oct 2026 Multistate Registration and the 8 Sep 2026 biometric order; measured Lighthouse 96–100 | No reviews, no real usage numbers, CA reviewer not yet named, no domain authority yet |
+| 2   | ClearTax guide + service                               | ~80                                                       | ₹1,499             | Very deep guide content, huge authority                                                                                             | Guide and paid service on separate URLs                                               |
+| 3   | IndiaFilings                                           | ~76                                                       | ₹1,500             | Large "learn" library feeding internal links, brand trust                                                                           | Generic layout; higher entry price                                                    |
+| 4   | Vakilsearch / Zolvit                                   | ~74                                                       | ₹399               | Aggressive price, 2026 content, comparison articles                                                                                 | Quotes 7–10 working days; heavy upsell                                                |
+| 5   | Corpbiz                                                | ~66                                                       | ₹398               | Lowest price, city-level landing pages                                                                                              | City pages risk thin or duplicate content                                             |
+| 6   | RegisterKaro                                           | ~64                                                       | ₹500–₹2,500 range  | Fees explained by entity type                                                                                                       | Price range instead of a clear price                                                  |
+| 7   | LegalWiz                                               | ~62                                                       | ₹1,999             | Clean, simple guide                                                                                                                 | Highest entry price in the set                                                        |
+| 8   | Bharat eFiling, current (`/product-category/gst/`)     | ~35                                                       | —                  | —                                                                                                                                   | A WooCommerce category listing, not a service page                                    |
+
+### New page v3: score by criterion
+
+| Criterion (weight)                  | v1 (first build) | v3 now          | How it was judged                                                                                         |
+| ----------------------------------- | ---------------- | --------------- | --------------------------------------------------------------------------------------------------------- |
+| Freshness & legal accuracy (20)     | 17               | **20**          | Multistate (1 Oct 2026), biometric order, REG-01 guidance, REG-32, IMS, GSTR-3B lock; two v1 errors fixed |
+| Direct answer + depth, AEO/GEO (15) | 14               | **14**          | Quick-answer card, 13 FAQs = schema, timeline; −1 until a Hindi version exists                            |
+| Structured data (10)                | 10               | **10**          | `npm run check:seo`: 63 checks pass                                                                       |
+| Proof / E-E-A-T (15)                | 8                | **8** (5 today) | Sources and dates present; reviews and named CA missing                                                   |
+| Price clarity (10)                  | 8                | **9**           | Prices beside the form and directly below it                                                              |
+| UX & design (10)                    | 7                | **10**          | Lighter hero, all-white theme, timeline, stepper                                                          |
+| Speed & accessibility (10)          | 9 (est.)         | **10**          | **Measured** below                                                                                        |
+| Conversion paths (10)               | 8                | **10**          | Plan picker in form, pop-up (CTA / exit-intent / timed), WhatsApp, Log in, mobile bar                     |
+| **Total**                           | **88 (est.)**    | **91**          |                                                                                                           |
+
+### Measured: Lighthouse on page v3 (local server)
+
+|         | Performance | Accessibility | Best practices | SEO     | LCP   | Blocking time | CLS |
+| ------- | ----------- | ------------- | -------------- | ------- | ----- | ------------- | --- |
+| Mobile  | **96**      | **100**       | 96*            | **100** | 2.0 s | 10 ms         | 0   |
+| Desktop | **100**     | **100**       | 96*            | **100** | 0.5 s | 0 ms          | 0   |
+
+\* The only best-practices failure is two console errors caused by the build sandbox blocking Google Fonts and the placeholder
+GTM ID; both disappear on the live site. Mobile performance was 88 before this run's fix (the page flag that triggers animations
+is now set before first paint, the timeline measures after paint, and the costly blur filter was removed), with blocking time
+falling from 320 ms to 10 ms. Live scores will depend on your hosting and the tags you add in GTM; re-test with PageSpeed
+Insights after launch.
+
+### What changed for competitors
+
+Competitor sites are still blocked from this environment, so their scores are unchanged estimates. Searches for the two newest
+changes (Multistate Registration, 1 Oct 2026; biometric order, 8 Sep 2026) returned only news and CA blogs, and none of the
+seven competitor service pages. That suggests they had not yet added these updates, but it does not prove it; check their
+pages yourself.
 
 ### Scoring criteria (weight)
 
 Freshness & legal accuracy (20) · Direct answer + depth for AEO/GEO (15) · Structured data (10) · Proof/E-E-A-T: named
 reviewer, sources, reviews (15) · Price clarity (10) · UX & design (10) · Speed & accessibility (10) · Conversion paths (10).
-
-The new page loses most of its missing points on **Proof** (no reviews yet, CA name pending) and on unknowns such as live speed
-on your hosting.
 
 ## Why the new page is better
 
@@ -80,6 +111,8 @@ on your hosting.
 
 ## Sources
 
+- Multistate Registration: <https://taxguru.in/goods-and-service-tax/gstn-introduces-multistate-gst-registration-facility-multiple-states-uts.html>, <https://www.caclubindia.com/news/gst-portal-launches-multi-state-registration-facility-with-single-master-trn-26830.asp>
+- Biometric order detail: <https://taxguru.in/goods-and-service-tax/delhi-hc-directs-biometric-aadhaar-authentication-gst-registration.html>
 - IndiaFilings price: <https://www.indiafilings.com/learn/what-is-the-fees-for-gst-registration>
 - Vakilsearch: <https://vakilsearch.com/gst-registration>
 - ClearTax: <https://cleartax.in/services/gst-registration/p>, <https://cleartax.in/s/gst-registration>

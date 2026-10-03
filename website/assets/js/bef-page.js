@@ -6,7 +6,6 @@
 (function () {
   "use strict";
 
-  document.documentElement.classList.add("js");
   window.dataLayer = window.dataLayer || [];
   var page = document.body.dataset.service || "unknown";
 
@@ -254,7 +253,7 @@
       },
       { passive: true },
     );
-    paintTimelines();
+    window.requestAnimationFrame(paintTimelines);
   }
 
   /* ---- Lead pop-up: opens from CTAs, on exit intent, or after 45 s (once per session) ---- */
