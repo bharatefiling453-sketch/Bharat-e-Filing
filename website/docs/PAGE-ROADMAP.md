@@ -9,15 +9,15 @@ the real-reviews section (`<!--REVIEWS-->`, see `REVIEWS-KIT.md`).
 | —     | GST Registration                 | `/gst-registration/`                     | ✅ Done                               |
 | —     | GST Return Filing                | `/gst-return-filing/`                    | ✅ Done (merge ChatGPT fixes pending) |
 | 1     | Privacy Policy                   | `/privacy-policy/`                       | ✅ Done                               |
-| 2     | Terms & Conditions               | `/terms-and-conditions/`                 | Next                                  |
+| 2     | Terms & Conditions               | `/terms-and-conditions/`                 | Later (services first)                |
 | 3     | Refund Policy                    | `/refund-policy/`                        |                                       |
 | 4     | Confidentiality Policy           | `/confidentiality-policy/`               |                                       |
 | 5     | Disclaimer                       | `/disclaimer/`                           |                                       |
 | 6     | Contact Us                       | `/contact-us/`                           |                                       |
 | 7     | About Us                         | `/about-us/`                             |                                       |
 | 8     | Editorial Policy                 | `/editorial-policy/`                     |                                       |
-| 9     | Income Tax e-Filing (ITR)        | `/income-tax-e-filing/`                  |                                       |
-| 10    | ITR for Salaried                 | `/itr-for-salaried/`                     |                                       |
+| 9     | Income Tax Return Filing (ITR)   | `/income-tax-return-filing/`             | ✅ Done                               |
+| 10    | ITR for Salaried                 | `/itr-for-salaried/`                     | Next                                  |
 | 11    | ITR for Self Employed            | `/itr-for-self-employed/`                |                                       |
 | 12    | ITR for Sole Proprietorship      | `/itr-for-sole-proprietorship/`          |                                       |
 | 13    | ITR for Partnership Firm         | `/itr-for-partnership-firm/`             |                                       |

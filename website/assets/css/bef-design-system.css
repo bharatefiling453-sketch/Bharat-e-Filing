@@ -2356,6 +2356,52 @@ a.card:hover {
   outline-offset: 2px;
 }
 
+/* Checkbox list (e.g. ITR form finder) */
+.checks {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 var(--s-4);
+  padding: 0;
+  border: 0;
+}
+
+.checks legend {
+  margin-bottom: 6px;
+  font-size: var(--fs-14);
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.checks label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 8px 12px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 12px;
+  font-size: var(--fs-14);
+  line-height: 1.4;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+
+.checks input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: var(--saffron);
+}
+
+.checks label:has(input:checked) {
+  border-color: var(--saffron);
+  background: #fff8f0;
+  color: var(--navy);
+}
+
 .result {
   margin-top: auto;
   padding: var(--s-6);

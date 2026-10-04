@@ -25,6 +25,7 @@ META = dict(
         ("grievance", "Contact"),
     ],
     cta_label="Contact us",
+    cta_href="#grievance",
     modal_heading="Talk to Bharat e-Filing",
     modal_tick="GST, income tax, company and trademark",
     modal_options=[

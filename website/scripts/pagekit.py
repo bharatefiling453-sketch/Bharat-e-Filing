@@ -120,9 +120,10 @@ def build(slug):
         {
             "@type": "BreadcrumbList",
             "@id": url + "#breadcrumb",
-            "itemListElement": [
-                {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{BASE}/"},
-                {"@type": "ListItem", "position": 2, "name": M["h1_crumb"]},
+            "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": f"{BASE}/"}]
+            + [
+                {"@type": "ListItem", "position": i + 2, "name": name, **({"item": link} if link else {})}
+                for i, (name, link) in enumerate(M.get("crumbs", [(M["h1_crumb"], None)]))
             ],
         },
         *page.JSONLD,
@@ -184,7 +185,7 @@ def build(slug):
         <ul>
 {localnav}
         </ul>
-        <a class="btn btn--brand btn--sm" href="#contact" data-modal-open data-track="cta_click" data-location="localnav">{M["cta_label"]}</a>
+        <a class="btn btn--brand btn--sm" href="{M.get('cta_href', '#get-started')}" data-modal-open data-track="cta_click" data-location="localnav">{M["cta_label"]}</a>
       </div>
     </nav>
 
