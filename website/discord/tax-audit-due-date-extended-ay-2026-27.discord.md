@@ -1,27 +1,20 @@
-# 📤 Upload blog post: Tax Audit Due Date Extended
-Upload the attached file **exactly as it is**. No edits, no theme, no reformatting.
+# Tax Audit Due Date Extended to 21 October 2026: What CBDT Circular 7/2026 Means for You
 
-## 📎 File
-`tax-audit-due-date-extended-ay-2026-27.html` (718 KB, single self-contained file)
-SHA-256: `f655412727c87407fb7c4c806ae63949e488e729038608c25a42b1f63b027466`
+## 📎 Blog file
+`tax-audit-due-date-extended-ay-2026-27.md` (Markdown, about 2,500 words; the first line is the # title)
 
-## 🔗 Publish at
+## 🔗 Slug
 `/blog/tax-audit-due-date-extended-ay-2026-27/`
 
-## 🏷️ Post details
-- **Title:** Tax Audit Due Date Extended to 21 Oct 2026 | Bharat e-Filing
-- **H1:** Tax Audit Due Date Extended to 21 October 2026: What CBDT Circular 7/2026 Means for You
+## 🏷️ SEO details
+- **Meta title:** Tax Audit Due Date Extended to 21 Oct 2026 | Bharat e-Filing
+- **Meta description:** CBDT Circular 7/2026 extends the tax audit report date for AY 2026-27 to 21 October and the ITR date for audit cases to 21 November 2026. Who is covered.
 - **Category:** Income Tax
 - **Tags:** Tax audit, CBDT Circular 7/2026, ITR due date, AY 2026-27, Section 44AB
-- **Published:** 1 Oct 2026 · **Updated:** 4 Oct 2026
+- **Published:** 2026-10-01 · **Updated:** 2026-10-04
+- **Featured image:** /wp-content/uploads/blog/tax-audit-due-date-extended-2026-cover-1200x675.jpg
 
-## ⚙️ Upload rules (keep it a pixel-perfect clone)
-- Serve the file as the **full page** (`Content-Type: text/html; charset=utf-8`)
-- **Do not** wrap it in a site theme, page builder or editor
-- **Do not** strip `<style>`, `<script>`, `<svg>` or `data:` images
-- **Do not** minify, prettify or re-encode the file
-- After upload, check that its SHA-256 matches the one above
-
-## ✅ After upload
-- Open the page on desktop and mobile; it must match the preview
-- Add the URL to `sitemap.xml` and request indexing in Search Console
+## ⚙️ Upload rules
+- Publish the Markdown exactly as attached; do not rewrite or reorder it
+- The first line (# title) becomes the page H1
+- Keep tables, links and image alt text unchanged
