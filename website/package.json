@@ -7,15 +7,15 @@
   "scripts": {
     "serve": "npx --no-install http-server . -p 8080 -c-1",
     "format": "prettier --write \"**/*.{html,css,js,mjs,md,json}\"",
-    "lint:html": "html-validate \"gst-registration/*.html\" \"gst-return-filing/*.html\" \"privacy-policy/*.html\" \"income-tax-return-filing/*.html\"",
+    "lint:html": "html-validate \"gst-registration/*.html\" \"gst-return-filing/*.html\" \"privacy-policy/*.html\" \"income-tax-return-filing/*.html\" \"blog/tax-audit-due-date-extended-ay-2026-27/*.html\"",
     "lint:css": "stylelint \"assets/css/*.css\"",
     "lint:links": "linkinator gst-registration/index.html --skip \"^https?://\"",
-    "check:seo": "node scripts/seo-check.mjs gst-registration/index.html && node scripts/seo-check.mjs gst-return-filing/index.html && node scripts/seo-check.mjs privacy-policy/index.html && node scripts/seo-check.mjs income-tax-return-filing/index.html",
-    "check:a11y": "node scripts/a11y-check.mjs gst-registration/index.html && node scripts/a11y-check.mjs gst-return-filing/index.html && node scripts/a11y-check.mjs privacy-policy/index.html && node scripts/a11y-check.mjs income-tax-return-filing/index.html",
+    "check:seo": "node scripts/seo-check.mjs gst-registration/index.html && node scripts/seo-check.mjs gst-return-filing/index.html && node scripts/seo-check.mjs privacy-policy/index.html && node scripts/seo-check.mjs income-tax-return-filing/index.html && node scripts/seo-check.mjs blog/tax-audit-due-date-extended-ay-2026-27/index.html",
+    "check:a11y": "node scripts/a11y-check.mjs gst-registration/index.html && node scripts/a11y-check.mjs gst-return-filing/index.html && node scripts/a11y-check.mjs privacy-policy/index.html && node scripts/a11y-check.mjs income-tax-return-filing/index.html && node scripts/a11y-check.mjs blog/tax-audit-due-date-extended-ay-2026-27/index.html",
     "check": "npm run lint:html && npm run lint:css && npm run check:seo && npm run check:a11y",
     "lighthouse": "lighthouse http://localhost:8080/gst-registration/ --chrome-flags=\"--headless\" --output html --output-path ./reports/lighthouse.html",
-    "build:single": "node scripts/build-single-file.mjs gst-registration && node scripts/build-single-file.mjs gst-return-filing && node scripts/build-single-file.mjs privacy-policy && node scripts/build-single-file.mjs income-tax-return-filing",
-    "build:pages": "python3 scripts/pagekit.py privacy-policy income-tax-return-filing"
+    "build:single": "node scripts/build-single-file.mjs gst-registration && node scripts/build-single-file.mjs gst-return-filing && node scripts/build-single-file.mjs privacy-policy && node scripts/build-single-file.mjs income-tax-return-filing && node scripts/build-single-file.mjs blog/tax-audit-due-date-extended-ay-2026-27",
+    "build:pages": "python3 scripts/pagekit.py privacy-policy income-tax-return-filing blog/tax-audit-due-date-extended-ay-2026-27"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",

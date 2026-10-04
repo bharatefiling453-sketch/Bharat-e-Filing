@@ -25,11 +25,12 @@
   }
 
   /* ---- Local nav scroll-spy (highlights the section in view) ---- */
-  var tocLinks = document.querySelectorAll(".localnav ul a[href^='#']");
+  var tocLinks = document.querySelectorAll(".localnav ul a[href^='#'], .toc a[href^='#']");
   if (tocLinks.length && "IntersectionObserver" in window) {
     var byId = {};
     tocLinks.forEach(function (a) {
-      byId[a.getAttribute("href").slice(1)] = a;
+      var id = a.getAttribute("href").slice(1);
+      (byId[id] = byId[id] || []).push(a);
     });
     var observer = new IntersectionObserver(
       function (entries) {
@@ -38,8 +39,9 @@
           tocLinks.forEach(function (a) {
             a.classList.remove("is-active");
           });
-          var link = byId[entry.target.id];
-          if (link) link.classList.add("is-active");
+          (byId[entry.target.id] || []).forEach(function (l) {
+            l.classList.add("is-active");
+          });
         });
       },
       { rootMargin: "-30% 0px -60% 0px" },
@@ -49,6 +51,43 @@
       if (el) observer.observe(el);
     });
   }
+
+  /* ---- Blog: reading progress bar and copy-link button ---- */
+  var bar = document.querySelector(".read-progress");
+  var article = document.querySelector("[data-article]");
+  if (bar && article) {
+    var ticking = false;
+    var paint = function () {
+      var r = article.getBoundingClientRect();
+      var total = r.height - window.innerHeight;
+      var p = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 1;
+      bar.style.transform = "scaleX(" + p.toFixed(3) + ")";
+      ticking = false;
+    };
+    window.addEventListener(
+      "scroll",
+      function () {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(paint);
+        }
+      },
+      { passive: true },
+    );
+    paint();
+  }
+  document.querySelectorAll("[data-copy-link]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var done = function () {
+        btn.setAttribute("data-copied", "true");
+        btn.querySelector("span").textContent = "Link copied";
+        track("share", { method: "copy_link" });
+      };
+      var url = (document.querySelector("link[rel=canonical]") || {}).href || location.href;
+      if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, done);
+      else done();
+    });
+  });
 
   /* ---- Gentle reveal-on-scroll (disabled by CSS for reduced-motion users) ---- */
   var reveals = document.querySelectorAll(".reveal");

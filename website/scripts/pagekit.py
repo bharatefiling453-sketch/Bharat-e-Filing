@@ -116,6 +116,8 @@ def build(slug):
             "dateModified": M["modified"],
             "publisher": {"@id": f"{BASE}/#organization"},
             "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".answer"]},
+            **({"reviewedBy": M["reviewed_by"]} if M.get("reviewed_by") else {}),
+            **({"primaryImageOfPage": {"@id": url + "#primaryimage"}} if M.get("og_type") == "article" else {}),
         },
         {
             "@type": "BreadcrumbList",
@@ -153,6 +155,14 @@ def build(slug):
     head = re.sub(r'(property="og:image:alt" content=")[^"]*', lambda m: m.group(1) + "Bharat e-Filing – " + H.escape(M["h1_crumb"]), head)
     head = re.sub(r'service: "[^"]*", service_category: "[^"]*"', f'service: "{M["service"]}", service_category: "{M.get("category", "company")}"', head)
     head = head.replace('page_type: "service"', f'page_type: "{M.get("dl_page_type", "service")}"')
+    if M.get("og_type") == "article":  # blog posts
+        head = head.replace('<meta property="og:type" content="website" />', '<meta property="og:type" content="article" />')
+        head = re.sub(r'(<meta name="author" content=")[^"]*', lambda m: m.group(1) + H.escape(M.get("author_name", "Bharat e-Filing Tax Desk")), head)
+        art = [f'    <meta property="article:published_time" content="{M["published"]}" />',
+               f'    <meta property="article:modified_time" content="{M["modified"]}" />',
+               f'    <meta property="article:section" content="{H.escape(M.get("section", "Income Tax"))}" />']
+        art += [f'    <meta property="article:tag" content="{H.escape(t)}" />' for t in M.get("tags", [])]
+        head = head.replace('    <meta name="twitter:card"', "\n".join(art) + '\n    <meta name="twitter:card"', 1)
     head += '<script type="application/ld+json">\n' + jsonld + "\n    </script>\n  </head>\n\n  "
     assert "gst-registration" not in head.split("application/ld+json")[0], "stale reference page value in <head>"
 
@@ -172,7 +182,7 @@ def build(slug):
     )
     modal = re.sub(r"(<select id=\"m-plan\" name=\"plan\">).*?(</select>)", lambda m: m.group(1) + "\n" + opts + "\n              " + m.group(2), modal, flags=re.S)
     modal = re.sub(r'(<label for="m-plan">)[^<]*', r"\1" + M.get("modal_select_label", "I need help with"), modal)
-    modal = modal.replace("Start your GST registration", M["modal_heading"]).replace('id="gst-popup-form"', f'id="{slug}-popup-form"')
+    modal = modal.replace("Start your GST registration", M["modal_heading"]).replace('id="gst-popup-form"', f'id="{slug.rsplit("/", 1)[-1]}-popup-form"')
     modal = modal.replace('value="gst-registration"', f'value="{M["service"]}"').replace("Single or multi-state registration", M.get("modal_tick", "GST, income tax, company and trademark"))
     wa = M["whatsapp_text"].replace(" ", "%20").replace(",", "%2C")
     actionbar = actionbar.replace("Hi%2C%20I%20need%20GST%20registration", wa).replace(">Apply now<", f">{M.get('actionbar_label', M['cta_label'])}<")
@@ -180,7 +190,7 @@ def build(slug):
     if not M.get("cta_modal", True):  # CTA goes to a page (e.g. the self-filing app), not the lead pop-up
         actionbar = actionbar.replace('href="#get-started" data-modal-open data-track="cta_click" data-location="actionbar"',
                                       f'href="{M["cta_href"]}" data-track="app_start" data-location="actionbar"')
-    localnav = "\n".join(f'          <li><a href="#{a}">{H.escape(l, quote=False)}</a></li>' for a, l in M["localnav"])
+    localnav = "\n".join(f'          <li><a href="#{a}">{H.escape(l, quote=False)}</a></li>' for a, l in M.get("localnav") or [])
     localnav_html = f"""    <!-- ================= LOCAL NAV (sticky, Apple-style) ================= -->
     <nav class="localnav" aria-label="On this page">
       <div class="wrap">
@@ -193,7 +203,10 @@ def build(slug):
     </nav>
 
 """
-    main = page.MAIN.replace("<!--FAQ-->", faq_section(FAQ) if FAQ else "")
+    if not M.get("localnav"):  # blog posts use an in-article table of contents instead
+        localnav_html = ""
+    main = page.MAIN.replace("<!--FAQ-INLINE-->", f'<div class="faq">\n{_faq_html(FAQ)}\n          </div>' if FAQ else "")
+    main = main.replace("<!--FAQ-->", faq_section(FAQ) if FAQ else "")
     main = main.replace("<!--REVIEWS-->", testimonials_section(M.get("reviews_service")))
     page_js = getattr(page, "PAGE_JS", "")
     doc = (
@@ -211,8 +224,11 @@ def build(slug):
         + (f"    <script>\n{page_js}\n    </script>\n" if page_js else "")
         + "  </body>\n</html>\n"
     )
+    depth = slug.count("/")
+    if depth:  # nested URL such as blog/<post>: fix relative asset paths
+        doc = doc.replace("../assets/", "../" * depth + "../assets/")
     out = ROOT / slug / "index.html"
-    out.parent.mkdir(exist_ok=True)
+    out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(doc)
     print(f"built {out.relative_to(ROOT)} ({len(doc) // 1024} KB)")
 

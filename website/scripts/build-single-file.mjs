@@ -47,6 +47,8 @@ const fontCss = fonts
   .join("\n");
 
 let html = read(`${page}/index.html`).toString();
+// Nested pages (e.g. blog/<post>) reference ../../assets — normalise to the one-level form handled below
+html = html.replace(/(\.\.\/)+assets\//g, "../assets/");
 const css = read("assets/css/bef-design-system.css").toString();
 const js = read("assets/js/bef-page.js").toString();
 
@@ -90,6 +92,6 @@ if (/\.\.\/assets\//.test(html))
   throw new Error("A ../assets reference was left un-embedded");
 
 mkdirSync(resolve(root, "dist"), { recursive: true });
-const out = resolve(root, "dist", `bharat-efiling-${page}.html`);
+const out = resolve(root, "dist", `bharat-efiling-${page.replace(/\//g, "-")}.html`);
 writeFileSync(out, html);
 console.log(`Built ${out} (${(Buffer.byteLength(html) / 1024).toFixed(0)} KB)`);

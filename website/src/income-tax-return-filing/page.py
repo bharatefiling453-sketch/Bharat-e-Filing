@@ -1,5 +1,5 @@
 # Income Tax Return (ITR) Filing — Bharat e-Filing
-# Facts checked 4 Oct 2026: AY 2026-27 due dates (31 Jul ITR-1/2; 31 Aug ITR-3/4 non-audit per Finance Act 2026; 31 Oct audit;
+# Facts checked 4 Oct 2026: AY 2026-27 due dates (31 Jul ITR-1/2; 31 Aug ITR-3/4 non-audit per Finance Act 2026; 31 Oct audit → 21 Nov by CBDT Circular 7/2026 (audit report 30 Sep → 21 Oct);
 # belated 31 Dec 2026; revised to 31 Mar 2027), slabs FY 2025-26 = FY 2026-27, 87A ₹60,000 (new) / ₹12,500 (old), ITR forms
 # notified 30 Mar 2026 (ITR-1: two house properties), ITR-U 48 months (Finance Act 2025), Income-tax Act 2025 mapping.
 # Prices from live site: individuals ₹2,499–4,499, firms ₹2,999–4,999, LLP/company ₹3,499–5,999 (salaried price to confirm).
@@ -108,7 +108,7 @@ JSONLD = [
 
 FAQ = [
     ("What is the last date to file ITR for FY 2025-26 (AY 2026-27)?",
-     "31 July 2026 for individuals filing ITR-1 or ITR-2, 31 August 2026 for non-audit business and professional cases filing ITR-3 or ITR-4 (extended by the Finance Act, 2026), 31 October 2026 for tax-audit cases and 30 November 2026 for transfer-pricing cases. A belated return can be filed until 31 December 2026."),
+     "31 July 2026 for individuals filing ITR-1 or ITR-2, 31 August 2026 for non-audit business and professional cases filing ITR-3 or ITR-4 (extended by the Finance Act, 2026), 21 November 2026 for tax-audit cases (extended from 31 October by CBDT Circular 7/2026) and 30 November 2026 for transfer-pricing cases. A belated return can be filed until 31 December 2026."),
     ("Can I still file my ITR after the due date?",
      "Yes. You can file a belated return until 31 December 2026 with a late fee of ₹5,000, or ₹1,000 if total income is up to ₹5 lakh, plus 1% a month interest on unpaid tax. Losses other than house-property loss cannot be carried forward in a belated return. After that, an updated return (ITR-U) can be filed within 48 months."),
     ("Which ITR form should I file?",
@@ -162,12 +162,14 @@ MAIN = r"""
       <!-- ================= TICKER ================= -->
       <section class="ticker" aria-label="Latest income tax updates" tabindex="0">
         <ul class="ticker__track">
+          <li><time datetime="2026-09-28">28 Sep 2026</time>Audit cases: tax audit report now due 21 Oct, ITR 21 Nov 2026 (Circular 7/2026)</li>
           <li><time datetime="2026-12-31">31 Dec 2026</time>Last date for belated ITR for FY 2025-26</li>
           <li><time datetime="2026-04-01">1 Apr 2026</time>Income-tax Act, 2025 in force; returns for FY 2025-26 still under the 1961 Act</li>
           <li><time datetime="2026-02-01">Budget 2026</time>ITR-3/4 non-audit due date moved to 31 August; revised returns till 31 March</li>
           <li><time datetime="2026-03-30">30 Mar 2026</time>ITR forms for AY 2026-27 notified; ITR-1 now covers two house properties</li>
           <li><time datetime="2025-04-01">FY 2025-26</time>Zero tax up to ₹12 lakh under the new regime</li>
           <li><time datetime="2026-04-01">1 Apr 2026</time>STT on futures up to 0.05%, on options to 0.15%</li>
+          <li aria-hidden="true"><time>28 Sep 2026</time>Audit cases: tax audit report now due 21 Oct, ITR 21 Nov 2026 (Circular 7/2026)</li>
           <li aria-hidden="true"><time>31 Dec 2026</time>Last date for belated ITR for FY 2025-26</li>
           <li aria-hidden="true"><time>1 Apr 2026</time>Income-tax Act, 2025 in force; returns for FY 2025-26 still under the 1961 Act</li>
           <li aria-hidden="true"><time>Budget 2026</time>ITR-3/4 non-audit due date moved to 31 August; revised returns till 31 March</li>
@@ -195,7 +197,7 @@ MAIN = r"""
               <ul class="rhythm" aria-label="ITR deadlines">
                 <li class="is-key"><b>31 Jul</b>ITR-1 / ITR-2</li>
                 <li class="is-key"><b>31 Aug</b>ITR-3 / ITR-4</li>
-                <li><b>31 Oct</b>Audit cases</li>
+                <li><b>21 Nov</b>Audit cases</li>
                 <li><b>31 Dec</b>Belated return</li>
                 <li><b>31 Mar</b>Revised (2027)</li>
               </ul>
@@ -334,7 +336,7 @@ MAIN = r"""
                 <select id="lc-type" name="type">
                   <option value="2026-07-31">ITR-1 / ITR-2 (due 31 July)</option>
                   <option value="2026-08-31">ITR-3 / ITR-4, no audit (due 31 August)</option>
-                  <option value="2026-10-31">Tax-audit case (due 31 October)</option>
+                  <option value="2026-11-21">Tax-audit case (due 21 November, extended)</option>
                 </select>
               </div>
               <div class="field-row">
@@ -447,8 +449,8 @@ MAIN = r"""
                 <tbody>
                   <tr><th scope="row">Individuals filing ITR-1 or ITR-2</th><td>31 July 2026</td></tr>
                   <tr><th scope="row">Non-audit business or profession (ITR-3, ITR-4)</th><td>31 August 2026</td></tr>
-                  <tr><th scope="row">Tax-audit report (Form 3CA/3CB-3CD)</th><td>30 September 2026</td></tr>
-                  <tr><th scope="row">Tax-audit cases and companies</th><td>31 October 2026</td></tr>
+                  <tr><th scope="row">Tax-audit report (Form 3CA/3CB-3CD)</th><td>21 October 2026 (extended from 30 September)</td></tr>
+                  <tr><th scope="row">Tax-audit cases and companies</th><td>21 November 2026 (extended from 31 October; <a href="https://bharatefiling.com/blog/tax-audit-due-date-extended-ay-2026-27/">what changed</a>)</td></tr>
                   <tr><th scope="row">Transfer-pricing cases</th><td>30 November 2026</td></tr>
                   <tr><th scope="row">Belated return</th><td>31 December 2026</td></tr>
                   <tr><th scope="row">Revised return</th><td>31 March 2027 (fee after 31 December)</td></tr>
@@ -992,7 +994,7 @@ SPECIAL_CHAPTERS = r"""          <section id="special-income" class="chapter pro
             </div>
             <ul>
               <li><strong>Tax audit (Section 44AB):</strong> required if trading turnover exceeds ₹10 crore (trading is fully digital). Below that, an audit can still apply if you opted out of presumptive taxation under Section 44AD in the last five years and your income exceeds the exemption limit. We check this before filing.</li>
-              <li><strong>File by the due date</strong> (31 August 2026 without audit, 31 October with audit) or you lose the right to carry forward losses.</li>
+              <li><strong>File by the due date</strong> (31 August 2026 without audit, 21 November 2026 with audit) or you lose the right to carry forward losses.</li>
               <li><strong>STT increase from 1 April 2026:</strong> 0.05% on futures (was 0.02%) and 0.15% on options premium (was 0.10%). This affects trading costs from FY 2026-27.</li>
             </ul>
           </section>

@@ -27,7 +27,7 @@ check(
 
 const canonical = $('link[rel="canonical"]').attr("href") || "";
 check(
-  /^https:\/\/bharatefiling\.com\/[a-z0-9-]+\/$/.test(canonical),
+  /^https:\/\/bharatefiling\.com\/[a-z0-9-]+(\/[a-z0-9-]+)*\/$/.test(canonical),
   "canonical is absolute, lowercase, hyphenated, trailing slash",
 );
 check($('meta[property="og:image"]').length === 1, "og:image present");
@@ -74,12 +74,22 @@ for (const t of [
   "Organization",
   "WebPage",
   "BreadcrumbList",
-  ...(/page_type: "legal"/.test($.html()) ? [] : ["Service"]),
+  ...(/page_type: "(legal|blog)"/.test($.html()) ? [] : ["Service"]),
+  ...(/page_type: "blog"/.test($.html()) ? ["BlogPosting", "Person"] : []),
   "FAQPage",
 ])
   check(types.includes(t), `schema ${t}`);
 
 const faq = graph.find((n) => n["@type"] === "FAQPage");
+if (/page_type: "blog"/.test($.html())) {
+  const post = graph.find((n) => n["@type"] === "BlogPosting") || {};
+  for (const k of ["headline", "image", "author", "datePublished", "dateModified", "publisher", "mainEntityOfPage"])
+    check(post[k], `BlogPosting.${k}`);
+  check((post.headline || "").length <= 110, "BlogPosting headline ≤ 110 chars");
+  check($('meta[property="og:type"]').attr("content") === "article", "og:type article");
+  check($('meta[property="article:published_time"]').length === 1, "article:published_time meta");
+  check($(".toc a").length >= 5, "table of contents with ≥ 5 links");
+}
 if (faq) {
   const visible = $(".faq details")
     .map((_, d) => ({
