@@ -1,0 +1,48 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="fonts.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1350px;overflow:hidden;font-family:Inter,sans-serif;color:#0F1E1A;position:relative;background:linear-gradient(160deg,#C9F2E3 0%,#EAFBF4 45%,#FFFFFF 100%)}
+.blob{position:absolute;width:520px;height:520px;border-radius:50%;background:#8FE3C6;filter:blur(90px);opacity:.55;right:-120px;top:-80px}
+h1{position:absolute;left:76px;top:70px;font-size:76px;font-weight:900;letter-spacing:-.045em;line-height:1}
+h1 .ok{color:#0A9D6E}h1 .no{color:#E5484D}
+.sub{position:absolute;left:76px;top:252px;font-size:34px;font-weight:600;color:#33524A}
+.card{position:absolute;left:76px;right:76px;background:#fff;border-radius:34px;box-shadow:0 24px 60px rgba(10,80,60,.14);padding:34px 38px}
+.c1{top:340px}
+.c2{top:690px}
+.ct{display:flex;justify-content:space-between;align-items:center;font-size:24px;font-weight:700;color:#6B807A;text-transform:uppercase;letter-spacing:.1em}
+.pill{background:#E6F8F1;color:#0A9D6E;font-size:20px;padding:6px 14px;border-radius:999px;letter-spacing:.04em}
+.row{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1.5px solid #EEF3F1}
+.row:last-child{border:none;padding-bottom:4px}
+.tick{display:flex;align-items:center;gap:16px;font-size:30px;font-weight:700}
+.logo{width:62px;height:62px;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:22px}
+.nm{font-size:30px;font-weight:800}.nm small{display:block;font-size:22px;color:#6B807A;font-weight:500;margin-top:2px}
+.val{font-size:32px;font-weight:800;text-align:right}.val small{display:block;font-size:20px;color:#0A9D6E;font-weight:700}
+.ic{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#fff;flex:none}
+.y{background:#0A9D6E}.x{background:#E5484D}
+.row.miss{background:#FFF1F1;margin:8px -18px 0;padding:20px 18px;border-radius:18px;border:none}
+.row.miss .tick{color:#B42328}
+.tag{font-size:22px;font-weight:800;color:#B42328}
+.note{position:absolute;left:76px;right:76px;top:1078px;font-size:26px;line-height:1.45;color:#33524A}
+.note b{color:#0F1E1A}
+.foot{position:absolute;left:76px;right:76px;bottom:56px;display:flex;justify-content:space-between;align-items:center}
+.btn{background:#0F1E1A;color:#fff;font-weight:800;font-size:31px;padding:24px 38px;border-radius:999px}
+.brand{text-align:right;font-size:20px;color:#557069;line-height:1.35}
+.brand b{display:block;color:#0F1E1A;font-size:29px;letter-spacing:-.02em}
+</style></head><body>
+<div class="blob"></div>
+<h1>Tax paid <span class="ok">✓</span><br>Reported? <span class="no">✗</span></h1>
+<div class="sub">One missing line in your ITR.</div>
+<div class="card c1">
+  <div class="ct"><span>My US stocks</span><span class="pill">Held abroad</span></div>
+  <div class="row"><div class="tick"><div class="logo" style="background:#3B5BDB">RSU</div><div class="nm">Employer RSU<small>142 shares · vested</small></div></div><div class="val">₹21.4 L<small>▲ 18.2%</small></div></div>
+  <div class="row"><div class="tick"><div class="logo" style="background:#7048E8">ESPP</div><div class="nm">ESPP shares<small>38 shares</small></div></div><div class="val">₹5.7 L<small>▲ 9.6%</small></div></div>
+</div>
+<div class="card c2">
+  <div class="ct"><span>ITR health check</span></div>
+  <div class="row"><div class="tick"><div class="ic y">✓</div>Salary perquisite taxed</div></div>
+  <div class="row"><div class="tick"><div class="ic y">✓</div>Sale shown as capital gains</div></div>
+  <div class="row miss"><div class="tick"><div class="ic x">✗</div>Listed in Schedule FA</div><div class="tag">MISSING</div></div>
+</div>
+<div class="note">Taxed but not reported? Usually <b>Category B under FAST-DS 2026</b> — one flat fee, with immunity from Black Money Act penalty &amp; prosecution.</div>
+<div class="foot"><div class="btn">Check my category — free</div><div class="brand"><b>Bharat eFiling</b>RSU ITR specialists · 11+ yrs</div></div>
+</body></html>
