@@ -63,3 +63,13 @@ Copy that folder for every new post, then build with `python3 scripts/pagekit.py
 - [ ] Confirm that every internal URL in "Related" is live.
 - [ ] Add the post to `/blog/`, the category page, `sitemap.xml` and (for news) `news-sitemap.xml`.
 - [ ] Submit the URL in Search Console and Bing Webmaster (IndexNow).
+
+## Discord / Markdown delivery (exact clone)
+
+```
+python3 scripts/pagekit.py blog/<slug>
+node scripts/build-single-file.mjs blog/<slug>
+python3 scripts/build-markdown-clone.py dist/bharat-efiling-blog-<slug>.html discord/<slug>.md
+```
+
+The `.md` file starts with `# <Title>`. The rest is the page's own HTML as one raw-HTML block, dedented with no blank lines, and the Markdown H1 is hidden. Rendered with marked or markdown-it (`html: true`), it is pixel-identical to the HTML page (tested: 0 different pixels at 1440 px and 390 px). The site must allow raw HTML, keep `<style>`/`<script>`, and render it full width with no theme around it.
