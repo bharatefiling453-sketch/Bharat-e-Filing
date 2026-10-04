@@ -2689,3 +2689,28 @@ a.card:hover {
     display: none !important;
   }
 }
+
+/* Package groups (ITR packages) */
+.pkg-group {
+  margin: 40px 0 var(--s-4);
+  font-size: var(--fs-19);
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+}
+
+.pkg-group:first-of-type {
+  margin-top: 0;
+}
+
+.plan h4 {
+  margin: 0 0 4px;
+  font-size: var(--fs-21, 1.3rem);
+  line-height: 1.25;
+  color: var(--navy);
+}
+
+.plan--featured h4,
+.plan--featured strong {
+  color: #fff;
+}

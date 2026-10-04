@@ -5,6 +5,23 @@
 # Prices from live site: individuals ₹2,499–4,499, firms ₹2,999–4,999, LLP/company ₹3,499–5,999 (salaried price to confirm).
 
 SLUG = "income-tax-return-filing"
+
+# PROPOSED package prices (benchmarked against ClearTax / TaxBuddy, Oct 2026) — CONFIRM with Bharat e-Filing before launch.
+# Keep in sync with: packages section, hero plan picker, pop-up options and JSON-LD (all generated from / checked against this list).
+PACKAGES = [
+    ("salary", "Salary & Pension", "2499"),
+    ("freelancer", "Freelancers & Professionals", "2999"),
+    ("late-revised", "Belated, Revised & Updated Return", "2999"),
+    ("capital-gains", "Capital Gains", "3499"),
+    ("fno", "F&O & Intraday Traders", "4499"),
+    ("crypto", "Crypto & VDA", "4499"),
+    ("nri", "NRI Returns", "4499"),
+    ("foreign", "Foreign Income, RSU & ESOP", "6999"),
+    ("all-in-one", "All-in-One / High Income", "7999"),
+    ("business", "Proprietors & Small Business", "3499"),
+    ("firm", "Partnership Firm", "2999"),
+    ("company", "LLP or Company", "3499"),
+]
 URL = f"https://bharatefiling.com/{SLUG}/"
 
 META = dict(
@@ -19,25 +36,20 @@ META = dict(
     og_desc="CA-reviewed ITR filing for salaried, freelancers, businesses, firms, LLPs and companies. Free regime calculator and ITR form finder.",
     ribbon_html='Missed 31 July? A belated ITR for FY 2025-26 can still be filed until 31 December 2026. <a href="#due-dates" data-track="cta_click" data-location="ribbon">See all dates ›</a>',
     localnav=[
-        ("pricing", "Pricing"),
+        ("packages", "Packages"),
+        ("self-vs-ca", "Self vs CA"),
         ("tools", "Calculators"),
-        ("what-is-itr", "Overview"),
-        ("who-must-file", "Who must file"),
         ("itr-forms", "ITR forms"),
         ("due-dates", "Due dates"),
         ("tax-regimes", "Tax slabs"),
+        ("special-income", "F&O, crypto, foreign"),
         ("faqs", "FAQs"),
     ],
     cta_label="File my ITR",
     modal_heading="Start your ITR filing",
     modal_tick="Salaried, business, firm, LLP or company",
-    modal_select_label="Plan",
-    modal_options=[
-        ("individual", "Individuals · from ₹2,499", "2499"),
-        ("firm", "Partnership firm · from ₹2,999", "2999"),
-        ("company", "LLP or company · from ₹3,499", "3499"),
-        ("unsure", "Not sure yet", "0"),
-    ],
+    modal_select_label="Package",
+    modal_options=[(v, f"{n} · ₹{int(p):,}", p) for v, n, p in PACKAGES] + [("unsure", "Not sure yet", "0")],
     whatsapp_text="Hi, I need help filing my ITR",
     published="2026-10-04",
     modified="2026-10-04",
@@ -58,8 +70,8 @@ JSONLD = [
             "@type": "OfferCatalog",
             "name": "ITR filing plans",
             "itemListElement": [
-                {"@type": "Offer", "name": n, "price": p, "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": URL + "#pricing"}
-                for n, p in [("Individuals", "2499"), ("Partnership firm", "2999"), ("LLP or company", "3499")]
+                {"@type": "Offer", "name": n, "price": p, "priceCurrency": "INR", "availability": "https://schema.org/InStock", "url": URL + "#packages"}
+                for _, n, p in PACKAGES
             ],
         },
     },
@@ -104,6 +116,20 @@ FAQ = [
      "For listed equity shares and equity mutual funds sold on or after 23 July 2024, short-term gains are taxed at 20% and long-term gains above ₹1.25 lakh a year at 12.5%. These rates apply on top of your slab income and the Section 87A rebate does not reduce them."),
     ("What changes for ITR filing under the Income-tax Act, 2025?",
      "Returns for FY 2025-26 are filed under the Income-tax Act, 1961. From tax year 2026-27, the Income-tax Act, 2025 applies: return filing moves from Section 139 to Section 263, the new regime from Section 115BAC to Section 202, the rebate from Section 87A to Section 156 and the 80C deduction to Section 123."),
+    ("Should I file my ITR myself or with a CA?",
+     "Self-filing on the income-tax portal works if you have one employer, your Form 16 matches AIS and you have no capital gains. Choose CA-assisted filing if you sold shares, funds, property or crypto, traded F&O, hold foreign assets or RSUs, changed jobs, earn rent or business income, are an NRI or received a notice."),
+    ("Which ITR do F&O traders file, and how is F&O income taxed?",
+     "F&O traders file ITR-3 with a profit-and-loss account and balance sheet. F&O income is non-speculative business income taxed at slab rates after expenses; intraday equity is speculative. F&O losses can be set off against other income except salary and carried forward for 8 years if you file by the due date."),
+    ("Do I need a tax audit for F&O trading losses?",
+     "Only in some cases. An audit is required if trading turnover, calculated as the sum of absolute profits and losses, exceeds ₹10 crore. Below that, an audit may apply if you opted out of presumptive taxation under Section 44AD in the last five years and your income exceeds the basic exemption limit."),
+    ("How is cryptocurrency taxed in India?",
+     "Gains on crypto and other virtual digital assets are taxed at a flat 30% plus cess under Section 115BBH. Only the purchase cost is deductible, losses cannot be set off or carried forward, and 1% TDS under Section 194S applies on sales. Every transfer is reported in Schedule VDA."),
+    ("Do I have to report foreign stocks, RSUs or foreign bank accounts?",
+     "Yes, if you are resident and ordinarily resident. Report every foreign asset held at any time in the calendar year in Schedule FA, even without income. RSUs are taxed as salary on vesting, and you claim credit for foreign tax by filing Form 67 before the return. Non-disclosure can attract a ₹10 lakh penalty."),
+    ("Do NRIs need to file an income tax return in India?",
+     "An NRI must file if Indian income exceeds the basic exemption limit, and should file to claim refunds of TDS deducted on property sales, NRO interest or rent. NRIs file ITR-2, or ITR-3 with business income, and cannot claim the Section 87A rebate."),
+    ("What is included in your ITR filing packages?",
+     "Every package includes a free document review, old vs new regime comparison, AIS and Form 26AS reconciliation, preparation of the right ITR form, CA review, filing, e-verification help and refund tracking. Specialised packages add schedules for capital gains, F&O, crypto, foreign assets or NRI status."),
     ("What happens if I don't file my ITR at all?",
      "You pay a late fee and interest if you file late, cannot carry forward most losses, may receive a notice for non-filing based on AIS data, and lose refunds you are owed. Loan and visa applications usually ask for ITRs of the last two or three years."),
 ]
@@ -123,7 +149,7 @@ MAIN = r"""
             </nav>
             <a class="pill-new" href="#whats-new" data-rise style="--i: 1"><span class="pill-new__tag">New</span>Revised returns now allowed till 31 March</a>
             <h1 id="page-title" data-rise style="--i: 2">Income Tax Return Filing, <span class="text-gradient">done by experts.</span></h1>
-            <p class="hero__sub" data-rise style="--i: 3">Salaried, freelancer, business, firm, LLP or company. We pick the right form and regime, claim every deduction and file it, reviewed by a CA.</p>
+            <p class="hero__sub" data-rise style="--i: 3">Salary, capital gains, F&amp;O, crypto, foreign income, NRI or business. We pick the right form and regime, claim every deduction and file it, reviewed by a CA.</p>
             <div class="btn-row" data-rise style="--i: 4">
               <a class="btn btn--brand" href="#get-started" data-track="cta_click" data-location="hero">File my ITR</a>
               <a class="btn btn--ghost" href="#tools" data-track="cta_click" data-location="hero-tools">Compare tax regimes</a>
@@ -140,15 +166,15 @@ MAIN = r"""
             <h2>Get your ITR filed</h2>
             <p>Pick your plan. An expert calls you back to collect your documents.</p>
             <form id="itr-lead-form" data-lead-form novalidate>
-              <!-- PRICES from the live site; the individual plan covers salaried too (confirm). Keep in sync with pricing, pop-up and JSON-LD. -->
+              <!-- PROPOSED prices: keep in sync with PACKAGES at the top of this file. -->
               <fieldset class="plan-picker">
-                <legend>Who is filing?</legend>
+                <legend>What’s your main income?</legend>
                 <div class="plan-picker__options">
-                  <label><input type="radio" name="plan" value="individual" data-price="2499" checked /><span>Individual</span><strong>₹2,499</strong></label>
-                  <label><input type="radio" name="plan" value="firm" data-price="2999" /><span>Firm</span><strong>₹2,999</strong></label>
-                  <label><input type="radio" name="plan" value="company" data-price="3499" /><span>LLP / Co.</span><strong>₹3,499</strong></label>
+                  <label><input type="radio" name="plan" value="salary" data-price="2499" checked /><span>Salary</span><strong>₹2,499</strong></label>
+                  <label><input type="radio" name="plan" value="capital-gains" data-price="3499" /><span>Investor</span><strong>₹3,499</strong></label>
+                  <label><input type="radio" name="plan" value="fno" data-price="4499" /><span>F&amp;O / Crypto</span><strong>₹4,499</strong></label>
                 </div>
-                <p class="plan-picker__hint">Starting prices + 18% GST. <a href="#pricing">Compare plans</a></p>
+                <p class="plan-picker__hint">+ 18% GST. NRI, foreign income and business: <a href="#packages">all 12 packages</a></p>
               </fieldset>
               <div class="field">
                 <label for="f-name">Full name</label>
@@ -191,71 +217,18 @@ MAIN = r"""
           <li><time datetime="2026-02-01">Budget 2026</time>ITR-3/4 non-audit due date moved to 31 August; revised returns till 31 March</li>
           <li><time datetime="2026-03-30">30 Mar 2026</time>ITR forms for AY 2026-27 notified; ITR-1 now covers two house properties</li>
           <li><time datetime="2025-04-01">FY 2025-26</time>Zero tax up to ₹12 lakh under the new regime</li>
+          <li><time datetime="2026-04-01">1 Apr 2026</time>STT on futures up to 0.05%, on options to 0.15%</li>
           <li aria-hidden="true"><time>31 Dec 2026</time>Last date for belated ITR for FY 2025-26</li>
           <li aria-hidden="true"><time>1 Apr 2026</time>Income-tax Act, 2025 in force; returns for FY 2025-26 still under the 1961 Act</li>
           <li aria-hidden="true"><time>Budget 2026</time>ITR-3/4 non-audit due date moved to 31 August; revised returns till 31 March</li>
           <li aria-hidden="true"><time>30 Mar 2026</time>ITR forms for AY 2026-27 notified; ITR-1 now covers two house properties</li>
           <li aria-hidden="true"><time>FY 2025-26</time>Zero tax up to ₹12 lakh under the new regime</li>
+          <li aria-hidden="true"><time>1 Apr 2026</time>STT on futures up to 0.05%, on options to 0.15%</li>
         </ul>
       </section>
 
-      <!-- ================= PRICING ================= -->
-      <section id="pricing" class="section section--first" aria-labelledby="h-pricing">
-        <div class="wrap">
-          <div class="section-head reveal">
-            <span class="kicker">Pricing</span>
-            <h2 id="h-pricing">Clear prices. Every return CA-reviewed.</h2>
-            <p>Starting prices for a standard return. Your exact fee is confirmed after a free review of your documents, before you pay.</p>
-          </div>
-          <div class="plans">
-            <div class="plan reveal">
-              <h3>Individuals</h3>
-              <p class="plan__for">Salaried, pensioners, freelancers, proprietors</p>
-              <p class="plan__price">₹2,499</p>
-              <p class="plan__tax">+ 18% GST · up to ₹4,499 for complex cases</p>
-              <ul class="ticks">
-                <li>ITR-1, 2, 3 or 4 as applicable</li>
-                <li>Old vs new regime comparison</li>
-                <li>AIS, TIS and Form 26AS reconciliation</li>
-                <li>Capital gains and presumptive income</li>
-                <li>E-verification and refund tracking</li>
-              </ul>
-              <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="individual" data-track="select_plan" data-location="pricing-individual">Choose Individuals</a>
-            </div>
-            <div class="plan plan--featured reveal">
-              <span class="plan__badge">Businesses</span>
-              <h3>Partnership firm</h3>
-              <p class="plan__for">Firms filing ITR-5 or ITR-4</p>
-              <p class="plan__price">₹2,999</p>
-              <p class="plan__tax">+ 18% GST · up to ₹4,999</p>
-              <ul class="ticks">
-                <li>Firm and partner income computation</li>
-                <li>Partner remuneration and interest limits</li>
-                <li>Presumptive or regular books</li>
-                <li>Advance tax and TDS credit check</li>
-                <li>Dedicated tax expert</li>
-              </ul>
-              <a class="btn btn--brand btn--block" href="#get-started" data-modal-open data-plan="firm" data-track="select_plan" data-location="pricing-firm">Choose Firm</a>
-            </div>
-            <div class="plan reveal">
-              <h3>LLP or company</h3>
-              <p class="plan__for">ITR-5 for LLPs, ITR-6 for companies</p>
-              <p class="plan__price">₹3,499</p>
-              <p class="plan__tax">+ 18% GST · up to ₹5,999</p>
-              <ul class="ticks">
-                <li>Return from audited financials</li>
-                <li>MAT / new-regime rate (Section 115BAA) check</li>
-                <li>Depreciation and loss set-off</li>
-                <li>Coordination with your auditor</li>
-                <li>Filing acknowledgement and computation</li>
-              </ul>
-              <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="company" data-track="select_plan" data-location="pricing-company">Choose LLP / Co.</a>
-            </div>
-          </div>
-          <p class="plans-note">Tax audit, books of account and notice replies are quoted separately. Tax, interest and late fees are paid to the government and are not part of our fee.</p>
-        </div>
-      </section>
-
+<!--PACKAGES-->
+<!--SELF-VS-CA-->
       <!-- ================= AT A GLANCE ================= -->
       <section class="section" aria-labelledby="h-glance">
         <div class="wrap">
@@ -304,8 +277,8 @@ MAIN = r"""
         <div class="wrap">
           <div class="section-head reveal">
             <span class="kicker">Free tools</span>
-            <h2 id="h-tools">Find your regime. Find your form.</h2>
-            <p>Estimates for FY 2025-26 and FY 2026-27 (same slabs). Special-rate income such as capital gains is excluded.</p>
+            <h2 id="h-tools">Find your regime. Find your form. Know your fee.</h2>
+            <p>Estimates for FY 2025-26 (the regime calculator also works for FY 2026-27, which has the same slabs). Special-rate income such as capital gains is excluded.</p>
           </div>
           <div class="tools">
             <section class="tool reveal" id="regime-calc" aria-labelledby="h-regime">
@@ -393,6 +366,43 @@ MAIN = r"""
               <div class="result" aria-live="polite">
                 <dl class="result__rows" id="form-out"></dl>
                 <p class="result__note" id="form-note"></p>
+              </div>
+            </section>
+
+            <section class="tool reveal" id="late-calc" aria-labelledby="h-late">
+              <div class="tool__head">
+                <span class="tool__icon" aria-hidden="true">⏰</span>
+                <div>
+                  <h3 id="h-late">Late ITR: fee and interest</h3>
+                  <p>Section 234F fee and Section 234A interest for FY 2025-26.</p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="lc-type">Your return</label>
+                <select id="lc-type" name="type">
+                  <option value="2026-07-31">ITR-1 / ITR-2 (due 31 July)</option>
+                  <option value="2026-08-31">ITR-3 / ITR-4, no audit (due 31 August)</option>
+                  <option value="2026-10-31">Tax-audit case (due 31 October)</option>
+                </select>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="lc-date">Filing date</label>
+                  <input id="lc-date" name="date" type="date" value="2026-10-15" min="2026-04-01" max="2027-03-31" />
+                </div>
+                <div class="field">
+                  <label for="lc-tax">Unpaid tax (₹)</label>
+                  <input id="lc-tax" name="tax" type="number" inputmode="numeric" min="0" step="1000" value="20000" />
+                </div>
+              </div>
+              <fieldset class="seg">
+                <legend>Total income</legend>
+                <label><input type="radio" name="small" value="no" checked />Above ₹5 lakh</label>
+                <label><input type="radio" name="small" value="yes" />Up to ₹5 lakh</label>
+              </fieldset>
+              <div class="result" aria-live="polite">
+                <dl class="result__rows" id="late-out"></dl>
+                <p class="result__note" id="late-note"></p>
               </div>
             </section>
           </div>
@@ -586,6 +596,7 @@ MAIN = r"""
               </table>
             </div>
           </section>
+<!--SPECIAL-CHAPTERS-->
         </article>
       </div>
 
@@ -664,23 +675,7 @@ MAIN = r"""
             <p>Income of FY 2025-26 is filed under the 1961 Act. Income from 1 April 2026 (tax year 2026-27) is filed in 2027 under the 2025 Act.</p>
           </section>
 
-          <section id="why-us" class="chapter prose reveal" aria-labelledby="h-why">
-            <span class="kicker">Why Bharat e-Filing</span>
-            <h2 id="h-why">Doing it yourself vs. with us</h2>
-            <div class="table compare" tabindex="0">
-              <table>
-                <caption>Comparison</caption>
-                <thead><tr><th scope="col">What matters</th><th scope="col">DIY</th><th scope="col">Bharat e-Filing</th></tr></thead>
-                <tbody>
-                  <tr><th scope="row">Right ITR form and regime</th><td>You decide</td><td class="yes">Compared for you</td></tr>
-                  <tr><th scope="row">AIS / 26AS mismatches</th><td>Often missed</td><td class="yes">Reconciled before filing</td></tr>
-                  <tr><th scope="row">Capital gains and presumptive income</th><td>Complex schedules</td><td class="yes">Computed by experts</td></tr>
-                  <tr><th scope="row">Notices after filing</th><td>On your own</td><td class="yes">Guidance included</td></tr>
-                  <tr><th scope="row">Review</th><td>None</td><td class="yes">Every return reviewed by a CA</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
+<!--MORE-CHAPTERS-->
         </article>
       </div>
 
@@ -845,5 +840,368 @@ PAGE_JS = r"""
           ff.addEventListener("change", function () { trackUse("itr_form_finder"); pick(); });
           pick();
         }
+
+        /* ---- Late fee (234F) and interest (234A) ---- */
+        var lc = document.getElementById("late-calc");
+        if (lc) {
+          var late = function () {
+            var due = new Date(lc.querySelector("[name='type']").value + "T00:00:00");
+            var filed = new Date((lc.querySelector("[name='date']").value || "2026-07-31") + "T00:00:00");
+            var tax = num(lc.querySelector("[name='tax']"));
+            var small = lc.querySelector("[name='small']:checked").value === "yes";
+            var months = 0;
+            if (filed > due) {
+              months = (filed.getFullYear() - due.getFullYear()) * 12 + (filed.getMonth() - due.getMonth());
+              if (filed.getDate() > due.getDate()) months += 1; // part of a month counts as a full month (due dates are month-ends)
+            }
+            var fee = filed > due ? (small ? 1000 : 5000) : 0;
+            var interest = Math.floor(tax / 100) * 100 * 0.01 * months;
+            document.getElementById("late-out").innerHTML =
+              row("Months late (234A)", String(months)) + row("Late fee (234F)", rupees(fee)) + row("Interest (234A)", rupees(interest)) + row("Extra cost of filing late", rupees(fee + interest), true);
+            var belatedEnd = new Date("2026-12-31T00:00:00");
+            document.getElementById("late-note").textContent = filed > belatedEnd
+              ? "After 31 December 2026 a belated return is no longer possible; you would need an updated return (ITR-U) with additional tax of 25% or more."
+              : (filed > due ? "Filed as a belated return. Losses (except house property) cannot be carried forward. 234B/234C interest for missed advance tax is extra." : "On time: no late fee or 234A interest.");
+          };
+          lc.addEventListener("input", function () { trackUse("late_fee_calculator"); late(); });
+          lc.addEventListener("change", late);
+          late();
+        }
       })();
 """
+
+# ---------------------------------------------------------------- Packages (built from PACKAGES so prices never drift)
+PACKAGE_DETAILS = {
+    "salary": ("ITR-1 / ITR-2", "Salaried employees and pensioners", [
+        "Single or multiple Form 16 (job change)", "Up to two house properties, interest income", "HRA, 80C, 80D, home-loan claims",
+        "Old vs new regime comparison", "TDS refund claim and tracking"]),
+    "freelancer": ("ITR-4 / ITR-3", "Consultants, doctors, designers, developers, creators", [
+        "Presumptive taxation under Section 44ADA", "Foreign client receipts and Form 26AS/AIS match", "Expense and depreciation claims (regular books)",
+        "Advance tax computation for next year", "GST turnover reconciliation"]),
+    "late-revised": ("Any ITR", "Missed the date, made a mistake or under-reported", [
+        "Belated return until 31 December 2026", "Revised return until 31 March 2027", "Updated return (ITR-U) up to 48 months",
+        "Late fee, interest and additional-tax computation", "Reply to defective-return notice (Section 139(9))"]),
+    "capital-gains": ("ITR-2", "Shares, mutual funds, property, gold, unlisted shares", [
+        "Broker and CAS statements imported and checked", "Pre- and post-23 July 2024 rates applied correctly", "₹1.25 lakh equity LTCG exemption and grandfathering",
+        "Loss set-off and 8-year carry-forward", "Property sale: indexation choice, 54/54EC/54F exemptions"]),
+    "fno": ("ITR-3", "Futures, options, intraday and commodity traders", [
+        "Turnover worked out per the ICAI guidance note", "Trading P&L and balance sheet prepared", "Speculative and non-speculative losses carried forward",
+        "Tax-audit applicability check (Section 44AB / 44AD)", "Brokerage, internet and advisory expenses claimed"]),
+    "crypto": ("ITR-2 / ITR-3", "Crypto, NFTs and other virtual digital assets", [
+        "Schedule VDA from exchange and wallet statements", "30% tax under Section 115BBH computed per transfer", "1% TDS (Section 194S) credit matched with AIS",
+        "Indian and foreign exchanges, P2P and airdrops", "Up to 500 transactions included"]),
+    "nri": ("ITR-2 / ITR-3", "NRIs with income or property in India", [
+        "Residential-status check (182/120-day rules)", "Rent, interest, capital gains in India", "Refund of excess TDS on property sale or NRO interest",
+        "DTAA benefit with TRC and Form 10F", "Indian bank account pre-validation for refunds"]),
+    "foreign": ("ITR-2 / ITR-3", "Residents with US stocks, RSUs, ESPP or foreign salary", [
+        "Schedule FA for the calendar year (all foreign assets)", "RSU / ESOP / ESPP perquisite and sale gains", "Form 67 for foreign tax credit under the DTAA",
+        "Schedules FSI and TR, dividends and foreign interest", "Exchange rates applied per Rule 115 / Rule 128"]),
+    "all-in-one": ("Any ITR", "Income above ₹50 lakh or many income sources", [
+        "Everything in Salary, Capital Gains, F&O, Crypto and Foreign", "Surcharge and marginal-relief optimisation", "Schedule AL (assets and liabilities)",
+        "Advance tax plan for the next year", "Dedicated senior CA, priority turnaround"]),
+    "business": ("ITR-4 / ITR-3", "Shops, traders, manufacturers, service businesses", [
+        "Presumptive income under Section 44AD", "P&L and balance sheet from your books or bank statements", "GST turnover and ITR turnover reconciled",
+        "Old vs new regime (Form 10-IEA where needed)", "Loss carry-forward and advance tax"]),
+    "firm": ("ITR-5 / ITR-4", "Partnership firms", [
+        "Firm and partner income computation", "Partner remuneration and interest within Section 40(b)", "Presumptive or regular books",
+        "Advance tax and TDS credit check", "Partners’ ITR coordination"]),
+    "company": ("ITR-5 / ITR-6", "LLPs and private limited companies", [
+        "Return from audited financials", "Section 115BAA / 115BAB rate and MAT check", "Depreciation and loss set-off",
+        "Coordination with your auditor", "Filing acknowledgement and computation"]),
+}
+PACKAGE_GROUPS = [
+    ("Salaried &amp; personal", ["salary", "freelancer", "late-revised"]),
+    ("Investors &amp; traders", ["capital-gains", "fno", "crypto"]),
+    ("NRI &amp; global income", ["nri", "foreign", "all-in-one"]),
+    ("Businesses", ["business", "firm", "company"]),
+]
+FEATURED = {"salary": "Most chosen", "fno": "Traders", "foreign": "Global"}
+
+
+def _package_card(key):
+    name, price = next((n, p) for v, n, p in PACKAGES if v == key)
+    form, who, items = PACKAGE_DETAILS[key]
+    feat = FEATURED.get(key)
+    ticks = "\n".join(f"                  <li>{i.replace('&', '&amp;')}</li>" for i in items)
+    return f"""              <div class="plan{' plan--featured' if feat else ''} reveal">
+                {f'<span class="plan__badge">{feat}</span>' if feat else ''}
+                <h4>{name.replace('&', '&amp;')}</h4>
+                <p class="plan__for">{who} · <strong>{form}</strong></p>
+                <p class="plan__price">₹{int(price):,}</p>
+                <p class="plan__tax">+ 18% GST</p>
+                <ul class="ticks">
+{ticks}
+                </ul>
+                <a class="btn {'btn--brand' if feat else 'btn--ghost'} btn--block" href="#get-started" data-modal-open data-plan="{key}" data-track="select_plan" data-location="package-{key}">Choose <span class="visually-hidden">{name.replace('&', '&amp;')} </span>package</a>
+              </div>"""
+
+
+PACKAGES_HTML = """      <!-- ================= PACKAGES ================= -->
+      <section id="packages" class="section section--first" aria-labelledby="h-packages">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Packages</span>
+            <h2 id="h-packages">A CA-assisted package for every kind of income.</h2>
+            <p>Pick the package that matches your most complex income. Every package includes regime comparison, AIS reconciliation, CA review, e-verification and refund tracking. Your fee is confirmed after a free document review, before you pay.</p>
+          </div>
+""" + "\n".join(
+    f"""          <h3 class="pkg-group reveal">{title}</h3>
+          <div class="plans">
+{chr(10).join(_package_card(k) for k in keys)}
+          </div>"""
+    for title, keys in PACKAGE_GROUPS
+) + """
+          <p class="plans-note">Tax-audit cases, books of account, more than 500 crypto transactions and notice replies are quoted separately. Tax, interest and late fees are paid to the government and are not part of our fee.</p>
+        </div>
+      </section>
+"""
+
+SELF_VS_CA_HTML = r"""      <!-- ================= SELF vs CA-ASSISTED ================= -->
+      <section id="self-vs-ca" class="section section--glow" aria-labelledby="h-self">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Two ways to file</span>
+            <h2 id="h-self">Self-filing or CA-assisted filing?</h2>
+            <p>Both are legal and both end on the same income-tax portal. The difference is who makes the judgement calls, and who answers if the department asks questions later.</p>
+          </div>
+          <div class="grid grid--2">
+            <div class="plan reveal">
+              <h3>Self-filing</h3>
+              <p class="plan__for">You prepare and file on incometax.gov.in</p>
+              <p><strong>Good for:</strong> one employer, Form 16 that matches AIS, savings interest only, no capital gains, and you are comfortable with tax rules.</p>
+              <ul class="ticks">
+                <li>You choose the ITR form and the regime</li>
+                <li>You reconcile AIS, TIS and Form 26AS</li>
+                <li>You compute and pay any balance tax</li>
+                <li>You handle any notice or mismatch later</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="#self-filing-steps" data-track="cta_click" data-location="self-filing">See the self-filing steps</a>
+            </div>
+            <div class="plan plan--featured reveal">
+              <span class="plan__badge">Recommended</span>
+              <h3>CA-assisted with Bharat e-Filing</h3>
+              <p class="plan__for">A tax expert prepares it, a CA reviews it, you approve it</p>
+              <p><strong>Good for:</strong> capital gains, F&amp;O, crypto, foreign income, rent, business income, job change, NRI status, or a large refund.</p>
+              <ul class="ticks">
+                <li>Right form, right regime, every deduction claimed</li>
+                <li>AIS mismatches fixed before they become notices</li>
+                <li>Losses carried forward correctly for future years</li>
+                <li>Help with intimations and notices after filing</li>
+              </ul>
+              <a class="btn btn--brand btn--block" href="#packages" data-track="cta_click" data-location="ca-assisted">Compare packages</a>
+            </div>
+          </div>
+
+          <div class="table compare reveal mt-16" tabindex="0">
+            <table>
+              <caption>Self-filing vs CA-assisted filing</caption>
+              <thead><tr><th scope="col">What matters</th><th scope="col">Self-filing</th><th scope="col">CA-assisted</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Time you spend</th><td>2–6 hours, more with capital gains</td><td class="yes">About 15 minutes to share documents</td></tr>
+                <tr><th scope="row">Choosing the ITR form</th><td>Wrong form = defective return (139(9))</td><td class="yes">Chosen and checked by an expert</td></tr>
+                <tr><th scope="row">Old vs new regime</th><td>Portal default is the new regime</td><td class="yes">Both computed; the cheaper one filed</td></tr>
+                <tr><th scope="row">AIS / 26AS mismatches</th><td>Easy to miss</td><td class="yes">Reconciled line by line</td></tr>
+                <tr><th scope="row">Capital gains, F&amp;O, crypto</th><td>Complex schedules and turnover rules</td><td class="yes">Computed from your statements</td></tr>
+                <tr><th scope="row">Foreign assets (Schedule FA)</th><td>Often missed; penalty risk</td><td class="yes">Reported for the calendar year</td></tr>
+                <tr><th scope="row">Loss carry-forward</th><td>Lost if schedules are wrong</td><td class="yes">Tracked year to year</td></tr>
+                <tr><th scope="row">Notices after filing</th><td>On your own</td><td class="yes">Guidance included</td></tr>
+                <tr><th scope="row">Review before filing</th><td>None</td><td class="yes">Every return reviewed by a CA</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="note reveal mt-16">
+            <span class="note__title">Decide in 10 seconds</span>
+            <p>Choose CA-assisted if <strong>any</strong> of these apply: you sold shares, funds, property or crypto; traded F&amp;O or intraday; hold foreign stocks or RSUs; changed jobs; earn rent or business income; are an NRI; have income above ₹50 lakh; or got a tax notice last year.</p>
+          </div>
+        </div>
+      </section>
+"""
+
+MAIN = MAIN.replace("<!--PACKAGES-->\n", PACKAGES_HTML).replace("<!--SELF-VS-CA-->\n", SELF_VS_CA_HTML)
+
+# ---------------------------------------------------------------- Income-specific guides (facts checked 4 Oct 2026)
+SPECIAL_CHAPTERS = r"""          <section id="special-income" class="chapter prose reveal" aria-labelledby="h-cg">
+            <span class="kicker">Capital gains</span>
+            <h2 id="h-cg">Capital gains tax rates for FY 2025-26</h2>
+            <p>Rates below apply to transfers on or after 23 July 2024 (Finance (No. 2) Act, 2024). Gains are reported in Schedule CG of ITR-2 or ITR-3; listed equity is also reported scrip-wise in Schedule 112A.</p>
+            <div class="table" tabindex="0">
+              <table>
+                <caption>Holding periods and tax rates</caption>
+                <thead><tr><th scope="col">Asset</th><th scope="col">Long-term after</th><th scope="col">Short-term rate</th><th scope="col">Long-term rate</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Listed shares, equity mutual funds (STT paid)</th><td>12 months</td><td>20%</td><td>12.5% above ₹1.25 lakh a year</td></tr>
+                  <tr><th scope="row">Other listed securities (bonds, ETFs other than debt)</th><td>12 months</td><td>Slab rate</td><td>12.5%</td></tr>
+                  <tr><th scope="row">Debt mutual funds bought on or after 1 April 2023</th><td>Never</td><td>Slab rate</td><td>Slab rate (Section 50AA)</td></tr>
+                  <tr><th scope="row">Land, building, house</th><td>24 months</td><td>Slab rate</td><td>12.5%, or 20% with indexation for resident individuals/HUFs on property bought before 23 July 2024 (pay the lower)</td></tr>
+                  <tr><th scope="row">Unlisted shares, foreign shares, physical gold</th><td>24 months</td><td>Slab rate</td><td>12.5%</td></tr>
+                  <tr><th scope="row">Crypto and other VDAs</th><td>—</td><td colspan="2">30% flat on every transfer (Section 115BBH)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <ul>
+              <li><strong>Exemptions on property gains:</strong> reinvest in a house (Section 54 / 54F, up to ₹10 crore) or in specified bonds within six months (Section 54EC, up to ₹50 lakh).</li>
+              <li><strong>Losses:</strong> short-term capital loss can be set off against any capital gain; long-term loss only against long-term gains. Unused losses carry forward for 8 years if you file on time.</li>
+              <li><strong>Section 87A rebate</strong> does not reduce tax on special-rate gains such as Section 111A or 112A.</li>
+            </ul>
+            <div class="example">
+              <span class="example__label">Example · Investor</span>
+              <p><strong>Rahul in Pune</strong> sold equity funds held for three years with a ₹2.4 lakh gain. The first ₹1.25 lakh is exempt; tax is 12.5% of ₹1.15 lakh = ₹14,375 plus 4% cess. He files ITR-2, not ITR-1, because the gain is above ₹1.25 lakh.</p>
+            </div>
+          </section>
+
+          <section id="fno" class="chapter prose reveal" aria-labelledby="h-fno">
+            <span class="kicker">F&amp;O and intraday</span>
+            <h2 id="h-fno">ITR for F&amp;O and intraday traders</h2>
+            <p class="lede">Futures and options are <strong>non-speculative business income</strong>; intraday equity trading is <strong>speculative business income</strong>. Both go in <strong>ITR-3</strong> with a profit-and-loss account and balance sheet, never in ITR-2.</p>
+            <div class="table" tabindex="0">
+              <table>
+                <caption>How trading income is treated</caption>
+                <thead><tr><th scope="col">Point</th><th scope="col">F&amp;O</th><th scope="col">Intraday equity</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Nature</th><td>Non-speculative business</td><td>Speculative business</td></tr>
+                  <tr><th scope="row">Tax rate</th><td colspan="2">Your slab rate, after deducting brokerage, STT-exclusive expenses, internet, advisory and depreciation</td></tr>
+                  <tr><th scope="row">Turnover (ICAI guidance note)</th><td>Sum of absolute profits and losses on each trade</td><td>Sum of absolute profits and losses</td></tr>
+                  <tr><th scope="row">Loss set-off</th><td>Against any income except salary</td><td>Only against speculative income</td></tr>
+                  <tr><th scope="row">Loss carry-forward</th><td>8 years</td><td>4 years</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <ul>
+              <li><strong>Tax audit (Section 44AB):</strong> required if trading turnover exceeds ₹10 crore (trading is fully digital). Below that, an audit can still apply if you opted out of presumptive taxation under Section 44AD in the last five years and your income exceeds the exemption limit. We check this before filing.</li>
+              <li><strong>File by the due date</strong> (31 August 2026 without audit, 31 October with audit) or you lose the right to carry forward losses.</li>
+              <li><strong>STT increase from 1 April 2026:</strong> 0.05% on futures (was 0.02%) and 0.15% on options premium (was 0.10%). This affects trading costs from FY 2026-27.</li>
+            </ul>
+          </section>
+
+          <section id="crypto" class="chapter prose reveal" aria-labelledby="h-crypto">
+            <span class="kicker">Crypto and VDA</span>
+            <h2 id="h-crypto">How crypto is taxed in your ITR</h2>
+            <ul>
+              <li><strong>30% flat tax</strong> plus cess on gains from every transfer of a virtual digital asset (Section 115BBH), whatever your income slab.</li>
+              <li><strong>No deductions</strong> except the cost of acquisition, and <strong>no loss set-off</strong>, even between two coins, and no carry-forward.</li>
+              <li><strong>1% TDS</strong> under Section 194S on crypto sales above ₹50,000 or ₹10,000 a year, depending on who the buyer is. Claim it from AIS / Form 26AS.</li>
+              <li><strong>Gifts and airdrops</strong> of crypto above ₹50,000 can be taxed as income from other sources in the receiver’s hands.</li>
+              <li>Report every transfer in <strong>Schedule VDA</strong> (ITR-2, or ITR-3 if you trade as a business). Exchanges report your trades to the department, so mismatches lead to notices.</li>
+            </ul>
+          </section>
+
+          <section id="foreign-nri" class="chapter prose reveal" aria-labelledby="h-foreign">
+            <span class="kicker">Foreign income and NRIs</span>
+            <h2 id="h-foreign">Foreign income, RSUs and NRI returns</h2>
+            <h3>1. Check your residential status first</h3>
+            <p>You are resident if you stayed in India <strong>182 days or more</strong> in the year, or <strong>60 days</strong> in the year and 365 days in the previous four years. For Indian citizens and PIOs visiting India, 60 becomes 182 days, or 120 days if Indian income exceeds ₹15 lakh. Residents are taxed on worldwide income; NRIs only on Indian income.</p>
+            <h3>2. Residents with foreign assets (RSUs, US stocks, foreign accounts)</h3>
+            <ul>
+              <li><strong>RSUs and ESOPs</strong> are taxed as salary when they vest or are exercised; selling them later gives capital gains (foreign shares are long-term after 24 months).</li>
+              <li><strong>Schedule FA</strong> lists every foreign asset held at any time in the <strong>calendar year</strong> (1 January–31 December 2025 for this return), even with no income.</li>
+              <li><strong>Foreign tax credit:</strong> file <strong>Form 67</strong> before the return to claim credit for US or other tax withheld under the DTAA.</li>
+              <li><strong>Penalty:</strong> not reporting foreign assets can attract a ₹10 lakh penalty under the Black Money Act. Since 1 October 2024, no penalty applies where non-property foreign assets total up to ₹20 lakh, and Budget 2026 announced a one-time disclosure window for small taxpayers.</li>
+            </ul>
+            <h3>3. NRIs with Indian income</h3>
+            <ul>
+              <li>File <strong>ITR-2</strong> (ITR-3 with business income). NRIs cannot use ITR-1 or ITR-4 and do not get the Section 87A rebate.</li>
+              <li>File even below the taxable limit to <strong>claim refunds</strong> of TDS deducted on property sales, NRO interest or rent.</li>
+              <li>Claim lower DTAA rates with a <strong>Tax Residency Certificate</strong> and Form 10F.</li>
+            </ul>
+          </section>
+
+          <section id="deductions" class="chapter prose reveal" aria-labelledby="h-ded">
+            <span class="kicker">Deductions</span>
+            <h2 id="h-ded">Deductions you can claim, by regime</h2>
+            <div class="table" tabindex="0">
+              <table>
+                <caption>Main deductions for individuals, FY 2025-26</caption>
+                <thead><tr><th scope="col">Deduction</th><th scope="col">Limit</th><th scope="col">New regime?</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Standard deduction (salary, pension)</th><td>₹75,000 new / ₹50,000 old</td><td class="yes">Yes</td></tr>
+                  <tr><th scope="row">80CCD(2) employer NPS</th><td>14% of salary (new), 10% (old, private employers)</td><td class="yes">Yes</td></tr>
+                  <tr><th scope="row">80C (PPF, ELSS, EPF, LIC, principal, fees)</th><td>₹1.5 lakh</td><td>No</td></tr>
+                  <tr><th scope="row">80CCD(1B) own NPS</th><td>₹50,000 extra</td><td>No</td></tr>
+                  <tr><th scope="row">80D health insurance</th><td>₹25,000 self + ₹25,000 parents (₹50,000 each if senior)</td><td>No</td></tr>
+                  <tr><th scope="row">Home-loan interest, self-occupied (24(b))</th><td>₹2 lakh</td><td>No (let-out property: yes)</td></tr>
+                  <tr><th scope="row">HRA (10(13A)) or 80GG rent</th><td>As per formula / ₹60,000</td><td>No</td></tr>
+                  <tr><th scope="row">80E education-loan interest</th><td>No cap, 8 years</td><td>No</td></tr>
+                  <tr><th scope="row">80G donations</th><td>50% or 100%</td><td>No</td></tr>
+                  <tr><th scope="row">80TTA / 80TTB interest</th><td>₹10,000 / ₹50,000 (seniors)</td><td>No</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="advance-tax" class="chapter prose reveal" aria-labelledby="h-adv">
+            <span class="kicker">Advance tax</span>
+            <h2 id="h-adv">Advance tax: pay during the year, not at filing</h2>
+            <p>If your tax after TDS is <strong>₹10,000 or more</strong>, pay it in instalments. Resident senior citizens without business income are exempt. Missing them costs 1% a month under Sections 234B and 234C.</p>
+            <div class="tile tile--navy">
+            <ul class="rhythm" aria-label="Advance tax instalments">
+              <li class="is-key"><b>15 Jun</b>15%</li>
+              <li><b>15 Sep</b>45%</li>
+              <li><b>15 Dec</b>75%</li>
+              <li class="is-key"><b>15 Mar</b>100%</li>
+            </ul>
+            </div>
+            <p class="muted" style="font-size: var(--fs-14)">Presumptive taxpayers under Sections 44AD and 44ADA can pay the full amount by 15 March.</p>
+          </section>
+"""
+
+MORE_CHAPTERS = r"""          <section id="self-filing-steps" class="chapter prose reveal" aria-labelledby="h-steps">
+            <span class="kicker">Self-filing guide</span>
+            <h2 id="h-steps">How to file your ITR yourself, step by step</h2>
+            <ol>
+              <li><strong>Log in</strong> at incometax.gov.in with your PAN (or Aadhaar) and password. Make sure PAN and Aadhaar are linked.</li>
+              <li><strong>Download AIS, TIS and Form 26AS</strong> from Services → Annual Information Statement. Note every income and TDS entry.</li>
+              <li><strong>Pre-validate your bank account</strong> under My Profile → My Bank Account; refunds go only there.</li>
+              <li>Go to <strong>e-File → Income Tax Returns → File Income Tax Return</strong>, select <strong>AY 2026-27</strong> and online mode.</li>
+              <li><strong>Choose your status</strong> (individual, HUF) and the <strong>ITR form</strong>. Use our form finder above if unsure.</li>
+              <li><strong>Pick your regime.</strong> Salaried taxpayers choose in the return; with business income, the old regime needs Form 10-IEA before the due date.</li>
+              <li><strong>Check the pre-filled data</strong> against AIS and Form 16, and add missing income: savings interest, previous employer, capital gains, rent.</li>
+              <li><strong>Claim deductions</strong> with proofs kept ready (old regime).</li>
+              <li><strong>Pay any balance tax</strong> through e-Pay Tax (self-assessment tax, minor head 300) and enter the challan details.</li>
+              <li><strong>Preview, submit and e-verify</strong> with Aadhaar OTP or net banking. Download the acknowledgement (ITR-V).</li>
+            </ol>
+            <div class="note note--alert">
+              <span class="note__title">Got stuck halfway?</span>
+              <p>Save the draft and <a href="#get-started" data-modal-open data-track="cta_click" data-location="self-filing-stuck">ask our experts</a>. We pick up from your AIS and finish the return.</p>
+            </div>
+          </section>
+
+          <section id="after-filing" class="chapter prose reveal" aria-labelledby="h-after">
+            <span class="kicker">After filing</span>
+            <h2 id="h-after">Intimations and notices after you file</h2>
+            <div class="table" tabindex="0">
+              <table>
+                <caption>Common communications from the Income Tax Department</caption>
+                <thead><tr><th scope="col">Section</th><th scope="col">What it means</th><th scope="col">What to do</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">143(1) intimation</th><td>Return processed; shows refund, demand or no change</td><td>Compare with your computation</td></tr>
+                  <tr><th scope="row">143(1)(a) proposed adjustment</th><td>Mismatch with AIS, 26AS or Form 16</td><td>Respond online within 30 days</td></tr>
+                  <tr><th scope="row">139(9) defective return</th><td>Wrong form or missing details</td><td>Correct within 15 days, or the return is treated as not filed</td></tr>
+                  <tr><th scope="row">245 refund adjustment</th><td>Refund to be set off against an old demand</td><td>Agree or disagree within 30 days</td></tr>
+                  <tr><th scope="row">143(2) scrutiny</th><td>Detailed assessment of your return</td><td>Reply with documents on the e-proceedings tab</td></tr>
+                  <tr><th scope="row">148A / 148 reassessment</th><td>Department believes income escaped tax</td><td>Get professional help immediately</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p><strong>Check refund status:</strong> e-File → Income Tax Returns → View Filed Returns on the portal. Every Bharat e-Filing package includes guidance on intimations; full notice replies are quoted separately.</p>
+          </section>
+
+          <section id="mistakes" class="chapter prose reveal" aria-labelledby="h-mistakes">
+            <span class="kicker">Avoid notices</span>
+            <h2 id="h-mistakes">10 ITR mistakes that trigger notices</h2>
+            <ol>
+              <li>Filing the wrong ITR form (for example ITR-1 with F&amp;O or capital gains above ₹1.25 lakh).</li>
+              <li>Ignoring income shown in AIS: savings and FD interest, dividends, rent.</li>
+              <li>Leaving out a previous employer’s salary after a job change.</li>
+              <li>Not reporting foreign shares, RSUs or bank accounts in Schedule FA.</li>
+              <li>Reporting crypto as normal capital gains or setting off crypto losses.</li>
+              <li>Claiming old-regime deductions with business income without filing Form 10-IEA.</li>
+              <li>Claiming HRA and Section 80GG together, or HRA without rent receipts.</li>
+              <li>Not paying self-assessment tax before filing.</li>
+              <li>Filing after the due date and losing the right to carry forward losses.</li>
+              <li>Forgetting to e-verify within 30 days.</li>
+            </ol>
+          </section>
+"""
+
+MAIN = MAIN.replace("<!--SPECIAL-CHAPTERS-->\n", SPECIAL_CHAPTERS).replace("<!--MORE-CHAPTERS-->\n", MORE_CHAPTERS)
