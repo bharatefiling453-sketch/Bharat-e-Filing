@@ -1,0 +1,48 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="fonts.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1350px;overflow:hidden;background:#2E4A3A;font-family:Inter,sans-serif;position:relative}
+.desk{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#3d5f4b,#22392c)}
+.card{position:absolute;left:84px;top:70px;width:912px;height:1020px;transform:rotate(-1.6deg);background:#FBF5E6;box-shadow:0 40px 70px rgba(0,0,0,.45);padding:34px}
+.card:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 47px,rgba(70,110,170,.18) 47px 49px);pointer-events:none}
+.border{position:absolute;inset:22px;border:4px double #3E5C9A}
+.in{position:relative;padding:34px 40px}
+.school{text-align:center;font-family:Fraunces;font-weight:900;font-size:46px;color:#2B3F73;letter-spacing:.02em}
+.sub{text-align:center;font-family:'JetBrains Mono';font-size:22px;color:#55628a;margin-top:6px;letter-spacing:.1em}
+.name{margin-top:26px;display:flex;justify-content:space-between;font-size:26px;color:#2B3F73;font-weight:600}
+.name span{font-family:Kalam;font-size:34px;color:#1d2b55;font-weight:700;border-bottom:2px dotted #2B3F73;padding:0 10px}
+table{width:100%;border-collapse:collapse;margin-top:28px;font-size:30px;color:#1d2b55}
+th{font-family:'JetBrains Mono';font-size:20px;text-transform:uppercase;letter-spacing:.1em;text-align:left;border-bottom:3px solid #2B3F73;padding:10px 8px;color:#55628a}
+th:last-child,td:last-child{text-align:center;width:170px}
+td{padding:12px 8px;border-bottom:1.5px solid rgba(43,63,115,.35);font-weight:600}
+td.g{font-family:Kalam;font-weight:700;font-size:46px;color:#1F6E3A}
+tr.fail td{color:#B3261E}
+tr.fail td.g{color:#B3261E;font-size:60px}
+.fail small{display:block;font-size:22px;font-weight:500;color:#B3261E;opacity:.85}
+.ring{display:inline-block;border:5px solid #C62828;border-radius:50%;padding:0 26px;line-height:1.15;transform:rotate(-10deg)}
+.stamp{position:absolute;right:30px;top:880px;transform:rotate(-8deg);border:6px solid rgba(198,40,40,.85);color:rgba(198,40,40,.85);font-family:'Archivo Black';font-size:46px;padding:6px 26px;letter-spacing:.08em;border-radius:10px}
+.remark{margin-top:40px;font-size:22px;font-family:'JetBrains Mono';color:#55628a;letter-spacing:.08em}
+.hand{font-family:Caveat;font-weight:700;font-size:56px;color:#C62828;line-height:1.05;margin-top:6px;transform:rotate(-1.5deg)}
+.foot{position:absolute;left:84px;right:84px;bottom:58px;display:flex;justify-content:space-between;align-items:center;color:#F4EEDC}
+.foot .l{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1.25}
+.foot .l small{display:block;font-size:22px;font-weight:500;opacity:.8;letter-spacing:0}
+.btn{background:#F5C542;color:#1c1c1c;font-weight:800;font-size:30px;padding:24px 34px;border-radius:14px;white-space:nowrap}
+</style></head><body>
+<div class="desk"></div>
+<div class="card"><div class="border"></div><div class="in">
+  <div class="school">PROGRESS REPORT</div>
+  <div class="sub">ANNUAL COMPLIANCE · FY 2025–26</div>
+  <div class="name">Student: <span>Aapki Company Pvt. Ltd.</span></div>
+  <table>
+    <tr><th>Subject</th><th>Grade</th></tr>
+    <tr><td>GST Returns</td><td class="g">A+</td></tr>
+    <tr><td>Income Tax</td><td class="g">A</td></tr>
+    <tr><td>Bank &amp; Books</td><td class="g">A</td></tr>
+    <tr class="fail"><td>ROC Filing<small>AOC-4 · MGT-7 / 7A</small></td><td class="g"><span class="ring">F</span></td></tr>
+  </table>
+  <div class="stamp">PENDING</div>
+  <div class="remark">TEACHER'S REMARK:</div>
+  <div class="hand">Sab subjects mein first, bas ROC mein fail. Re-exam abhi do!</div>
+</div></div>
+<div class="foot"><div class="l">AOC-4 + MGT-7, ek saath.<small>Bharat eFiling · CA &amp; CS team · 11+ yrs</small></div><div class="btn">Free ROC check →</div></div>
+</body></html>

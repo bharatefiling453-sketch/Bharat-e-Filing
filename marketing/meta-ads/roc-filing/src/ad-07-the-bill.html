@@ -1,0 +1,49 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="fonts.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1080px;height:1350px;overflow:hidden;background:#1F3BFF;font-family:'JetBrains Mono',monospace;position:relative}
+.bgtxt{position:absolute;inset:0;color:rgba(255,255,255,.06);font-family:'Archivo Black';font-size:220px;line-height:.9;letter-spacing:-.04em;word-break:break-all;padding:20px}
+.receipt{position:absolute;left:150px;top:120px;width:600px;background:#FDFDFB;color:#1a1a1a;padding:46px 44px 30px;transform:rotate(-3deg);box-shadow:0 40px 80px rgba(0,0,40,.45);
+ -webkit-mask: radial-gradient(circle 12px at 50% 0,transparent 98%,#000) 0 0/30px 100% repeat-x, linear-gradient(#000,#000);}
+.receipt:after{content:"";position:absolute;left:0;right:0;bottom:-18px;height:18px;background:linear-gradient(-45deg,transparent 12px,#FDFDFB 0) 0 0/24px 24px repeat-x,linear-gradient(45deg,transparent 12px,#FDFDFB 0) 0 0/24px 24px repeat-x}
+.c{text-align:center}
+.title{font-weight:800;font-size:30px;letter-spacing:.04em;line-height:1.25}
+.small{font-size:18px;color:#666;margin-top:8px}
+.dash{border-top:3px dashed #999;margin:22px 0}
+.li{display:flex;justify-content:space-between;gap:16px;font-size:22px;line-height:1.35;margin:14px 0}
+.li span:last-child{font-weight:800;white-space:nowrap}
+.li em{font-style:normal;display:block;font-size:17px;color:#777}
+.warn{color:#C8102E}
+.tot{display:flex;justify-content:space-between;font-weight:800;font-size:34px}
+.tot2{text-align:right;color:#C8102E;font-weight:800;font-size:20px;margin-top:4px}
+.bar{height:56px;margin-top:22px;background:repeating-linear-gradient(90deg,#1a1a1a 0 3px,transparent 3px 6px,#1a1a1a 6px 7px,transparent 7px 12px,#1a1a1a 12px 16px,transparent 16px 19px)}
+.thanks{font-size:16px;color:#777;text-align:center;margin-top:10px}
+.stamp{position:absolute;left:600px;top:840px;transform:rotate(-14deg);border:7px solid #FF3B5C;color:#FF3B5C;font-family:'Archivo Black';font-size:58px;padding:2px 22px;border-radius:8px;background:rgba(31,59,255,.0)}
+.alt{position:absolute;left:84px;right:84px;bottom:70px;background:#fff;border-radius:30px;padding:40px 44px;font-family:Inter;box-shadow:0 30px 60px rgba(0,0,40,.35)}
+.alt .h{font-size:42px;white-space:nowrap;font-weight:900;letter-spacing:-.035em;color:#0b0b0b;line-height:1.05}
+.alt .h span{color:#1F3BFF}
+.alt .s{font-size:24px;color:#444;font-weight:500;line-height:1.4}
+.alt .row{display:flex;justify-content:space-between;align-items:center;margin-top:26px}
+.alt .btn{background:#1F3BFF;color:#fff;font-weight:800;font-size:28px;padding:22px 28px;border-radius:999px;white-space:nowrap}
+</style></head><body>
+<div class="bgtxt">LATEFEELATEFEELATEFEE</div>
+<div class="receipt">
+  <div class="c title">BILL<br>ROC IGNORE KARNE KA</div>
+  <div class="c small">Example · 180 din late · per form</div>
+  <div class="dash"></div>
+  <div class="li"><span>AOC-4 late fee<em>180 din × ₹100</em></span><span>₹18,000</span></div>
+  <div class="li"><span>MGT-7 late fee<em>180 din × ₹100</em></span><span>₹18,000</span></div>
+  <div class="li warn"><span>3 saal non-filing<em>Director disqualification risk</em></span><span>⚠</span></div>
+  <div class="li warn"><span>Company strike-off risk</span><span>⚠</span></div>
+  <div class="dash"></div>
+  <div class="tot"><span>TOTAL</span><span>₹36,000+</span></div>
+  <div class="tot2">…aur roz badh raha hai</div>
+  <div class="bar"></div>
+  <div class="thanks">*Normal govt filing fee alag</div>
+</div>
+<div class="stamp">YA PHIR?</div>
+<div class="alt">
+  <div class="h">Bharat eFiling: <span>fixed fee, all-inclusive.</span></div>
+  <div class="row"><div class="s">Penalty rokiye, aaj hi file karein.<br>CA &amp; CS team · 11+ yrs</div><div class="btn">Free penalty check →</div></div>
+</div>
+</body></html>
