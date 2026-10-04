@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
     <!-- ===== PRIMARY SEO ===== -->
-    <title>Income Tax Return (ITR) Filing Online | Bharat e-Filing</title>
+    <title>File ITR Online Yourself or with a CA | Bharat e-Filing</title>
     <meta
       name="description"
-      content="File your ITR online with CA experts. AY 2026-27 due dates, old vs new regime calculator, ITR form finder, refunds, belated and updated returns explained."
+      content="File your ITR yourself in minutes with data imported from AIS and Form 26AS, or let a CA file it. AY 2026-27 due dates, calculators, F&amp;O, crypto and NRI."
     />
     <link rel="canonical" href="https://bharatefiling.com/income-tax-return-filing/" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -23,8 +23,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_IN" />
     <meta property="og:site_name" content="Bharat eFiling" />
-    <meta property="og:title" content="Income Tax Return Filing Online – ITR by CA Experts" />
-    <meta property="og:description" content="CA-reviewed ITR filing for salaried, freelancers, businesses, firms, LLPs and companies. Free regime calculator and ITR form finder." />
+    <meta property="og:title" content="File your ITR yourself in minutes, or with a CA" />
+    <meta property="og:description" content="Self-file with auto-import from the Income Tax Department, or choose a CA-assisted package for capital gains, F&amp;O, crypto, NRI and business income." />
     <meta property="og:url" content="https://bharatefiling.com/income-tax-return-filing/" />
     <meta property="og:image" content="https://bharatefiling.com/wp-content/uploads/og/income-tax-return-filing-1200x630.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -32,8 +32,8 @@
     <meta property="og:image:alt" content="Bharat e-Filing – Income Tax Return Filing" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@bharatefiling" />
-    <meta name="twitter:title" content="Income Tax Return Filing Online – ITR by CA Experts" />
-    <meta name="twitter:description" content="CA-reviewed ITR filing for salaried, freelancers, businesses, firms, LLPs and companies. Free regime calculator and ITR form finder." />
+    <meta name="twitter:title" content="File your ITR yourself in minutes, or with a CA" />
+    <meta name="twitter:description" content="Self-file with auto-import from the Income Tax Department, or choose a CA-assisted package for capital gains, F&amp;O, crypto, NRI and business income." />
     <meta name="twitter:image" content="https://bharatefiling.com/wp-content/uploads/og/income-tax-return-filing-1200x630.jpg" />
 
     <!-- ===== SEARCH ENGINE VERIFICATION (replace tokens) ===== -->
@@ -2798,6 +2798,127 @@ a.card:hover {
   color: #fff;
 }
 
+/* App preview (self-filing hero) */
+.app-mock {
+  margin: 0;
+  padding: var(--s-6);
+  border: 1px solid var(--hairline);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: var(--shadow-3);
+}
+
+.app-mock__bar {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: calc(var(--s-6) * -1) calc(var(--s-6) * -1) var(--s-4);
+  padding: 12px var(--s-6);
+  border-bottom: 1px solid var(--hairline);
+  border-radius: 24px 24px 0 0;
+  background: #fafbfe;
+}
+
+.app-mock__bar span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--hairline-strong);
+}
+
+.app-mock__bar b {
+  margin-left: 8px;
+  font-size: var(--fs-14);
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.app-mock__steps {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.app-mock__steps li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border: 1px solid var(--hairline);
+  border-radius: 14px;
+}
+
+.app-mock__steps strong {
+  display: block;
+  font-size: var(--fs-15);
+  color: var(--navy);
+}
+
+.app-mock__steps small {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--ink-3);
+}
+
+.app-mock__dot {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--leaf);
+}
+
+.app-mock__steps li.is-active {
+  border-color: var(--saffron);
+  background: #fff8f0;
+}
+
+.app-mock__steps li.is-active .app-mock__dot {
+  background: linear-gradient(135deg, var(--saffron), var(--amber));
+  color: var(--navy);
+}
+
+.app-mock__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.app-mock__chips span {
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  background: #eef1fa;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.app-mock__cta {
+  display: block;
+  margin-top: var(--s-4);
+  padding: 12px;
+  border-radius: var(--r-pill);
+  background: linear-gradient(90deg, var(--saffron), var(--amber));
+  font-weight: 700;
+  text-align: center;
+  color: var(--navy);
+}
+
+.app-mock figcaption {
+  margin-top: 10px;
+  font-size: 12.5px;
+  text-align: center;
+  color: var(--ink-3);
+}
+
 </style>
     <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii00MCAwIDU2NSA1NjgiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iQmhhcmF0IGVGaWxpbmciPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJvIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0ZGODgxMyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNGQ0MyMjQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMkY2RjI3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzRFQjAzRiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHBhdGggZmlsbD0idXJsKCNvKSIgZD0iTTAgMGg0ODV2MTQySDE0MXYyODhoMzQ0djEzOEgweiIvPgogIDxwYXRoIGZpbGw9InVybCgjZykiIGQ9Ik0zMzEgMTQyaDE0OEwzMjYgMjg0bC03Mi02OHoiLz4KICA8cGF0aCBmaWxsPSIjNEVCMDNGIiBkPSJNMjU0IDIxNmw3MiA2OCAxNTcgMTQ2SDMzNmwtODItNzZ6Ii8+Cjwvc3ZnPgo=" type="image/svg+xml" />
 
@@ -2876,8 +2997,8 @@ a.card:hover {
             "@type": "WebPage",
             "@id": "https://bharatefiling.com/income-tax-return-filing/#webpage",
             "url": "https://bharatefiling.com/income-tax-return-filing/",
-            "name": "Income Tax Return (ITR) Filing Online | Bharat e-Filing",
-            "description": "File your ITR online with CA experts. AY 2026-27 due dates, old vs new regime calculator, ITR form finder, refunds, belated and updated returns explained.",
+            "name": "File ITR Online Yourself or with a CA | Bharat e-Filing",
+            "description": "File your ITR yourself in minutes with data imported from AIS and Form 26AS, or let a CA file it. AY 2026-27 due dates, calculators, F&O, crypto and NRI.",
             "inLanguage": "en-IN",
             "isPartOf": {
               "@id": "https://bharatefiling.com/#website"
@@ -3038,6 +3159,27 @@ a.card:hover {
                   "priceCurrency": "INR",
                   "availability": "https://schema.org/InStock",
                   "url": "https://bharatefiling.com/income-tax-return-filing/#packages"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Self-file Basic",
+                  "price": "0",
+                  "priceCurrency": "INR",
+                  "url": "https://bharatefiling.com/income-tax-return-filing/#self-filing"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Self-file Plus",
+                  "price": "499",
+                  "priceCurrency": "INR",
+                  "url": "https://bharatefiling.com/income-tax-return-filing/#self-filing"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Self-file Pro",
+                  "price": "999",
+                  "priceCurrency": "INR",
+                  "url": "https://bharatefiling.com/income-tax-return-filing/#self-filing"
                 }
               ]
             }
@@ -3189,10 +3331,34 @@ a.card:hover {
               },
               {
                 "@type": "Question",
+                "name": "Can I file my ITR myself on Bharat e-Filing?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Sign up with your PAN, approve access with the OTP sent by the Income Tax Department, and we import your pre-filled data, AIS and Form 26AS. You review the suggested ITR form, regime and deductions, then file and e-verify with Aadhaar OTP. Self-filing is free for simple salary returns."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is it safe to file my ITR through Bharat e-Filing?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Bharat e-Filing files through the Income Tax Department's e-Return Intermediary (ERI) system. We access your data only after you approve with an OTP from the department, use it only to prepare and file your return under the DPDP Act, 2023, and never sell it. You can withdraw access anytime."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is an e-Return Intermediary (ERI)?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "An ERI is an entity registered with the Income Tax Department to file returns on behalf of taxpayers. Type-2 ERIs build their own filing software that connects to the department's APIs to fetch pre-filled data, validate and submit returns, so taxpayers do not have to retype their information."
+                }
+              },
+              {
+                "@type": "Question",
                 "name": "Should I file my ITR myself or with a CA?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "Self-filing on the income-tax portal works if you have one employer, your Form 16 matches AIS and you have no capital gains. Choose CA-assisted filing if you sold shares, funds, property or crypto, traded F&O, hold foreign assets or RSUs, changed jobs, earn rent or business income, are an NRI or received a notice."
+                  "text": "Self-filing on Bharat e-Filing suits salary, interest, rent and most capital gains, because data is imported and checked automatically. Choose CA-assisted filing if you hold foreign assets or RSUs, are an NRI, need a tax audit, have business income with books, received a notice, or want an expert to take responsibility for the return."
                 }
               },
               {
@@ -3325,22 +3491,23 @@ a.card:hover {
       <div class="wrap">
         <span class="localnav__title">Income Tax Return Filing</span>
         <ul>
+          <li><a href="#self-filing">Self-file</a></li>
+          <li><a href="#expert">CA-assisted</a></li>
           <li><a href="#packages">Packages</a></li>
-          <li><a href="#self-vs-ca">Self vs CA</a></li>
+          <li><a href="#self-vs-ca">Compare</a></li>
           <li><a href="#tools">Calculators</a></li>
-          <li><a href="#itr-forms">ITR forms</a></li>
           <li><a href="#due-dates">Due dates</a></li>
           <li><a href="#tax-regimes">Tax slabs</a></li>
           <li><a href="#special-income">F&amp;O, crypto, foreign</a></li>
           <li><a href="#faqs">FAQs</a></li>
         </ul>
-        <a class="btn btn--brand btn--sm" href="#get-started" data-modal-open data-track="cta_click" data-location="localnav">File my ITR</a>
+        <a class="btn btn--brand btn--sm" href="https://bharatefiling.com/itr/start/" data-track="app_start" data-location="localnav">Start filing</a>
       </div>
     </nav>
 
     <main id="main">
 
-      <!-- ================= HERO ================= -->
+      <!-- ================= HERO: SELF-FILING APP ================= -->
       <section class="hero" aria-labelledby="page-title">
         <div class="hero__aurora" aria-hidden="true"><span></span><span></span><span></span></div>
         <div class="wrap hero__grid">
@@ -3352,23 +3519,165 @@ a.card:hover {
                 <li aria-current="page">ITR Filing</li>
               </ol>
             </nav>
-            <a class="pill-new" href="#whats-new" data-rise style="--i: 1"><span class="pill-new__tag">New</span>Revised returns now allowed till 31 March</a>
-            <h1 id="page-title" data-rise style="--i: 2">Income Tax Return Filing, <span class="text-gradient">done by experts.</span></h1>
-            <p class="hero__sub" data-rise style="--i: 3">Salary, capital gains, F&amp;O, crypto, foreign income, NRI or business. We pick the right form and regime, claim every deduction and file it, reviewed by a CA.</p>
+            <a class="pill-new" href="#self-filing" data-rise style="--i: 1"><span class="pill-new__tag">New</span>Self-filing for AY 2026-27 is here</a>
+            <h1 id="page-title" data-rise style="--i: 2">File your ITR yourself, <span class="text-gradient">in minutes.</span></h1>
+            <p class="hero__sub" data-rise style="--i: 3">With your consent, we fetch your AIS, Form 26AS and pre-filled data straight from the Income Tax Department, pick the right ITR form and regime, and you file and e-verify without leaving Bharat e-Filing.</p>
             <div class="btn-row" data-rise style="--i: 4">
-              <a class="btn btn--brand" href="#get-started" data-track="cta_click" data-location="hero">File my ITR</a>
-              <a class="btn btn--ghost" href="#tools" data-track="cta_click" data-location="hero-tools">Compare tax regimes</a>
+              <a class="btn btn--brand" href="https://bharatefiling.com/itr/start/" data-track="app_start" data-location="hero">Start filing free</a>
+              <a class="btn btn--ghost" href="#expert" data-track="cta_click" data-location="hero-expert">Let a CA file it</a>
             </div>
-            <!-- Add real, verifiable numbers here later (returns filed, Google rating). Never estimate. -->
             <ul class="assurances" data-rise style="--i: 5">
-              <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check" /></svg>CA-reviewed</li>
-              <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check" /></svg>AIS reconciled</li>
-              <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check" /></svg>Hindi &amp; English</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check" /></svg>Pre-filled from AIS</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check" /></svg>Regime auto-compared</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check" /></svg>E-verify with Aadhaar OTP</li>
             </ul>
           </div>
 
-          <div class="form-card" id="get-started" data-rise style="--i: 3">
-            <h2>Get your ITR filed</h2>
+          <figure class="app-mock" data-rise style="--i: 3">
+            <div class="app-mock__bar" aria-hidden="true"><span></span><span></span><span></span><b>Bharat e-Filing · ITR AY 2026-27</b></div>
+            <ol class="app-mock__steps" aria-label="Sample self-filing flow">
+              <li class="is-done"><span class="app-mock__dot" aria-hidden="true">✓</span><div><strong>PAN verified</strong><small>ABCPS1234K · Resident individual</small></div></li>
+              <li class="is-done"><span class="app-mock__dot" aria-hidden="true">✓</span><div><strong>Imported from Income Tax Department</strong><small>Form 16 · AIS · Form 26AS · pre-filled data</small>
+                <span class="app-mock__chips"><span>Salary ₹14,20,000</span><span>TDS ₹96,400</span><span>Interest ₹18,350</span></span></div></li>
+              <li class="is-done"><span class="app-mock__dot" aria-hidden="true">✓</span><div><strong>ITR-1 selected · New regime</strong><small>Saves ₹41,600 over the old regime</small></div></li>
+              <li class="is-active"><span class="app-mock__dot" aria-hidden="true">4</span><div><strong>Refund due: ₹22,150</strong><small>Ready to file and e-verify</small></div></li>
+            </ol>
+            <span class="app-mock__cta" aria-hidden="true">File &amp; e-verify</span>
+            <figcaption>Illustrative example. Your figures come from your own records.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ================= TICKER ================= -->
+      <section class="ticker" aria-label="Latest income tax updates" tabindex="0">
+        <ul class="ticker__track">
+          <li><time datetime="2026-12-31">31 Dec 2026</time>Last date for belated ITR for FY 2025-26</li>
+          <li><time datetime="2026-04-01">1 Apr 2026</time>Income-tax Act, 2025 in force; returns for FY 2025-26 still under the 1961 Act</li>
+          <li><time datetime="2026-02-01">Budget 2026</time>ITR-3/4 non-audit due date moved to 31 August; revised returns till 31 March</li>
+          <li><time datetime="2026-03-30">30 Mar 2026</time>ITR forms for AY 2026-27 notified; ITR-1 now covers two house properties</li>
+          <li><time datetime="2025-04-01">FY 2025-26</time>Zero tax up to ₹12 lakh under the new regime</li>
+          <li><time datetime="2026-04-01">1 Apr 2026</time>STT on futures up to 0.05%, on options to 0.15%</li>
+          <li aria-hidden="true"><time>31 Dec 2026</time>Last date for belated ITR for FY 2025-26</li>
+          <li aria-hidden="true"><time>1 Apr 2026</time>Income-tax Act, 2025 in force; returns for FY 2025-26 still under the 1961 Act</li>
+          <li aria-hidden="true"><time>Budget 2026</time>ITR-3/4 non-audit due date moved to 31 August; revised returns till 31 March</li>
+          <li aria-hidden="true"><time>30 Mar 2026</time>ITR forms for AY 2026-27 notified; ITR-1 now covers two house properties</li>
+          <li aria-hidden="true"><time>FY 2025-26</time>Zero tax up to ₹12 lakh under the new regime</li>
+          <li aria-hidden="true"><time>1 Apr 2026</time>STT on futures up to 0.05%, on options to 0.15%</li>
+        </ul>
+      </section>
+
+      <!-- ================= SELF-FILING ================= -->
+      <section id="self-filing" class="section section--first" aria-labelledby="h-selffile">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Self-filing</span>
+            <h2 id="h-selffile">Your data comes in. Your ITR goes out.</h2>
+            <p>Bharat e-Filing connects to the Income Tax Department’s e-filing system through its official e-Return Intermediary (ERI) APIs, so you don’t retype anything and nothing is filed without your approval.</p>
+          </div>
+          <ol class="stepper">
+            <li style="--i: 0"><span class="when">1 min</span><h3>Sign up with PAN</h3><p>Mobile OTP and PAN. No documents needed to start.</p></li>
+            <li style="--i: 1"><span class="when">1 min</span><h3>Approve access</h3><p>Confirm with the OTP the Income Tax Department sends you. You can withdraw consent anytime.</p></li>
+            <li style="--i: 2"><span class="when">Automatic</span><h3>We import</h3><p>Pre-filled return data, AIS, TIS and Form 26AS. Upload Form 16, broker or crypto statements and we read them.</p></li>
+            <li style="--i: 3"><span class="when">5 min</span><h3>Review</h3><p>Right ITR form, cheaper regime, every deduction, and alerts for any mismatch with AIS.</p></li>
+            <li style="--i: 4"><span class="when">1 min</span><h3>File &amp; e-verify</h3><p>Submit and e-verify with Aadhaar OTP in the app, then track your refund.</p></li>
+          </ol>
+
+          <div class="bento mt-16">
+            <div class="tile tile--wide tile--navy reveal">
+              <h3>Mismatch alerts before you file</h3>
+              <p>Most tax notices start with income missing from the return but present in AIS. We compare every AIS line with your return and flag what is missing, before the department does.</p>
+            </div>
+            <div class="tile tile--brand reveal">
+              <span class="tile__stat">2 regimes</span>
+              <h3>Always compared</h3>
+              <p>We compute old and new regime tax and pick the lower one.</p>
+            </div>
+            <div class="tile reveal">
+              <span class="tile__stat">F&amp;O · crypto</span>
+              <h3>Statements read for you</h3>
+              <p>Broker P&amp;L, mutual-fund CAS and exchange reports become ready schedules.</p>
+            </div>
+            <div class="tile tile--leaf reveal">
+              <span class="tile__stat">1 tap</span>
+              <h3>Switch to a CA</h3>
+              <p>Stuck? Hand your draft to our CA team. Nothing to re-upload.</p>
+            </div>
+            <div class="tile reveal">
+              <span class="tile__stat">Your data</span>
+              <h3>Consent first</h3>
+              <p>Used only to file your return, under the DPDP Act, 2023. Never sold.</p>
+            </div>
+          </div>
+
+          <h3 class="pkg-group center reveal">Self-filing plans</h3>
+          <div class="plans">
+            <div class="plan reveal">
+              
+              <h3>Self-file Basic</h3>
+              <p class="plan__for">ITR-1</p>
+              <p class="plan__price">Free</p>
+              <p class="plan__tax">No card needed</p>
+              <ul class="ticks">
+                <li>Salary or pension (one Form 16)</li>
+                <li>Up to two house properties</li>
+                <li>Interest and dividend income</li>
+                <li>Auto-import from AIS and Form 26AS</li>
+                <li>Regime comparison and e-verify</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="https://bharatefiling.com/itr/start/?plan=self-basic" data-track="app_start" data-location="plan-self-basic">Start filing<span class="visually-hidden"> with Self-file Basic</span></a>
+            </div>
+            <div class="plan plan--featured reveal">
+              <span class="plan__badge">Investors</span>
+              <h3>Self-file Plus</h3>
+              <p class="plan__for">ITR-1 / ITR-2</p>
+              <p class="plan__price">₹499</p>
+              <p class="plan__tax">+ 18% GST, per return</p>
+              <ul class="ticks">
+                <li>Everything in Basic</li>
+                <li>Multiple Form 16 (job change)</li>
+                <li>Capital gains from broker and CAS statements</li>
+                <li>Property sale with indexation choice</li>
+                <li>Loss carry-forward</li>
+              </ul>
+              <a class="btn btn--brand btn--block" href="https://bharatefiling.com/itr/start/?plan=self-plus" data-track="app_start" data-location="plan-self-plus">Start filing<span class="visually-hidden"> with Self-file Plus</span></a>
+            </div>
+            <div class="plan reveal">
+              
+              <h3>Self-file Pro</h3>
+              <p class="plan__for">ITR-2 / ITR-3 / ITR-4</p>
+              <p class="plan__price">₹999</p>
+              <p class="plan__tax">+ 18% GST, per return</p>
+              <ul class="ticks">
+                <li>Everything in Plus</li>
+                <li>F&amp;O and intraday with turnover auto-calculated</li>
+                <li>Crypto (Schedule VDA)</li>
+                <li>Freelancer and presumptive business income</li>
+                <li>Foreign assets (Schedule FA) and Form 67 reminder</li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="https://bharatefiling.com/itr/start/?plan=self-pro" data-track="app_start" data-location="plan-self-pro">Start filing<span class="visually-hidden"> with Self-file Pro</span></a>
+            </div>
+          </div>
+          <p class="plans-note">Add a <strong>CA review before you file</strong> to any self-filing plan for ₹999 + GST. ERI registration no.: REPLACE_ERI_ID.</p>
+        </div>
+      </section>
+
+      <!-- ================= CA-ASSISTED (lead form) ================= -->
+      <section id="expert" class="section section--glow" aria-labelledby="h-expert">
+        <div class="wrap hero__grid">
+          <div class="reveal">
+            <span class="kicker">CA-assisted filing</span>
+            <h2 id="h-expert">Prefer an expert? Let a CA file it.</h2>
+            <p class="lede">Send your documents on WhatsApp. A tax expert prepares your return, a Chartered Accountant reviews it, and you approve it before filing. Best for capital gains, F&amp;O, crypto, foreign income, NRIs and business income.</p>
+            <ul class="ticks">
+              <li>Free first review of your documents and a fixed quote</li>
+              <li>Old vs new regime and every deduction checked</li>
+              <li>AIS and Form 26AS reconciled line by line</li>
+              <li>Help with intimations and notices after filing</li>
+            </ul>
+            <p><a class="link-arrow" href="#packages">See all 12 CA-assisted packages</a></p>
+          </div>
+          <div class="form-card reveal" id="get-started">
+            <h3>Get your ITR filed by a CA</h3>
             <p>Pick your plan. An expert calls you back to collect your documents.</p>
             <form id="itr-lead-form" data-lead-form novalidate>
               <!-- PROPOSED prices: keep in sync with PACKAGES at the top of this file. -->
@@ -3414,30 +3723,12 @@ a.card:hover {
         </div>
       </section>
 
-      <!-- ================= TICKER ================= -->
-      <section class="ticker" aria-label="Latest income tax updates" tabindex="0">
-        <ul class="ticker__track">
-          <li><time datetime="2026-12-31">31 Dec 2026</time>Last date for belated ITR for FY 2025-26</li>
-          <li><time datetime="2026-04-01">1 Apr 2026</time>Income-tax Act, 2025 in force; returns for FY 2025-26 still under the 1961 Act</li>
-          <li><time datetime="2026-02-01">Budget 2026</time>ITR-3/4 non-audit due date moved to 31 August; revised returns till 31 March</li>
-          <li><time datetime="2026-03-30">30 Mar 2026</time>ITR forms for AY 2026-27 notified; ITR-1 now covers two house properties</li>
-          <li><time datetime="2025-04-01">FY 2025-26</time>Zero tax up to ₹12 lakh under the new regime</li>
-          <li><time datetime="2026-04-01">1 Apr 2026</time>STT on futures up to 0.05%, on options to 0.15%</li>
-          <li aria-hidden="true"><time>31 Dec 2026</time>Last date for belated ITR for FY 2025-26</li>
-          <li aria-hidden="true"><time>1 Apr 2026</time>Income-tax Act, 2025 in force; returns for FY 2025-26 still under the 1961 Act</li>
-          <li aria-hidden="true"><time>Budget 2026</time>ITR-3/4 non-audit due date moved to 31 August; revised returns till 31 March</li>
-          <li aria-hidden="true"><time>30 Mar 2026</time>ITR forms for AY 2026-27 notified; ITR-1 now covers two house properties</li>
-          <li aria-hidden="true"><time>FY 2025-26</time>Zero tax up to ₹12 lakh under the new regime</li>
-          <li aria-hidden="true"><time>1 Apr 2026</time>STT on futures up to 0.05%, on options to 0.15%</li>
-        </ul>
-      </section>
-
       <!-- ================= PACKAGES ================= -->
-      <section id="packages" class="section section--first" aria-labelledby="h-packages">
+      <section id="packages" class="section" aria-labelledby="h-packages">
         <div class="wrap">
           <div class="section-head reveal">
             <span class="kicker">Packages</span>
-            <h2 id="h-packages">A CA-assisted package for every kind of income.</h2>
+            <h2 id="h-packages">CA-assisted packages for every kind of income.</h2>
             <p>Pick the package that matches your most complex income. Every package includes regime comparison, AIS reconciliation, CA review, e-verification and refund tracking. Your fee is confirmed after a free document review, before you pay.</p>
           </div>
           <h3 class="pkg-group reveal">Salaried &amp; personal</h3>
@@ -3455,7 +3746,7 @@ a.card:hover {
                   <li>Old vs new regime comparison</li>
                   <li>TDS refund claim and tracking</li>
                 </ul>
-                <a class="btn btn--brand btn--block" href="#get-started" data-modal-open data-plan="salary" data-track="select_plan" data-location="package-salary">Choose <span class="visually-hidden">Salary &amp; Pension </span>package</a>
+                <a class="btn btn--brand btn--block" href="#get-started" data-modal-open data-plan="salary" data-track="select_plan" data-location="package-salary">Choose package<span class="visually-hidden">: Salary &amp; Pension</span></a>
               </div>
               <div class="plan reveal">
                 
@@ -3470,7 +3761,7 @@ a.card:hover {
                   <li>Advance tax computation for next year</li>
                   <li>GST turnover reconciliation</li>
                 </ul>
-                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="freelancer" data-track="select_plan" data-location="package-freelancer">Choose <span class="visually-hidden">Freelancers &amp; Professionals </span>package</a>
+                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="freelancer" data-track="select_plan" data-location="package-freelancer">Choose package<span class="visually-hidden">: Freelancers &amp; Professionals</span></a>
               </div>
               <div class="plan reveal">
                 
@@ -3485,7 +3776,7 @@ a.card:hover {
                   <li>Late fee, interest and additional-tax computation</li>
                   <li>Reply to defective-return notice (Section 139(9))</li>
                 </ul>
-                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="late-revised" data-track="select_plan" data-location="package-late-revised">Choose <span class="visually-hidden">Belated, Revised &amp; Updated Return </span>package</a>
+                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="late-revised" data-track="select_plan" data-location="package-late-revised">Choose package<span class="visually-hidden">: Belated, Revised &amp; Updated Return</span></a>
               </div>
           </div>
           <h3 class="pkg-group reveal">Investors &amp; traders</h3>
@@ -3503,7 +3794,7 @@ a.card:hover {
                   <li>Loss set-off and 8-year carry-forward</li>
                   <li>Property sale: indexation choice, 54/54EC/54F exemptions</li>
                 </ul>
-                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="capital-gains" data-track="select_plan" data-location="package-capital-gains">Choose <span class="visually-hidden">Capital Gains </span>package</a>
+                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="capital-gains" data-track="select_plan" data-location="package-capital-gains">Choose package<span class="visually-hidden">: Capital Gains</span></a>
               </div>
               <div class="plan plan--featured reveal">
                 <span class="plan__badge">Traders</span>
@@ -3518,7 +3809,7 @@ a.card:hover {
                   <li>Tax-audit applicability check (Section 44AB / 44AD)</li>
                   <li>Brokerage, internet and advisory expenses claimed</li>
                 </ul>
-                <a class="btn btn--brand btn--block" href="#get-started" data-modal-open data-plan="fno" data-track="select_plan" data-location="package-fno">Choose <span class="visually-hidden">F&amp;O &amp; Intraday Traders </span>package</a>
+                <a class="btn btn--brand btn--block" href="#get-started" data-modal-open data-plan="fno" data-track="select_plan" data-location="package-fno">Choose package<span class="visually-hidden">: F&amp;O &amp; Intraday Traders</span></a>
               </div>
               <div class="plan reveal">
                 
@@ -3533,7 +3824,7 @@ a.card:hover {
                   <li>Indian and foreign exchanges, P2P and airdrops</li>
                   <li>Up to 500 transactions included</li>
                 </ul>
-                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="crypto" data-track="select_plan" data-location="package-crypto">Choose <span class="visually-hidden">Crypto &amp; VDA </span>package</a>
+                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="crypto" data-track="select_plan" data-location="package-crypto">Choose package<span class="visually-hidden">: Crypto &amp; VDA</span></a>
               </div>
           </div>
           <h3 class="pkg-group reveal">NRI &amp; global income</h3>
@@ -3551,7 +3842,7 @@ a.card:hover {
                   <li>DTAA benefit with TRC and Form 10F</li>
                   <li>Indian bank account pre-validation for refunds</li>
                 </ul>
-                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="nri" data-track="select_plan" data-location="package-nri">Choose <span class="visually-hidden">NRI Returns </span>package</a>
+                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="nri" data-track="select_plan" data-location="package-nri">Choose package<span class="visually-hidden">: NRI Returns</span></a>
               </div>
               <div class="plan plan--featured reveal">
                 <span class="plan__badge">Global</span>
@@ -3566,7 +3857,7 @@ a.card:hover {
                   <li>Schedules FSI and TR, dividends and foreign interest</li>
                   <li>Exchange rates applied per Rule 115 / Rule 128</li>
                 </ul>
-                <a class="btn btn--brand btn--block" href="#get-started" data-modal-open data-plan="foreign" data-track="select_plan" data-location="package-foreign">Choose <span class="visually-hidden">Foreign Income, RSU &amp; ESOP </span>package</a>
+                <a class="btn btn--brand btn--block" href="#get-started" data-modal-open data-plan="foreign" data-track="select_plan" data-location="package-foreign">Choose package<span class="visually-hidden">: Foreign Income, RSU &amp; ESOP</span></a>
               </div>
               <div class="plan reveal">
                 
@@ -3581,7 +3872,7 @@ a.card:hover {
                   <li>Advance tax plan for the next year</li>
                   <li>Dedicated senior CA, priority turnaround</li>
                 </ul>
-                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="all-in-one" data-track="select_plan" data-location="package-all-in-one">Choose <span class="visually-hidden">All-in-One / High Income </span>package</a>
+                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="all-in-one" data-track="select_plan" data-location="package-all-in-one">Choose package<span class="visually-hidden">: All-in-One / High Income</span></a>
               </div>
           </div>
           <h3 class="pkg-group reveal">Businesses</h3>
@@ -3599,7 +3890,7 @@ a.card:hover {
                   <li>Old vs new regime (Form 10-IEA where needed)</li>
                   <li>Loss carry-forward and advance tax</li>
                 </ul>
-                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="business" data-track="select_plan" data-location="package-business">Choose <span class="visually-hidden">Proprietors &amp; Small Business </span>package</a>
+                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="business" data-track="select_plan" data-location="package-business">Choose package<span class="visually-hidden">: Proprietors &amp; Small Business</span></a>
               </div>
               <div class="plan reveal">
                 
@@ -3614,7 +3905,7 @@ a.card:hover {
                   <li>Advance tax and TDS credit check</li>
                   <li>Partners’ ITR coordination</li>
                 </ul>
-                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="firm" data-track="select_plan" data-location="package-firm">Choose <span class="visually-hidden">Partnership Firm </span>package</a>
+                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="firm" data-track="select_plan" data-location="package-firm">Choose package<span class="visually-hidden">: Partnership Firm</span></a>
               </div>
               <div class="plan reveal">
                 
@@ -3629,69 +3920,40 @@ a.card:hover {
                   <li>Coordination with your auditor</li>
                   <li>Filing acknowledgement and computation</li>
                 </ul>
-                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="company" data-track="select_plan" data-location="package-company">Choose <span class="visually-hidden">LLP or Company </span>package</a>
+                <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="company" data-track="select_plan" data-location="package-company">Choose package<span class="visually-hidden">: LLP or Company</span></a>
               </div>
           </div>
           <p class="plans-note">Tax-audit cases, books of account, more than 500 crypto transactions and notice replies are quoted separately. Tax, interest and late fees are paid to the government and are not part of our fee.</p>
         </div>
       </section>
-      <!-- ================= SELF vs CA-ASSISTED ================= -->
-      <section id="self-vs-ca" class="section section--glow" aria-labelledby="h-self">
+      <!-- ================= THREE WAYS TO FILE ================= -->
+      <section id="self-vs-ca" class="section" aria-labelledby="h-self">
         <div class="wrap">
           <div class="section-head reveal">
-            <span class="kicker">Two ways to file</span>
-            <h2 id="h-self">Self-filing or CA-assisted filing?</h2>
-            <p>Both are legal and both end on the same income-tax portal. The difference is who makes the judgement calls, and who answers if the department asks questions later.</p>
+            <span class="kicker">Compare</span>
+            <h2 id="h-self">Three ways to file. One right answer for you.</h2>
+            <p>Every route ends on the Income Tax Department’s e-filing system. The difference is how much work you do and who checks it.</p>
           </div>
-          <div class="grid grid--2">
-            <div class="plan reveal">
-              <h3>Self-filing</h3>
-              <p class="plan__for">You prepare and file on incometax.gov.in</p>
-              <p><strong>Good for:</strong> one employer, Form 16 that matches AIS, savings interest only, no capital gains, and you are comfortable with tax rules.</p>
-              <ul class="ticks">
-                <li>You choose the ITR form and the regime</li>
-                <li>You reconcile AIS, TIS and Form 26AS</li>
-                <li>You compute and pay any balance tax</li>
-                <li>You handle any notice or mismatch later</li>
-              </ul>
-              <a class="btn btn--ghost btn--block" href="#self-filing-steps" data-track="cta_click" data-location="self-filing">See the self-filing steps</a>
-            </div>
-            <div class="plan plan--featured reveal">
-              <span class="plan__badge">Recommended</span>
-              <h3>CA-assisted with Bharat e-Filing</h3>
-              <p class="plan__for">A tax expert prepares it, a CA reviews it, you approve it</p>
-              <p><strong>Good for:</strong> capital gains, F&amp;O, crypto, foreign income, rent, business income, job change, NRI status, or a large refund.</p>
-              <ul class="ticks">
-                <li>Right form, right regime, every deduction claimed</li>
-                <li>AIS mismatches fixed before they become notices</li>
-                <li>Losses carried forward correctly for future years</li>
-                <li>Help with intimations and notices after filing</li>
-              </ul>
-              <a class="btn btn--brand btn--block" href="#packages" data-track="cta_click" data-location="ca-assisted">Compare packages</a>
-            </div>
-          </div>
-
-          <div class="table compare reveal mt-16" tabindex="0">
+          <div class="table compare reveal" tabindex="0">
             <table>
-              <caption>Self-filing vs CA-assisted filing</caption>
-              <thead><tr><th scope="col">What matters</th><th scope="col">Self-filing</th><th scope="col">CA-assisted</th></tr></thead>
+              <caption>Government portal vs Bharat e-Filing self-filing vs CA-assisted</caption>
+              <thead><tr><th scope="col">What matters</th><th scope="col">Government portal, on your own</th><th scope="col">Bharat e-Filing self-filing</th><th scope="col">CA-assisted</th></tr></thead>
               <tbody>
-                <tr><th scope="row">Time you spend</th><td>2–6 hours, more with capital gains</td><td class="yes">About 15 minutes to share documents</td></tr>
-                <tr><th scope="row">Choosing the ITR form</th><td>Wrong form = defective return (139(9))</td><td class="yes">Chosen and checked by an expert</td></tr>
-                <tr><th scope="row">Old vs new regime</th><td>Portal default is the new regime</td><td class="yes">Both computed; the cheaper one filed</td></tr>
-                <tr><th scope="row">AIS / 26AS mismatches</th><td>Easy to miss</td><td class="yes">Reconciled line by line</td></tr>
-                <tr><th scope="row">Capital gains, F&amp;O, crypto</th><td>Complex schedules and turnover rules</td><td class="yes">Computed from your statements</td></tr>
-                <tr><th scope="row">Foreign assets (Schedule FA)</th><td>Often missed; penalty risk</td><td class="yes">Reported for the calendar year</td></tr>
-                <tr><th scope="row">Loss carry-forward</th><td>Lost if schedules are wrong</td><td class="yes">Tracked year to year</td></tr>
-                <tr><th scope="row">Notices after filing</th><td>On your own</td><td class="yes">Guidance included</td></tr>
-                <tr><th scope="row">Review before filing</th><td>None</td><td class="yes">Every return reviewed by a CA</td></tr>
+                <tr><th scope="row">Your time</th><td>2–6 hours</td><td class="yes">About 10–15 minutes</td><td class="yes">15 minutes to share documents</td></tr>
+                <tr><th scope="row">Data entry</th><td>Pre-fill, plus manual for the rest</td><td class="yes">Auto-import and statement reading</td><td class="yes">Done for you</td></tr>
+                <tr><th scope="row">ITR form and regime</th><td>You decide</td><td class="yes">Suggested and compared</td><td class="yes">Chosen by an expert</td></tr>
+                <tr><th scope="row">AIS mismatch check</th><td>Manual</td><td class="yes">Automatic alerts</td><td class="yes">Reconciled by an expert</td></tr>
+                <tr><th scope="row">Capital gains, F&amp;O, crypto</th><td>Complex schedules</td><td class="yes">From your statements</td><td class="yes">Computed and reviewed</td></tr>
+                <tr><th scope="row">Foreign assets, NRI, audit cases</th><td>Hard</td><td>Supported (Pro), CA review advised</td><td class="yes">Recommended route</td></tr>
+                <tr><th scope="row">CA review</th><td>No</td><td>Optional add-on</td><td class="yes">Always</td></tr>
+                <tr><th scope="row">Help after filing</th><td>On your own</td><td>Refund tracking and alerts</td><td class="yes">Notice guidance included</td></tr>
+                <tr><th scope="row">Price</th><td>—</td><td class="yes">Free to ₹999</td><td>From ₹2,499</td></tr>
               </tbody>
             </table>
           </div>
-
           <div class="note reveal mt-16">
             <span class="note__title">Decide in 10 seconds</span>
-            <p>Choose CA-assisted if <strong>any</strong> of these apply: you sold shares, funds, property or crypto; traded F&amp;O or intraday; hold foreign stocks or RSUs; changed jobs; earn rent or business income; are an NRI; have income above ₹50 lakh; or got a tax notice last year.</p>
+            <p>Salary, interest and simple capital gains? <a href="https://bharatefiling.com/itr/start/" data-track="app_start" data-location="decide">File it yourself</a>. Choose <a href="#expert">CA-assisted</a> if you have foreign assets or RSUs, are an NRI, need a tax audit, earn business income with books, got a notice last year, or simply want an expert to own it.</p>
           </div>
         </div>
       </section>
@@ -4262,27 +4524,6 @@ a.card:hover {
             <p>Income of FY 2025-26 is filed under the 1961 Act. Income from 1 April 2026 (tax year 2026-27) is filed in 2027 under the 2025 Act.</p>
           </section>
 
-          <section id="self-filing-steps" class="chapter prose reveal" aria-labelledby="h-steps">
-            <span class="kicker">Self-filing guide</span>
-            <h2 id="h-steps">How to file your ITR yourself, step by step</h2>
-            <ol>
-              <li><strong>Log in</strong> at incometax.gov.in with your PAN (or Aadhaar) and password. Make sure PAN and Aadhaar are linked.</li>
-              <li><strong>Download AIS, TIS and Form 26AS</strong> from Services → Annual Information Statement. Note every income and TDS entry.</li>
-              <li><strong>Pre-validate your bank account</strong> under My Profile → My Bank Account; refunds go only there.</li>
-              <li>Go to <strong>e-File → Income Tax Returns → File Income Tax Return</strong>, select <strong>AY 2026-27</strong> and online mode.</li>
-              <li><strong>Choose your status</strong> (individual, HUF) and the <strong>ITR form</strong>. Use our form finder above if unsure.</li>
-              <li><strong>Pick your regime.</strong> Salaried taxpayers choose in the return; with business income, the old regime needs Form 10-IEA before the due date.</li>
-              <li><strong>Check the pre-filled data</strong> against AIS and Form 16, and add missing income: savings interest, previous employer, capital gains, rent.</li>
-              <li><strong>Claim deductions</strong> with proofs kept ready (old regime).</li>
-              <li><strong>Pay any balance tax</strong> through e-Pay Tax (self-assessment tax, minor head 300) and enter the challan details.</li>
-              <li><strong>Preview, submit and e-verify</strong> with Aadhaar OTP or net banking. Download the acknowledgement (ITR-V).</li>
-            </ol>
-            <div class="note note--alert">
-              <span class="note__title">Got stuck halfway?</span>
-              <p>Save the draft and <a href="#get-started" data-modal-open data-track="cta_click" data-location="self-filing-stuck">ask our experts</a>. We pick up from your AIS and finish the return.</p>
-            </div>
-          </section>
-
           <section id="after-filing" class="chapter prose reveal" aria-labelledby="h-after">
             <span class="kicker">After filing</span>
             <h2 id="h-after">Intimations and notices after you file</h2>
@@ -4425,8 +4666,20 @@ a.card:hover {
               <div class="faq__a"><p>Returns for FY 2025-26 are filed under the Income-tax Act, 1961. From tax year 2026-27, the Income-tax Act, 2025 applies: return filing moves from Section 139 to Section 263, the new regime from Section 115BAC to Section 202, the rebate from Section 87A to Section 156 and the 80C deduction to Section 123.</p></div>
             </details>
             <details>
+              <summary>Can I file my ITR myself on Bharat e-Filing?</summary>
+              <div class="faq__a"><p>Yes. Sign up with your PAN, approve access with the OTP sent by the Income Tax Department, and we import your pre-filled data, AIS and Form 26AS. You review the suggested ITR form, regime and deductions, then file and e-verify with Aadhaar OTP. Self-filing is free for simple salary returns.</p></div>
+            </details>
+            <details>
+              <summary>Is it safe to file my ITR through Bharat e-Filing?</summary>
+              <div class="faq__a"><p>Bharat e-Filing files through the Income Tax Department's e-Return Intermediary (ERI) system. We access your data only after you approve with an OTP from the department, use it only to prepare and file your return under the DPDP Act, 2023, and never sell it. You can withdraw access anytime.</p></div>
+            </details>
+            <details>
+              <summary>What is an e-Return Intermediary (ERI)?</summary>
+              <div class="faq__a"><p>An ERI is an entity registered with the Income Tax Department to file returns on behalf of taxpayers. Type-2 ERIs build their own filing software that connects to the department's APIs to fetch pre-filled data, validate and submit returns, so taxpayers do not have to retype their information.</p></div>
+            </details>
+            <details>
               <summary>Should I file my ITR myself or with a CA?</summary>
-              <div class="faq__a"><p>Self-filing on the income-tax portal works if you have one employer, your Form 16 matches AIS and you have no capital gains. Choose CA-assisted filing if you sold shares, funds, property or crypto, traded F&amp;O, hold foreign assets or RSUs, changed jobs, earn rent or business income, are an NRI or received a notice.</p></div>
+              <div class="faq__a"><p>Self-filing on Bharat e-Filing suits salary, interest, rent and most capital gains, because data is imported and checked automatically. Choose CA-assisted filing if you hold foreign assets or RSUs, are an NRI, need a tax audit, have business income with books, received a notice, or want an expert to take responsibility for the return.</p></div>
             </details>
             <details>
               <summary>Which ITR do F&amp;O traders file, and how is F&amp;O income taxed?</summary>
@@ -4612,7 +4865,7 @@ a.card:hover {
       <a class="btn btn--ghost btn--sm" href="https://wa.me/910000000000?text=Hi%2C%20I%20need%20help%20filing%20my%20ITR" rel="noopener" target="_blank" data-track="click_whatsapp" data-location="actionbar"
         ><svg width="16" height="16" aria-hidden="true"><use href="#i-wa" /></svg> WhatsApp</a
       >
-      <a class="btn btn--brand btn--sm" href="#get-started" data-modal-open data-track="cta_click" data-location="actionbar">File my ITR</a>
+      <a class="btn btn--brand btn--sm" href="https://bharatefiling.com/itr/start/" data-track="app_start" data-location="actionbar">Start filing</a>
     </div>
 
     <script>

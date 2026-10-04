@@ -4,7 +4,7 @@ Bharat e-Filing page kit — builds every new page with exactly the same shell a
 
 A page source lives in  src/<slug>/page.py  and defines:
     META   = dict(slug, title, description, h1_crumb, service, og_title, og_desc, ribbon_html,
-                  localnav: list[(anchor, label)], cta_label, modal_heading, modal_options: list[(value, label, price)],
+                  localnav: list[(anchor, label)], cta_label, cta_href, cta_modal (bool), actionbar_label, modal_heading, modal_options: list[(value, label, price)],
                   whatsapp_text, published, modified)
     JSONLD = list of extra schema nodes (WebPage/Breadcrumb are added automatically)
     FAQ    = list[(question, answer)]          # rendered visibly AND as FAQPage schema (always identical)
@@ -175,8 +175,11 @@ def build(slug):
     modal = modal.replace("Start your GST registration", M["modal_heading"]).replace('id="gst-popup-form"', f'id="{slug}-popup-form"')
     modal = modal.replace('value="gst-registration"', f'value="{M["service"]}"').replace("Single or multi-state registration", M.get("modal_tick", "GST, income tax, company and trademark"))
     wa = M["whatsapp_text"].replace(" ", "%20").replace(",", "%2C")
-    actionbar = actionbar.replace("Hi%2C%20I%20need%20GST%20registration", wa).replace(">Apply now<", f">{M['cta_label']}<")
+    actionbar = actionbar.replace("Hi%2C%20I%20need%20GST%20registration", wa).replace(">Apply now<", f">{M.get('actionbar_label', M['cta_label'])}<")
 
+    if not M.get("cta_modal", True):  # CTA goes to a page (e.g. the self-filing app), not the lead pop-up
+        actionbar = actionbar.replace('href="#get-started" data-modal-open data-track="cta_click" data-location="actionbar"',
+                                      f'href="{M["cta_href"]}" data-track="app_start" data-location="actionbar"')
     localnav = "\n".join(f'          <li><a href="#{a}">{H.escape(l, quote=False)}</a></li>' for a, l in M["localnav"])
     localnav_html = f"""    <!-- ================= LOCAL NAV (sticky, Apple-style) ================= -->
     <nav class="localnav" aria-label="On this page">
@@ -185,7 +188,7 @@ def build(slug):
         <ul>
 {localnav}
         </ul>
-        <a class="btn btn--brand btn--sm" href="{M.get('cta_href', '#get-started')}" data-modal-open data-track="cta_click" data-location="localnav">{M["cta_label"]}</a>
+        <a class="btn btn--brand btn--sm" href="{M.get('cta_href', '#get-started')}"{' data-modal-open' if M.get('cta_modal', True) else ''} data-track="{'cta_click' if M.get('cta_modal', True) else 'app_start'}" data-location="localnav">{M["cta_label"]}</a>
       </div>
     </nav>
 
