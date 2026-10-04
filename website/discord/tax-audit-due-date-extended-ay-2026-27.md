@@ -18,7 +18,7 @@ h1{font-size:clamp(2rem,1.4rem + 2.6vw,3.25rem);font-weight:800;margin:0 0 .6rem
 h2{font-size:clamp(1.625rem,1.3rem + 1.2vw,2.125rem);font-weight:700;margin:3.5rem 0 1rem}
 h3{font-size:clamp(1.25rem,1.1rem + .5vw,1.5rem);font-weight:650;margin:2.25rem 0 .6rem}
 h4{font-size:18px;font-weight:650}
-table{display:block;overflow-x:auto;width:100%;border-collapse:separate;border-spacing:0;margin:24px 0 8px;border:1px solid var(--bef-line);border-radius:18px;background:#fff;font-size:15.5px;line-height:1.55;box-shadow:0 1px 2px rgba(16,33,97,.04)}
+table,.bef-table{display:block;overflow-x:auto;width:100%;border-collapse:separate;border-spacing:0;margin:24px 0 8px;border:1px solid var(--bef-line);border-radius:18px;background:#fff;font-size:15.5px;line-height:1.55;box-shadow:0 1px 2px rgba(16,33,97,.04)}
 th{background:linear-gradient(180deg,#f4f6fd,#eef1fb);color:var(--bef-navy);font-size:12px;font-weight:650;text-transform:uppercase;letter-spacing:.04em;text-align:left;padding:14px 18px;border-bottom:1px solid var(--bef-line)}
 td{padding:14px 18px;vertical-align:top;color:var(--bef-ink-2);border-bottom:1px solid var(--bef-line)}
 td:first-child{font-weight:600;color:var(--bef-ink)}
@@ -26,11 +26,13 @@ tr:last-child td{border-bottom:0}
 @media (max-width:640px){td,th{min-width:140px}}
 .bef-caption{font-size:14px;line-height:1.5;margin:6px 0 28px;color:var(--bef-ink-3);font-weight:500}
 .bef-chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 18px}
+.bef-sep{display:none}
 .bef-chip{display:inline-flex;align-items:center;padding:4px 12px;border:1px solid var(--bef-line-strong);border-radius:999px;font-size:14px;font-weight:600;color:var(--bef-ink-2);background:#fff}
 .bef-chip--brand{border-color:transparent;background:rgba(255,136,19,.1);color:var(--bef-saffron-text)}
 .bef-chip--live::before{content:"";width:8px;height:8px;margin-right:8px;border-radius:50%;background:var(--bef-leaf);box-shadow:0 0 0 3px rgba(60,140,49,.18)}
 .bef-dek{font-size:21px;line-height:1.5;color:var(--bef-ink-2);margin:0 0 22px}
-.bef-byline{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;padding:18px 0 4px;border-top:1px solid var(--bef-line);margin-bottom:8px;font-size:15px;color:var(--bef-ink-3)}
+.bef-byline{padding:16px 0 0;border-top:1px solid var(--bef-line);margin:0 0 8px;font-size:15px;color:var(--bef-ink-3)}
+.bef-byline strong{color:var(--bef-ink)}
 .bef-person{display:flex;align-items:center;gap:12px}
 .bef-avatar{display:grid;place-items:center;flex:none;width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--bef-navy),var(--bef-navy-deep));color:#fff;font-size:14px;font-weight:700}
 .bef-avatar--ca{background:var(--bef-grad);color:var(--bef-navy)}
@@ -41,8 +43,11 @@ tr:last-child td{border-bottom:0}
 .bef-img{margin:32px 0}
 .bef-img__ph{display:grid;place-items:center;aspect-ratio:16/9;padding:24px;border:2px dashed rgba(16,33,97,.18);border-radius:22px;background:radial-gradient(60% 80% at 100% 0%,rgba(252,194,36,.22),transparent 70%),radial-gradient(50% 70% at 0% 100%,rgba(78,176,63,.14),transparent 70%),linear-gradient(135deg,#f7f8fc,#fff);text-align:center;color:var(--bef-navy)}
 .bef-img__ph--43{aspect-ratio:4/3}
-.bef-img__ph b{display:block;margin-top:8px;font-size:19px;color:var(--bef-navy)}
-.bef-img__ph span{display:block;max-width:520px;margin:4px auto 0;font-size:14px;color:var(--bef-ink-3)}
+.bef-img__ph p{margin:0;text-align:center}
+.bef-img__ph p>span{display:block;font-size:2rem;line-height:1}
+.bef-img__ph strong{display:block;margin-top:8px;font-size:19px;color:var(--bef-navy)}
+.bef-img__ph small{display:block;max-width:520px;margin:4px auto 0;font-size:14px;color:var(--bef-ink-3)}
+.bef-img__ph br{display:none}
 .bef-img figcaption{margin-top:12px;font-size:14px;color:var(--bef-ink-3);text-align:center}
 .bef-answer{position:relative;margin:28px 0;padding:22px 26px 22px 30px;border:1px solid rgba(255,136,19,.22);border-radius:22px;background:linear-gradient(180deg,#fff8f0,#fff)}
 .bef-answer::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:0 4px 4px 0;background:var(--bef-grad)}
@@ -51,12 +56,16 @@ tr:last-child td{border-bottom:0}
 .bef-dates{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 8px}
 @media (max-width:640px){.bef-dates{grid-template-columns:1fr}}
 .bef-date{padding:20px 24px;border:1px solid var(--bef-line);border-radius:22px;background:#fff;box-shadow:var(--bef-shadow)}
+.bef-date p{margin:0}
 .bef-date__what{font-size:14px;font-weight:600;color:var(--bef-ink-3)}
-.bef-date__old{margin-top:6px;font-size:15px;color:var(--bef-danger);text-decoration:line-through;text-decoration-thickness:2px}
-.bef-date__new{margin:2px 0 6px;font-size:clamp(1.75rem,1.3rem + 2vw,2.5rem);font-weight:800;line-height:1.1;letter-spacing:-.035em;color:var(--bef-navy)}
+.bef-date__what strong{color:var(--bef-ink-3);font-weight:600}
+.bef-date__line{font-size:0;margin:0}
+.bef-date__old{display:block;margin-top:6px;font-size:15px;color:var(--bef-danger);text-decoration:line-through;text-decoration-thickness:2px}
+.bef-date__new{display:block;margin:2px 0 6px;font-size:clamp(1.75rem,1.3rem + 2vw,2.5rem);font-weight:800;line-height:1.1;letter-spacing:-.035em;color:var(--bef-navy)}
 .bef-date__left{display:inline-block;padding:2px 10px;border-radius:999px;background:rgba(255,136,19,.1);font-size:14px;font-weight:600;color:var(--bef-saffron-text)}
 .bef-takeaways{margin:32px 0;padding:24px 26px;border:1px solid rgba(60,140,49,.22);border-radius:22px;background:linear-gradient(180deg,#f3faf1,#fff)}
 .bef-takeaways__title{margin:0 0 12px;font-size:21px;font-weight:700;color:var(--bef-navy)}
+.bef-takeaways__title strong,.bef-toc__title strong{color:inherit;font-weight:inherit}
 .bef-takeaways ul{list-style:none;margin:0;padding:0}
 .bef-takeaways li{position:relative;padding-left:30px;margin-bottom:10px;font-size:17px}
 .bef-takeaways li::before{content:"✓";position:absolute;left:0;top:.3em;display:grid;place-items:center;width:19px;height:19px;border-radius:50%;background:var(--bef-leaf);color:#fff;font-size:11px;font-weight:700}
@@ -70,15 +79,17 @@ tr:last-child td{border-bottom:0}
 .bef-note{position:relative;margin:28px 0;padding:22px 24px 22px 62px;border-radius:22px;background:#f0f5ff;font-size:16px}
 .bef-note::before{content:"i";position:absolute;left:20px;top:22px;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--bef-navy);color:#fff;font-weight:700;font-size:14px}
 .bef-note p{margin:0;font-size:16px;line-height:1.65}
-.bef-note__title{display:block;margin-bottom:6px;font-weight:650;color:#0b1433}
+.bef-note p.bef-note__title{margin:0 0 6px}
+.bef-note__title strong{color:#0b1433}
 .bef-note--good{background:var(--bef-leaf-tint)}
 .bef-note--good::before{content:"✓";background:var(--bef-leaf)}
 .bef-note--alert{background:#fff6e8}
 .bef-note--alert::before{content:"!";background:var(--bef-grad);color:#0b1433}
-.bef-note--alert .bef-note__title{color:#8a4b00}
-.bef-decision{list-style:none;margin:24px 0;padding:0;display:grid;gap:12px}
-.bef-decision>li{margin:0;padding:16px 20px;border:1px solid var(--bef-line);border-radius:16px;background:#fff}
-.bef-decision__q{margin:0 0 8px;font-weight:700;color:var(--bef-navy);font-size:17px}
+.bef-note--alert .bef-note__title strong{color:#8a4b00}
+.bef-decision{margin:24px 0;display:grid;gap:12px}
+.bef-decision__item{margin:0;padding:16px 20px;border:1px solid var(--bef-line);border-radius:16px;background:#fff}
+.bef-decision__q{margin:0 0 8px;font-size:17px}
+.bef-decision__q strong{color:var(--bef-navy);font-weight:700}
 .bef-decision__a{display:flex;gap:12px;align-items:baseline;margin:4px 0 0;font-size:16px;line-height:1.55}
 .bef-tag{flex:none;min-width:44px;padding:1px 8px;border-radius:6px;font-size:12px;font-weight:700;text-align:center;text-transform:uppercase}
 .bef-tag--yes{background:#e7f4e4;color:#256b1d}
@@ -88,26 +99,36 @@ tr:last-child td{border-bottom:0}
 .bef-timeline li{position:relative;margin:0;padding:0 0 22px 40px}
 .bef-timeline li::before{content:"";position:absolute;left:0;top:4px;width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--bef-navy);box-sizing:border-box}
 .bef-timeline li.is-key::before{background:var(--bef-grad);border-color:var(--bef-saffron)}
+.bef-timeline strong{display:block}
 .bef-timeline time{display:block;font-size:14px;font-weight:700;color:var(--bef-saffron-text)}
 .bef-timeline b{display:block;font-size:17px;color:var(--bef-navy)}
 .bef-timeline span{font-size:16px;color:var(--bef-ink-2)}
 .bef-steps{list-style:none;counter-reset:act;margin:24px 0;padding:0;display:grid;gap:12px}
 .bef-steps li{counter-increment:act;position:relative;margin:0;padding:16px 20px 16px 64px;border:1px solid var(--bef-line);border-radius:16px;background:#fff;font-size:17px}
 .bef-steps li::before{content:counter(act);position:absolute;left:20px;top:16px;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--bef-navy);color:#fff;font-size:14px;font-weight:700}
-.bef-steps .bef-by{display:block;margin-top:6px;font-size:14px;font-weight:600;color:var(--bef-saffron-text)}
-.bef-cta{display:grid;gap:16px;align-items:center;margin:48px 0;padding:32px;border-radius:22px;background:radial-gradient(60% 90% at 100% 0%,rgba(252,194,36,.22),transparent 70%),linear-gradient(160deg,var(--bef-navy),var(--bef-navy-deep));color:#c7cde0}
-@media (min-width:720px){.bef-cta{grid-template-columns:1fr auto}}
+.bef-steps br{display:none}
+.bef-steps .bef-by{display:block;font-style:normal;margin-top:6px;font-size:14px;font-weight:600;color:var(--bef-saffron-text)}
+.bef-cta{display:block;margin:48px 0;padding:32px;border-radius:22px;background:radial-gradient(60% 90% at 100% 0%,rgba(252,194,36,.22),transparent 70%),linear-gradient(160deg,var(--bef-navy),var(--bef-navy-deep));color:#c7cde0}
 .bef-cta__title{margin:0 0 6px;font-size:21px;font-weight:700;color:#fff}
 .bef-cta p{margin:0;font-size:16px;line-height:1.6;color:#c7cde0}
 .bef-cta p.bef-cta__title{margin:0 0 6px;font-size:21px;font-weight:700;color:#fff}
+.bef-cta p.bef-cta__title strong{color:#fff}
+.bef-cta p.bef-cta__btn{margin:18px 0 0}
+a.bef-btn strong{color:inherit}
 .bef-cta p a{color:#fff}
 a.bef-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 24px;border-radius:999px;background:var(--bef-grad);color:var(--bef-navy);font-weight:700;font-size:16px;text-decoration:none;white-space:nowrap;box-shadow:0 8px 20px rgba(255,136,19,.3)}
 a.bef-btn:hover{color:var(--bef-navy);filter:brightness(1.05)}
-.bef-author{display:grid;grid-template-columns:auto 1fr;gap:16px;margin:48px 0 24px;padding:24px;border:1px solid var(--bef-line);border-radius:22px;background:#fbfbfd}
+.bef-author{display:block;margin:48px 0 24px;padding:24px;border:1px solid var(--bef-line);border-radius:22px;background:#fbfbfd}
 .bef-author p{margin:4px 0 0;font-size:15.5px;line-height:1.65}
-.bef-author p.bef-author__title{margin:0;font-size:19px;font-weight:700;color:var(--bef-navy)}
-.bef-related{display:grid;gap:16px;margin:24px 0}
-@media (min-width:720px){.bef-related{grid-template-columns:repeat(3,1fr)}}
+.bef-author p.bef-author__title{margin:0;font-size:19px}
+.bef-author__title strong{color:var(--bef-navy)}
+.bef-related{margin:32px 0}
+.bef-related__title{margin:0 0 12px;font-size:21px}
+.bef-related__title strong{color:var(--bef-navy)}
+.bef-related ul{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.bef-related li{margin:0}
+@media (min-width:720px){.bef-related ul{grid-template-columns:repeat(3,1fr)}}
+a.bef-card{height:100%;box-sizing:border-box}
 a.bef-card{display:block;padding:20px;border:1px solid var(--bef-line);border-radius:18px;background:#fff;text-decoration:none;transition:transform .2s,box-shadow .2s}
 a.bef-card:hover{transform:translateY(-2px);box-shadow:var(--bef-shadow)}
 .bef-card__kicker{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--bef-saffron-text)}
@@ -117,34 +138,31 @@ a.bef-card:hover{transform:translateY(-2px);box-shadow:var(--bef-shadow)}
 .bef-sources a{color:var(--bef-ink-2)}
 </style>
 
-<div class="bef-chips"><span class="bef-chip bef-chip--brand">Income Tax · News</span><span class="bef-chip bef-chip--live">Updated 4 Oct 2026</span><span class="bef-chip">AY 2026-27</span><span class="bef-chip">8 min read</span></div>
+<p class="bef-chips"><span class="bef-chip bef-chip--brand">Income Tax · News</span><span class="bef-sep"> · </span><span class="bef-chip bef-chip--live">Updated 4 Oct 2026</span><span class="bef-sep"> · </span><span class="bef-chip">AY 2026-27</span><span class="bef-sep"> · </span><span class="bef-chip">8 min read</span></p>
 
 <p class="bef-dek">CBDT has given audit cases 21 extra days. Here is exactly who benefits, what the extension does not fix, and a dated plan to finish your audit report and ITR without a penalty.</p>
 
-<div class="bef-byline"><div class="bef-person"><span class="bef-avatar" aria-hidden="true">BE</span><div><b>Bharat e-Filing Tax Desk</b><span>Written by our tax team</span></div></div><div class="bef-person"><span class="bef-avatar bef-avatar--ca" aria-hidden="true">CA</span><div><b>REPLACE_CA_NAME, CA</b><span>Fact-checked</span></div></div><span>Published 1 Oct 2026 · Applies to AY 2026-27 (FY 2025-26)</span></div>
+<p class="bef-byline">By <strong>Bharat e-Filing Tax Desk</strong> · Fact-checked by <strong>REPLACE_CA_NAME, CA</strong> · Published 1 Oct 2026 · Applies to AY 2026-27 (FY 2025-26)</p>
 
-<figure class="bef-img"><div class="bef-img__ph" role="img" aria-label="Tax audit report due date moved from 30 September to 21 October 2026; ITR for audit cases from 31 October to 21 November 2026"><div><span aria-hidden="true" style="font-size:2rem">🗓️</span><b>Featured image: tax audit due dates, old vs new</b><span>1200 × 675 px · Infographic: 30 Sep → 21 Oct 2026 (audit report) and 31 Oct → 21 Nov 2026 (ITR for audit cases)</span></div></div><figcaption>CBDT Circular No. 07/2026 moves both audit-case deadlines by 21 days.</figcaption></figure>
+<figure class="bef-img"><div class="bef-img__ph" role="img" aria-label="Featured image: tax audit due dates, old vs new"><p><span aria-hidden="true">🗓️</span> <strong>Featured image: tax audit due dates, old vs new</strong><br><small>Image placeholder · 1200 × 675 px · 30 Sep → 21 Oct 2026 (audit report) and 31 Oct → 21 Nov 2026 (ITR for audit cases)</small></p></div><figcaption><em>CBDT Circular No. 07/2026 moves both audit-case deadlines by 21 days.</em></figcaption></figure>
 
 <section class="bef-answer" aria-label="Quick answer"><p><strong>Quick answer:</strong> CBDT Circular No. 07/2026, dated 28 September 2026, extends the tax audit report deadline for AY 2026-27 from 30 September to <strong>21 October 2026</strong>, and the ITR deadline for companies, audit cases and partners of audited firms from 31 October to <strong>21 November 2026</strong>. Transfer-pricing cases and non-audit taxpayers are not covered.</p></section>
 
-<div class="bef-dates" role="img" aria-label="Tax audit report due date moved from 30 September 2026 to 21 October 2026, and ITR due date for audit cases moved from 31 October 2026 to 21 November 2026"><div class="bef-date"><div class="bef-date__what">Tax audit report (Form 3CA/3CB + 3CD)</div><div class="bef-date__old">30 September 2026</div><div class="bef-date__new">21 Oct 2026</div><span class="bef-date__left" data-deadline="2026-10-21">Extended by 21 days</span></div><div class="bef-date"><div class="bef-date__what">ITR for audit cases</div><div class="bef-date__old">31 October 2026</div><div class="bef-date__new">21 Nov 2026</div><span class="bef-date__left" data-deadline="2026-11-21">Extended by 21 days</span></div></div>
+<div class="bef-dates" role="group" aria-label="Old and new due dates"><div class="bef-date"><p class="bef-date__what"><strong>Tax audit report</strong> (Form 3CA/3CB + 3CD)</p><p class="bef-date__line"><del class="bef-date__old">30 September 2026</del> → <strong class="bef-date__new">21 October 2026</strong></p><p class="bef-date__left" data-deadline="2026-10-21">Extended by 21 days</p></div><div class="bef-date"><p class="bef-date__what"><strong>ITR for audit cases</strong></p><p class="bef-date__line"><del class="bef-date__old">31 October 2026</del> → <strong class="bef-date__new">21 November 2026</strong></p><p class="bef-date__left" data-deadline="2026-11-21">Extended by 21 days</p></div></div>
 
-<div class="bef-takeaways"><p class="bef-takeaways__title">Key takeaways</p><ul><li>Audit report: <strong>21 October 2026</strong>. ITR for audit cases: <strong>21 November 2026</strong>.</li><li>Covers companies, taxpayers whose accounts must be audited by law, and partners of audited firms.</li><li>Not covered: transfer-pricing cases (30 November), salaried (31 July) and non-audit business (31 August).</li><li>Pay balance tax by <strong>31 October</strong>: the extension may not stop section 234A interest.</li><li>Missing the audit report can cost up to <strong>₹1.5 lakh</strong>; a late ITR loses loss carry-forward.</li></ul></div>
+<div class="bef-takeaways"><p class="bef-takeaways__title"><strong>Key takeaways</strong></p><ul><li>Audit report: <strong>21 October 2026</strong>. ITR for audit cases: <strong>21 November 2026</strong>.</li><li>Covers companies, taxpayers whose accounts must be audited by law, and partners of audited firms.</li><li>Not covered: transfer-pricing cases (30 November), salaried (31 July) and non-audit business (31 August).</li><li>Pay balance tax by <strong>31 October</strong>: the extension may not stop section 234A interest.</li><li>Missing the audit report can cost up to <strong>₹1.5 lakh</strong>; a late ITR loses loss carry-forward.</li></ul></div>
 
 If you run a business or practice that needs a tax audit, the last week of September was stressful. Two days before the deadline, the Central Board of Direct Taxes (CBDT) gave relief. This guide explains what changed, who benefits, what the extension does not fix, and how to use the extra 21 days well.
 
-<nav class="bef-toc" aria-label="In this article"><p class="bef-toc__title">In this article</p><ol><li><a href="#what-exactly-did-cbdt-announce">What CBDT announced</a></li><li><a href="#who-gets-the-extended-due-date">Who gets the new dates</a></li><li><a href="#what-the-extension-does-not-change">What the extension does not change</a></li><li><a href="#why-is-the-1961-act-still-being-used">Why the 1961 Act still applies</a></li><li><a href="#key-dates-at-a-glance">Key dates at a glance</a></li><li><a href="#who-needs-a-tax-audit-for-fy-2025-26">Who needs a tax audit</a></li><li><a href="#what-happens-if-you-miss-the-new-dates">Penalties if you miss the dates</a></li><li><a href="#your-7-step-action-plan-for-the-extra-time">7-step action plan</a></li><li><a href="#frequently-asked-questions">FAQs</a></li></ol></nav>
+<nav class="bef-toc" aria-label="In this article"><p class="bef-toc__title"><strong>In this article</strong></p><ol><li><a href="#what-exactly-did-cbdt-announce">What CBDT announced</a></li><li><a href="#who-gets-the-extended-due-date">Who gets the new dates</a></li><li><a href="#what-the-extension-does-not-change">What the extension does not change</a></li><li><a href="#why-is-the-1961-act-still-being-used">Why the 1961 Act still applies</a></li><li><a href="#key-dates-at-a-glance">Key dates at a glance</a></li><li><a href="#who-needs-a-tax-audit-for-fy-2025-26">Who needs a tax audit</a></li><li><a href="#what-happens-if-you-miss-the-new-dates">Penalties if you miss the dates</a></li><li><a href="#your-7-step-action-plan-for-the-extra-time">7-step action plan</a></li><li><a href="#frequently-asked-questions">FAQs</a></li></ol></nav>
 
 ## What exactly did CBDT announce?
 
 On 28 September 2026, CBDT issued **Circular No. 07/2026** under section 119 of the Income-tax Act, 1961. It extends the due date of the return of income for AY 2026-27 for one group of taxpayers: those at serial number 2 of the table in Explanation 2 to section 139(1). Under section 44AB, the tax audit report is due one month before that return due date, so the audit report date moved with it. The update is also listed on the Income Tax Department's [e-filing portal news page](https://www.incometax.gov.in/iec/foportal/latest-news).
 
-| Compliance | Earlier due date | Revised due date |
-|---|---|---|
-| Tax audit report (Form 3CA-3CD or 3CB-3CD) | 30 September 2026 | **21 October 2026** |
-| Income tax return for audit cases | 31 October 2026 | **21 November 2026** |
+<table class="bef-table"><thead><tr><th>Compliance</th><th>Earlier due date</th><th>Revised due date</th></tr></thead><tbody><tr><td>Tax audit report (Form 3CA-3CD or 3CB-3CD)</td><td>30 September 2026</td><td><strong>21 October 2026</strong></td></tr><tr><td>Income tax return for audit cases</td><td>31 October 2026</td><td><strong>21 November 2026</strong></td></tr></tbody></table>
 
-<p class="bef-caption">Table 1: Revised deadlines for AY 2026-27 under Circular No. 07/2026</p>
+<p class="bef-caption"><em>Table 1: Revised deadlines for AY 2026-27 under Circular No. 07/2026</em></p>
 
 ## Who gets the extended due date?
 
@@ -158,22 +176,17 @@ The circular applies where transfer pricing (section 92E) does *not* apply and t
 
 Many people still think there are only two ITR deadlines. The Finance Act, 2026 replaced Explanation 2 to section 139(1) with a four-row table from 1 March 2026, and it already applies to AY 2026-27. See all dates on our [ITR filing guide](https://bharatefiling.com/income-tax-return-filing/#due-dates).
 
-<figure class="bef-img"><div class="bef-img__ph" role="img" aria-label="Infographic of the four ITR due dates for AY 2026-27"><div><span aria-hidden="true" style="font-size:2rem">📊</span><b>Infographic: the four ITR due dates for AY 2026-27</b><span>1200 × 675 px · 31 Jul (others), 31 Aug (non-audit business), 21 Nov (audit cases, was 31 Oct), 30 Nov (transfer pricing)</span></div></div><figcaption>Only row 2 of the due-date table moves.</figcaption></figure>
+<figure class="bef-img"><div class="bef-img__ph" role="img" aria-label="Infographic: the four ITR due dates for AY 2026-27"><p><span aria-hidden="true">📊</span> <strong>Infographic: the four ITR due dates for AY 2026-27</strong><br><small>Image placeholder · 1200 × 675 px · 31 Jul (others), 31 Aug (non-audit business), 21 Nov (audit cases, was 31 Oct), 30 Nov (transfer pricing)</small></p></div><figcaption><em>Only row 2 of the due-date table moves.</em></figcaption></figure>
 
-| Who | Due date in law | After Circular 7/2026 |
-|---|---|---|
-| Transfer pricing cases (section 92E), including their partners | 30 November 2026 | No change |
-| Companies, audit cases, partners of audited firms | 31 October 2026 | **21 November 2026** |
-| Business or profession without audit, partners of non-audited firms | 31 August 2026 | No change (passed) |
-| Everyone else, including salaried people | 31 July 2026 | No change (passed) |
+<table class="bef-table"><thead><tr><th>Who</th><th>Due date in law</th><th>After Circular 7/2026</th></tr></thead><tbody><tr><td>Transfer pricing cases (section 92E), including their partners</td><td>30 November 2026</td><td>No change</td></tr><tr><td>Companies, audit cases, partners of audited firms</td><td>31 October 2026</td><td><strong>21 November 2026</strong></td></tr><tr><td>Business or profession without audit, partners of non-audited firms</td><td>31 August 2026</td><td>No change (passed)</td></tr><tr><td>Everyone else, including salaried people</td><td>31 July 2026</td><td>No change (passed)</td></tr></tbody></table>
 
-<p class="bef-caption">Table 2: ITR due dates for AY 2026-27 and the effect of Circular 7/2026</p>
+<p class="bef-caption"><em>Table 2: ITR due dates for AY 2026-27 and the effect of Circular 7/2026</em></p>
 
 ### Am I covered? A quick check
 
-<ol class="bef-decision"><li><p class="bef-decision__q">1. Must you file a transfer-pricing report (Form 3CEB)?</p><p class="bef-decision__a"><span class="bef-tag bef-tag--no">Yes</span>Not covered. ITR due 30 November 2026; Form 3CEB due 31 October 2026.</p><p class="bef-decision__a"><span class="bef-tag bef-tag--yes">No</span>Go to question 2.</p></li><li><p class="bef-decision__q">2. Is the taxpayer a company, or must its accounts be audited under any law?</p><p class="bef-decision__a"><span class="bef-tag bef-tag--yes">Yes</span>Covered. Audit report by 21 October, ITR by 21 November 2026.</p><p class="bef-decision__a"><span class="bef-tag bef-tag--no">No</span>Go to question 3.</p></li><li><p class="bef-decision__q">3. Are you a partner in a firm whose accounts must be audited?</p><p class="bef-decision__a"><span class="bef-tag bef-tag--yes">Yes</span>Covered for your own ITR. Deadline 21 November 2026.</p><p class="bef-decision__a"><span class="bef-tag bef-tag--no">No</span>This extension does not apply to you.</p></li></ol>
+<div class="bef-decision"><div class="bef-decision__item"><p class="bef-decision__q"><strong>1. Must you file a transfer-pricing report (Form 3CEB)?</strong></p><p class="bef-decision__a"><span class="bef-tag bef-tag--no">Yes</span><span class="bef-sep">: </span>Not covered. ITR due 30 November 2026; Form 3CEB due 31 October 2026.</p><p class="bef-decision__a"><span class="bef-tag bef-tag--yes">No</span><span class="bef-sep">: </span>Go to question 2.</p></div><div class="bef-decision__item"><p class="bef-decision__q"><strong>2. Is the taxpayer a company, or must its accounts be audited under any law?</strong></p><p class="bef-decision__a"><span class="bef-tag bef-tag--yes">Yes</span><span class="bef-sep">: </span>Covered. Audit report by 21 October, ITR by 21 November 2026.</p><p class="bef-decision__a"><span class="bef-tag bef-tag--no">No</span><span class="bef-sep">: </span>Go to question 3.</p></div><div class="bef-decision__item"><p class="bef-decision__q"><strong>3. Are you a partner in a firm whose accounts must be audited?</strong></p><p class="bef-decision__a"><span class="bef-tag bef-tag--yes">Yes</span><span class="bef-sep">: </span>Covered for your own ITR. Deadline 21 November 2026.</p><p class="bef-decision__a"><span class="bef-tag bef-tag--no">No</span><span class="bef-sep">: </span>This extension does not apply to you.</p></div></div>
 
-<div class="bef-note"><span class="bef-note__title">A point most guides miss</span><p>What matters is whether an audit is legally <em>required</em>, not whether you chose one. A small business that had its books audited voluntarily does not move into the audit category, so its due date stays 31 August.</p></div>
+<div class="bef-note"><p class="bef-note__title"><strong>A point most guides miss</strong></p><p>What matters is whether an audit is legally <em>required</em>, not whether you chose one. A small business that had its books audited voluntarily does not move into the audit category, so its due date stays 31 August.</p></div>
 
 ## What the extension does not change
 
@@ -193,49 +206,37 @@ That is why the circular uses section 119 of the 1961 Act read with section 536 
 
 ## Key dates at a glance
 
-<ol class="bef-timeline"><li><time datetime="2026-09-28">28 September 2026</time><b>Circular No. 07/2026 issued</b><span>CBDT extends the dates for audit cases.</span></li><li class="is-key"><time datetime="2026-10-21">21 October 2026</time><b>Tax audit report deadline (extended)</b><span>Your CA uploads the report and you accept it on the portal.</span></li><li><time datetime="2026-10-31">31 October 2026</time><b>Pay balance tax; Form 3CEB due</b><span>Safe date for self-assessment tax; transfer-pricing report deadline.</span></li><li class="is-key"><time datetime="2026-11-21">21 November 2026</time><b>ITR deadline for audit cases (extended)</b><span>File and e-verify within 30 days.</span></li><li><time datetime="2026-12-31">31 December 2026</time><b>Last date for a belated return</b><span>With late fee and loss of carry-forward.</span></li></ol>
+<ol class="bef-timeline"><li><strong><time datetime="2026-09-28">28 September 2026</time></strong><span class="bef-sep"> — </span><b>Circular No. 07/2026 issued.</b> <span>CBDT extends the dates for audit cases.</span></li><li class="is-key"><strong><time datetime="2026-10-21">21 October 2026</time></strong><span class="bef-sep"> — </span><b>Tax audit report deadline (extended).</b> <span>Your CA uploads the report and you accept it on the portal.</span></li><li><strong><time datetime="2026-10-31">31 October 2026</time></strong><span class="bef-sep"> — </span><b>Pay balance tax; Form 3CEB due.</b> <span>Safe date for self-assessment tax; transfer-pricing report deadline.</span></li><li class="is-key"><strong><time datetime="2026-11-21">21 November 2026</time></strong><span class="bef-sep"> — </span><b>ITR deadline for audit cases (extended).</b> <span>File and e-verify within 30 days.</span></li><li><strong><time datetime="2026-12-31">31 December 2026</time></strong><span class="bef-sep"> — </span><b>Last date for a belated return.</b> <span>With late fee and loss of carry-forward.</span></li></ol>
 
 ## Who needs a tax audit for FY 2025-26?
 
 A tax audit under section 44AB is a check of your books by a practising Chartered Accountant, reported in Form 3CA or 3CB along with Form 3CD. The main triggers are:
 
-| Who | Audit needed when |
-|---|---|
-| Business (general) | Turnover or gross receipts above ₹1 crore |
-| Business with low cash dealings | Limit rises to ₹10 crore if cash receipts and cash payments are each within 5% of totals |
-| Profession (doctor, lawyer, architect) | Gross receipts above ₹50 lakh |
-| Professional under section 44ADA | Profit declared below 50% of receipts and income above the basic exemption limit |
-| Business that left section 44AD early | Opted out within the five-year lock-in (section 44AD(4)) and income above the exemption limit |
-| Sections 44AE, 44BB, 44BBB | Profit declared lower than the presumptive amount |
+<table class="bef-table"><thead><tr><th>Who</th><th>Audit needed when</th></tr></thead><tbody><tr><td>Business (general)</td><td>Turnover or gross receipts above ₹1 crore</td></tr><tr><td>Business with low cash dealings</td><td>Limit rises to ₹10 crore if cash receipts and cash payments are each within 5% of totals</td></tr><tr><td>Profession (doctor, lawyer, architect)</td><td>Gross receipts above ₹50 lakh</td></tr><tr><td>Professional under section 44ADA</td><td>Profit declared below 50% of receipts and income above the basic exemption limit</td></tr><tr><td>Business that left section 44AD early</td><td>Opted out within the five-year lock-in (section 44AD(4)) and income above the exemption limit</td></tr><tr><td>Sections 44AE, 44BB, 44BBB</td><td>Profit declared lower than the presumptive amount</td></tr></tbody></table>
 
-<p class="bef-caption">Table 3: Main tax audit triggers under section 44AB, FY 2025-26</p>
+<p class="bef-caption"><em>Table 3: Main tax audit triggers under section 44AB, FY 2025-26</em></p>
 
-<div class="bef-note bef-note--good"><span class="bef-note__title">Good to know</span><p>Presumptive taxpayers are outside the general limits. Section 44AD is available up to ₹2 crore turnover (₹3 crore if cash receipts are within 5%); section 44ADA up to ₹50 lakh of receipts (₹75 lakh if cash receipts are within 5%). F&amp;O traders: see our <a href="https://bharatefiling.com/income-tax-return-filing/#fno">F&amp;O audit rules</a>.</p></div>
+<div class="bef-note bef-note--good"><p class="bef-note__title"><strong>Good to know</strong></p><p>Presumptive taxpayers are outside the general limits. Section 44AD is available up to ₹2 crore turnover (₹3 crore if cash receipts are within 5%); section 44ADA up to ₹50 lakh of receipts (₹75 lakh if cash receipts are within 5%). F&amp;O traders: see our <a href="https://bharatefiling.com/income-tax-return-filing/#fno">F&amp;O audit rules</a>.</p></div>
 
 ## What happens if you miss the new dates?
 
-| Default | Consequence |
-|---|---|
-| Audit report not furnished by 21 October 2026 | Penalty under section 271B: 0.5% of turnover or gross receipts, up to ₹1,50,000. Not levied if you show reasonable cause (section 273B). |
-| ITR filed after 21 November 2026 | Late fee under section 234F: ₹5,000, or ₹1,000 if total income is up to ₹5 lakh. Belated return allowed only until 31 December 2026. |
-| Tax unpaid on the due date | Interest of 1% a month under section 234A on the unpaid amount. |
-| Loss return filed late | Business and capital losses of the year cannot be carried forward (unabsorbed depreciation is an exception). |
+<table class="bef-table"><thead><tr><th>Default</th><th>Consequence</th></tr></thead><tbody><tr><td>Audit report not furnished by 21 October 2026</td><td>Penalty under section 271B: 0.5% of turnover or gross receipts, up to ₹1,50,000. Not levied if you show reasonable cause (section 273B).</td></tr><tr><td>ITR filed after 21 November 2026</td><td>Late fee under section 234F: ₹5,000, or ₹1,000 if total income is up to ₹5 lakh. Belated return allowed only until 31 December 2026.</td></tr><tr><td>Tax unpaid on the due date</td><td>Interest of 1% a month under section 234A on the unpaid amount.</td></tr><tr><td>Loss return filed late</td><td>Business and capital losses of the year cannot be carried forward (unabsorbed depreciation is an exception).</td></tr></tbody></table>
 
-<p class="bef-caption">Table 4: Consequences of missing the revised deadlines</p>
+<p class="bef-caption"><em>Table 4: Consequences of missing the revised deadlines</em></p>
 
-<div class="bef-note bef-note--alert"><span class="bef-note__title">The costliest mistake</span><p>A firm with a loss this year can lose the right to set it off against future profits just because the ITR was filed one day late. Use our <a href="https://bharatefiling.com/income-tax-return-filing/#late-calc">late fee and interest calculator</a> to see the cost.</p></div>
+<div class="bef-note bef-note--alert"><p class="bef-note__title"><strong>The costliest mistake</strong></p><p>A firm with a loss this year can lose the right to set it off against future profits just because the ITR was filed one day late. Use our <a href="https://bharatefiling.com/income-tax-return-filing/#late-calc">late fee and interest calculator</a> to see the cost.</p></div>
 
-<aside class="bef-cta" aria-label="Get help"><div><p class="bef-cta__title">Running out of time?</p><p>Our CAs coordinate your tax audit report and file your ITR before 21 November.</p></div><a class="bef-btn" href="https://bharatefiling.com/income-tax-return-filing/#expert">Talk to a CA</a></aside>
+<aside class="bef-cta" aria-label="Get help"><p class="bef-cta__title"><strong>Running out of time?</strong></p><p>Our CAs coordinate your tax audit report and file your ITR before 21 November.</p><p class="bef-cta__btn"><a class="bef-btn" href="https://bharatefiling.com/income-tax-return-filing/#expert"><strong>Talk to a CA →</strong></a></p></aside>
 
 ## Your 7-step action plan for the extra time
 
 Three weeks sounds like plenty, but an audit depends on suppliers, banks and your CA. Work in this order:
 
-<ol class="bef-steps" aria-label="Step-by-step checklist for completing tax audit and ITR"><li><strong>Close the books for FY 2025-26 and freeze the trial balance.</strong><span class="bef-by">By 8 October</span></li><li><strong>Match turnover with GST returns and tax credits with Form 26AS and AIS.</strong> GSTR-1 and GSTR-3B turnover should agree with your books; see our <a href="https://bharatefiling.com/gst-return-filing/">GST return filing guide</a>.<span class="bef-by">By 10 October</span></li><li><strong>Share supporting papers with your CA:</strong> loan statements, fixed-asset bills, <a href="https://bharatefiling.com/services/tds-return-filing/">TDS returns</a> and related-party payments.<span class="bef-by">By 12 October</span></li><li><strong>Assign the audit form to your CA on the e-filing portal</strong> so they can upload it.<span class="bef-by">By 12 October</span></li><li><strong>Review the draft Form 3CD</strong>, especially cash payments above limits, late PF/ESI deposits and delayed MSME payments (section 43B(h)).<span class="bef-by">By 16 October</span></li><li><strong>Accept the uploaded report from your worklist.</strong> The filing is complete only after you accept it.<span class="bef-by">By 19 October (buffer before the 21st)</span></li><li><strong>Pay balance tax, file the ITR and e-verify</strong> within 30 days of filing.<span class="bef-by">Tax by 31 October; ITR well before 21 November</span></li></ol>
+<ol class="bef-steps" aria-label="Step-by-step checklist for completing tax audit and ITR"><li><strong>Close the books for FY 2025-26 and freeze the trial balance.</strong><br><em class="bef-by">By 8 October</em></li><li><strong>Match turnover with GST returns and tax credits with Form 26AS and AIS.</strong> GSTR-1 and GSTR-3B turnover should agree with your books; see our <a href="https://bharatefiling.com/gst-return-filing/">GST return filing guide</a>.<br><em class="bef-by">By 10 October</em></li><li><strong>Share supporting papers with your CA:</strong> loan statements, fixed-asset bills, <a href="https://bharatefiling.com/services/tds-return-filing/">TDS returns</a> and related-party payments.<br><em class="bef-by">By 12 October</em></li><li><strong>Assign the audit form to your CA on the e-filing portal</strong> so they can upload it.<br><em class="bef-by">By 12 October</em></li><li><strong>Review the draft Form 3CD</strong>, especially cash payments above limits, late PF/ESI deposits and delayed MSME payments (section 43B(h)).<br><em class="bef-by">By 16 October</em></li><li><strong>Accept the uploaded report from your worklist.</strong> The filing is complete only after you accept it.<br><em class="bef-by">By 19 October (buffer before the 21st)</em></li><li><strong>Pay balance tax, file the ITR and e-verify</strong> within 30 days of filing.<br><em class="bef-by">Tax by 31 October; ITR well before 21 November</em></li></ol>
 
-<figure class="bef-img"><div class="bef-img__ph bef-img__ph--43" role="img" aria-label="Screenshot of accepting the tax audit report on the e-filing portal"><div><span aria-hidden="true" style="font-size:2rem">🖥️</span><b>Screenshot: accepting the tax audit report on the e-filing portal</b><span>1200 × 900 px · Worklist → For your action → Accept, with PAN and names blurred</span></div></div><figcaption>Step 6: the audit report counts as filed only after the taxpayer accepts it.</figcaption></figure>
+<figure class="bef-img"><div class="bef-img__ph bef-img__ph--43" role="img" aria-label="Screenshot: accepting the tax audit report on the e-filing portal"><p><span aria-hidden="true">🖥️</span> <strong>Screenshot: accepting the tax audit report on the e-filing portal</strong><br><small>Image placeholder · 1200 × 900 px · Worklist → For your action → Accept, with PAN and names blurred</small></p></div><figcaption><em>Step 6: the audit report counts as filed only after the taxpayer accepts it.</em></figcaption></figure>
 
-<div class="bef-author"><span class="bef-avatar" aria-hidden="true">BE</span><div><p class="bef-author__title">About Bharat e-Filing Tax Desk</p><p>Our tax team tracks CBDT circulars and notifications daily and writes plain-English guides for businesses and individuals. Every article is fact-checked by a Chartered Accountant (REPLACE_CA_NAME, ICAI M. No. REPLACE) before publishing. Read our <a href="https://bharatefiling.com/editorial-policy/">editorial policy</a> or learn more <a href="https://bharatefiling.com/about-us/">about us</a>.</p></div></div>
+<div class="bef-author"><div><p class="bef-author__title"><strong>About Bharat e-Filing Tax Desk</strong></p><p>Our tax team tracks CBDT circulars and notifications daily and writes plain-English guides for businesses and individuals. Every article is fact-checked by a Chartered Accountant (REPLACE_CA_NAME, ICAI M. No. REPLACE) before publishing. Read our <a href="https://bharatefiling.com/editorial-policy/">editorial policy</a> or learn more <a href="https://bharatefiling.com/about-us/">about us</a>.</p></div></div>
 
 ## Frequently asked questions
 
@@ -275,9 +276,9 @@ No. The extension applies where an audit is required by law, under the Income-ta
 
 The Income-tax Act, 2025 applies from 1 April 2026, but income of FY 2025-26 (AY 2026-27) is still governed by the 1961 Act through the savings provision in section 536 of the 2025 Act. The circular uses section 119 of the 1961 Act read with section 536.
 
-<aside class="bef-cta" aria-label="Get help with tax audit and ITR filing"><div><p class="bef-cta__title">File your audit-case ITR the right way</p><p>Not sure if you need an audit at all? Start with our <a href="https://bharatefiling.com/income-tax-return-filing/">ITR filing service</a> and our team will check it for you. Keeping your <a href="https://bharatefiling.com/gst-return-filing/">GST return filing</a> in order also makes the turnover match much easier.</p></div><a class="bef-btn" href="https://bharatefiling.com/income-tax-return-filing/#expert">Talk to a tax expert</a></aside>
+<aside class="bef-cta" aria-label="Get help with tax audit and ITR filing"><p class="bef-cta__title"><strong>File your audit-case ITR the right way</strong></p><p>Not sure if you need an audit at all? Start with our <a href="https://bharatefiling.com/income-tax-return-filing/">ITR filing service</a> and our team will check it for you. Keeping your <a href="https://bharatefiling.com/gst-return-filing/">GST return filing</a> in order also makes the turnover match much easier.</p><p class="bef-cta__btn"><a class="bef-btn" href="https://bharatefiling.com/income-tax-return-filing/#expert"><strong>Talk to a tax expert →</strong></a></p></aside>
 
-<nav class="bef-related" aria-label="Related guides and services"><a class="bef-card" href="https://bharatefiling.com/blog/tax-year-vs-assessment-year-income-tax-act-2025/"><span class="bef-card__kicker">Income Tax</span><span class="bef-card__title">Tax year vs assessment year: what changed from 1 April 2026</span></a><a class="bef-card" href="https://bharatefiling.com/income-tax-return-filing/"><span class="bef-card__kicker">Service</span><span class="bef-card__title">Income tax return filing: self-file or CA-assisted</span></a><a class="bef-card" href="https://bharatefiling.com/services/itr-for-llp/"><span class="bef-card__kicker">Service</span><span class="bef-card__title">ITR for LLPs and audited firms (ITR-5)</span></a></nav>
+<nav class="bef-related" aria-label="Related guides and services"><p class="bef-related__title"><strong>Related guides and services</strong></p><ul><li><a class="bef-card" href="https://bharatefiling.com/blog/tax-year-vs-assessment-year-income-tax-act-2025/"><span class="bef-card__kicker">Income Tax</span><span class="bef-sep">: </span><span class="bef-card__title">Tax year vs assessment year: what changed from 1 April 2026</span></a></li><li><a class="bef-card" href="https://bharatefiling.com/income-tax-return-filing/"><span class="bef-card__kicker">Service</span><span class="bef-sep">: </span><span class="bef-card__title">Income tax return filing: self-file or CA-assisted</span></a></li><li><a class="bef-card" href="https://bharatefiling.com/services/itr-for-llp/"><span class="bef-card__kicker">Service</span><span class="bef-sep">: </span><span class="bef-card__title">ITR for LLPs and audited firms (ITR-5)</span></a></li></ul></nav>
 
 <footer class="bef-sources"><p><strong>Official sources:</strong></p><ul><li><a href="https://www.incometax.gov.in/iec/foportal/latest-news" rel="noopener" target="_blank">Income Tax e-filing portal: News &amp; updates (Circular No. 07/2026)</a></li><li><a href="https://www.incometaxindia.gov.in/cbdt" rel="noopener" target="_blank">CBDT: circulars and instructions</a></li><li><a href="https://www.incometaxindia.gov.in/notifications" rel="noopener" target="_blank">Income Tax Department: notifications</a></li><li><a href="https://www.indiabudget.gov.in/" rel="noopener" target="_blank">Finance Act, 2026 (Union Budget 2026-27)</a></li></ul><p>This article is general information, not tax advice. Outcomes depend on your facts; consult a qualified professional before acting.</p></footer>
 
