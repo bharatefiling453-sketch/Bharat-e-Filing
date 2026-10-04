@@ -17,7 +17,7 @@ check(
   title.length >= 30 && title.length <= 60,
   `title 30–60 chars (got ${title.length})`,
 );
-check(/bharat efiling/i.test(title), "title ends with brand");
+check(/bharat e-?filing/i.test(title), "title ends with brand");
 
 const desc = $('meta[name="description"]').attr("content") || "";
 check(
@@ -74,7 +74,7 @@ for (const t of [
   "Organization",
   "WebPage",
   "BreadcrumbList",
-  "Service",
+  ...(/page_type: "legal"/.test($.html()) ? [] : ["Service"]),
   "FAQPage",
 ])
   check(types.includes(t), `schema ${t}`);

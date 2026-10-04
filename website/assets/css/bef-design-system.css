@@ -2497,6 +2497,105 @@ a.card:hover {
   background: rgb(255 136 19 / 22%);
 }
 
+/* =============================== 16d. FACT CARD (legal & info pages) =============================== */
+.factcard {
+  position: relative;
+  min-width: 0;
+  padding: var(--s-8);
+  border-radius: var(--r-xl);
+  background: rgb(255 255 255 / 88%);
+  backdrop-filter: blur(24px);
+  box-shadow: var(--shadow-3);
+}
+
+.factcard h2 {
+  margin-bottom: var(--s-4);
+  font-size: var(--fs-h3);
+  letter-spacing: var(--tracking-snug);
+}
+
+.factcard dl {
+  display: grid;
+  margin: 0;
+}
+
+.factcard dl div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-4);
+  justify-content: space-between;
+  align-items: baseline;
+  padding: var(--s-3) 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.factcard dl div:last-child {
+  border-bottom: 0;
+}
+
+.factcard dt {
+  font-size: var(--fs-14);
+  color: var(--ink-3);
+}
+
+.factcard dd {
+  min-width: 0;
+  margin: 0 0 0 auto;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+  color: var(--navy-ink);
+  text-align: right;
+}
+
+/* =============================== 16e. REVIEWS (real reviews only) =============================== */
+.reviews {
+  columns: 3 300px;
+  gap: var(--s-5);
+}
+
+.review {
+  break-inside: avoid;
+  margin: 0 0 var(--s-5);
+  padding: var(--s-6);
+  border-radius: var(--r-lg);
+  background: #fff;
+  box-shadow:
+    0 0 0 1px var(--hairline),
+    var(--shadow-1);
+}
+
+.review__stars {
+  margin-bottom: var(--s-3);
+  font-size: var(--fs-19);
+  letter-spacing: 2px;
+  color: #f5a524;
+}
+
+.review blockquote {
+  margin: 0 0 var(--s-4);
+  color: var(--ink-2);
+}
+
+.review blockquote p {
+  margin: 0;
+}
+
+.review figcaption {
+  display: grid;
+  gap: 2px;
+  font-size: var(--fs-14);
+  color: var(--ink-3);
+}
+
+.review figcaption strong {
+  color: var(--navy-ink);
+}
+
+.review figcaption a {
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
 /* =============================== 17. MOTION =============================== */
 @media (prefers-reduced-motion: no-preference) {
   .js .reveal {

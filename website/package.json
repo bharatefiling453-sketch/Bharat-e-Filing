@@ -7,14 +7,15 @@
   "scripts": {
     "serve": "npx --no-install http-server . -p 8080 -c-1",
     "format": "prettier --write \"**/*.{html,css,js,mjs,md,json}\"",
-    "lint:html": "html-validate \"gst-registration/*.html\" \"gst-return-filing/*.html\"",
+    "lint:html": "html-validate \"gst-registration/*.html\" \"gst-return-filing/*.html\" \"privacy-policy/*.html\"",
     "lint:css": "stylelint \"assets/css/*.css\"",
     "lint:links": "linkinator gst-registration/index.html --skip \"^https?://\"",
-    "check:seo": "node scripts/seo-check.mjs gst-registration/index.html && node scripts/seo-check.mjs gst-return-filing/index.html",
-    "check:a11y": "node scripts/a11y-check.mjs gst-registration/index.html && node scripts/a11y-check.mjs gst-return-filing/index.html",
+    "check:seo": "node scripts/seo-check.mjs gst-registration/index.html && node scripts/seo-check.mjs gst-return-filing/index.html && node scripts/seo-check.mjs privacy-policy/index.html",
+    "check:a11y": "node scripts/a11y-check.mjs gst-registration/index.html && node scripts/a11y-check.mjs gst-return-filing/index.html && node scripts/a11y-check.mjs privacy-policy/index.html",
     "check": "npm run lint:html && npm run lint:css && npm run check:seo && npm run check:a11y",
     "lighthouse": "lighthouse http://localhost:8080/gst-registration/ --chrome-flags=\"--headless\" --output html --output-path ./reports/lighthouse.html",
-    "build:single": "node scripts/build-single-file.mjs gst-registration && node scripts/build-single-file.mjs gst-return-filing"
+    "build:single": "node scripts/build-single-file.mjs gst-registration && node scripts/build-single-file.mjs gst-return-filing && node scripts/build-single-file.mjs privacy-policy",
+    "build:pages": "python3 scripts/pagekit.py privacy-policy"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
