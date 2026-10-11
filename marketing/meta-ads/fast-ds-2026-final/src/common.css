@@ -1,0 +1,14 @@
+@import url(fonts.css);
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:100vh;overflow:hidden}
+body{font-family:Inter,sans-serif;position:relative}
+.wrap{position:absolute;inset:0;padding:60px 72px 64px;display:flex;flex-direction:column}
+body.story .wrap{padding:250px 72px 330px;justify-content:space-between}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{background:#fff;border-radius:18px;padding:14px 20px;box-shadow:0 6px 20px rgba(0,0,0,.08);display:inline-flex}
+.logo img{height:62px;display:block}
+.pill{font-family:'JetBrains Mono';font-weight:800;font-size:20px;letter-spacing:.12em;padding:10px 16px;border-radius:999px}
+.cta-row{display:flex;justify-content:space-between;align-items:center;gap:24px}
+.cta{font-weight:800;font-size:32px;padding:26px 40px;border-radius:16px;white-space:nowrap}
+.micro{font-size:20px;line-height:1.4;text-align:right}
+.micro b{display:block;font-size:22px}
