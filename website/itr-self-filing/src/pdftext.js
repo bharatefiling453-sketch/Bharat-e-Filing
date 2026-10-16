@@ -3,12 +3,14 @@
 // Scanned PDFs and photos fall back to OCR (Tesseract), and every OCR value is marked for the user to confirm.
 
 const vendor = () => new URL("./vendor/", document.baseURI).href;
+// Single-file build: assets are embedded in the HTML and served as blob URLs by window.__befAsset(name).
+const embedded = () => typeof window !== "undefined" && window.__befAsset;
 let pdfjsPromise, ocrWorkerPromise;
 
 function pdfjs() {
   if (!pdfjsPromise)
-    pdfjsPromise = import("pdfjs-dist/build/pdf.min.mjs").then((m) => {
-      m.GlobalWorkerOptions.workerSrc = vendor() + "pdf.worker.min.mjs";
+    pdfjsPromise = import("pdfjs-dist/build/pdf.min.mjs").then(async (m) => {
+      m.GlobalWorkerOptions.workerSrc = embedded() ? await window.__befAsset("pdf.worker.min.mjs") : vendor() + "pdf.worker.min.mjs";
       return m;
     });
   return pdfjsPromise;
@@ -18,10 +20,11 @@ async function ocrWorker(onProgress) {
   if (!ocrWorkerPromise)
     ocrWorkerPromise = import("tesseract.js").then(async (mod) => {
       const createWorker = mod.createWorker || mod.default?.createWorker;
+      const paths = embedded()
+        ? { workerPath: await window.__befAsset("tesseract-worker.js"), corePath: "https://bef.embedded/core", langPath: "https://bef.embedded/lang", workerBlobURL: false, cacheMethod: "none" }
+        : { workerPath: vendor() + "tesseract/worker.min.js", corePath: vendor() + "tesseract/", langPath: vendor() + "tesseract/lang/" };
       const w = await createWorker("eng", 1, {
-        workerPath: vendor() + "tesseract/worker.min.js",
-        corePath: vendor() + "tesseract/",
-        langPath: vendor() + "tesseract/lang/",
+        ...paths,
         logger: (m) => onProgress && m.status === "recognizing text" && onProgress(m.progress),
       });
       await w.setParameters({ preserve_interword_spaces: "1" });

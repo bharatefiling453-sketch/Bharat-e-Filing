@@ -572,7 +572,7 @@ document.addEventListener("click", async (e) => {
   try {
     switch (a) {
       case "sample": {
-        const res = await fetch(new URL("samples/" + b.dataset.file, document.baseURI));
+        const res = await fetch(window.__befAsset ? await window.__befAsset(b.dataset.file) : new URL("samples/" + b.dataset.file, document.baseURI));
         const blob = await res.blob();
         const type = b.dataset.file.endsWith(".pdf") ? "application/pdf" : b.dataset.file.endsWith(".png") ? "image/png" : "text/csv";
         await handleUpload(b.dataset.kind, [new File([blob], b.dataset.file, { type })]);

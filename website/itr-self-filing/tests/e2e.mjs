@@ -6,6 +6,7 @@ const site = new URL("../../", import.meta.url).pathname;
 const fx = new URL("./fixtures/", import.meta.url).pathname;
 const shots = process.env.SHOTS || "/tmp/itr-shots"; mkdirSync(shots, { recursive: true });
 const OCR = process.argv.includes("--ocr");
+const APP = process.env.APP_URL || "http://127.0.0.1:8765/itr-self-filing/"; // e.g. file:///…/dist/bef-itr1-self-filing.html
 const srv = spawn("python3", ["-m", "http.server", "8765", "--bind", "127.0.0.1", "--directory", site], { stdio: "ignore" });
 await new Promise((r) => setTimeout(r, 800));
 let fail = 0; const ok = (name, cond, info = "") => { if (!cond) fail++; console.log(`${cond ? "✔" : "✖"} ${name} ${info}`); };
@@ -15,7 +16,7 @@ const p = await ctx.newPage();
 const errors = []; p.on("pageerror", (e) => errors.push(e.message)); p.on("console", (m) => m.type() === "error" && !/ERR_CERT|fonts\.g/.test(m.text() + (m.location()?.url || "")) && errors.push(m.text()));
 p.on("dialog", (d) => d.accept());
 try {
-  await p.goto("http://127.0.0.1:8765/itr-self-filing/");
+  await p.goto(APP);
   await p.evaluate(() => localStorage.clear()); await p.reload();
   // Step 1
   await p.fill("#pan", "abcps1234k"); await p.fill("#dob", "1990-05-10");
@@ -100,7 +101,7 @@ try {
   ok("filed and e-verified", true);
   // mobile layout
   const m = await (await b.newContext({ viewport: { width: 390, height: 844 } })).newPage();
-  await m.goto("http://127.0.0.1:8765/itr-self-filing/");
+  await m.goto(APP);
   ok("no horizontal scroll on mobile", !(await m.evaluate(() => document.documentElement.scrollWidth > innerWidth)));
   await m.screenshot({ path: shots + "/m-1.png" });
 } catch (e) { fail++; console.log("✖ exception:", e.message); await p.screenshot({ path: shots + "/error.png", fullPage: true }); }

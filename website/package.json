@@ -18,7 +18,8 @@
     "build:pages": "python3 scripts/pagekit.py privacy-policy income-tax-return-filing blog/tax-audit-due-date-extended-ay-2026-27",
     "build:itr": "node scripts/build-itr-app.mjs",
     "test:itr": "node itr-self-filing/tests/tax.test.mjs && node itr-self-filing/tests/form16.test.mjs && node itr-self-filing/tests/pnl.test.mjs && node scripts/build-itr-app.mjs && node itr-self-filing/tests/e2e.mjs",
-    "test:itr:ocr": "node itr-self-filing/tests/e2e.mjs --ocr"
+    "test:itr:ocr": "node itr-self-filing/tests/e2e.mjs --ocr",
+    "build:itr:single": "node scripts/build-itr-app.mjs && node scripts/build-itr-single.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",

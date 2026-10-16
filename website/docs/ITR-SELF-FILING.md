@@ -73,3 +73,10 @@ Location: `website/itr-self-filing/`. Build with `npm run build:itr`, test with 
   - the 234C dividend relief;
   - the TDS-certificate-wise claim split;
   - multiple-state professional tax.
+
+## Single-file HTML version
+
+`npm run build:itr:single` writes `dist/bef-itr1-self-filing.html` (about 8 MB). It embeds the app, CSS, logo, the
+pdf.js worker, the Tesseract OCR engine and English model, and the demo samples, so it runs offline and from a
+double-click (file://). Test it with `APP_URL=file://$PWD/dist/bef-itr1-self-filing.html node itr-self-filing/tests/e2e.mjs [--ocr]`.
+The OCR engine embedded is the SIMD build, which every current browser supports (Chrome/Edge 91+, Firefox 89+, Safari 16.4+).
