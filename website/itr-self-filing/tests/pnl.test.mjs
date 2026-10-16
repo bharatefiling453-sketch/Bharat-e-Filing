@@ -1,0 +1,20 @@
+import * as XLSX from "xlsx";
+import { readFileSync } from "node:fs";
+import { parsePnl } from "../src/pnl.js";
+let fail = 0;
+const ok = (name, cond, info = "") => { if (!cond) fail++; console.log(`${cond ? "✔" : "✖"} ${name} ${info}`); };
+const read = (f) => { const wb = XLSX.read(readFileSync(new URL("./fixtures/" + f, import.meta.url)), { cellDates: true });
+  return wb.SheetNames.map((name) => ({ name, rows: XLSX.utils.sheet_to_json(wb.Sheets[name], { header: 1, raw: true, defval: "" }) })); };
+let r = parsePnl(read("broker-tax-pnl.xlsx"));
+ok("LTCG total 37,500", r.summary.ltcg112a.gain === 37500, r.summary.ltcg112a.gain);
+ok("STCG 2,500", r.summary.stcg === 2500, r.summary.stcg);
+ok("STCG blocks ITR-1", r.itr1Issues.some((x) => /Short-term/.test(x)));
+r = parsePnl(read("broker-tax-pnl-ltcg-only.xlsx"));
+ok("LTCG-only file: no ITR-1 issues", r.itr1Issues.length === 0, JSON.stringify(r.itr1Issues));
+ok("grandfathered cost INFY = 41,000", r.trades.find((t) => t.symbol === "INFY").cost === 41000, r.trades.find((t) => t.symbol === "INFY").cost);
+ok("sale value total 1,20,500", r.summary.ltcg112a.saleValue === 120500);
+// generic layout without taxable column and dd-mm-yyyy dates, classify by holding period + grandfathering
+r = parsePnl([{ name: "Sheet1", rows: [["Scrip Name", "Qty", "Purchase Date", "Sale Date", "Purchase Value", "Sale Value", "FMV as on 31.01.2018"], ["ITC", 100, "10-01-2017", "05-06-2025", 25000, 41000, 26500], ["ITC", 50, "01-04-2025", "01-04-2025", 20000, 20100, ""]] }]);
+ok("generic: grandfathering gain 14,500", r.summary.ltcg112a.gain === 14500, r.summary.ltcg112a.gain);
+ok("generic: same-day trade = intraday", r.summary.intraday === 100, r.summary.intraday);
+console.log(fail ? `\n${fail} FAILED` : "\nall passed"); process.exit(fail ? 1 : 0);
