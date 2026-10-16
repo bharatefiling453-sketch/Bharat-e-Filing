@@ -62,6 +62,14 @@ function field(label, path, { type = "number", hint = "", disabled = false, attr
 const rupee = (s) => String(s || "").replace(/^-Rs\. /, "−₹").replace(/^Rs\. /, "₹");
 const chip = (t, cls = "") => `<span class="chip ${cls}">${t}</span>`;
 
+let toastTimer;
+function toast(msg) {
+  let el = document.getElementById("toast");
+  if (!el) { el = Object.assign(document.createElement("div"), { id: "toast", className: "toast" }); el.setAttribute("role", "status"); document.body.appendChild(el); }
+  el.textContent = msg; el.hidden = false;
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => (el.hidden = true), 4500);
+}
+
 // ------------------------------------------------------------------ shell
 const STEPS = ["PAN & consent", "Form 16", "Income", "Deductions & taxes", "Computation & file"];
 const root = document.getElementById("app");
@@ -161,7 +169,9 @@ function step2() {
       <input id="f16-input" type="file" accept="application/pdf,image/*" multiple data-upload="form16" hidden>
       <span class="drop__icon" aria-hidden="true">📄</span><strong>Upload Form 16 (PDF)</strong><span>Drag and drop, or click to choose. Digital PDFs from TRACES are read exactly; scanned copies and photos use OCR and every value is shown for you to confirm.</span>
     </label>
+    ${api.DEMO ? `<p class="samples">Demo: <button type="button" class="linkbtn" data-action="sample" data-kind="form16" data-file="sample-form16.pdf">try a sample Form 16</button> · <button type="button" class="linkbtn" data-action="sample" data-kind="form16" data-file="sample-form16-scanned.pdf">a scanned one (OCR)</button></p>` : ""}
     <p class="no-f16">Don't have Form 16? <button type="button" class="linkbtn" data-action="no-form16">Click here to enter your salary manually</button></p>
+    ${S._needPw ? `<div class="field" style="max-width:320px"><label for="f16-pw">Form 16 password</label><input id="f16-pw" type="text" autocomplete="off"></div>` : ""}
     <p class="status" id="f16-status" role="status">${esc(S._f16status || "")}</p>
     ${S.form16s.map((f, i) => form16Card(f, i)).join("")}
     <div class="actions-bar"><button class="btn btn--ghost" type="button" data-action="prev">← Back</button>
@@ -209,8 +219,8 @@ async function handleForm16Files(files) {
       try { res = await extractItems(file, { passwords: pw, onStatus: setF16Status }); }
       catch (e) {
         if (e.code !== "PASSWORD") throw e;
-        const p = prompt(`${file.name} is password-protected. Enter its password:`);
-        if (!p) throw new Error("Password needed to open the PDF.");
+        const p = (typeof prompt === "function" ? prompt(`${file.name} is password-protected. Enter its password:`) : null) || ($("#f16-pw")?.value || "");
+        if (!p) { S._needPw = true; throw new Error("This PDF is password-protected. Type its password in the box below and upload it again."); }
         res = await extractItems(file, { passwords: [p], onStatus: setF16Status });
       }
       const parsed = parseForm16(res.items, { pan: S.personal.pan });
@@ -277,7 +287,7 @@ function step3() {
         ${S.ltcg112a.source ? `<p class="field-hint">Source: ${esc(S.ltcg112a.source)}</p>` : ""}` : `<p class="empty">No capital gains added.</p>`}
       ${(S.prefill?.ais?.securitiesSold || []).length ? `<p class="field-hint">AIS shows securities sold: ${S.prefill.ais.securitiesSold.map((s) => inr(s.amount)).join(", ")}. Add the gain if you sold shares or equity funds.</p>` : ""}
       <div class="add-row"><button class="btn btn--ghost btn--sm" type="button" data-action="ltcg-modal">+ Add LTCG manually</button>
-        <label class="btn btn--ghost btn--sm" for="pnl-input">⬆ Upload broker Tax P&amp;L (Excel)</label><input id="pnl-input" type="file" accept=".xlsx,.xls,.csv" data-upload="pnl" hidden></div>`)}
+        <label class="btn btn--ghost btn--sm" for="pnl-input">⬆ Upload broker Tax P&amp;L (Excel)</label><input id="pnl-input" type="file" accept=".xlsx,.xls,.csv" data-upload="pnl" hidden>${api.DEMO ? `<button type="button" class="linkbtn" data-action="sample" data-kind="pnl" data-file="sample-broker-tax-pnl.csv">Demo: sample P&amp;L</button>` : ""}</div>`)}
 
     ${headCard("4", "Income from Other Sources", c.otherSources.income, `
       <div class="grid2">
@@ -400,6 +410,7 @@ function salaryModal() {
     <div class="tabs" role="tablist"><button type="button" role="tab" aria-selected="${tab === "manual"}" data-action="mtab" data-tab="manual">Enter head-wise</button><button type="button" role="tab" aria-selected="${tab === "slip"}" data-action="mtab" data-tab="slip">Upload salary slip</button></div>
     ${tab === "slip" ? `
       <label class="drop drop--sm" for="slip-input"><input id="slip-input" type="file" accept="application/pdf,image/*" data-upload="slip" hidden><span class="drop__icon" aria-hidden="true">🧾</span><strong>Upload a salary slip (PDF or photo)</strong><span>We read the components and multiply by the months you choose.</span></label>
+      ${api.DEMO ? `<p class="samples"><button type="button" class="linkbtn" data-action="sample" data-kind="slip" data-file="sample-salary-slip.png">Demo: try a sample salary slip</button></p>` : ""}
       <p class="status" id="slip-status" role="status">${esc(M.slipStatus || "")}</p>
       ${M.slip ? `<table class="f16__table"><tbody>${Object.entries(M.slip.components).map(([k, x]) => `<tr class="${x.ocr && x.conf < 85 ? "is-flagged" : ""}"><th scope="row">${esc(x.label)}</th><td class="num">${inr(x.value)}</td><td>${x.ocr ? `OCR ${Math.round(x.conf)}%` : "✓"}</td></tr>`).join("")}</tbody></table>
         ${M.slip.checks.map((c) => `<p class="${c.ok ? "note-ok" : "note-warn"}">${c.ok ? "✓" : "⚠"} ${esc(c.text)}</p>`).join("")}
@@ -539,7 +550,7 @@ async function handleUpload(kind, files) {
       if (!r.trades.length) throw new Error("No trades found. Upload the broker's Tax P&L for FY 2025-26 (Excel), or enter LTCG manually.");
       openModal("pnl", r, { fileName: files[0].name });
       track("pnl_parsed", { trades: r.trades.length });
-    } catch (e) { alert(e.message); }
+    } catch (e) { toast(e.message); }
   }
   if (kind === "slip") {
     M.slipStatus = "Reading the salary slip…"; renderModal();
@@ -560,6 +571,13 @@ document.addEventListener("click", async (e) => {
   const o = S.onboarding;
   try {
     switch (a) {
+      case "sample": {
+        const res = await fetch(new URL("samples/" + b.dataset.file, document.baseURI));
+        const blob = await res.blob();
+        const type = b.dataset.file.endsWith(".pdf") ? "application/pdf" : b.dataset.file.endsWith(".png") ? "image/png" : "text/csv";
+        await handleUpload(b.dataset.kind, [new File([blob], b.dataset.file, { type })]);
+        break;
+      }
       case "goto": S.step = Number(b.dataset.step); render(); window.scrollTo({ top: 0, behavior: "smooth" }); break;
       case "next": S.step = Math.min(5, S.step + 1); if (S.step === 3) seedFromPrefillIfNeeded(); render(); window.scrollTo({ top: 0, behavior: "smooth" }); break;
       case "prev": S.step = Math.max(1, S.step - 1); render(); window.scrollTo({ top: 0, behavior: "smooth" }); break;
@@ -613,19 +631,19 @@ document.addEventListener("click", async (e) => {
       }
       case "save-salary": {
         const d = M.draft;
-        if (!n(d.s17_1) && !n(d.s17_2)) { alert("Enter the salary amount."); break; }
+        if (!n(d.s17_1) && !n(d.s17_2)) { toast("Enter the salary amount."); break; }
         d.tan = (d.tan || "").toUpperCase();
         if (M.index === "new") S.salary.employers.push({ id: uid(), source: d.source || "manual", ...d }); else S.salary.employers[M.index] = d;
         closeModal(); render(); break;
       }
       case "save-pension": {
-        const d = M.draft; if (!n(d.s17_1) && !n(d.commutedReceived)) { alert("Enter the pension amount."); break; }
+        const d = M.draft; if (!n(d.s17_1) && !n(d.commutedReceived)) { toast("Enter the pension amount."); break; }
         d.s17_1 = n(d.s17_1) + n(d.commutedReceived); d.name ||= "Pension"; d.source = "manual";
         S.salary.employers.push({ id: uid(), ...d }); closeModal(); render(); break;
       }
       case "save-hp": {
         const d = M.draft;
-        if (d.type !== "self" && !n(d.rent)) { alert("Enter the annual rent."); break; }
+        if (d.type !== "self" && !n(d.rent)) { toast("Enter the annual rent."); break; }
         if (M.index === "new") S.houseProperties.push(d); else S.houseProperties[M.index] = d;
         closeModal(); render(); break;
       }
@@ -636,14 +654,14 @@ document.addEventListener("click", async (e) => {
         closeModal(); render(); break;
       }
       case "save-os": {
-        const d = M.draft; const amt = n(d.amount); if (!amt) { alert("Enter the amount."); break; }
+        const d = M.draft; const amt = n(d.amount); if (!amt) { toast("Enter the amount."); break; }
         if (d.type.startsWith("other:")) S.otherSources.others.push({ label: d.type === "other:Any other income" ? d.label || "Other income" : d.type.slice(6), payer: d.payer || "", amount: amt });
         else S.otherSources[d.type] = n(S.otherSources[d.type]) + amt;
         if (n(d.tds)) S.taxes.tdsOther.push({ deductor: d.payer || "Deductor", tan: "", section: "", amountPaid: amt, tds: n(d.tds) });
         closeModal(); render(); break;
       }
       case "save-challan": {
-        const d = M.draft; if (!n(d.amount) || !d.date) { alert("Enter the date and amount."); break; }
+        const d = M.draft; if (!n(d.amount) || !d.date) { toast("Enter the date and amount."); break; }
         S.taxes[d.kind].push({ date: d.date, bsr: d.bsr || "", challan: d.challan || "", amount: n(d.amount) }); closeModal(); render(); break;
       }
       case "create-computation": S.computed = true; track("itr_computation_created"); render(); break;
@@ -669,10 +687,13 @@ document.addEventListener("click", async (e) => {
         catch (err) { M.draft.error = err.message; renderModal(); }
         break;
       }
-      case "reset": if (confirm("Start a new return? Your current draft on this device will be cleared.")) { S = blank(); render(); } break;
+      case "reset":
+        if (b.dataset.armed) { S = blank(); render(); toast("Started a new return."); }
+        else { b.dataset.armed = "1"; b.textContent = "Click again to clear this draft"; setTimeout(() => { if (b.isConnected) { delete b.dataset.armed; b.textContent = "Start a new return"; } }, 4000); }
+        break;
     }
   } catch (err) {
-    if (a === "verify-pan") { o.panError = err.message; render(); } else alert(err.message);
+    if (a === "verify-pan") { o.panError = err.message; render(); } else toast(err.message);
   }
 });
 
