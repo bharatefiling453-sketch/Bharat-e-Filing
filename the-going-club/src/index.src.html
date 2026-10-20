@@ -1,0 +1,1046 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Going Club — Group trips for the group chat</title>
+<meta name="description" content="7-night group trips from India to Thailand, Bali and Vietnam, plus Dubai, Indonesia, Cambodia and Sri Lanka. Full Moon Party, Christmas and NYE departures." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* @@LENIS_CSS@@ */
+
+/* ============================================================
+   TOKENS — the page re-skins itself for every destination
+   ============================================================ */
+:root{
+  --bg:#f7f5f0; --ink:#111111; --ink-2:#6b6862; --line:rgba(17,17,17,.1); --card:#ffffff;
+  --accent:#ff5b2e; --accent-2:#ffd23f; --on-accent:#111;
+  --display:"Bricolage Grotesque", "Figtree", system-ui, sans-serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --g:clamp(20px, 5vw, 80px);           /* side gutter */
+  --space:clamp(140px, 22vh, 280px);    /* the negative space between sections */
+  --r:clamp(22px, 2.6vw, 40px);         /* card radius */
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+body[data-theme="club"]     {--bg:#f7f5f0;--accent:#ff5b2e;--accent-2:#ffd23f;--on-accent:#111}
+body[data-theme="thailand"] {--bg:#e9f6f3;--accent:#00a19a;--accent-2:#ffc93c;--on-accent:#fff}
+body[data-theme="bali"]     {--bg:#f2f0e1;--accent:#3f7d3a;--accent-2:#ff8a4c;--on-accent:#fff}
+body[data-theme="vietnam"]  {--bg:#fbece6;--accent:#e2372b;--accent-2:#2fa38a;--on-accent:#fff}
+body[data-theme="dubai"]    {--bg:#f7eedd;--accent:#c98a2c;--accent-2:#2b2320;--on-accent:#fff}
+body[data-theme="indonesia"]{--bg:#e8f0f8;--accent:#1e63b5;--accent-2:#ff7a59;--on-accent:#fff}
+body[data-theme="cambodia"] {--bg:#f8efdf;--accent:#d9822b;--accent-2:#6b3f1d;--on-accent:#fff}
+body[data-theme="srilanka"] {--bg:#edf3e3;--accent:#4c8b2b;--accent-2:#f2a541;--on-accent:#fff}
+body[data-theme="night"]    {--bg:#0f0f0f;--ink:#f5f2ea;--ink-2:#9a968e;--line:rgba(245,242,234,.12);--card:#1a1a1a;--accent:#d4ff3f;--accent-2:#ff5b2e;--on-accent:#111}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-size:18px;line-height:1.6;color:var(--ink);background:var(--bg);
+  transition:background-color .9s var(--ease),color .6s var(--ease);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--accent);color:var(--on-accent)}
+.wrap{max-width:1480px;margin-inline:auto;padding-inline:var(--g)}
+.space{padding-block:var(--space)}
+.muted{color:var(--ink-2)}
+.d{font-family:var(--display);font-weight:700;letter-spacing:-.035em;line-height:.95;font-variation-settings:"opsz" 96}
+.label{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.acc{color:var(--accent);transition:color .9s var(--ease)}
+.split-line{overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
+
+/* grain */
+.grain{position:fixed;inset:0;z-index:300;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* photo frame with a colour fallback if a photo can't load */
+.ph{position:relative;overflow:hidden;background:linear-gradient(140deg,var(--c1,#00a19a),var(--c2,#ffc93c))}
+.ph img{width:100%;height:100%;object-fit:cover;transition:opacity .6s}
+.ph img.dead{opacity:0}
+
+/* buttons */
+.btn{--h:56px;display:inline-flex;align-items:center;gap:12px;height:var(--h);padding:0 8px 0 26px;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:600;font-size:16px;white-space:nowrap;transition:background .5s,color .5s}
+.btn .ic{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;overflow:hidden;transition:background .9s}
+.btn .ic svg{width:16px;height:16px;transition:transform .5s var(--ease)}
+.btn:hover .ic svg{transform:rotate(-45deg)}
+.btn--acc{background:var(--accent);color:var(--on-accent)}
+.btn--acc .ic{background:var(--ink);color:var(--bg)}
+.btn--ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;background:var(--card);font-size:14px;font-weight:600;border:1px solid var(--line)}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--c,var(--accent))}
+.sticker{display:inline-block;padding:8px 16px;border-radius:999px;background:var(--accent-2);color:#111;font-weight:700;font-size:14px;transform:rotate(-6deg);box-shadow:0 8px 24px rgba(0,0,0,.08);transition:background .9s}
+
+/* ============================================================
+   LOADER — photo flip-book that opens into the hero
+   ============================================================ */
+.loader{position:fixed;inset:0;z-index:500;background:#111;color:#f5f2ea;display:grid;place-items:center}
+.loader__stack{position:relative;width:min(240px,46vw);aspect-ratio:3/4;border-radius:24px;overflow:hidden}
+.loader__stack .ph{position:absolute;inset:0;opacity:0}
+.loader__stack .ph.on{opacity:1}
+.loader__txt{position:absolute;left:var(--g);right:var(--g);bottom:32px;display:flex;justify-content:space-between;align-items:flex-end;font-weight:600}
+.loader__num{font-family:var(--display);font-size:clamp(64px,10vw,140px);font-weight:800;line-height:.8;letter-spacing:-.05em}
+.loader__brand{position:absolute;top:32px;left:var(--g);font-family:var(--display);font-weight:700;font-size:20px}
+
+/* ============================================================
+   CURSOR + IMAGE FOLLOWER
+   ============================================================ */
+.cur{position:fixed;left:0;top:0;z-index:400;pointer-events:none;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--accent);display:grid;place-items:center;color:var(--on-accent);font-size:13px;font-weight:700;transition:width .45s var(--ease),height .45s var(--ease),margin .45s var(--ease),background .9s}
+.cur span{opacity:0;transition:opacity .3s;white-space:nowrap}
+.cur.big{width:96px;height:96px;margin:-48px 0 0 -48px}
+.cur.big span{opacity:1}
+.peek{position:fixed;left:0;top:0;z-index:50;width:280px;aspect-ratio:4/5;border-radius:24px;pointer-events:none;opacity:0;transform:scale(.6) rotate(-6deg);margin:-175px 0 0 -140px}
+@media (hover:none),(max-width:900px){.cur,.peek{display:none}}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{position:fixed;inset:16px var(--g) auto;z-index:200;display:flex;justify-content:space-between;align-items:center;gap:16px;pointer-events:none}
+.nav > *{pointer-events:auto}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:21px;letter-spacing:-.03em}
+.nav .logo{padding:7px 20px 7px 7px;border-radius:999px;background:color-mix(in srgb,var(--card) 88%,transparent);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid var(--line)}
+.logo__dot{width:34px;height:34px;border-radius:50%;background:var(--accent);display:grid;place-items:center;transition:background .9s}
+.logo__dot svg{width:18px;height:18px;color:var(--on-accent);animation:spin 8s linear infinite}
+.navpill{display:flex;gap:4px;padding:6px;border-radius:999px;background:color-mix(in srgb,var(--card) 88%,transparent);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid var(--line);font-size:15px;font-weight:600}
+.navpill a{padding:10px 18px;border-radius:999px;transition:background .3s,color .3s}
+.navpill a:hover,.navpill a.on{background:var(--ink);color:var(--bg)}
+.nav .btn{--h:50px;font-size:15px}
+.nav .btn .ic{width:36px;height:36px}
+.burger{display:none;width:52px;height:52px;border-radius:50%;background:var(--ink);color:var(--bg);place-items:center}
+.burger span{display:block;width:18px;height:2px;background:currentColor;box-shadow:0 6px 0 currentColor;transform:translateY(-3px)}
+.mnav{position:fixed;inset:0;z-index:190;background:var(--accent);color:var(--on-accent);padding:120px var(--g) 40px;display:flex;flex-direction:column;gap:6px;clip-path:inset(0 0 100% 0);transition:clip-path .8s var(--ease)}
+.mnav a{font-family:var(--display);font-weight:800;font-size:clamp(44px,13vw,80px);letter-spacing:-.04em;line-height:1.05}
+.menu-open .mnav{clip-path:inset(0 0 0 0)}
+@media (max-width:980px){.navpill,.nav .btn{display:none}.burger{display:grid}}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{padding-top:clamp(150px,22vh,220px);text-align:center;position:relative}
+.hero__kicker{display:inline-flex;gap:10px;align-items:center;margin-bottom:36px}
+.hero h1{font-size:clamp(52px,9.6vw,168px);max-width:12.5ch;margin-inline:auto}
+.hero h1 .pic{display:inline-block;width:1.55em;height:.78em;border-radius:999px;vertical-align:.04em;margin-inline:.06em;overflow:hidden}
+.hero h1 .pic .ph{display:block;width:100%;height:100%}
+.hero__sub{max-width:40ch;margin:40px auto 0;font-size:clamp(17px,1.4vw,20px)}
+.hero__cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:44px}
+.hero__media-wrap{height:230vh;margin-top:clamp(80px,12vh,140px);position:relative}
+.hero__sticky{position:sticky;top:0;height:100vh;display:flex;justify-content:center;align-items:center}
+.hero__media{position:relative;width:min(560px,82vw);height:min(70vh,640px);border-radius:var(--r);overflow:hidden;will-change:width,height,border-radius}
+.hero__media .ph{position:absolute;inset:0}
+.hero__media .ph img{transform:scale(1.15)}
+.hero__caption{position:absolute;inset:auto 0 0;padding:28px var(--g);display:flex;justify-content:space-between;align-items:flex-end;color:#fff;z-index:2;opacity:0;background:linear-gradient(0deg,rgba(0,0,0,.45),transparent)}
+.hero__caption b{font-family:var(--display);font-size:clamp(40px,7vw,120px);font-weight:800;letter-spacing:-.045em;line-height:.85}
+.badge{position:absolute;right:clamp(16px,9vw,160px);top:clamp(20px,6vh,80px);width:clamp(110px,10vw,150px);aspect-ratio:1;z-index:3}
+.badge svg{width:100%;height:100%;animation:spin 14s linear infinite}
+.badge__in{position:absolute;inset:26%;border-radius:50%;background:var(--accent-2);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(16px,1.6vw,22px);text-align:center;line-height:1;color:#111;transition:background .9s}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.marq{overflow:hidden;padding-block:clamp(40px,6vh,70px)}
+.marq__row{display:flex;width:max-content;font-family:var(--display);font-weight:800;font-size:clamp(48px,8vw,128px);letter-spacing:-.045em;line-height:1}
+.marq__row span{display:inline-flex;align-items:center;gap:.35em;padding-right:.35em}
+.marq__row span svg{width:.55em;height:.55em;color:var(--accent);transition:color .9s}
+.marq__row--o{-webkit-text-stroke:1.5px var(--ink);color:transparent}
+
+/* ============================================================
+   STATEMENT
+   ============================================================ */
+.statement{text-align:center}
+.statement p{font-family:var(--display);font-weight:600;font-size:clamp(30px,4.2vw,64px);letter-spacing:-.03em;line-height:1.12;max-width:20ch;margin-inline:auto}
+.statement p em{font-style:normal;color:var(--accent);transition:color .9s}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:clamp(100px,16vh,180px) auto 0}
+.num{text-align:center}
+.num b{display:block;font-family:var(--display);font-weight:800;font-size:clamp(48px,5.4vw,84px);letter-spacing:-.05em;line-height:1}
+.num span{font-size:15px;color:var(--ink-2)}
+@media (max-width:760px){.nums{grid-template-columns:1fr 1fr;row-gap:56px}}
+
+/* ============================================================
+   SECTION HEADS
+   ============================================================ */
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(60px,9vh,110px)}
+.head h2{font-size:clamp(48px,7.4vw,124px)}
+.head p{max-width:34ch}
+
+/* ============================================================
+   DESTINATIONS — pinned horizontal gallery
+   ============================================================ */
+.dest{overflow:hidden}
+.dest__pin{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-block:100px}
+.dest__track{display:flex;gap:clamp(18px,2vw,32px);padding-inline:var(--g);width:max-content}
+.dc{position:relative;width:clamp(290px,27vw,420px);aspect-ratio:3/4.2;border-radius:var(--r);overflow:hidden;color:#fff;flex:none;display:block}
+.dc .ph{position:absolute;inset:0}
+.dc .ph img{transform:scale(1.18)}
+.dc::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 40%,rgba(0,0,0,.6));z-index:1}
+.dc__top{position:absolute;inset:20px 20px auto;display:flex;justify-content:space-between;z-index:2;font-weight:700;font-size:14px}
+.dc__state{padding:7px 13px;border-radius:999px;background:rgba(255,255,255,.95);color:#111}
+.dc__state.live{background:var(--c);color:#fff}
+.dc__bot{position:absolute;inset:auto 22px 22px;z-index:2}
+.dc__bot h3{font-family:var(--display);font-weight:800;font-size:clamp(40px,3.8vw,60px);letter-spacing:-.045em;line-height:.9}
+.dc__bot p{font-size:15px;opacity:.9;margin-top:10px;max-width:24ch}
+.dc__go{position:absolute;right:20px;bottom:22px;z-index:2;width:52px;height:52px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;transition:transform .5s var(--ease)}
+.dc:hover .dc__go{transform:rotate(-45deg) scale(1.08)}
+.dc__go svg{width:18px}
+.dest__end{width:clamp(260px,24vw,360px);flex:none;display:flex;flex-direction:column;justify-content:center;gap:20px;padding-left:20px}
+.dest__end p{font-family:var(--display);font-weight:700;font-size:32px;letter-spacing:-.03em;line-height:1.05}
+@media (max-width:900px){
+  .dest__pin{min-height:0;padding-block:0}
+  .dest__track{overflow-x:auto;width:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:none}
+  .dest__track::-webkit-scrollbar{display:none}
+  .dc{width:78vw;scroll-snap-align:center}
+}
+
+/* ============================================================
+   DEPARTURES BOARD
+   ============================================================ */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.tabs button{padding:12px 20px;border-radius:999px;border:1.5px solid var(--line);font-weight:600;font-size:15px;transition:all .35s var(--ease)}
+.tabs button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.dep{display:grid;grid-template-columns:120px 1fr 1fr 170px 60px;gap:24px;align-items:center;padding:30px 8px;border-top:1.5px solid var(--line);cursor:pointer;transition:padding .5s var(--ease),background .5s}
+.dep:last-child{border-bottom:1.5px solid var(--line)}
+.dep:hover{padding-inline:24px;background:color-mix(in srgb,var(--c) 8%,transparent)}
+.dep__date b{display:block;font-family:var(--display);font-weight:800;font-size:46px;letter-spacing:-.05em;line-height:.9}
+.dep__date span{font-size:14px;font-weight:600;color:var(--ink-2)}
+.dep__t{font-family:var(--display);font-weight:700;font-size:clamp(24px,2.2vw,34px);letter-spacing:-.03em;line-height:1.05}
+.dep__t small{display:block;font-family:var(--body);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--c);margin-bottom:6px}
+.dep__r{font-size:15px;color:var(--ink-2)}
+.dep__p{text-align:right;font-weight:700;font-size:20px}
+.dep__p small{display:block;font-size:13px;font-weight:500;color:var(--ink-2)}
+.dep__go{width:56px;height:56px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;transition:all .5s var(--ease)}
+.dep__go svg{width:16px}
+.dep:hover .dep__go{background:var(--c);border-color:var(--c);color:#fff;transform:rotate(-45deg)}
+.dep .tagp{display:inline-block;margin-left:8px;padding:3px 10px;border-radius:999px;background:var(--accent-2);color:#111;font-family:var(--body);font-size:12px;font-weight:700;vertical-align:middle;letter-spacing:0}
+.dep.hide{display:none}
+@media (max-width:900px){.dep{grid-template-columns:76px 1fr;gap:10px 18px}.dep__date b{font-size:36px}.dep__r,.dep__p{grid-column:2;text-align:left}.dep__go{display:none}}
+
+/* ============================================================
+   COUNTRY SECTIONS — stacked plan cards
+   ============================================================ */
+.country__hero{position:relative;height:120vh;overflow:hidden}
+.country__hero .ph{position:absolute;inset:-10% 0}
+.country__hero .ph::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.35));z-index:1}
+.country__name{position:sticky;top:0;height:100vh;display:grid;place-items:center;z-index:2;color:#fff;text-align:center}
+.country__name h2{font-size:clamp(84px,19vw,340px);letter-spacing:-.06em;line-height:.8}
+.country__name p{font-size:clamp(17px,1.4vw,20px);font-weight:600;margin-top:24px}
+.country__intro{display:grid;grid-template-columns:1fr 1fr;gap:var(--g);align-items:end;margin-bottom:clamp(80px,12vh,140px)}
+.country__intro h3{font-size:clamp(40px,5vw,84px)}
+.country__intro .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+@media (max-width:900px){.country__intro{grid-template-columns:1fr}}
+
+.stack{display:flex;flex-direction:column;gap:clamp(40px,6vh,80px)}
+.plan{position:sticky;top:calc(96px + var(--i) * 18px);display:grid;grid-template-columns:1.1fr 1fr;min-height:min(78vh,700px);border-radius:var(--r);overflow:hidden;background:var(--card);box-shadow:0 30px 80px -40px rgba(0,0,0,.25);transform-origin:center top;cursor:pointer}
+.plan__img{position:relative}
+.plan__img .ph{position:absolute;inset:0}
+.plan__no{position:absolute;top:22px;left:22px;z-index:2;width:58px;height:58px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:20px}
+.plan__stick{position:absolute;right:22px;bottom:22px;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.plan__body{padding:clamp(28px,4vw,64px);display:flex;flex-direction:column;gap:22px}
+.plan__body h3{font-size:clamp(38px,4vw,68px)}
+.plan__route{display:flex;flex-wrap:wrap;gap:8px}
+.plan__route span{padding:7px 14px;border-radius:999px;background:color-mix(in srgb,var(--accent) 12%,transparent);color:var(--accent);font-size:14px;font-weight:700;transition:all .9s}
+.plan__dates{display:flex;flex-wrap:wrap;gap:8px}
+.plan__dates span{padding:10px 16px;border-radius:14px;border:1.5px solid var(--line);font-weight:700;font-size:15px}
+.plan__dates span em{font-style:normal;font-weight:500;color:var(--ink-2)}
+.plan__foot{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding-top:24px;border-top:1.5px solid var(--line)}
+.plan__price{font-family:var(--display);font-weight:800;font-size:clamp(34px,3vw,48px);letter-spacing:-.04em;line-height:1}
+.plan__price small{display:block;font-family:var(--body);font-size:14px;font-weight:500;color:var(--ink-2);letter-spacing:0;margin-bottom:6px}
+@media (max-width:900px){.plan{grid-template-columns:1fr;position:relative;top:auto;min-height:0}.plan__img{aspect-ratio:4/3}}
+
+/* ============================================================
+   BENTO — what's included
+   ============================================================ */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(220px,auto);gap:16px}
+.bx{border-radius:var(--r);background:var(--card);padding:32px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.bx h4{font-family:var(--display);font-weight:700;font-size:clamp(24px,2vw,32px);letter-spacing:-.03em;line-height:1.05}
+.bx p{font-size:16px;color:var(--ink-2)}
+.bx .ico{width:56px;height:56px;border-radius:18px;background:var(--accent);color:var(--on-accent);display:grid;place-items:center;transition:background .9s}
+.bx .ico svg{width:26px;height:26px}
+.bx--photo{grid-column:span 2;grid-row:span 2;padding:0;color:#fff;border:0}
+.bx--photo .ph{position:absolute;inset:0}
+.bx--photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.6))}
+.bx--photo div.t{position:relative;z-index:1;margin-top:auto;padding:32px}
+.bx--photo h4{font-size:clamp(34px,3.4vw,56px)}
+.bx--acc{background:var(--accent);color:var(--on-accent);border:0;transition:background .9s}
+.bx--acc p{color:inherit;opacity:.85}
+.bx--acc .big{font-family:var(--display);font-weight:800;font-size:clamp(64px,7vw,120px);letter-spacing:-.06em;line-height:.8}
+.bx--wide{grid-column:span 2}
+@media (max-width:980px){.bento{grid-template-columns:1fr 1fr}.bx--photo{grid-column:span 2;min-height:420px}}
+@media (max-width:560px){.bento{grid-template-columns:1fr}.bx--photo,.bx--wide{grid-column:auto}}
+
+/* ============================================================
+   STEPS
+   ============================================================ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.st{padding:36px 30px 40px;border-radius:var(--r);border:1.5px solid var(--line);position:relative;min-height:340px;display:flex;flex-direction:column;transition:background .5s,color .5s,transform .5s var(--ease)}
+.st:hover{background:var(--ink);color:var(--bg);transform:translateY(-8px) rotate(-1deg)}
+.st b{font-family:var(--display);font-weight:800;font-size:22px;width:56px;height:56px;border-radius:50%;background:var(--accent-2);color:#111;display:grid;place-items:center;transition:background .9s}
+.st h4{font-family:var(--display);font-weight:700;font-size:30px;letter-spacing:-.03em;margin-top:auto;line-height:1.05}
+.st p{font-size:16px;margin-top:12px;opacity:.75}
+@media (max-width:980px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}.st{min-height:260px}}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{display:grid;grid-template-columns:1fr 1.5fr;gap:var(--g)}
+.qa{border-radius:24px;background:var(--card);border:1px solid var(--line);margin-bottom:12px;overflow:hidden}
+.qa button{width:100%;text-align:left;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 28px;font-weight:600;font-size:19px}
+.qa button i{flex:none;width:36px;height:36px;border-radius:50%;background:var(--bg);position:relative;transition:background .4s,transform .5s var(--ease)}
+.qa button i::before,.qa button i::after{content:"";position:absolute;left:11px;right:11px;top:17px;height:2px;background:currentColor;border-radius:2px}
+.qa button i::after{transform:rotate(90deg);transition:transform .5s var(--ease)}
+.qa.open button i{background:var(--accent);color:var(--on-accent);transform:rotate(180deg)}
+.qa.open button i::after{transform:rotate(0)}
+.qa__a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
+.qa.open .qa__a{grid-template-rows:1fr}
+.qa__a>div{overflow:hidden}
+.qa__a p{padding:0 28px 28px;color:var(--ink-2);max-width:60ch}
+@media (max-width:900px){.faq{grid-template-columns:1fr}}
+
+/* ============================================================
+   CTA + FOOTER
+   ============================================================ */
+.cta{text-align:center}
+.cta h2{font-size:clamp(96px,21vw,360px);letter-spacing:-.07em;line-height:.8}
+.cta h2 span{display:inline-block}
+.cta__sub{max-width:36ch;margin:40px auto 0;font-size:20px}
+.form{max-width:980px;margin:clamp(70px,10vh,120px) auto 0;display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:left}
+.form .f{display:flex;flex-direction:column;gap:6px;padding:16px 24px;border-radius:22px;background:var(--card);border:1px solid var(--line);transition:border-color .3s}
+.form .f:focus-within{border-color:var(--accent)}
+.form label{font-size:13px;font-weight:600;color:var(--ink-2)}
+.form input,.form select{font:inherit;font-size:18px;color:var(--ink);background:none;border:0;outline:0;padding:2px 0;-webkit-appearance:none;appearance:none}
+.form select option{color:#111}
+.form .full{grid-column:1/-1}
+.form .btn{justify-self:center;grid-column:1/-1;margin-top:14px;--h:64px;font-size:17px}
+@media (max-width:640px){.form{grid-template-columns:1fr}}
+.foot{margin-top:var(--space);padding-top:56px;border-top:1px solid var(--line);display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;font-size:16px}
+.foot h5{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-bottom:16px}
+.foot a{display:block;padding:4px 0}
+.foot a:hover{color:var(--accent)}
+.foot__base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:56px 0 32px;font-size:14px;color:var(--ink-2)}
+@media (max-width:800px){.foot{grid-template-columns:1fr 1fr}}
+
+/* ============================================================
+   DRAWER
+   ============================================================ */
+.scrim{position:fixed;inset:0;z-index:250;background:rgba(0,0,0,.4);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .5s}
+.drawer{position:fixed;top:12px;right:12px;bottom:12px;z-index:260;width:min(720px,calc(100vw - 24px));background:#fff;color:#111;border-radius:var(--r);overflow-y:auto;overscroll-behavior:contain;transform:translateX(calc(100% + 24px));transition:transform .8s var(--ease)}
+.drawer-open .scrim{opacity:1;pointer-events:auto}
+.drawer-open .drawer{transform:none}
+.dr__x{position:absolute;top:18px;right:18px;z-index:3;width:50px;height:50px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:24px;transition:transform .5s var(--ease)}
+.dr__x:hover{transform:rotate(90deg)}
+.dr__hero{position:relative;height:42vh;min-height:280px;margin:10px;border-radius:calc(var(--r) - 8px);overflow:hidden;color:#fff}
+.dr__hero .ph{position:absolute;inset:0}
+.dr__hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.6),transparent 60%)}
+.dr__ht{position:absolute;left:28px;right:28px;bottom:24px;z-index:2}
+.dr__ht h3{font-size:clamp(40px,6vw,64px);margin-top:10px}
+.dr__b{padding:28px 38px 40px}
+.dr__meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.dr__meta div{padding:16px;border-radius:18px;background:#f4f2ee}
+.dr__meta span{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#77736c}
+.dr__meta b{font-size:16px}
+.dr__deps{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.dr__deps button{padding:11px 18px;border-radius:999px;border:1.5px solid #e4e1db;font-weight:600;font-size:15px;transition:all .3s}
+.dr__deps button.on{background:var(--dc);border-color:var(--dc);color:#fff}
+.dr__note{margin-top:16px;padding:16px 18px;border-radius:16px;background:color-mix(in srgb,var(--dc) 12%,#fff);font-size:15px;font-weight:500}
+.days{margin-top:36px}
+.day{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:18px 0;border-top:1px solid #ece9e3}
+.day__n{width:56px;height:56px;border-radius:18px;background:#f4f2ee;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:22px}
+.day.peak .day__n{background:var(--dc);color:#fff}
+.day__d{font-size:13px;font-weight:700;color:#77736c;letter-spacing:.04em;text-transform:uppercase}
+.day h5{font-family:var(--display);font-weight:700;font-size:22px;letter-spacing:-.02em;margin:2px 0 6px}
+.day h5 .sticker{font-family:var(--body);font-size:12px;padding:4px 10px;margin-left:8px;vertical-align:middle;background:var(--dc);color:#fff}
+.day p{font-size:16px;color:#55524c}
+.dr__lists{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.dr__lists div{padding:22px;border-radius:20px;background:#f4f2ee}
+.dr__lists h6{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+.dr__lists ul{list-style:none;font-size:15px}
+.dr__lists li{padding:5px 0}
+.dr__bar{position:sticky;bottom:0;margin:0 10px 10px;padding:14px 14px 14px 26px;border-radius:999px;background:#111;color:#fff;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.dr__bar b{font-family:var(--display);font-weight:800;font-size:28px;letter-spacing:-.03em}
+.dr__bar .btn{background:var(--dc);color:#fff;--h:52px}
+.dr__bar .btn .ic{background:#fff;color:#111;width:38px;height:38px}
+@media (max-width:600px){.dr__b{padding:24px 20px}.dr__meta{grid-template-columns:1fr 1fr}.dr__lists{grid-template-columns:1fr}.dr__bar b{font-size:22px}}
+
+.toast{position:fixed;left:50%;bottom:24px;z-index:450;transform:translate(-50%,calc(100% + 40px));background:#111;color:#fff;padding:14px 24px;border-radius:999px;font-weight:600;transition:transform .6s var(--ease)}
+.toast.show{transform:translate(-50%,0)}
+
+/* no-JS / reduced-motion safety: everything stays visible */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body data-theme="club">
+<div class="grain" aria-hidden="true"></div>
+
+<!-- LOADER -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__brand">the going club ✦</div>
+  <div class="loader__stack" id="loaderStack"></div>
+  <div class="loader__txt"><span>packing your bags…</span><span class="loader__num" id="loaderNum">0</span></div>
+</div>
+
+<div class="cur" id="cur"><span></span></div>
+<div class="peek ph" id="peek"><img alt="" id="peekImg"></div>
+
+<!-- NAV -->
+<header class="nav">
+  <a href="#top" class="logo" aria-label="The Going Club"><span class="logo__dot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.6 8.4L24 12l-9.4 3.6L12 24l-2.6-8.4L0 12l9.4-3.6z"/></svg></span>the going club</a>
+  <nav class="navpill" aria-label="Main">
+    <a href="#destinations">Destinations</a><a href="#dates">Dates</a><a href="#thailand">Thailand</a><a href="#bali">Bali</a><a href="#vietnam">Vietnam</a><a href="#faq">FAQ</a>
+  </nav>
+  <a href="#join" class="btn btn--acc magnetic">Plan my trip <span class="ic"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></span></a>
+  <button class="burger" id="burger" aria-label="Open menu"><span></span></button>
+</header>
+<nav class="mnav" id="mnav"><a href="#destinations">Destinations</a><a href="#dates">Dates</a><a href="#thailand">Thailand</a><a href="#bali">Bali</a><a href="#vietnam">Vietnam</a><a href="#join">Plan my trip</a></nav>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero" data-theme="club">
+  <div class="wrap">
+    <div class="hero__kicker"><span class="chip"><i style="--c:#00a19a"></i>Thailand · Bali · Vietnam departures live</span></div>
+    <h1 class="d" id="heroTitle">Your next <span class="pic"><span class="ph" style="--c1:#00a19a;--c2:#ffc93c"><img data-k="thai-boat" data-w="500" alt=""></span></span> trip, with <span class="pic"><span class="ph" style="--c1:#ff5b2e;--c2:#ffd23f"><img data-k="friends" data-w="500" alt=""></span></span> your new favourite people.</h1>
+    <p class="hero__sub muted rv">Seven nights, eight days, small groups of travellers in their 20s and 30s from all over India. We handle the planning so you can just enjoy the trip.</p>
+    <div class="hero__cta rv">
+      <a href="#dates" class="btn magnetic">See upcoming dates <span class="ic"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></span></a>
+      <a href="#destinations" class="btn btn--ghost">Where we go</a>
+    </div>
+  </div>
+  <div class="hero__media-wrap" id="heroWrap"><div class="hero__sticky">
+    <div class="badge" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><defs><path id="circ" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text font-family="Figtree" font-weight="700" font-size="17" letter-spacing="4" fill="currentColor"><textPath href="#circ">NEXT TRIP ✦ FULL MOON PARTY ✦ KOH PHANGAN ✦ </textPath></text></svg>
+      <div class="badge__in">20<br/>Nov</div>
+    </div>
+    <div class="hero__media" id="heroMedia">
+      <div class="ph" style="--c1:#00a19a;--c2:#ffc93c"><img data-k="hero" data-w="2200" alt="Turquoise water and longtail boats in Thailand" fetchpriority="high"></div>
+      <div class="hero__caption" id="heroCap"><b>Thailand<br/>is calling.</b><span class="label">8.1° N · 98.8° E</span></div>
+    </div>
+  </div></div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marq" aria-hidden="true" data-theme="club">
+  <div class="marq__row" id="mq1"></div>
+  <div class="marq__row marq__row--o" id="mq2"></div>
+</div>
+
+<!-- STATEMENT -->
+<section class="statement space" data-theme="club">
+  <div class="wrap">
+    <p class="label muted" style="margin-bottom:40px">( why the going club )</p>
+    <p class="split">You don't need a full group chat to go. <em>Come solo</em> and leave with a whole squad, plus plenty of stories from the trip.</p>
+    <div class="nums">
+      <div class="num rv"><b><span data-count="16">0</span></b><span>travellers max</span></div>
+      <div class="num rv"><b>7N/8D</b><span>every trip, no exceptions</span></div>
+      <div class="num rv"><b>20–35</b><span>the usual age gang</span></div>
+      <div class="num rv"><b><span data-count="7">0</span></b><span>countries on the map</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="dest" id="destinations" data-theme="club">
+  <div class="wrap head">
+    <h2 class="d split">Seven places,<br/><span class="acc">zero</span> boring days.</h2>
+    <p class="muted rv">Scroll sideways to see them all. Three have dates live; the rest are coming in 2027.</p>
+  </div>
+  <div class="dest__pin" id="destPin">
+    <div class="dest__track" id="destTrack"></div>
+  </div>
+</section>
+
+<!-- DEPARTURES -->
+<section class="space" id="dates" data-theme="club">
+  <div class="wrap">
+    <div class="head">
+      <h2 class="d split">Pick a date.<br/>We'll do the rest.</h2>
+      <p class="muted rv">Every departure is 7 nights and 8 days. Tap any trip for the full day-by-day plan.</p>
+    </div>
+    <div class="tabs rv" id="tabs">
+      <button class="on" data-f="all">All trips</button><button data-f="thailand">Thailand</button><button data-f="bali">Bali</button><button data-f="vietnam">Vietnam</button><button data-f="party">Parties ✦</button>
+    </div>
+    <div id="deps"></div>
+  </div>
+</section>
+
+<div id="countries"></div>
+
+<!-- INCLUDED -->
+<section class="space" data-theme="srilanka">
+  <div class="wrap">
+    <div class="head">
+      <h2 class="d split">All sorted.<br/><span class="acc">Just show up.</span></h2>
+      <p class="muted rv">Everything below is included in the price. You only need flights and spending money.</p>
+    </div>
+    <div class="bento">
+      <div class="bx bx--photo rv"><div class="ph" style="--c1:#4c8b2b;--c2:#f2a541"><img data-k="friends2" data-w="1400" alt="Friends travelling together"></div><div class="t"><span class="sticker" style="margin-bottom:16px">✦ bestie approved</span><h4>A trip captain who's with you all 8 days.</h4></div></div>
+      <div class="bx bx--acc rv"><span class="big">7</span><div><h4>nights in handpicked stays</h4><p>Boutique hotels and pool villas, twin or triple sharing.</p></div></div>
+      <div class="bx rv"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17h18M5 17l2-8h10l2 8M9 9V6h6v3"/></svg></span><div><h4>Every transfer</h4><p>Airport pickups, ferries and speedboats are all included.</p></div></div>
+      <div class="bx rv"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3v8a4 4 0 0 0 8 0V3M8 3v18M18 3c-2 0-3 3-3 6s1 4 3 4v8"/></svg></span><div><h4>Breakfast daily</h4><p>Plus a welcome dinner and a farewell dinner.</p></div></div>
+      <div class="bx rv"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M8 6V4h8v2M3 11h18"/></svg></span><div><h4>All activities</h4><p>Every tour, entry ticket and boat in the itinerary.</p></div></div>
+      <div class="bx bx--wide rv"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H8l-4 4z"/></svg></span><div><h4>Visa help and 24×7 support</h4><p>We help with the paperwork, then add you to the trip WhatsApp group and run a pre-trip call so everyone's met before you fly.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="space" data-theme="srilanka" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><h2 class="d split">How it works</h2><p class="muted rv">Four steps from "we should go" to boarding the flight.</p></div>
+    <div class="steps">
+      <div class="st rv"><b>01</b><h4>Pick your trip</h4><p>Choose a place and a date. One week of leave is all you need.</p></div>
+      <div class="st rv"><b>02</b><h4>Block with ₹10k</h4><p>Pay the rest in instalments, with the balance due 30 days before you fly.</p></div>
+      <div class="st rv"><b>03</b><h4>Meet the gang</h4><p>Join the trip group chat and the pre-trip call, and get your packing list.</p></div>
+      <div class="st rv"><b>04</b><h4>Just go</h4><p>Your trip captain meets you at arrivals and the trip starts from there.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="space" id="faq" data-theme="cambodia" style="padding-top:0">
+  <div class="wrap faq">
+    <div><p class="label muted">( faq )</p><h2 class="d split" style="font-size:clamp(48px,6vw,100px);margin-top:20px">Asked a lot.</h2><p class="muted rv" style="margin-top:24px;max-width:30ch">Something else? Message us on WhatsApp. We reply fast, even at 2 a.m.</p></div>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta space" id="join" data-theme="night">
+  <div class="wrap">
+    <span class="sticker">✦ seats are limited</span>
+    <h2 class="d" id="ctaTitle" style="margin-top:40px"><span>Let's</span> <span class="acc">go.</span></h2>
+    <p class="cta__sub muted">Leave your details and we'll message you on WhatsApp within the hour.</p>
+    <form class="form" id="form">
+      <div class="f"><label for="fName">Your name</label><input id="fName" required placeholder="Aanya Sharma"></div>
+      <div class="f"><label for="fPhone">WhatsApp number</label><input id="fPhone" required inputmode="tel" placeholder="+91 98xxx xxxxx"></div>
+      <div class="f"><label for="fCity">City</label><input id="fCity" placeholder="Mumbai"></div>
+      <div class="f"><label for="fTrip">Which trip?</label><select id="fTrip"></select></div>
+      <button class="btn btn--acc magnetic" type="submit">Hold my seat <span class="ic"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></span></button>
+    </form>
+    <footer class="foot" style="text-align:left">
+      <div><a class="logo" href="#top"><span class="logo__dot"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.6 8.4L24 12l-9.4 3.6L12 24l-2.6-8.4L0 12l9.4-3.6z"/></svg></span>the going club</a><p class="muted" style="margin-top:16px;max-width:30ch">Group trips from India for people who'd rather be somewhere else.</p></div>
+      <div><h5>Trips</h5><a href="#thailand">Thailand</a><a href="#bali">Bali</a><a href="#vietnam">Vietnam</a><a href="#destinations">Coming 2027</a></div>
+      <div><h5>Club</h5><a href="#dates">All dates</a><a href="#faq">FAQ</a><a href="#join">Contact</a></div>
+      <div><h5>Follow</h5><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">WhatsApp</a></div>
+    </footer>
+    <div class="foot__base"><span>© <span id="yr"></span> The Going Club</span><span>Prices are per person, land only, and exclude GST &amp; TCS.</span></div>
+  </div>
+</section>
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Trip itinerary" data-lenis-prevent></aside>
+<div class="toast" id="toast"></div>
+
+<script>/* @@GSAP@@ */</script>
+<script>/* @@SCROLLTRIGGER@@ */</script>
+<script>/* @@SPLITTEXT@@ */</script>
+<script>/* @@LENIS@@ */</script>
+<script>
+/* ============================================================
+   CONFIG
+   ============================================================ */
+const WHATSAPP = "919999999999"; // TODO: replace with The Going Club's WhatsApp number
+
+// Free Unsplash photos. Each key lists backups that are tried in order if one fails to load.
+const IMG = {
+  "hero":        ["photo-1552465011-b4e21bf6e79a","photo-1506665531195-3566af2b4dfa","photo-1537953773345-d172ccf13cf1"],
+  "thai-boat":   ["photo-1552465011-b4e21bf6e79a","photo-1504214208698-ea1916a2195a","photo-1506665531195-3566af2b4dfa"],
+  "bangkok":     ["photo-1508009603885-50cf7c579365","photo-1563492065599-3520f775eeed","photo-1528181304800-259b08848526"],
+  "thai-temple": ["photo-1528181304800-259b08848526","photo-1563492065599-3520f775eeed","photo-1508009603885-50cf7c579365"],
+  "krabi":       ["photo-1504214208698-ea1916a2195a","photo-1519451241324-20b4ea2c4220","photo-1552465011-b4e21bf6e79a"],
+  "party":       ["photo-1514525253161-7a46d19cd819","photo-1533174072545-7a4b6ad7a6c3","photo-1492684223066-81342ee5ff30"],
+  "fireworks":   ["photo-1467810563316-b5476525c0f9","photo-1498931299472-f7a63a5a1cfa","photo-1514525253161-7a46d19cd819"],
+  "bali":        ["photo-1537996194471-e657df975ab4","photo-1555400038-63f5ba517a47","photo-1518548419970-58e3b4079ab2"],
+  "bali-rice":   ["photo-1518548419970-58e3b4079ab2","photo-1555400038-63f5ba517a47","photo-1537996194471-e657df975ab4"],
+  "nusa":        ["photo-1573790387438-4da905039392","photo-1544644181-1484b3fdfc62","photo-1537996194471-e657df975ab4"],
+  "vietnam":     ["photo-1528127269322-539801943592","photo-1557750255-c76072a7aad1","photo-1583417319070-4a69db38a482"],
+  "hoian":       ["photo-1559592413-7cec4d0cae2b","photo-1583417319070-4a69db38a482","photo-1528127269322-539801943592"],
+  "saigon":      ["photo-1583417319070-4a69db38a482","photo-1557750255-c76072a7aad1","photo-1559592413-7cec4d0cae2b"],
+  "sapa":        ["photo-1557750255-c76072a7aad1","photo-1528127269322-539801943592","photo-1583417319070-4a69db38a482"],
+  "dubai":       ["photo-1512453979798-5ea266f8880c","photo-1518684079-3c830dcef090","photo-1451337516015-6b6e9a44a8a3"],
+  "indonesia":   ["photo-1516690561799-46d8f74f9abf","photo-1573790387438-4da905039392","photo-1537996194471-e657df975ab4"],
+  "cambodia":    ["photo-1569880153113-76e33fc52d5f","photo-1508159452718-d22f6734a00d","photo-1600520611035-84157ad4084d"],
+  "srilanka":    ["photo-1566296314736-6eaac1ca0cb9","photo-1546708973-b339540b5162","photo-1586613835341-6e2d5e5e9d2d"],
+  "friends":     ["photo-1527631746610-bca00a040d60","photo-1539635278303-d4002c07eae3","photo-1529156069898-49953e39b3ac"],
+  "friends2":    ["photo-1539635278303-d4002c07eae3","photo-1529156069898-49953e39b3ac","photo-1527631746610-bca00a040d60"],
+};
+const src = (id, w) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
+function setImg(img) {
+  const list = IMG[img.dataset.k] || []; const i = +(img.dataset.i || 0); const w = img.dataset.w || 1400;
+  if (i >= list.length) { img.classList.add("dead"); img.closest(".ph")?.classList.add("dead-img"); return; }
+  img.src = src(list[i], w);
+}
+document.addEventListener("error", e => {
+  const img = e.target; if (img.tagName !== "IMG" || !img.dataset.k) return;
+  img.dataset.i = +(img.dataset.i || 0) + 1; setImg(img);
+}, true);
+const pic = (k, w = 1400, alt = "") => `<img data-k="${k}" data-w="${w}" alt="${alt}" loading="lazy">`;
+
+/* ============================================================
+   DATA
+   ============================================================ */
+const DEST = [
+  {k:"thailand", name:"Thailand", c1:"#00a19a", c2:"#ffc93c", img:"thai-boat", line:"Full moons, longtails and island hopping", live:true},
+  {k:"bali",     name:"Bali",     c1:"#3f7d3a", c2:"#ff8a4c", img:"bali",      line:"Rice terraces, temples and cliff sunsets", live:true},
+  {k:"vietnam",  name:"Vietnam",  c1:"#e2372b", c2:"#2fa38a", img:"vietnam",   line:"Lanterns, limestone bays and egg coffee", live:true},
+  {k:"dubai",    name:"Dubai",    c1:"#c98a2c", c2:"#2b2320", img:"dubai",     line:"Dunes, skylines and desert nights", live:false},
+  {k:"indonesia",name:"Indonesia",c1:"#1e63b5", c2:"#ff7a59", img:"indonesia", line:"Komodo, Gili and volcano sunrises", live:false},
+  {k:"cambodia", name:"Cambodia", c1:"#d9822b", c2:"#6b3f1d", img:"cambodia",  line:"Angkor at dawn and Phnom Penh nights", live:false},
+  {k:"srilanka", name:"Sri Lanka",c1:"#4c8b2b", c2:"#f2a541", img:"srilanka",  line:"Tea hills, blue trains and surf towns", live:false},
+];
+const DM = Object.fromEntries(DEST.map(d => [d.k, d]));
+
+const INC = ["7 nights' stay (twin/triple sharing)","Daily breakfast + welcome & farewell dinners","All transfers, ferries & speedboats listed","All activities & entry tickets in the plan","Trip captain for all 8 days","Visa help & 24×7 support"];
+const EXC = ["International flights","Visa fees where applicable","Meals not mentioned","Party entry, drinks & shopping","Travel insurance (recommended)","5% GST & applicable TCS"];
+
+const PLANS = [
+  /* ---------------- THAILAND ---------------- */
+  {id:"th-fullmoon", country:"thailand", no:"01", title:"Full Moon Island Hopper", img:"party",
+   stops:["Bangkok 2N","Koh Samui 2N","Koh Phangan 3N"], price:59999,
+   blurb:"Rooftops in Bangkok, a speedboat through Ang Thong, then neon body paint and the Full Moon Party on Haad Rin beach.",
+   departures:[
+     {date:"2026-11-20", label:"Full Moon Party", tag:"party", peak:5, note:"The Full Moon Party falls on Tue 24 Nov, which is Day 5 of this trip."},
+     {date:"2026-12-19", label:"Christmas × Full Moon", tag:"party", peak:6, price:64999, swap:true,
+      note:"Christmas edition: Days 5 and 6 swap, so the Full Moon Party is on Christmas Eve (Day 6) and Christmas Day starts with a beach brunch."}],
+   days:[
+     ["Sawasdee, Bangkok","Airport pickup and hotel check-in, then a welcome dinner and your first night out on Khao San Road."],
+     ["Temples & rooftops","Grand Palace, Wat Pho and a longtail boat to Wat Arun. Chinatown street food at sunset, then a rooftop bar."],
+     ["Fly to Koh Samui","Morning flight to Samui and a Chaweng beach resort. Sunset at Lamai, then a beach party at Ark Bar."],
+     ["Ang Thong Marine Park","Speedboat through 42 islands: kayak the lagoons, snorkel and hike to the Emerald Lake viewpoint."],
+     ["Full Moon Party","Ferry to Koh Phangan and a pool afternoon, then neon paint and the Full Moon Party on Haad Rin until sunrise."],
+     ["Recovery & Bottle Beach","Late brunch, then a longtail to Bottle Beach and Than Sadet waterfall. Sunset at Amsterdam Bar."],
+     ["Koh Tao & Nang Yuan","Snorkel Koh Tao's coral bays and climb the Koh Nang Yuan viewpoint. Farewell dinner on the beach."],
+     ["Kop khun ka","Ferry to Samui and airport drop. You fly home with a tan and a dozen new friends."]]},
+  {id:"th-andaman", country:"thailand", no:"02", title:"Andaman Escape", img:"krabi",
+   stops:["Phuket 3N","Phi Phi 1N","Krabi 3N"], price:54999,
+   blurb:"The turquoise side of Thailand: James Bond Island, a night on Phi Phi, Railay's cliffs and the four-island tour.",
+   departures:[{date:"2026-12-01", label:"Andaman Escape", tag:"trip", peak:4},{date:"2026-12-10", label:"Andaman Escape", tag:"trip", peak:4}],
+   days:[
+     ["Hello, Phuket","Arrive and check in near Kata Beach. Sunset at Promthep Cape and a welcome dinner."],
+     ["Old Town & Big Buddha","Big Buddha, then the pastel cafés of Phuket Old Town, and Bangla Road at night."],
+     ["Phang Nga Bay","Sea-canoe through caves and lagoons, then James Bond Island and the floating village of Koh Panyee."],
+     ["A night on Phi Phi","Speedboat to Maya Bay, Pileh Lagoon and Viking Cave, then a fire show beach party at night."],
+     ["Sunrise → Krabi","Hike to the Phi Phi viewpoint at sunrise, ferry to Ao Nang and spend the evening on the beach."],
+     ["4-island tour & Railay","Phra Nang Cave, Chicken Island and the Tup Island sandbar, then a beginners' climbing session on Railay's cliffs."],
+     ["Hong Islands","Kayak into the Hong lagoon, ride back by longtail at golden hour and have a farewell seafood dinner."],
+     ["See you soon","Airport drop at Krabi."]]},
+  {id:"th-nye", country:"thailand", no:"03", title:"New Year Countdown", img:"fireworks",
+   stops:["Bangkok 2N","Koh Phangan 4N","Koh Samui 1N"], price:74999,
+   blurb:"Ring in 2027 barefoot on Haad Rin, with fireworks over the Gulf of Thailand and the whole island counting down.",
+   departures:[{date:"2026-12-27", label:"New Year's Party", tag:"party", peak:5}],
+   days:[
+     ["Bangkok arrival","Airport pickup, then the Asiatique riverfront for the ferris wheel and dinner."],
+     ["Bangkok, properly","Grand Palace and Wat Arun, then ICONSIAM, a rooftop sundowner and Khao San at night."],
+     ["To the island","Fly to Samui and take a speedboat to Koh Phangan. Villa check-in and sunset at Amsterdam Bar."],
+     ["Island safari","Jeep safari to Than Sadet waterfall, Bottle Beach and the Phaeng viewpoint, then the night market."],
+     ["NYE on Haad Rin","Neon paint, dinner, then the countdown on the beach with fireworks at midnight. Happy 2027."],
+     ["New Year brunch","A slow day: brunch, a swim and sunset yoga."],
+     ["Samui farewell","Ferry to Samui, Fisherman's Village and a farewell dinner by the sea."],
+     ["Home, new year","Airport drop at Samui."]]},
+
+  /* ---------------- BALI ---------------- */
+  {id:"bl-soul", country:"bali", no:"01", title:"Bali Soul", img:"bali-rice",
+   stops:["Ubud 3N","Canggu 3N","Uluwatu 1N"], price:62999,
+   blurb:"Rice terraces, a sunrise volcano trek, Nusa Penida's cliffs and a Kecak fire dance as the sun sets over Uluwatu.",
+   departures:[{date:"2026-12-05", label:"Bali Soul", tag:"trip", peak:3}],
+   days:[
+     ["Om Swastiastu","Arrive in Denpasar and transfer to a pool villa in Ubud. Welcome dinner."],
+     ["Ubud culture","Tegallalang rice terraces and the Bali swing, the Tirta Empul water temple and a coffee plantation."],
+     ["Mount Batur sunrise","Start the climb at 2 a.m. and watch the sunrise over the caldera, then hot springs. Monkey Forest in the afternoon."],
+     ["Waterfalls → Canggu","Tibumana and Tukad Cepung waterfalls, then move to Canggu for a beach club evening."],
+     ["Nusa Penida","Fast boat to Kelingking Beach, Broken Beach and Angel's Billabong, then snorkel at Crystal Bay."],
+     ["Surf & Tanah Lot","A surf lesson at Batu Bolong, café hopping, and sunset at the Tanah Lot sea temple."],
+     ["Uluwatu","Padang Padang beach, the Kecak fire dance at the cliff temple and a farewell seafood dinner in Jimbaran."],
+     ["Sampai jumpa","Airport drop."]]},
+  {id:"bl-gili", country:"bali", no:"02", title:"Bali × Gili", img:"nusa",
+   stops:["Ubud 2N","Gili T 3N","Seminyak 2N"], price:67999,
+   blurb:"Ubud's jungle, then three nights on a car-free island with turtles, bicycles and sunset swings.",
+   departures:[{date:"2026-12-15", label:"Bali × Gili", tag:"trip", peak:4}],
+   days:[
+     ["Arrive in Ubud","Transfer to a jungle villa and have a welcome dinner."],
+     ["Ubud in a day","Rice terraces, Tirta Empul, the Bali swing and the Campuhan Ridge walk at golden hour."],
+     ["Fast boat to Gili T","Cross the Lombok Strait by fast boat, then bicycles, the sunset swings and a beach bar."],
+     ["Turtles & three Gilis","Snorkel around Gili T, Meno and Air with turtles and the underwater statues, with a lunch stop."],
+     ["Island life","Cycle around the island, optional sunrise yoga, then a party night on Gili T."],
+     ["Back to Seminyak","Fast boat back to Bali and an afternoon at a Seminyak beach club."],
+     ["Uluwatu sunset","Melasti beach, the Kecak fire dance and a farewell dinner in Jimbaran."],
+     ["Fly home","Airport drop."]]},
+  {id:"bl-nye", country:"bali", no:"03", title:"Bali New Year", img:"bali",
+   stops:["Ubud 2N","Canggu & Seminyak 5N"], price:79999,
+   blurb:"A volcano sunrise in the hills, then a beach-club countdown as 2026 turns into 2027.",
+   departures:[{date:"2026-12-28", label:"New Year's Party", tag:"party", peak:4}],
+   days:[
+     ["Arrive in Bali","Transfer to Ubud and have a welcome dinner."],
+     ["Ubud highlights","Rice terraces, Tirta Empul and the Ulun Danu Bratan lake temple."],
+     ["Batur & move","Mount Batur sunrise trek and hot springs, then move to Canggu."],
+     ["NYE countdown","Afternoon at a beach club, then Seminyak's NYE party with fireworks over the ocean."],
+     ["New Year chill","Recovery brunch, then sunset at Tanah Lot."],
+     ["Nusa Penida","Kelingking, Broken Beach and snorkelling with manta rays (seasonal)."],
+     ["Uluwatu","Cliff beaches, the Kecak dance and a farewell dinner."],
+     ["Fly home","Airport drop."]]},
+
+  /* ---------------- VIETNAM ---------------- */
+  {id:"vn-north", country:"vietnam", no:"01", title:"Lanterns & Limestone", img:"vietnam",
+   stops:["Hanoi 2N","Ha Long 1N","Hoi An 3N","Da Nang 1N"], price:64999,
+   blurb:"Egg coffee in Hanoi, a night on Ha Long Bay, Hoi An's lantern river and the Golden Bridge above the clouds.",
+   departures:[{date:"2026-12-06", label:"Lanterns & Limestone", tag:"trip", peak:3}],
+   days:[
+     ["Xin chào, Hanoi","Old Quarter check-in, Train Street, egg coffee and a street food walk."],
+     ["Ninh Binh","Trang An boat ride through karst caves, then 500 steps up Mua Cave for the view."],
+     ["Ha Long Bay cruise","Overnight cruise: kayak through limestone towers, visit Sung Sot cave and go squid fishing at night."],
+     ["Fly to Hoi An","Fly to Da Nang. In Hoi An Old Town, float a lantern on the Thu Bon river."],
+     ["Hoi An slow day","Cycle to Tra Que village, take a cooking class and get outfits tailor-made overnight."],
+     ["Ba Na Hills","Cable car up to the Golden Bridge held by giant stone hands."],
+     ["Da Nang","My Khe beach, the Marble Mountains and the Dragon Bridge, then a farewell dinner."],
+     ["Tạm biệt","Airport drop at Da Nang."]]},
+  {id:"vn-xmas", country:"vietnam", no:"02", title:"Christmas in the South", img:"hoian",
+   stops:["Phu Quoc 4N","Ho Chi Minh City 3N"], price:66999,
+   blurb:"Island sunsets on Phu Quoc, then Christmas Eve in Saigon, when the whole city takes to the streets.",
+   departures:[{date:"2026-12-18", label:"Christmas in Vietnam", tag:"party", peak:7}],
+   days:[
+     ["Arrive Phu Quoc","Arrive via Ho Chi Minh City and check in to a beach resort. Sunset dinner."],
+     ["Island hopping","Speedboat to the An Thoi islands to snorkel, then a beach club."],
+     ["Hon Thom cable car","Ride one of the world's longest sea cable cars, then sunset at the Kiss Bridge."],
+     ["Phu Quoc free day","Sao Beach, a pepper farm and the night market."],
+     ["Fly to Saigon","District 1, Ben Thanh market, and Bui Vien walking street at night."],
+     ["Mekong Delta","Canal boats, coconut candy workshops and floating gardens."],
+     ["Christmas Eve","Cu Chi tunnels in the morning, then Christmas Eve at the Notre-Dame Cathedral and a rooftop party."],
+     ["Merry Christmas","Christmas brunch, then the airport drop."]]},
+  {id:"vn-nye", country:"vietnam", no:"03", title:"Hanoi New Year", img:"sapa",
+   stops:["Hanoi 1N","Sapa 2N","Hanoi 2N","Ha Long 1N","Hanoi 1N"], price:72999,
+   blurb:"Misty Sapa treks, then the countdown on Hoan Kiem Lake and a New Year cruise on Ha Long Bay.",
+   departures:[{date:"2026-12-28", label:"New Year's Party", tag:"party", peak:4}],
+   days:[
+     ["Hanoi arrival","Old Quarter check-in and a street food crawl."],
+     ["Up to Sapa","Limousine bus to Sapa, Cat Cat village, and the town at night."],
+     ["Sapa trek","Trek the rice terraces to Lao Chai and Ta Van villages, with an optional Fansipan cable car."],
+     ["NYE in Hanoi","Back to Hanoi for the countdown at Hoan Kiem Lake, with fireworks and Old Quarter parties."],
+     ["Ninh Binh","New Year's Day boat ride through Trang An and the Mua Cave viewpoint."],
+     ["Ha Long cruise","Overnight cruise with kayaking and Ti Top Island."],
+     ["Back to Hanoi","Temple of Literature, a water puppet show and a farewell dinner."],
+     ["Happy 2027","Airport drop."]]},
+];
+
+const COUNTRY = {
+  thailand:{img:"thai-temple", tag:"3 plans · 5 departures · from 20 Nov", h:"Full moons, island hops and a very loud New Year.", p:"Three Thailand plans across five dates: the Full Moon Party in November, two Andaman trips in early December, a Christmas Eve full moon and a New Year's Eve countdown on Haad Rin.", chips:["Best for first-timers","Peak season Nov–Feb","Check current visa rules"]},
+  bali:{img:"bali-rice", tag:"3 plans · December departures", h:"Slow mornings, jungle pools and cliff-top sunsets.", p:"Three December plans for Bali: a soulful classic, a Gili island escape and a New Year's Eve beach-club countdown.", chips:["Visa on arrival","Green season = lush","Great for couples & solos"]},
+  vietnam:{img:"hoian", tag:"3 plans · December departures", h:"Lanterns, limestone and the best coffee of your life.", p:"Three December plans for Vietnam: north to centre, a Christmas in the south, and Hanoi for New Year's Eve.", chips:["e-Visa for Indians","Foodie heaven","Cool north, sunny south"]},
+};
+
+const FAQ = [
+  ["Can I come solo?","Yes. About half of every group signs up solo, and you'll know everyone by day two."],
+  ["Are flights included?","No. Prices are land-only so you can fly from your own city. We suggest the best flights in the trip group."],
+  ["How do I book?","₹10,000 blocks your seat. Pay the rest in instalments, with the full amount due 30 days before departure."],
+  ["What about visas?","We help with the paperwork. Thailand's visa rules for Indians have changed a few times, so we confirm the current rules when you book. Bali has visa on arrival and Vietnam has an e-Visa."],
+  ["Who will I room with?","Twin or triple sharing with same-gender roommates, unless you book as a couple. Private rooms are available as an add-on."],
+  ["Do I have to party?","Not at all. Full Moon and NYE nights are optional, and there's always a chill alternative for anyone who'd rather watch the sunrise."],
+  ["Can I cancel?","Yes. You'll see the full policy before you pay, and you can move your booking amount to another date up to 45 days before the trip."],
+];
+
+/* ============================================================
+   HELPERS + RENDER
+   ============================================================ */
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const inr = n => "₹" + n.toLocaleString("en-IN");
+const D = iso => new Date(iso + "T00:00:00");
+const plus = (iso, n) => { const d = D(iso); d.setDate(d.getDate() + n); return d; };
+const f = (d, o) => d.toLocaleDateString("en-GB", o);
+const ARW = '<svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg>';
+const STAR = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.6 8.4L24 12l-9.4 3.6L12 24l-2.6-8.4L0 12l9.4-3.6z"/></svg>';
+const DEPS = PLANS.flatMap(p => p.departures.map(d => ({...d, plan: p}))).sort((a, b) => a.date.localeCompare(b.date));
+
+// marquee
+const words = ["Full Moon Party", "Bali sunsets", "Ha Long Bay", "NYE 2027", "Hoi An lanterns", "Nusa Penida", "Christmas on the beach"];
+$("#mq1").innerHTML = [...words, ...words].map(w => `<span>${w} ${STAR}</span>`).join("");
+$("#mq2").innerHTML = [...words, ...words].reverse().map(w => `<span>${w} ${STAR}</span>`).join("");
+
+// loader stack
+$("#loaderStack").innerHTML = ["thai-boat", "bali", "vietnam", "dubai", "party", "hoian", "hero"].map((k, i) =>
+  `<div class="ph" style="--c1:${DEST[i % 7].c1};--c2:${DEST[i % 7].c2}">${pic(k, 500)}</div>`).join("");
+
+// destinations
+$("#destTrack").innerHTML = DEST.map((d, i) => `
+  <a class="dc" href="${d.live ? "#" + d.k : "#join"}" data-theme-hover="${d.k}" data-cursor="${d.live ? "Explore" : "Notify me"}" style="--c:${d.c1}">
+    <div class="ph" style="--c1:${d.c1};--c2:${d.c2}">${pic(d.img, 900, d.name)}</div>
+    <div class="dc__top"><span class="dc__state ${d.live ? "live" : ""}">${d.live ? PLANS.filter(p => p.country === d.k).reduce((a, p) => a + p.departures.length, 0) + " dates live" : "2027 ✦ soon"}</span><span>0${i + 1}</span></div>
+    <div class="dc__bot"><h3>${d.name}</h3><p>${d.line}</p></div>
+    <span class="dc__go">${ARW}</span>
+  </a>`).join("") + `<div class="dest__end"><p>Want somewhere else? Tell us where you'd go.</p><a href="#join" class="btn">Suggest a trip <span class="ic">${ARW}</span></a></div>`;
+
+// departures
+$("#deps").innerHTML = DEPS.map(dep => {
+  const d = DM[dep.plan.country], s = D(dep.date), e = plus(dep.date, 7);
+  return `<div class="dep rv" data-c="${dep.plan.country}" data-t="${dep.tag}" data-open="${dep.plan.id}" data-date="${dep.date}" data-peek="${dep.plan.img}" data-cursor="View plan" style="--c:${d.c1}">
+    <div class="dep__date"><b>${f(s, {day: "2-digit"})}</b><span>${f(s, {month: "short", year: "numeric"})}</span></div>
+    <div class="dep__t"><small>${d.name}</small>${dep.tag === "party" ? dep.label : dep.plan.title}${dep.tag === "party" ? `<span class="tagp">${dep.plan.title}</span>` : ""}</div>
+    <div class="dep__r">${dep.plan.stops.join(" → ")}<br/>${f(s, {day: "numeric", month: "short"})} – ${f(e, {day: "numeric", month: "short"})} · 7N/8D</div>
+    <div class="dep__p">${inr(dep.price || dep.plan.price)}<small>per person</small></div>
+    <div class="dep__go">${ARW}</div></div>`;
+}).join("");
+
+// countries
+$("#countries").innerHTML = ["thailand", "bali", "vietnam"].map(k => {
+  const d = DM[k], c = COUNTRY[k], plans = PLANS.filter(p => p.country === k);
+  return `
+  <section id="${k}" data-theme="${k}">
+    <div class="country__hero">
+      <div class="ph par" style="--c1:${d.c1};--c2:${d.c2}">${pic(c.img, 2200, d.name)}</div>
+      <div class="country__name"><div><h2 class="d">${d.name}</h2><p>${c.tag}</p></div></div>
+    </div>
+    <div class="wrap space">
+      <div class="country__intro">
+        <h3 class="d split">${c.h}</h3>
+        <div class="rv"><p class="muted">${c.p}</p><div class="chips">${c.chips.map(x => `<span class="chip" style="--c:${d.c1}"><i></i>${x}</span>`).join("")}</div></div>
+      </div>
+      <div class="stack">${plans.map((p, i) => `
+        <article class="plan" style="--i:${i}" data-open="${p.id}" data-cursor="Itinerary">
+          <div class="plan__img"><div class="ph" style="--c1:${d.c1};--c2:${d.c2}">${pic(p.img, 1400, p.title)}</div>
+            <span class="plan__no">${p.no}</span>
+            <div class="plan__stick">${p.departures.filter(x => x.tag === "party").map((x, j) => `<span class="sticker" style="transform:rotate(${j ? 4 : -5}deg)">✦ ${x.label}</span>`).join("")}</div></div>
+          <div class="plan__body">
+            <span class="label acc">Plan ${p.no} · 7 nights · 8 days</span>
+            <h3 class="d">${p.title}</h3>
+            <div class="plan__route">${p.stops.map(s => `<span>${s}</span>`).join("")}</div>
+            <p class="muted">${p.blurb}</p>
+            <div><p class="label muted" style="margin-bottom:10px">Departures</p><div class="plan__dates">${p.departures.map(x => `<span>${f(D(x.date), {day: "numeric", month: "short"})} <em>– ${f(plus(x.date, 7), {day: "numeric", month: "short"})}</em></span>`).join("")}</div></div>
+            <div class="plan__foot"><div class="plan__price"><small>from, per person</small>${inr(p.price)}</div><span class="btn">See itinerary <span class="ic">${ARW}</span></span></div>
+          </div>
+        </article>`).join("")}
+      </div>
+    </div>
+  </section>`;
+}).join("");
+
+// FAQ
+$("#faqList").innerHTML = FAQ.map(([q, a], i) => `<div class="qa rv${i ? "" : " open"}"><button aria-expanded="${!i}">${q}<i></i></button><div class="qa__a"><div><p>${a}</p></div></div></div>`).join("");
+$$(".qa button").forEach(b => b.onclick = () => { const q = b.parentElement; q.classList.toggle("open"); b.setAttribute("aria-expanded", q.classList.contains("open")); setTimeout(() => window.ScrollTrigger && ScrollTrigger.refresh(), 650); });
+
+// form
+$("#fTrip").innerHTML = `<option value="">Pick a departure</option>` + DEPS.map(d => `<option value="${d.plan.id}|${d.date}">${f(D(d.date), {day: "numeric", month: "short"})} · ${DM[d.plan.country].name} · ${d.tag === "party" ? d.label : d.plan.title}</option>`).join("");
+$("#yr").textContent = new Date().getFullYear();
+const wa = m => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(m)}`;
+$("#form").onsubmit = e => {
+  e.preventDefault();
+  const [pid, date] = ($("#fTrip").value || "|").split("|"); const p = PLANS.find(x => x.id === pid);
+  window.open(wa(`Hey Going Club! I'm ${$("#fName").value} from ${$("#fCity").value || "India"} (${$("#fPhone").value}).` + (p ? ` I want in on "${p.title}" departing ${date}.` : " Tell me about upcoming trips!")), "_blank", "noopener");
+  toast("Opening WhatsApp ✦ see you on the trip");
+};
+function toast(t) { const el = $("#toast"); el.textContent = t; el.classList.add("show"); setTimeout(() => el.classList.remove("show"), 3000); }
+
+// load every image (with backups)
+$$("img[data-k]").forEach(setImg);
+
+/* ============================================================
+   DRAWER
+   ============================================================ */
+const drawer = $("#drawer");
+function openPlan(id, date) {
+  const p = PLANS.find(x => x.id === id); if (!p) return;
+  const d = DM[p.country], dep = p.departures.find(x => x.date === date) || p.departures[0];
+  const days = dep.swap ? [...p.days.slice(0, 4), p.days[5], p.days[4], ...p.days.slice(6)] : p.days;
+  drawer.style.setProperty("--dc", d.c1);
+  drawer.innerHTML = `
+    <button class="dr__x" aria-label="Close">×</button>
+    <div class="dr__hero"><div class="ph" style="--c1:${d.c1};--c2:${d.c2}">${pic(p.img, 1400, p.title)}</div>
+      <div class="dr__ht"><span class="sticker" style="background:${d.c1};color:#fff">${d.name} · plan ${p.no}</span><h3 class="d">${p.title}</h3></div></div>
+    <div class="dr__b">
+      <div class="dr__meta">
+        <div><span>Dates</span><b>${f(D(dep.date), {day: "numeric", month: "short"})} – ${f(plus(dep.date, 7), {day: "numeric", month: "short"})}</b></div>
+        <div><span>Duration</span><b>7N / 8D</b></div>
+        <div><span>Group</span><b>12–16 people</b></div>
+      </div>
+      <p style="margin-top:24px;font-size:18px">${p.blurb}</p>
+      <div class="dr__deps">${p.departures.map(x => `<button data-d="${x.date}" class="${x.date === dep.date ? "on" : ""}">${f(D(x.date), {day: "numeric", month: "short"})} · ${x.label}</button>`).join("")}</div>
+      ${dep.note ? `<div class="dr__note">✦ ${dep.note}</div>` : ""}
+      <div class="days">${days.map(([t, x], i) => `
+        <div class="day${i + 1 === dep.peak ? " peak" : ""}"><span class="day__n">${i + 1}</span>
+          <div><span class="day__d">Day ${i + 1} · ${f(plus(dep.date, i), {weekday: "short", day: "numeric", month: "short"})}</span>
+          <h5>${t}${i + 1 === dep.peak ? '<span class="sticker">highlight</span>' : ""}</h5><p>${x}</p></div></div>`).join("")}</div>
+      <div class="dr__lists"><div><h6>Included</h6><ul>${INC.map(x => `<li>✓ ${x}</li>`).join("")}</ul></div><div><h6>Not included</h6><ul>${EXC.map(x => `<li style="color:#77736c">– ${x}</li>`).join("")}</ul></div></div>
+    </div>
+    <div class="dr__bar"><div><span style="font-size:13px;opacity:.7">from, per person</span><br/><b>${inr(dep.price || p.price)}</b></div>
+      <a class="btn" target="_blank" rel="noopener" href="${wa(`Hey Going Club! I'd like to block a seat on "${p.title}" (${d.name}) departing ${f(D(dep.date), {day: "numeric", month: "short", year: "numeric"})}.`)}">Block for ₹10k <span class="ic">${ARW}</span></a></div>`;
+  $$("img[data-k]", drawer).forEach(setImg);
+  $(".dr__x", drawer).onclick = closePlan;
+  $$(".dr__deps button", drawer).forEach(b => b.onclick = () => openPlan(id, b.dataset.d));
+  if (!document.body.classList.contains("drawer-open")) {
+    drawer.scrollTop = 0; document.body.classList.add("drawer-open"); window.lenis && lenis.stop();
+    window.gsap && gsap.from($$(".day", drawer), {y: 30, opacity: 0, stagger: .05, duration: .8, ease: "expo.out", delay: .3});
+  }
+}
+function closePlan() { document.body.classList.remove("drawer-open"); window.lenis && lenis.start(); }
+$("#scrim").onclick = closePlan;
+addEventListener("keydown", e => e.key === "Escape" && closePlan());
+document.addEventListener("click", e => { const t = e.target.closest("[data-open]"); if (t) { e.preventDefault(); openPlan(t.dataset.open, t.dataset.date); } });
+
+// tabs
+$$("#tabs button").forEach(b => b.onclick = () => {
+  $$("#tabs button").forEach(x => x.classList.toggle("on", x === b));
+  const v = b.dataset.f;
+  $$(".dep").forEach(r => r.classList.toggle("hide", !(v === "all" || r.dataset.c === v || (v === "party" && r.dataset.t === "party"))));
+  if (DM[v]) document.body.dataset.theme = v;
+  window.ScrollTrigger && ScrollTrigger.refresh();
+});
+// menu
+$("#burger").onclick = () => document.body.classList.toggle("menu-open");
+$$("#mnav a").forEach(a => a.onclick = () => document.body.classList.remove("menu-open"));
+
+/* ============================================================
+   MOTION (GSAP + ScrollTrigger + SplitText + Lenis)
+   ============================================================ */
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const desktop = matchMedia("(min-width: 901px)").matches;
+
+function finishLoader() { const l = $("#loader"); l && l.remove(); }
+
+if (!window.gsap || reduce) {
+  finishLoader();
+} else {
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  // smooth scroll
+  window.lenis = new Lenis({lerp: .09, wheelMultiplier: 1});
+  lenis.on("scroll", ScrollTrigger.update);
+  gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+  $$('a[href^="#"]').forEach(a => a.addEventListener("click", e => {
+    const id = a.getAttribute("href"); if (id.length < 2 || !$(id)) return;
+    e.preventDefault(); lenis.scrollTo(id, {offset: id === "#top" ? 0 : -20, duration: 1.6});
+  }));
+
+  // ----- destinations (created first so later triggers account for its pin spacing): pinned horizontal scroll with inner parallax
+  if (desktop) {
+    const track = $("#destTrack");
+    const dist = () => track.scrollWidth - innerWidth;
+    const hz = gsap.to(track, {x: () => -dist(), ease: "none",
+      scrollTrigger: {trigger: "#destPin", start: "top top", end: () => "+=" + dist(), pin: true, scrub: 1, invalidateOnRefresh: true,
+        onUpdate: s => { const i = Math.min(DEST.length - 1, Math.floor(s.progress * DEST.length)); if (s.isActive) document.body.dataset.theme = DEST[i].k; }}});
+    $$(".dc").forEach(card => {
+      gsap.fromTo($(".ph img", card), {xPercent: -8}, {xPercent: 8, ease: "none", scrollTrigger: {trigger: card, containerAnimation: hz, start: "left right", end: "right left", scrub: true}});
+      gsap.from(card, {rotate: 6, y: 80, ease: "none", scrollTrigger: {trigger: card, containerAnimation: hz, start: "left 110%", end: "left 60%", scrub: true}});
+    });
+    $$(".dc").forEach(c => c.addEventListener("mouseenter", () => document.body.dataset.theme = c.dataset.themeHover));
+  }
+
+  // ----- loader: flip-book of photos, count to 100, then wipe up
+  const frames = $$("#loaderStack .ph"); let fi = 0;
+  const flip = setInterval(() => { frames.forEach((fr, i) => fr.classList.toggle("on", i === fi % frames.length)); fi++; }, 160);
+  const counter = {v: 0};
+  const intro = gsap.timeline({paused: true});
+  gsap.to(counter, {v: 100, duration: 1.8, ease: "power2.inOut", onUpdate: () => $("#loaderNum").textContent = Math.round(counter.v),
+    onComplete: () => {
+      clearInterval(flip);
+      gsap.to("#loaderStack", {scale: 7, borderRadius: 0, duration: 1.1, ease: "expo.inOut"});
+      gsap.to("#loader", {clipPath: "inset(0 0 100% 0)", duration: 1, ease: "expo.inOut", delay: .55, onComplete: finishLoader});
+      loaded = true; gsap.delayedCall(.85, playIntro);
+    }});
+  let loaded = false, built = false;
+  function playIntro() { if (loaded && built) intro.play(); }
+
+  // ----- hero headline (split by words, rise up)
+  document.fonts.ready.then(() => {
+    const hs = SplitText.create("#heroTitle", {type: "words", mask: "words"});
+    intro.from(hs.words, {yPercent: 110, rotate: 4, duration: 1.2, stagger: .045, ease: "expo.out"})
+         .from(".hero h1 .pic", {scale: 0, duration: 1, ease: "back.out(1.6)", stagger: .1}, "-=.9")
+         .from(".hero__kicker, .nav", {y: -30, opacity: 0, duration: .9, ease: "expo.out"}, "<")
+         .from(".hero__sub, .hero__cta", {y: 30, opacity: 0, duration: 1, stagger: .1, ease: "expo.out"}, "-=.8")
+         .from("#heroMedia", {y: 140, opacity: 0, duration: 1.4, ease: "expo.out"}, "-=1")
+         .from(".badge", {scale: 0, rotate: -90, duration: 1.2, ease: "back.out(1.7)"}, "-=1");
+    built = true; playIntro();
+
+    // ----- split headings: lines slide up on scroll
+    $$(".split").forEach(el => {
+      const s = SplitText.create(el, {type: "lines", mask: "lines", linesClass: "split-line"});
+      gsap.from(s.lines, {yPercent: 105, duration: 1.2, stagger: .1, ease: "expo.out", scrollTrigger: {trigger: el, start: "top 85%"}});
+    });
+    ScrollTrigger.refresh();
+  });
+
+  // ----- hero image grows from card to full-bleed
+  const heroTl = gsap.timeline({scrollTrigger: {trigger: "#heroWrap", start: "top 65%", end: "top -55%", scrub: 1}});
+  heroTl.to("#heroMedia", {width: "100vw", height: "100vh", borderRadius: 0, ease: "none"})
+        .to("#heroMedia img", {scale: 1, ease: "none"}, 0)
+        .to(".badge", {y: -120, rotate: 30, opacity: 0, ease: "none"}, 0)
+        .to("#heroCap", {opacity: 1, ease: "none"}, .6);
+
+  // ----- marquee: scroll-velocity aware
+  const m1 = gsap.to("#mq1", {xPercent: -50, duration: 40, ease: "none", repeat: -1});
+  const m2 = gsap.fromTo("#mq2", {xPercent: -50}, {xPercent: 0, duration: 40, ease: "none", repeat: -1});
+  lenis.on("scroll", ({velocity}) => {
+    const s = 1 + Math.min(Math.abs(velocity) / 6, 4);
+    gsap.to([m1, m2], {timeScale: s, duration: .2, overwrite: true});
+    gsap.to(".marq__row", {skewX: gsap.utils.clamp(-8, 8, -velocity / 3), duration: .4, overwrite: "auto"});
+  });
+
+  // ----- generic reveals
+  ScrollTrigger.batch(".rv", {start: "top 90%", onEnter: b => gsap.fromTo(b, {y: 60, opacity: 0}, {y: 0, opacity: 1, duration: 1.2, stagger: .08, ease: "expo.out", overwrite: true})});
+  gsap.set(".rv", {opacity: 0});
+
+  // count-ups
+  $$("[data-count]").forEach(el => gsap.from(el, {textContent: 0, duration: 1.6, ease: "power2.out", snap: {textContent: 1}, scrollTrigger: {trigger: el, start: "top 90%"}}));
+
+  // ----- themes follow the place
+  $$("[data-theme]:not(body)").forEach(sec => ScrollTrigger.create({
+    trigger: sec, start: "top 55%", end: "bottom 55%",
+    onToggle: s => s.isActive && (document.body.dataset.theme = sec.dataset.theme)
+  }));
+
+  // ----- country hero parallax + big name scale
+  $$(".country__hero").forEach(h => {
+    gsap.to($(".par", h), {yPercent: 12, ease: "none", scrollTrigger: {trigger: h, start: "top bottom", end: "bottom top", scrub: true}});
+    gsap.from($("h2", h), {scale: .6, opacity: 0, ease: "none", scrollTrigger: {trigger: h, start: "top 80%", end: "top 10%", scrub: true}});
+  });
+
+  // ----- stacked plan cards: earlier cards shrink as the next one arrives
+  if (desktop) $$(".stack").forEach(st => {
+    const cards = $$(".plan", st);
+    cards.forEach((c, i) => {
+      if (i === cards.length - 1) return;
+      gsap.to(c, {scale: .92 + i * .02, filter: "brightness(.85)", ease: "none",
+        scrollTrigger: {trigger: cards[i + 1], start: "top 90%", end: "top 30%", scrub: true}});
+    });
+    cards.forEach(c => gsap.from($(".ph img", c), {scale: 1.25, ease: "none", scrollTrigger: {trigger: c, start: "top bottom", end: "top 20%", scrub: true}}));
+  });
+
+  // ----- bento photo parallax
+  $$(".bx--photo .ph img").forEach(i => gsap.fromTo(i, {yPercent: -6, scale: 1.15}, {yPercent: 6, ease: "none", scrollTrigger: {trigger: i.closest(".bx"), scrub: true}}));
+
+  // ----- CTA letters bounce in
+  document.fonts.ready.then(() => {
+    const cs = SplitText.create("#ctaTitle span", {type: "chars", mask: "chars"});
+    gsap.from(cs.chars, {yPercent: 120, rotate: 12, duration: 1.3, stagger: .06, ease: "expo.out", scrollTrigger: {trigger: "#ctaTitle", start: "top 85%"}});
+  });
+
+  // ----- cursor, magnetic buttons and the photo that follows you on the dates list
+  if (matchMedia("(hover:hover)").matches && desktop) {
+    const cur = $("#cur"), label = $("#cur span");
+    const cx = gsap.quickTo(cur, "x", {duration: .35, ease: "power3"}), cy = gsap.quickTo(cur, "y", {duration: .35, ease: "power3"});
+    const peek = $("#peek"), px = gsap.quickTo(peek, "x", {duration: .7, ease: "power3"}), py = gsap.quickTo(peek, "y", {duration: .7, ease: "power3"});
+    let lastX = 0;
+    addEventListener("mousemove", e => {
+      cx(e.clientX); cy(e.clientY); px(e.clientX); py(e.clientY);
+      gsap.to(peek, {rotate: gsap.utils.clamp(-14, 14, (e.clientX - lastX) * .6), duration: .6}); lastX = e.clientX;
+    });
+    document.addEventListener("mouseover", e => {
+      const t = e.target.closest("[data-cursor]");
+      cur.classList.toggle("big", !!t); label.textContent = t ? t.dataset.cursor : "";
+      const pk = e.target.closest("[data-peek]");
+      if (pk) {
+        const img = $("#peekImg");
+        if (img.dataset.k !== pk.dataset.peek) { img.dataset.k = pk.dataset.peek; img.dataset.i = 0; img.dataset.w = 600; img.classList.remove("dead"); setImg(img); }
+        peek.style.setProperty("--c1", getComputedStyle(pk).getPropertyValue("--c"));
+        gsap.to(peek, {opacity: 1, scale: 1, duration: .5, ease: "expo.out", overwrite: "auto"});
+      } else gsap.to(peek, {opacity: 0, scale: .6, duration: .4, overwrite: "auto"});
+    });
+    $$(".magnetic").forEach(m => {
+      const mx = gsap.quickTo(m, "x", {duration: .5, ease: "elastic.out(1,.4)"}), my = gsap.quickTo(m, "y", {duration: .5, ease: "elastic.out(1,.4)"});
+      m.addEventListener("mousemove", e => { const r = m.getBoundingClientRect(); mx((e.clientX - r.left - r.width / 2) * .35); my((e.clientY - r.top - r.height / 2) * .35); });
+      m.addEventListener("mouseleave", () => { mx(0); my(0); });
+    });
+  }
+
+  addEventListener("load", () => ScrollTrigger.refresh());
+}
+</script>
+</body>
+</html>
