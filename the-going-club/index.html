@@ -493,7 +493,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 <section class="hero" data-theme="club">
   <div class="wrap">
     <div class="hero__kicker"><span class="chip"><i style="--c:#00a19a"></i>Thailand · Bali · Vietnam dates live</span></div>
-    <h1 class="d" id="heroTitle">Your next <span class="pic"><span class="ph" style="--c1:#00a19a;--c2:#ffc93c"><img data-k="JoxepWVTrNE,1QUUFuOsRk4" data-w="500" alt=""></span></span> trip, with <span class="pic"><span class="ph" style="--c1:#ff5b2e;--c2:#ffd23f"><img data-k="IcI3FizU9Cw,WyqSZPGxNLo" data-w="500" alt=""></span></span> your new favourite people.</h1>
+    <h1 class="d" id="heroTitle">Your next <span class="pic"><span class="ph" style="--c1:#00a19a;--c2:#ffc93c"><img data-k="bl5T3frR9pc,xq778lLN5No" data-w="500" alt=""></span></span> trip, with <span class="pic"><span class="ph" style="--c1:#ff5b2e;--c2:#ffd23f"><img data-k="kCaGAKExSWU,iuqmGmst5Po" data-w="500" alt=""></span></span> your new favourite people.</h1>
     <p class="hero__sub muted rv">7 nights and 8 days with a small group of travellers in their 20s and 30s from all over India. We plan everything, you just show up.</p>
     <div class="hero__cta rv">
       <a href="#dates" class="btn magnetic">See upcoming dates <span class="ic"><svg viewBox="0 0 16 16" fill="none"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="2"/></svg></span></a>
@@ -506,8 +506,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
       <div class="badge__in">20<br/>Nov</div>
     </div>
     <div class="hero__media" id="heroMedia">
-      <div class="ph" style="--c1:#00a19a;--c2:#ffc93c"><img data-k="TejFa7VW5e4,1QUUFuOsRk4,ElT8iwBXbEk" data-w="2000" alt="Maya Bay from above, Phi Phi Islands, Thailand"></div>
-      <div class="hero__cap" id="heroCap"><b>Thailand<br/>is calling.</b><span class="label">Maya Bay · Phi Phi</span></div>
+      <div class="ph" style="--c1:#00a19a;--c2:#ffc93c"><img data-k="vwuBrUFHmh0,JjOu9wkQrKU,bl5T3frR9pc" data-w="2000" alt="Drone shot over a sandbar in the Andaman Sea, Thailand"></div>
+      <div class="hero__cap" id="heroCap"><b>Thailand<br/>is calling.</b><span class="label">Andaman Sea · Thailand</span></div>
     </div>
   </div></div>
 </section>
@@ -560,7 +560,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   <div class="wrap">
     <div class="head"><h2 class="d split">All sorted.<br/><span class="acc">Just show up.</span></h2><p class="muted rv">Everything below is included. You only need flights and spending money.</p></div>
     <div class="bento">
-      <div class="bx bx--photo rv"><div class="ph" style="--c1:#4c8b2b;--c2:#f2a541"><img data-k="WyqSZPGxNLo,IcI3FizU9Cw,OTyjtfYZfKs" data-w="1400" alt="Friends jumping off a dock into the sea"></div><div class="t"><span class="sticker" style="margin-bottom:14px">✦ bestie approved</span><h4>A trip captain who's with you all 8 days.</h4></div></div>
+      <div class="bx bx--photo rv"><div class="ph" style="--c1:#4c8b2b;--c2:#f2a541"><img data-k="iuqmGmst5Po,pCYlHZAXfMI" data-w="1400" alt="Friends together at sunset"></div><div class="t"><span class="sticker" style="margin-bottom:14px">✦ bestie approved</span><h4>A trip captain who's with you all 8 days.</h4></div></div>
       <div class="bx bx--acc rv"><span class="big">7</span><div><h4>nights in handpicked stays</h4><p>Boutique hotels and pool villas, twin or triple sharing.</p></div></div>
       <div class="bx rv"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17h18M5 17l2-8h10l2 8M9 9V6h6v3"/></svg></span><div><h4>Every transfer</h4><p>Airport pickups, ferries and speedboats are all included.</p></div></div>
       <div class="bx rv"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3v8a4 4 0 0 0 8 0V3M8 3v18M18 3c-2 0-3 3-3 6s1 4 3 4v8"/></svg></span><div><h4>Breakfast daily</h4><p>Plus a welcome dinner and a farewell dinner.</p></div></div>
@@ -684,11 +684,12 @@ const CONTACT = {
 };
 
 /* ============================================================
-   PHOTOS — free Unsplash photos (Unsplash License), referenced by photo ID.
-   Each slot lists backups as "id1,id2"; if every one fails, the colour gradient shows.
-   For launch, download them and host on thegoingclub.com for the fastest load.
+   PHOTOS — free Unsplash photos (Unsplash License), referenced by photo ID and loaded from
+   images.unsplash.com (links taken from the official Unsplash open dataset). Each slot lists a
+   backup as "id1,id2"; if both fail, the colour gradient shows.
    ============================================================ */
-const photo = (id, w) => `https://unsplash.com/photos/${id}/download?w=${w}`;
+const PHOTO_URL = {"-w3-YDg_VKU":"photo-1571049543490-d73d1401fdaf","0FzehJxWGlY":"photo-1543789814-04ebd1e17263","10bkwLQmdg8":"photo-1556609893-f547db09879e","1L_nJObIbFA":"photo-1577387701116-b79d81ec7a07","2T7SbAVijvE":"photo-1483951756924-9579a3d9ce57","2rpCX4nGqeE":"photo-1520025133286-c0c157f9ea87","3WJiY5vBLT0":"photo-1458917266131-4fbea2bb1716","3xUnaShh5SQ":"photo-1496046744122-2328018d60b6","4aLyyfL0pIg":"photo-1570366714585-8450338970af","5kpVwpDW0WY":"photo-1578387280755-bac8aab4deea","6bUmlGstym8":"photo-1512907819289-143573530514","9hPpiouwEpY":"photo-1588481519836-61349981f8d3","9np70TFac38":"photo-1610276434254-4b6e1ad564f4","AwoNdzQSzqs":"photo-1542168778-b2baf17ff89a","C2a4RGapd8s":"photo-1451224222030-cee2f5dbcd10","Cee6-HjqSEM":"photo-1563575044224-569da2f35b01","D2r2nmABz0M":"photo-1593019666403-91d57229f1b3","EiPwgP9bmfI":"photo-1556609907-ef8218828f47","Et-TyYbzrY8":"photo-1436772275169-d8467f9d5aa5","EztqREO1cag":"photo-1520277872024-58b40679ddb4","F0f6CNjVn_o":"photo-1591192626617-f9c691fa8df4","F8cqx-8Gj-Q":"photo-1580535885877-1d212e338e96","I_O-v19bnJQ":"photo-1505279340786-1e3b097e227a","IkItz2V-ZUY":"photo-1549033990-879289266301","IrhXxv0g29I":"photo-1467620680782-0ade49e097bf","JE01L3hB0GQ":"photo-1481988535861-271139e06469","JKcZvtTsi4w":"photo-1438722876673-185ab1391ab9","JjOu9wkQrKU":"photo-1583905964027-da2571d6872c","K8iJtsWwAoE":"photo-1577742535461-e4041b07f269","KD8jKVdCFoQ":"photo-1471421455671-b9e8a4114185","KNLuLVloHuo":"photo-1587538716374-408bb1118e67","LsoNEgp2eLc":"photo-1447092968310-66af9a1fc4b1","N1pz4i2ZFlw":"photo-1554381316-14cf94cbe791","NBsQ_qnVKAY":"photo-1591035043948-35c22d27b133","Nq8LdWC7HnM":"23/fall-in-to-the-gap.JPG","Nyn00BAV35Y":"photo-1547133166-2eb151fd47d3","O6DUoIl6NWA":"photo-1506126944674-00c6c192e0a3","PQhSyu3swHE":"photo-1551432476-771aacf406e0","PdQz_pivZ44":"photo-1548741395-2ac0057be631","PgSxHidgJHQ":"photo-1557750255-c76072a7aad1","Q3Chc3uzlWk":"photo-1584873637355-58794dbb229b","QgeHjNLv2rA":"photo-1514070148511-6dfac3ad6244","QzpH26_7Pro":"photo-1518132180311-90469c7b2aa8","RD1Bb5RvLTY":"photo-1561271464-bb9c98029684","RpsQQ5idpUA":"photo-1548066393-4d1152dad423","RqbB-fNP6dQ":"photo-1587040164251-a349c7b1b7ff","S8Fnjxj1JCY":"photo-1435157284344-f11a58581a60","St-6SCwofGo":"photo-1745792820182-bba49ed8a0a4","T9o1cyfad34":"photo-1573788583125-4be910ca867e","VIh-B-bNZMc":"photo-1559294170-f7e6a2f1f0fd","WCxQTOcKv8U":"photo-1504964030113-79ab61954f0e","Wa6LnHpFhIM":"photo-1472916468142-2547cf63fb23","WaUcTYPfiCU":"photo-1542451542907-6cf80ff362d6","WbOn78k-ywU":"photo-1561271484-3a69b8e31344","XF9Zz6xlNJg":"photo-1517276214364-94d9f2cb396e","Xa7PXbsD2ro":"photo-1584891769204-f355b6ed7aec","Y6llHB9rNac":"photo-1565707215110-4f361d2a0985","YT8d9hNCEb8":"photo-1580213845003-ace9a84fee11","YnEhJ9dWT_M":"photo-1564665872710-7cce69129b0e","YwFHhIgG77M":"photo-1484795819573-86ae049cb815","ZvPvViNfH3Y":"photo-1563574326223-0077b84f438f","_6iV1AJZ53s":"photo-1544595965-cb6a3413f791","_oRt0kO6W-s":"photo-1568323993151-e465adfa30f6","a8lTjWJJgLA":"photo-1510797215324-95aa89f43c33","aXatqfxSLbA":"photo-1553136816-885ccbf93adf","bRGBzGh6YFI":"photo-1446822800434-3873731dc998","bUhzlj3gGso":"photo-1502747812021-0ae746b6c23f","bl5T3frR9pc":"photo-1442548520776-20acf66617df","cBUt6EeWf3I":"photo-1509155829013-aa797a710af4","cl4sIocoUxw":"photo-1482745806885-b0d04dcaa9c0","dF3UUgTdGGw":"photo-1590081369518-fc3b01f958c8","dua2Zf0UKZo":"photo-1547158292-c58e727209a6","eWuc6TXc8Ok":"photo-1551815943-385d5246c8a1","ebi7hhC6Lks":"photo-1435874348809-6e61b02aa907","ezseyJBWR4I":"photo-1554285859-6ac081ea54b9","f9NACz3-V-s":"photo-1458693416646-07f13b1a3159","fKj7AtX9sYY":"photo-1556609894-0ae309cb8354","fpMO_P1GPHA":"photo-1447829172150-e5deb8972256","hqzyUL3M21k":"photo-1646928980056-50d15f727970","iuqmGmst5Po":"photo-1519309621146-2a47d1f7103a","iz8MNOJWW1c":"photo-1477649826131-b6c2d84043c9","jWECaopdAH8":"photo-1578458329607-534298aebc4d","kCaGAKExSWU":"photo-1543589923-78e35f728335","kqJhR_nRO_o":"photo-1580560457006-edd13c7af541","lMMYOjFn3aQ":"photo-1447756069423-994698ebbf70","mHaGFQPalxA":"photo-1547133166-4e10d6f804c0","mHsCGoBJgIE":"photo-1551514290-920a97073d9f","mVBtKxXYaQk":"photo-1512994182823-6ddc7b9ddd58","mXV0l6D-Qgg":"photo-1547110015-16f48666ba95","nIR1dHtZ49A":"photo-1559126249-921666c75027","njEtyA05EN4":"photo-1431203488627-64527eb86dd9","nsFLt0rBQHI":"photo-1571235908530-fccae94bb402","p7ysydPUB_I":"photo-1492117594786-f6256358fcdc","pCYlHZAXfMI":"photo-1572930621326-f5297aeccc6b","qfX0ViCANEE":"photo-1580534510745-5c753903769c","tqvF1JXzOxs":"photo-1571366343168-631c5bcca7a4","uXU4Avx77UY":"photo-1543449961-17f4d86455af","up4IZxCQgT8":"photo-1746264726380-cb3186610ef0","vDD8DC6LyQk":"photo-1526547665041-e422d668206d","vwuBrUFHmh0":"photo-1612139483386-42d39ab3c24f","xCTAd2NN4I0":"photo-1526539535687-97010dfc3e08","xpHK3gv8ZQs":"photo-1544010582-1be0c36ae3ac","xq778lLN5No":"photo-1553105344-a905919678ab","yBGMn-hp4oQ":"photo-1568402102877-1091fbe7f7ab"};
+const photo = (id, w) => PHOTO_URL[id] ? `https://images.unsplash.com/${PHOTO_URL[id]}?auto=format&fit=crop&w=${w}&q=75` : `https://unsplash.com/photos/${id}/download?w=${w}`;
 function setImg(img) {
   const list = (img.dataset.k || "").split(",").filter(Boolean); const i = +(img.dataset.i || 0);
   if (i >= list.length) return;
@@ -705,13 +706,13 @@ const pic = (k, w = 1400, alt = "") => `<img data-k="${k}" data-w="${w}" alt="${
    DESTINATIONS
    ============================================================ */
 const DEST = [
-  {k:"thailand", name:"Thailand", c1:"#00a19a", c2:"#ffc93c", img:"JoxepWVTrNE,J7cEYPMEDT4", line:"Full moons, longtails and island hopping", live:true},
-  {k:"bali",     name:"Bali",     c1:"#3f7d3a", c2:"#ff8a4c", img:"yAz5rCf87H8,-2WlTWZLnRc", line:"Rice terraces, temples and cliff sunsets", live:true},
-  {k:"vietnam",  name:"Vietnam",  c1:"#e2372b", c2:"#2fa38a", img:"-HtfdIHSbsE,vcu-OZBxxRk", line:"Lanterns, limestone bays and egg coffee", live:true},
-  {k:"dubai",    name:"Dubai",    c1:"#c98a2c", c2:"#2b2320", img:"6ab-_SZHlwo,RPkXbErNJow", line:"Dune bashing and desert nights", live:false},
-  {k:"indonesia",name:"Indonesia",c1:"#1e63b5", c2:"#ff7a59", img:"kUjkV_NKczA,m7eb02LR9eA", line:"Komodo, Padar and pink beaches", live:false},
-  {k:"cambodia", name:"Cambodia", c1:"#d9822b", c2:"#6b3f1d", img:"jD2Ft6hqj6s,EY3tC81nFt0", line:"Angkor Wat at sunrise", live:false},
-  {k:"srilanka", name:"Sri Lanka",c1:"#4c8b2b", c2:"#f2a541", img:"uCXOO4NS22E,jpTT_SAU034", line:"Tea hills and the blue train to Ella", live:false},
+  {k:"thailand", name:"Thailand", c1:"#00a19a", c2:"#ffc93c", img:"bl5T3frR9pc,xq778lLN5No", line:"Full moons, longtails and island hopping", live:true},
+  {k:"bali",     name:"Bali",     c1:"#3f7d3a", c2:"#ff8a4c", img:"mXV0l6D-Qgg,a8lTjWJJgLA", line:"Rice terraces, temples and cliff sunsets", live:true},
+  {k:"vietnam",  name:"Vietnam",  c1:"#e2372b", c2:"#2fa38a", img:"D2r2nmABz0M,bUhzlj3gGso", line:"Lanterns, limestone bays and egg coffee", live:true},
+  {k:"dubai",    name:"Dubai",    c1:"#c98a2c", c2:"#2b2320", img:"WaUcTYPfiCU,lMMYOjFn3aQ", line:"Dune bashing and desert nights", live:false},
+  {k:"indonesia",name:"Indonesia",c1:"#1e63b5", c2:"#ff7a59", img:"tqvF1JXzOxs,nsFLt0rBQHI", line:"Komodo, Padar and pink beaches", live:false},
+  {k:"cambodia", name:"Cambodia", c1:"#d9822b", c2:"#6b3f1d", img:"xpHK3gv8ZQs", line:"Island beaches, Angkor and Phnom Penh nights", live:false},
+  {k:"srilanka", name:"Sri Lanka",c1:"#4c8b2b", c2:"#f2a541", img:"iz8MNOJWW1c,IrhXxv0g29I", line:"Golden beaches and the tea-country train", live:false},
 ];
 const DM = Object.fromEntries(DEST.map(d => [d.k, d]));
 
@@ -723,7 +724,7 @@ const EXC = ["International flights","Visa fees where applicable","Meals not men
    ============================================================ */
 const PLANS = [
   /* ---------------- THAILAND ---------------- */
-  {id:"th-fullmoon", country:"thailand", no:"01", title:"Thailand Full Moon Party", cover:"j9zvxgOCOvM,zZK6SqJ5GRA",
+  {id:"th-fullmoon", country:"thailand", no:"01", title:"Thailand Full Moon Party", cover:"C2a4RGapd8s,St-6SCwofGo",
    stops:["Phuket 2N","Krabi 2N","Koh Phangan 3N"], price:59999,
    blurb:"Phi Phi and Maya Bay, Krabi's four islands, then neon body paint and the Full Moon Party on Haad Rin beach.",
    departures:[
@@ -731,131 +732,131 @@ const PLANS = [
      {date:"2026-12-19", label:"Christmas × Full Moon", tag:"party", peak:6, price:64999, alt:"xmas",
       note:"Christmas edition: an extra chill day on Koh Phangan before the Full Moon Party on Christmas Eve, then a Christmas Day beach brunch."}],
    days:[
-     ["Hello Phuket!","Patong","ZX5iU00ve9k,SEPBY3RGMw4",["Airport pickup and check-in at Patong","Meet your trip captain and the gang","Welcome dinner, then first night out on Bangla Road"],"Patong","Dinner"],
-     ["Phi Phi Islands & Maya Bay","Phi Phi","TejFa7VW5e4,rLE4dP1F0k4",["Speedboat to Maya Bay, Pileh Lagoon and Viking Cave","Snorkel in crystal-clear water at Monkey Beach","Lunch on Phi Phi Don"],"Patong","Breakfast, Lunch"],
-     ["Big Buddha → Krabi","Phuket → Ao Nang","zUaHwkdSe0A,eFirVpdJRwU",["Big Buddha and Wat Chalong","Pastel streets and cafés of Phuket Old Town","Transfer to Ao Nang, sunset walk on the beach"],"Ao Nang","Breakfast"],
-     ["Krabi 4 Islands","Krabi","QRa7B5XVd8I,fiaCzGQ2K2A",["Longtail to Phra Nang Cave Beach","Walk the Tup Island sandbar to Chicken Island","Swim at Poda Island"],"Ao Nang","Breakfast, Lunch"],
-     ["Full Moon Party","Koh Phangan","j9zvxgOCOvM,zZK6SqJ5GRA",["Bus and ferry to Koh Phangan","Pre-party dinner and neon body paint","The Full Moon Party on Haad Rin beach until sunrise"],"Koh Phangan","Breakfast"],
-     ["Recovery & sunset","Koh Phangan","un-WgbVNfq0,BP1FBn293fs",["Late brunch and pool time","Explore Thong Sala market","Sunset drinks on the west coast"],"Koh Phangan","Breakfast"],
-     ["Koh Tao & Nang Yuan","Koh Tao","zW7MjBFE9zk,yUYKrPS9j5w",["Snorkel trip to Koh Tao's coral bays","Hike the Koh Nang Yuan viewpoint","Farewell dinner with the gang"],"Koh Phangan","Breakfast, Lunch, Dinner"],
-     ["See you soon!","Koh Samui","CoYj5sQUzKU,BP1FBn293fs",["Breakfast and checkout","Ferry to Koh Samui / Surat Thani","Airport drop for your flight home"],"—","Breakfast"]],
-   xmas:{4:["Island arrival","Koh Phangan","un-WgbVNfq0,BP1FBn293fs",["Bus and ferry to Koh Phangan","Pool villa check-in","Christmas-week sunset at Zen Beach"],"Koh Phangan","Breakfast"],
-         5:["Christmas Eve Full Moon","Koh Phangan","j9zvxgOCOvM,zZK6SqJ5GRA",["Neon body paint and dinner","The Full Moon Party on Haad Rin, on Christmas Eve","Dance until sunrise"],"Koh Phangan","Breakfast"],
-         6:["Christmas Day","Koh Phangan","OTyjtfYZfKs,DqRn61ZM_j4",["Christmas beach brunch and Secret Santa","Chill at the beach","Farewell Christmas dinner"],"Koh Phangan","Breakfast, Dinner"]}},
-  {id:"th-classic", country:"thailand", no:"02", title:"Bangkok to the Islands", cover:"J7cEYPMEDT4,TejFa7VW5e4",
+     ["Hello Phuket!","Patong","9hPpiouwEpY,ZvPvViNfH3Y",["Airport pickup and check-in at Patong","Meet your trip captain and the gang","Welcome dinner, then first night out on Bangla Road"],"Patong","Dinner"],
+     ["Phi Phi Islands & Maya Bay","Phi Phi","Nq8LdWC7HnM,10bkwLQmdg8",["Speedboat to Maya Bay, Pileh Lagoon and Viking Cave","Snorkel in crystal-clear water at Monkey Beach","Lunch on Phi Phi Don"],"Patong","Breakfast, Lunch"],
+     ["Phuket views → Krabi","Phuket → Ao Nang","ZvPvViNfH3Y,9hPpiouwEpY",["Big Buddha and Wat Chalong","Pastel streets and cafés of Phuket Old Town","Transfer to Ao Nang, sunset walk on the beach"],"Ao Nang","Breakfast"],
+     ["Krabi 4 Islands","Krabi","vwuBrUFHmh0,JjOu9wkQrKU",["Longtail to Phra Nang Cave Beach","Walk the Tup Island sandbar to Chicken Island","Swim at Poda Island"],"Ao Nang","Breakfast, Lunch"],
+     ["Full Moon Party","Koh Phangan","C2a4RGapd8s,St-6SCwofGo",["Bus and ferry to Koh Phangan","Pre-party dinner and neon body paint","The Full Moon Party on Haad Rin beach until sunrise"],"Koh Phangan","Breakfast"],
+     ["Recovery & sunset","Koh Phangan","JE01L3hB0GQ,bRGBzGh6YFI",["Late brunch and pool time","Explore Thong Sala market","Sunset drinks on the west coast"],"Koh Phangan","Breakfast"],
+     ["Koh Tao & Nang Yuan","Koh Tao","NBsQ_qnVKAY,K8iJtsWwAoE",["Kayak and snorkel trip to Koh Tao's coral bays","Hike the Koh Nang Yuan viewpoint","Farewell dinner with the gang"],"Koh Phangan","Breakfast, Lunch, Dinner"],
+     ["See you soon!","Koh Samui","xCTAd2NN4I0,bRGBzGh6YFI",["Breakfast and checkout","Ferry to Koh Samui / Surat Thani","Airport drop for your flight home"],"—","Breakfast"]],
+   xmas:{4:["Island arrival","Koh Phangan","bRGBzGh6YFI,JE01L3hB0GQ",["Bus and ferry to Koh Phangan","Pool villa check-in","Christmas-week sunset at Zen Beach"],"Koh Phangan","Breakfast"],
+         5:["Christmas Eve Full Moon","Koh Phangan","St-6SCwofGo,C2a4RGapd8s",["Neon body paint and dinner","The Full Moon Party on Haad Rin, on Christmas Eve","Dance until sunrise"],"Koh Phangan","Breakfast"],
+         6:["Christmas Day","Koh Phangan","T9o1cyfad34,pCYlHZAXfMI",["Christmas beach brunch and Secret Santa","Chill at the beach","Farewell Christmas dinner"],"Koh Phangan","Breakfast, Dinner"]}},
+  {id:"th-classic", country:"thailand", no:"02", title:"Bangkok to the Islands", cover:"bl5T3frR9pc,xq778lLN5No",
    stops:["Bangkok 2N","Phuket 3N","Krabi 2N"], price:54999,
    blurb:"Bangkok's temples, rooftops and street food, then Phi Phi, James Bond Island and Railay's limestone cliffs.",
    departures:[{date:"2026-12-01", label:"Bangkok to the Islands", tag:"trip", peak:4},{date:"2026-12-10", label:"Bangkok to the Islands", tag:"trip", peak:4}],
    days:[
-     ["Sawasdee Bangkok!","Bangkok","G9rjaRX96fM,p3wNSD08bog",["Airport pickup and hotel check-in","Chinatown (Yaowarat) street food crawl","First night out on Khao San Road"],"Bangkok","Dinner"],
-     ["Temples & rooftops","Bangkok","MKVGJ4d3E6c,TYjwUfee8ks",["Grand Palace and Wat Pho","Longtail boat across the river to Wat Arun","Sundowners at a rooftop bar"],"Bangkok","Breakfast"],
-     ["Floating market → Phuket","Bangkok → Phuket","4fkJZ4Txrbw,S4WDLqubwoc",["Morning at Damnoen Saduak floating market","Flight to Phuket","Evening on Patong beach and Bangla Road"],"Patong","Breakfast"],
-     ["Phi Phi & Maya Bay","Phi Phi","J7cEYPMEDT4,TejFa7VW5e4",["Speedboat to Maya Bay and Pileh Lagoon","Snorkelling at Monkey Beach","Lunch on Phi Phi Don"],"Patong","Breakfast, Lunch"],
-     ["James Bond Island","Phang Nga Bay","iRAelIStfzA,zAyawDx7b8k",["Sea-canoe through caves and lagoons","James Bond Island (Khao Phing Kan)","Floating village of Koh Panyee"],"Patong","Breakfast, Lunch"],
-     ["Old Town → Krabi","Phuket → Ao Nang","e09PXBCjO9Y,T6jgRd_WfOk",["Pastel streets of Phuket Old Town","Big Buddha viewpoint","Transfer to Ao Nang, beach evening"],"Ao Nang","Breakfast"],
-     ["Railay & 4 Islands","Krabi","fiaCzGQ2K2A,VMIMfFH4IE0",["Longtail to Railay and Phra Nang","Island hopping and the Tup sandbar","Farewell dinner by the beach"],"Ao Nang","Breakfast, Lunch, Dinner"],
-     ["See you soon!","Krabi","0Bm-H8WCHRQ,zNk8gWjnZWo",["Breakfast and checkout","Airport drop at Krabi"],"—","Breakfast"]]},
-  {id:"th-nye", country:"thailand", no:"03", title:"New Year's Eve in Phuket", cover:"YZdyJGsgW68,NcMm9h09ljQ",
+     ["Sawasdee Bangkok!","Bangkok","fpMO_P1GPHA,RpsQQ5idpUA",["Airport pickup and hotel check-in","Chinatown (Yaowarat) street food crawl","First night out on Khao San Road"],"Bangkok","Dinner"],
+     ["Temples & rooftops","Bangkok","IkItz2V-ZUY,9np70TFac38",["Grand Palace and Wat Pho","Longtail boat across the river to Wat Arun","Sundowners at a rooftop bar"],"Bangkok","Breakfast"],
+     ["Bangkok → Phuket","Bangkok → Phuket","RpsQQ5idpUA,ZvPvViNfH3Y",["Morning at Chatuchak market or ICONSIAM","Flight to Phuket","Evening on Patong beach and Bangla Road"],"Patong","Breakfast"],
+     ["Phi Phi & Maya Bay","Phi Phi","fKj7AtX9sYY,EiPwgP9bmfI",["Speedboat to Maya Bay and Pileh Lagoon","Snorkelling at Monkey Beach","Lunch on Phi Phi Don"],"Patong","Breakfast, Lunch"],
+     ["James Bond Island","Phang Nga Bay","5kpVwpDW0WY,LsoNEgp2eLc",["Sea-canoe through caves and lagoons","James Bond Island (Khao Phing Kan)","Floating village of Koh Panyee"],"Patong","Breakfast, Lunch"],
+     ["Old Town → Krabi","Phuket → Ao Nang","KNLuLVloHuo,Xa7PXbsD2ro",["Pastel streets of Phuket Old Town","Big Buddha viewpoint","Transfer to Ao Nang, beach evening"],"Ao Nang","Breakfast"],
+     ["Railay & 4 Islands","Krabi","JjOu9wkQrKU,vwuBrUFHmh0",["Longtail to Railay and Phra Nang","Island hopping and the Tup sandbar","Farewell dinner by the beach"],"Ao Nang","Breakfast, Lunch, Dinner"],
+     ["See you soon!","Krabi","PQhSyu3swHE,xCTAd2NN4I0",["Breakfast and checkout","Airport drop at Krabi"],"—","Breakfast"]]},
+  {id:"th-nye", country:"thailand", no:"03", title:"New Year's Eve in Phuket", cover:"Et-TyYbzrY8,S8Fnjxj1JCY",
    stops:["Bangkok 2N","Phuket 4N","Krabi 1N"], price:74999,
    blurb:"Bangkok rooftops, Phi Phi, then the New Year's Eve countdown on Patong beach with fireworks over the Andaman Sea.",
    departures:[{date:"2026-12-27", label:"New Year's Party", tag:"party", peak:5}],
    days:[
-     ["Hello Bangkok!","Bangkok","nNAbKJyyXMM,MxfL5VeRDiM",["Airport pickup and check-in","Welcome dinner","Night views from a rooftop bar"],"Bangkok","Dinner"],
-     ["Grand Palace & Wat Arun","Bangkok","TYjwUfee8ks,RFAgFiftzHE",["Grand Palace and Wat Pho","Wat Arun by longtail boat","Asiatique riverfront at night"],"Bangkok","Breakfast"],
-     ["Fly to Phuket","Phuket","SEPBY3RGMw4,o_YUPJBSvpo",["Flight to Phuket","Afternoon on Patong beach","Bangla Road warm-up night"],"Patong","Breakfast"],
-     ["Phi Phi Islands","Phi Phi","JoxepWVTrNE,1QUUFuOsRk4",["Speedboat to Maya Bay and Pileh Lagoon","Snorkelling and beach time","Lunch on Phi Phi Don"],"Patong","Breakfast, Lunch"],
-     ["NYE Countdown!","Patong","YZdyJGsgW68,NcMm9h09ljQ",["Pre-party dinner with the gang","Countdown and fireworks on Patong beach","Ring in 2027 on Bangla Road"],"Patong","Breakfast, Dinner"],
-     ["New Year chill","Phuket","o_YUPJBSvpo,e09PXBCjO9Y",["Recovery brunch","Phuket Old Town cafés","Sunset at Promthep Cape"],"Patong","Breakfast"],
-     ["Railay farewell","Krabi","VMIMfFH4IE0,fiaCzGQ2K2A",["Transfer to Krabi","Longtail to Railay beach","Farewell dinner"],"Ao Nang","Breakfast, Dinner"],
-     ["Happy 2027!","Krabi","zNk8gWjnZWo,0Bm-H8WCHRQ",["Breakfast and checkout","Airport drop at Krabi"],"—","Breakfast"]]},
+     ["Hello Bangkok!","Bangkok","9np70TFac38,fpMO_P1GPHA",["Airport pickup and check-in","Welcome dinner","Night views from a rooftop bar"],"Bangkok","Dinner"],
+     ["Grand Palace & Wat Arun","Bangkok","IkItz2V-ZUY,RpsQQ5idpUA",["Grand Palace and Wat Pho","Wat Arun by longtail boat","Asiatique riverfront at night"],"Bangkok","Breakfast"],
+     ["Fly to Phuket","Phuket","9hPpiouwEpY,ZvPvViNfH3Y",["Flight to Phuket","Afternoon on Patong beach","Bangla Road warm-up night"],"Patong","Breakfast"],
+     ["Phi Phi Islands","Phi Phi","xq778lLN5No,AwoNdzQSzqs",["Speedboat to Maya Bay and Pileh Lagoon","Snorkelling and beach time","Lunch on Phi Phi Don"],"Patong","Breakfast, Lunch"],
+     ["NYE Countdown!","Patong","Et-TyYbzrY8,YwFHhIgG77M",["Pre-party dinner with the gang","Countdown and fireworks on Patong beach","Ring in 2027 on Bangla Road"],"Patong","Breakfast, Dinner"],
+     ["New Year chill","Phuket","RqbB-fNP6dQ,JE01L3hB0GQ",["Recovery brunch","Phuket Old Town cafés","Sunset at Promthep Cape"],"Patong","Breakfast"],
+     ["Railay farewell","Krabi","10bkwLQmdg8,KNLuLVloHuo",["Transfer to Krabi","Longtail to Railay beach","Farewell dinner"],"Ao Nang","Breakfast, Dinner"],
+     ["Happy 2027!","Krabi","mHsCGoBJgIE,xCTAd2NN4I0",["Breakfast and checkout","Airport drop at Krabi"],"—","Breakfast"]]},
 
   /* ---------------- BALI ---------------- */
-  {id:"bl-soul", country:"bali", no:"01", title:"Bali Soul", cover:"yAz5rCf87H8,XEhchWQuWyM",
+  {id:"bl-soul", country:"bali", no:"01", title:"Bali Soul", cover:"mXV0l6D-Qgg,a8lTjWJJgLA",
    stops:["Ubud 3N","Canggu 3N","Uluwatu 1N"], price:62999,
    blurb:"Rice terraces, a sunrise volcano trek, Nusa Penida's cliffs and the Kecak fire dance at Uluwatu.",
    departures:[{date:"2026-12-05", label:"Bali Soul", tag:"trip", peak:3}],
    days:[
-     ["Om Swastiastu, Bali!","Ubud","ZkcfXySL_18,dKdrAFjsYuo",["Airport pickup in Denpasar","Check-in at a jungle pool villa in Ubud","Welcome dinner"],"Ubud","Dinner"],
-     ["Rice terraces & swings","Ubud","hy_LY9Zyfxo,XF9Zz6xlNJg",["Tegallalang rice terraces","The Bali jungle swing","Tirta Empul water temple"],"Ubud","Breakfast"],
-     ["Mount Batur sunrise","Kintamani","gJiG3zJZmr8,VO8HS5UFBXU",["2 a.m. start for the Mount Batur trek","Sunrise over the caldera","Natural hot springs, then Monkey Forest"],"Ubud","Breakfast"],
-     ["Waterfalls → Canggu","Ubud → Canggu","Lnw6tPn26HI,678BDq5c_xU",["Tibumana waterfall","Move to Canggu","Sunset beach club evening"],"Canggu","Breakfast"],
-     ["Nusa Penida","Nusa Penida","9PakI9j885k,2UUkh6jUBLM",["Fast boat to Nusa Penida","Kelingking (T-Rex) Beach viewpoint","Broken Beach and Angel's Billabong"],"Canggu","Breakfast, Lunch"],
-     ["Surf & Tanah Lot","Canggu","OQRkj2erTPI,argogtntvG8",["Beginner surf lesson in Canggu","Café hopping","Sunset at Tanah Lot sea temple"],"Canggu","Breakfast"],
-     ["Uluwatu Kecak","Uluwatu","-mHXARMGTSw,j9zvxgOCOvM",["Padang Padang beach","Kecak fire dance at Uluwatu cliff temple","Farewell seafood dinner"],"Uluwatu","Breakfast, Dinner"],
-     ["Sampai jumpa!","Bali","biaLI6Snj3k,5-FXEB2L9BQ",["Breakfast and checkout","Airport drop at Denpasar"],"—","Breakfast"]]},
-  {id:"bl-gili", country:"bali", no:"02", title:"Bali × Gili Islands", cover:"rF_Z8KbUFTs,7XwtNEEgeXw",
+     ["Om Swastiastu, Bali!","Ubud","YT8d9hNCEb8,p7ysydPUB_I",["Airport pickup in Denpasar","Check-in at a jungle pool villa in Ubud","Welcome dinner"],"Ubud","Dinner"],
+     ["Rice terraces & swings","Ubud","XF9Zz6xlNJg,mXV0l6D-Qgg",["Tegallalang rice terraces","The Bali jungle swing","Tirta Empul water temple"],"Ubud","Breakfast"],
+     ["Mount Batur sunrise","Kintamani","N1pz4i2ZFlw,uXU4Avx77UY",["2 a.m. start for the Mount Batur trek","Sunrise over the caldera","Natural hot springs, then Monkey Forest"],"Ubud","Breakfast"],
+     ["Waterfalls → Canggu","Ubud → Canggu","_oRt0kO6W-s,WbOn78k-ywU",["Tibumana waterfall","Move to Canggu","Sunset beach club evening"],"Canggu","Breakfast"],
+     ["Nusa Penida","Nusa Penida","Y6llHB9rNac,YnEhJ9dWT_M",["Fast boat to Nusa Penida","Kelingking (T-Rex) Beach viewpoint","Broken Beach and Angel's Billabong"],"Canggu","Breakfast, Lunch"],
+     ["Surf & Tanah Lot","Canggu","kqJhR_nRO_o,Cee6-HjqSEM",["Beginner surf lesson in Canggu","Café hopping","Sunset at Tanah Lot sea temple"],"Canggu","Breakfast"],
+     ["Uluwatu Kecak","Uluwatu","up4IZxCQgT8,KD8jKVdCFoQ",["Padang Padang beach","Kecak fire dance at Uluwatu cliff temple","Farewell seafood dinner"],"Uluwatu","Breakfast, Dinner"],
+     ["Sampai jumpa!","Bali","-w3-YDg_VKU,WCxQTOcKv8U",["Breakfast and checkout","Airport drop at Denpasar"],"—","Breakfast"]]},
+  {id:"bl-gili", country:"bali", no:"02", title:"Bali × Gili Islands", cover:"f9NACz3-V-s,QzpH26_7Pro",
    stops:["Ubud 2N","Gili T 3N","Seminyak 2N"], price:67999,
    blurb:"Ubud's jungle, then three nights on a car-free island with turtles, bicycles and sunset swings.",
    departures:[{date:"2026-12-15", label:"Bali × Gili", tag:"trip", peak:4}],
    days:[
-     ["Hello Ubud!","Ubud","hKVg7ldM5VU,4VE_IKLBbpE",["Airport pickup and villa check-in","Sacred Monkey Forest","Welcome dinner"],"Ubud","Dinner"],
-     ["Ubud in a day","Ubud","XF9Zz6xlNJg,GAyVvGngFyo",["Tegallalang rice terraces","Bali jungle swing","Tirta Empul water temple"],"Ubud","Breakfast"],
-     ["Fast boat to Gili T","Gili Trawangan","rF_Z8KbUFTs,7XwtNEEgeXw",["Fast boat across the Lombok Strait","Bicycles around the car-free island","Sunset at the famous ocean swings"],"Gili T","Breakfast"],
-     ["Turtles & three Gilis","Gili Islands","C5-bRP7A0Uw,0PlrCmt8iI0",["Snorkel with sea turtles","Underwater statues at Gili Meno","Lunch stop on Gili Air"],"Gili T","Breakfast, Lunch"],
-     ["Island life","Gili Trawangan","DgWl11vRzfs,009eJNi9_C0",["Sunrise yoga (optional)","Free beach day","Gili T party night"],"Gili T","Breakfast"],
-     ["Back to Seminyak","Seminyak","bUvmhwQ-gsw,a46NVrs0xDE",["Fast boat back to Bali","Afternoon at Potato Head beach club","Seminyak nightlife"],"Seminyak","Breakfast"],
-     ["Uluwatu sunset","Uluwatu","5-FXEB2L9BQ,-mHXARMGTSw",["Melasti beach","Kecak fire dance at Uluwatu","Farewell dinner"],"Seminyak","Breakfast, Dinner"],
-     ["Fly home","Bali","JQ5YMIOipuI,ipIsM-YILMQ",["Breakfast and checkout","Airport drop at Denpasar"],"—","Breakfast"]]},
-  {id:"bl-nye", country:"bali", no:"03", title:"Bali New Year's Eve", cover:"bUvmhwQ-gsw,5-FXEB2L9BQ",
+     ["Hello Ubud!","Ubud","O6DUoIl6NWA,yBGMn-hp4oQ",["Airport pickup and villa check-in","Sacred Monkey Forest","Welcome dinner"],"Ubud","Dinner"],
+     ["Ubud in a day","Ubud","RD1Bb5RvLTY,6bUmlGstym8",["Tegallalang rice terraces","Bali jungle swing","Tirta Empul water temple"],"Ubud","Breakfast"],
+     ["Fast boat to Gili T","Gili Trawangan","f9NACz3-V-s,vDD8DC6LyQk",["Fast boat across the Lombok Strait","Bicycles around the car-free island","Sunset at the famous ocean swings"],"Gili T","Breakfast"],
+     ["Turtles & three Gilis","Gili Islands","QzpH26_7Pro,dF3UUgTdGGw",["Snorkel with sea turtles","Underwater statues at Gili Meno","Lunch stop on Gili Air"],"Gili T","Breakfast, Lunch"],
+     ["Island life","Gili Trawangan","kCaGAKExSWU,WCxQTOcKv8U",["Sunrise yoga (optional)","Free beach day","Gili T party night"],"Gili T","Breakfast"],
+     ["Back to Seminyak","Seminyak","VIh-B-bNZMc,cl4sIocoUxw",["Fast boat back to Bali","Afternoon at Potato Head beach club","Seminyak nightlife"],"Seminyak","Breakfast"],
+     ["Uluwatu sunset","Uluwatu","EztqREO1cag,up4IZxCQgT8",["Melasti beach","Kecak fire dance at Uluwatu","Farewell dinner"],"Seminyak","Breakfast, Dinner"],
+     ["Fly home","Bali","PQhSyu3swHE,I_O-v19bnJQ",["Breakfast and checkout","Airport drop at Denpasar"],"—","Breakfast"]]},
+  {id:"bl-nye", country:"bali", no:"03", title:"Bali New Year's Eve", cover:"VIh-B-bNZMc,nIR1dHtZ49A",
    stops:["Ubud 2N","Seminyak 5N"], price:79999,
    blurb:"A sunrise volcano trek, then a beach-club New Year's Eve countdown in Seminyak.",
    departures:[{date:"2026-12-28", label:"New Year's Party", tag:"party", peak:4}],
    days:[
-     ["Arrive in Bali","Ubud","-2WlTWZLnRc,yAz5rCf87H8",["Airport pickup","Ubud villa check-in","Welcome dinner"],"Ubud","Dinner"],
-     ["Temples & lakes","Bedugul","bnMPFPuSCI0,UXhECwQEHQA",["Ulun Danu Bratan lake temple","Tirta Empul water temple","Coffee plantation tasting"],"Ubud","Breakfast"],
-     ["Batur → Seminyak","Kintamani → Seminyak","gJiG3zJZmr8,VO8HS5UFBXU",["Mount Batur sunrise trek","Hot springs","Move to Seminyak"],"Seminyak","Breakfast"],
-     ["NYE countdown!","Seminyak","1XgbEO7siqg,WZVo2Enk6_U",["Beach club afternoon","Pre-party dinner with the gang","Countdown and fireworks over the ocean"],"Seminyak","Breakfast, Dinner"],
-     ["New Year chill","Tanah Lot","argogtntvG8,OQRkj2erTPI",["Recovery brunch","Pool time","Sunset at Tanah Lot"],"Seminyak","Breakfast"],
-     ["Nusa Penida","Nusa Penida","nis5gvoboyI,9PakI9j885k",["Fast boat to Nusa Penida","Kelingking Beach","Crystal Bay snorkel"],"Seminyak","Breakfast, Lunch"],
-     ["Uluwatu farewell","Uluwatu","-mHXARMGTSw,5-FXEB2L9BQ",["Cliff beaches","Kecak fire dance","Farewell dinner"],"Seminyak","Breakfast, Dinner"],
-     ["Happy 2027!","Bali","ipIsM-YILMQ,JQ5YMIOipuI",["Breakfast and checkout","Airport drop"],"—","Breakfast"]]},
+     ["Arrive in Bali","Ubud","hqzyUL3M21k,F0f6CNjVn_o",["Airport pickup","Ubud villa check-in","Welcome dinner"],"Ubud","Dinner"],
+     ["Temples & holy springs","Ubud → Bedugul","6bUmlGstym8,mVBtKxXYaQk",["Tirta Empul holy spring temple","Ulun Danu Bratan lake temple","Coffee plantation tasting"],"Ubud","Breakfast"],
+     ["Batur → Seminyak","Kintamani → Seminyak","uXU4Avx77UY,N1pz4i2ZFlw",["Mount Batur sunrise trek","Hot springs","Move to Seminyak"],"Seminyak","Breakfast"],
+     ["NYE countdown!","Seminyak","nIR1dHtZ49A,YwFHhIgG77M",["Beach club afternoon","Pre-party dinner with the gang","Countdown and fireworks over the ocean"],"Seminyak","Breakfast, Dinner"],
+     ["New Year chill","Tanah Lot","WCxQTOcKv8U,kCaGAKExSWU",["Recovery brunch","Pool time","Sunset at Tanah Lot"],"Seminyak","Breakfast"],
+     ["Nusa Penida","Nusa Penida","0FzehJxWGlY,2rpCX4nGqeE",["Fast boat to Nusa Penida","Kelingking Beach","Crystal Bay snorkel"],"Seminyak","Breakfast, Lunch"],
+     ["Uluwatu farewell","Uluwatu","Q3Chc3uzlWk,KD8jKVdCFoQ",["Cliff beaches","Kecak fire dance","Farewell dinner"],"Seminyak","Breakfast, Dinner"],
+     ["Happy 2027!","Bali","mHsCGoBJgIE,I_O-v19bnJQ",["Breakfast and checkout","Airport drop"],"—","Breakfast"]]},
 
   /* ---------------- VIETNAM ---------------- */
-  {id:"vn-north", country:"vietnam", no:"01", title:"Lanterns & Limestone", cover:"-HtfdIHSbsE,cga32YQt0Kw",
+  {id:"vn-north", country:"vietnam", no:"01", title:"Lanterns & Limestone", cover:"D2r2nmABz0M,aXatqfxSLbA",
    stops:["Hanoi 2N","Ha Long 1N","Hoi An 3N","Da Nang 1N"], price:64999,
    blurb:"Egg coffee in Hanoi, a night cruise on Ha Long Bay, Hoi An's lanterns and the Golden Bridge.",
    departures:[{date:"2026-12-06", label:"Lanterns & Limestone", tag:"trip", peak:3}],
    days:[
-     ["Xin chào Hanoi!","Hanoi","lBE-xnnC6OI,u-z8Cq8EZgM",["Airport pickup, Old Quarter check-in","Train Street and egg coffee","Street food walk"],"Hanoi","Dinner"],
-     ["Ninh Binh","Trang An","Mt1iIhkBk1I,PgSxHidgJHQ",["Trang An boat ride through karst caves","500 steps up Mua Cave viewpoint","Bike through the rice fields"],"Hanoi","Breakfast, Lunch"],
-     ["Ha Long Bay cruise","Ha Long","-HtfdIHSbsE,cga32YQt0Kw",["Board your overnight cruise","Kayak between limestone towers","Sunset on deck and squid fishing"],"Cruise","Breakfast, Lunch, Dinner"],
-     ["Hoi An lantern night","Hoi An","AAoCUzB23kE,ESVsXjq4j6E",["Fly to Da Nang, transfer to Hoi An","Ancient Town walk","Release a lantern on the Thu Bon river"],"Hoi An","Breakfast"],
-     ["Hoi An slow day","Hoi An","rBCU0TMwbcg,mYNGbkIBIGM",["Cycle to Tra Que village","Basket boat in the coconut forest","Get outfits tailor-made overnight"],"Hoi An","Breakfast"],
-     ["Golden Bridge","Ba Na Hills","CsoQ-jm_0vQ,m3E0S4LoIuQ",["Cable car up Ba Na Hills","Walk the Golden Bridge held by giant hands","French Village"],"Hoi An","Breakfast, Lunch"],
-     ["Da Nang","Da Nang","qMWxrV6LieI,l6QYsDtPmxY",["My Khe beach morning","Marble Mountains","Dragon Bridge at night and farewell dinner"],"Da Nang","Breakfast, Dinner"],
-     ["Tạm biệt!","Da Nang","mYNGbkIBIGM,ESVsXjq4j6E",["Breakfast and checkout","Airport drop at Da Nang"],"—","Breakfast"]]},
-  {id:"vn-xmas", country:"vietnam", no:"02", title:"Christmas in the South", cover:"IVJVh1v1PVs,xCrdGY4Ung4",
+     ["Xin chào Hanoi!","Hanoi","cBUt6EeWf3I,3WJiY5vBLT0",["Airport pickup, Old Quarter check-in","Train Street and egg coffee","Street food walk"],"Hanoi","Dinner"],
+     ["Ninh Binh","Trang An","dua2Zf0UKZo,PgSxHidgJHQ",["Trang An boat ride through karst caves","500 steps up Mua Cave viewpoint","Bike through the rice fields"],"Hanoi","Breakfast, Lunch"],
+     ["Ha Long Bay cruise","Ha Long","D2r2nmABz0M,aXatqfxSLbA",["Board your overnight cruise","Kayak between limestone towers","Sunset on deck and squid fishing"],"Cruise","Breakfast, Lunch, Dinner"],
+     ["Hoi An lantern night","Hoi An","2T7SbAVijvE,IkItz2V-ZUY",["Fly to Da Nang, transfer to Hoi An","Ancient Town walk","Release a lantern on the Thu Bon river"],"Hoi An","Breakfast"],
+     ["Hoi An slow day","Hoi An","qfX0ViCANEE,F8cqx-8Gj-Q",["Cycle to Tra Que village","Basket boat in the coconut forest","Get outfits tailor-made overnight"],"Hoi An","Breakfast"],
+     ["Ba Na Hills cable car","Ba Na Hills","ebi7hhC6Lks,JKcZvtTsi4w",["Cable car up Ba Na Hills","Walk the Golden Bridge held by giant hands","French Village"],"Hoi An","Breakfast, Lunch"],
+     ["Da Nang","Da Nang","_6iV1AJZ53s,ezseyJBWR4I",["My Khe beach morning","Marble Mountains","Dragon Bridge at night and farewell dinner"],"Da Nang","Breakfast, Dinner"],
+     ["Tạm biệt!","Da Nang","xCTAd2NN4I0,-w3-YDg_VKU",["Breakfast and checkout","Airport drop at Da Nang"],"—","Breakfast"]]},
+  {id:"vn-xmas", country:"vietnam", no:"02", title:"Christmas in the South", cover:"jWECaopdAH8,T9o1cyfad34",
    stops:["Phu Quoc 4N","Ho Chi Minh City 3N"], price:66999,
    blurb:"Island sunsets on Phu Quoc, then Christmas Eve in Saigon, when the whole city comes out onto the streets.",
    departures:[{date:"2026-12-18", label:"Christmas in Vietnam", tag:"party", peak:7}],
    days:[
-     ["Hello Phu Quoc!","Phu Quoc","IVJVh1v1PVs,8mJayiu7Tas",["Arrive via Ho Chi Minh City","Beach resort check-in","Sunset dinner on Sao Beach"],"Phu Quoc","Dinner"],
-     ["Island hopping","An Thoi islands","0Gh7AndOWXw,Y6-znJaVTKU",["Speedboat to the An Thoi islands","Snorkelling","Beach club afternoon"],"Phu Quoc","Breakfast, Lunch"],
-     ["Cable car & sunset","Hon Thom","xCrdGY4Ung4,RR9JfrD0iMQ",["One of the world's longest sea cable cars","Hon Thom island beaches","Sunset at the Kiss Bridge"],"Phu Quoc","Breakfast"],
-     ["Phu Quoc free day","Phu Quoc","8mJayiu7Tas,IVJVh1v1PVs",["Lazy beach morning","Pepper farm visit","Night market dinner"],"Phu Quoc","Breakfast"],
-     ["Hello Saigon!","Ho Chi Minh City","CIMx-ymiuiI,KO83TrJl0mY",["Fly to Ho Chi Minh City","District 1 and Ben Thanh market","Bui Vien walking street at night"],"Saigon","Breakfast"],
-     ["Mekong Delta","Mekong","z3cTN0mSNko,pOQ1tCiw3Tk",["Boat ride through the Mekong canals","Coconut candy workshop","Floating gardens"],"Saigon","Breakfast, Lunch"],
-     ["Christmas Eve","Ho Chi Minh City","2jJSpC-SU2s,KQZRXIg4tik",["Cu Chi tunnels in the morning","Christmas lights at the Notre-Dame Cathedral","Rooftop Christmas Eve party"],"Saigon","Breakfast, Dinner"],
-     ["Merry Christmas!","Ho Chi Minh City","wUk2U5Wirxg,CIMx-ymiuiI",["Christmas brunch","Airport drop"],"—","Breakfast"]]},
-  {id:"vn-nye", country:"vietnam", no:"03", title:"Hanoi New Year's Eve", cover:"tvFMW79kb5M,BTv0K50c_4M",
+     ["Hello Phu Quoc!","Phu Quoc","jWECaopdAH8,JE01L3hB0GQ",["Arrive via Ho Chi Minh City","Beach resort check-in","Sunset dinner on Sao Beach"],"Phu Quoc","Dinner"],
+     ["Island hopping","An Thoi islands","K8iJtsWwAoE,NBsQ_qnVKAY",["Speedboat to the An Thoi islands","Snorkelling","Beach club afternoon"],"Phu Quoc","Breakfast, Lunch"],
+     ["Cable car & sunset","Hon Thom","QgeHjNLv2rA,JKcZvtTsi4w",["One of the world's longest sea cable cars","Hon Thom island beaches","Sunset at the Kiss Bridge"],"Phu Quoc","Breakfast"],
+     ["Phu Quoc free day","Phu Quoc","3xUnaShh5SQ,jWECaopdAH8",["Lazy beach morning","Pepper farm visit","Night market dinner"],"Phu Quoc","Breakfast"],
+     ["Hello Saigon!","Ho Chi Minh City","cBUt6EeWf3I,3WJiY5vBLT0",["Fly to Ho Chi Minh City","District 1 and Ben Thanh market","Bui Vien walking street at night"],"Saigon","Breakfast"],
+     ["Mekong Delta","Mekong","Nyn00BAV35Y,mHaGFQPalxA",["Boat ride through the Mekong canals","Coconut candy workshop","Floating gardens"],"Saigon","Breakfast, Lunch"],
+     ["Christmas Eve","Ho Chi Minh City","T9o1cyfad34,Wa6LnHpFhIM",["Cu Chi tunnels in the morning","Christmas lights at the Notre-Dame Cathedral","Rooftop Christmas Eve party"],"Saigon","Breakfast, Dinner"],
+     ["Merry Christmas!","Ho Chi Minh City","1L_nJObIbFA,PQhSyu3swHE",["Christmas brunch","Airport drop"],"—","Breakfast"]]},
+  {id:"vn-nye", country:"vietnam", no:"03", title:"Hanoi New Year's Eve", cover:"4aLyyfL0pIg,njEtyA05EN4",
    stops:["Hanoi 1N","Sapa 2N","Hanoi 2N","Ha Long 1N","Hanoi 1N"], price:72999,
    blurb:"Misty Sapa treks, the countdown at Hoan Kiem Lake and a New Year cruise on Ha Long Bay.",
    departures:[{date:"2026-12-28", label:"New Year's Party", tag:"party", peak:4}],
    days:[
-     ["Hello Hanoi!","Hanoi","bHepSI0p3mI,Dp6UBbKocDg",["Airport pickup, Old Quarter check-in","Street food crawl","Bia hơi corner"],"Hanoi","Dinner"],
-     ["Up to Sapa","Sapa","BTv0K50c_4M,OBD62-MyPAQ",["Limousine bus to Sapa","Cat Cat village","Sapa town at night"],"Sapa","Breakfast"],
-     ["Sapa trek","Sapa","tvFMW79kb5M,VATU3o_X81E",["Trek the rice terraces","Lao Chai and Ta Van villages","Fansipan cable car (optional)"],"Sapa","Breakfast, Lunch"],
-     ["NYE in Hanoi","Hanoi","TXk5ne-Iv54,9L-ACK-y9zU",["Back to Hanoi","Countdown at Hoan Kiem Lake","Old Quarter parties"],"Hanoi","Breakfast, Dinner"],
-     ["Ninh Binh","Trang An","PgSxHidgJHQ,Mt1iIhkBk1I",["New Year's Day boat ride through Trang An","Mua Cave viewpoint","Rice-field cycling"],"Hanoi","Breakfast, Lunch"],
-     ["Ha Long cruise","Ha Long","cga32YQt0Kw,aXVb-OcEGkg",["Board your overnight cruise","Kayaking","Ti Top Island viewpoint"],"Cruise","Breakfast, Lunch, Dinner"],
-     ["Hanoi farewell","Hanoi","lce_wSeiSLE,R4xzHBaZf1U",["Back to Hanoi","Train Street and Temple of Literature","Farewell dinner"],"Hanoi","Breakfast, Dinner"],
-     ["Happy 2027!","Hanoi","Dp6UBbKocDg,bHepSI0p3mI",["Breakfast and checkout","Airport drop"],"—","Breakfast"]]},
+     ["Hello Hanoi!","Hanoi","cBUt6EeWf3I,3WJiY5vBLT0",["Airport pickup, Old Quarter check-in","Street food crawl","Bia hơi corner"],"Hanoi","Dinner"],
+     ["Up to Sapa","Sapa","njEtyA05EN4,bUhzlj3gGso",["Limousine bus to Sapa","Cat Cat village","Sapa town at night"],"Sapa","Breakfast"],
+     ["Sapa trek","Sapa","4aLyyfL0pIg,eWuc6TXc8Ok",["Trek the rice terraces","Lao Chai and Ta Van villages","Fansipan cable car (optional)"],"Sapa","Breakfast, Lunch"],
+     ["NYE in Hanoi","Hanoi","S8Fnjxj1JCY,Et-TyYbzrY8",["Back to Hanoi","Countdown at Hoan Kiem Lake","Old Quarter parties"],"Hanoi","Breakfast, Dinner"],
+     ["Ninh Binh","Trang An","PgSxHidgJHQ,dua2Zf0UKZo",["New Year's Day boat ride through Trang An","Mua Cave viewpoint","Rice-field cycling"],"Hanoi","Breakfast, Lunch"],
+     ["Ha Long cruise","Ha Long","aXatqfxSLbA,ezseyJBWR4I",["Board your overnight cruise","Kayaking","Ti Top Island viewpoint"],"Cruise","Breakfast, Lunch, Dinner"],
+     ["Hanoi farewell","Hanoi","pCYlHZAXfMI,iuqmGmst5Po",["Back to Hanoi","Train Street and Temple of Literature","Farewell dinner"],"Hanoi","Breakfast, Dinner"],
+     ["Happy 2027!","Hanoi","mHsCGoBJgIE,xCTAd2NN4I0",["Breakfast and checkout","Airport drop"],"—","Breakfast"]]},
 ];
 
 const COUNTRY = {
-  thailand:{img:"ElT8iwBXbEk,TejFa7VW5e4", tag:"3 plans · 5 departures · from 20 Nov", h:"Full moons, island hops and a very loud New Year.", p:"Three Thailand plans across five dates: the Full Moon Party (20 Nov), two Bangkok-to-the-islands trips (1 & 10 Dec), a Christmas Eve full moon (19 Dec) and a New Year's Eve countdown (27 Dec).", chips:["Best for first-timers","Peak season Nov–Feb","Check current visa rules"]},
-  bali:{img:"XEhchWQuWyM,yAz5rCf87H8", tag:"3 plans · December departures", h:"Slow mornings, jungle pools and cliff-top sunsets.", p:"Three December plans for Bali: Bali Soul (5 Dec), Bali × Gili Islands (15 Dec) and a New Year's Eve countdown (28 Dec).", chips:["Visa on arrival","Green season = lush","Great for couples & solos"]},
-  vietnam:{img:"AAoCUzB23kE,rBCU0TMwbcg", tag:"3 plans · December departures", h:"Lanterns, limestone and the best coffee of your life.", p:"Three December plans for Vietnam: Lanterns & Limestone (6 Dec), Christmas in the South (18 Dec) and a Hanoi New Year's Eve (28 Dec).", chips:["e-Visa for Indians","Foodie heaven","Cool north, sunny south"]},
+  thailand:{img:"JjOu9wkQrKU,KNLuLVloHuo", tag:"3 plans · 5 departures · from 20 Nov", h:"Full moons, island hops and a very loud New Year.", p:"Three Thailand plans across five dates: the Full Moon Party (20 Nov), two Bangkok-to-the-islands trips (1 & 10 Dec), a Christmas Eve full moon (19 Dec) and a New Year's Eve countdown (27 Dec).", chips:["Best for first-timers","Peak season Nov–Feb","Check current visa rules"]},
+  bali:{img:"a8lTjWJJgLA,PdQz_pivZ44", tag:"3 plans · December departures", h:"Slow mornings, jungle pools and cliff-top sunsets.", p:"Three December plans for Bali: Bali Soul (5 Dec), Bali × Gili Islands (15 Dec) and a New Year's Eve countdown (28 Dec).", chips:["Visa on arrival","Green season = lush","Great for couples & solos"]},
+  vietnam:{img:"bUhzlj3gGso,D2r2nmABz0M", tag:"3 plans · December departures", h:"Lanterns, limestone and the best coffee of your life.", p:"Three December plans for Vietnam: Lanterns & Limestone (6 Dec), Christmas in the South (18 Dec) and a Hanoi New Year's Eve (28 Dec).", chips:["e-Visa for Indians","Foodie heaven","Cool north, sunny south"]},
 };
 
 const FAQ = [
@@ -889,7 +890,7 @@ const words = ["Full Moon Party", "Bali sunsets", "Ha Long Bay", "NYE 2027", "Ho
 $("#mq1").innerHTML = [...words, ...words].map(w => `<span>${w} ${STAR}</span>`).join("");
 $("#mq2").innerHTML = [...words, ...words].reverse().map(w => `<span>${w} ${STAR}</span>`).join("");
 
-$("#loaderStack").innerHTML = ["TejFa7VW5e4", "yAz5rCf87H8", "-HtfdIHSbsE", "j9zvxgOCOvM", "AAoCUzB23kE", "rF_Z8KbUFTs", "6ab-_SZHlwo"].map((k, i) =>
+$("#loaderStack").innerHTML = ["vwuBrUFHmh0", "a8lTjWJJgLA", "D2r2nmABz0M", "C2a4RGapd8s", "Y6llHB9rNac", "f9NACz3-V-s", "WaUcTYPfiCU"].map((k, i) =>
   `<div class="ph" style="--c1:${DEST[i].c1};--c2:${DEST[i].c2}">${pic(k, 400)}</div>`).join("");
 
 $("#destTrack").innerHTML = DEST.map((d, i) => `

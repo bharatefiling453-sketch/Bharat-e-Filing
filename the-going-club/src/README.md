@@ -10,8 +10,8 @@ Rebuild after editing:
     node build.js
 
 ## Photos
-All photos are free Unsplash photos (Unsplash License), referenced by photo ID, e.g. `TejFa7VW5e4`
-→ https://unsplash.com/photos/TejFa7VW5e4. Each slot lists backups ("id1,id2"); if all fail, a
+All photos are free Unsplash photos (Unsplash License), loaded from images.unsplash.com. The
+direct links come from the official Unsplash open dataset (PHOTO_URL map in index.src.html).
 colour gradient shows. Before launch, download them and host them on thegoingclub.com
 (faster loading, and no dependency on Unsplash's download links).
 
