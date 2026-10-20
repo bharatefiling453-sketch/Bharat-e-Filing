@@ -4260,7 +4260,7 @@ a.card:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: 82% center;
 }
 
 @media (width >= 900px) {
@@ -4551,10 +4551,12 @@ a.card:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
 }
 
 .expert-stack__name {
   position: absolute;
+  z-index: 2;
   inset: auto 0 0;
   padding: 40px 14px 14px;
   background: linear-gradient(transparent, rgb(11 20 51 / 88%) 45%);
@@ -5501,4 +5503,19 @@ img[hidden] {
   .promo-slide .float-card {
     display: none;
   }
+}
+
+@media (width < 900px) {
+  .promo-slide__media img {
+    object-position: 72% center;
+  }
+}
+
+.why-card--photo .promo-slide__media img {
+  object-position: center 22%;
+}
+
+.promo-slide__media:has(> img:not([hidden])) .mock-stage,
+.expert-stack__main:has(> img:not([hidden])) .expert-mono {
+  display: none;
 }
