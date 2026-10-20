@@ -4185,6 +4185,902 @@ a.card:hover {
   color: #fff;
 }
 
+/* =============================== 20. SERVICE PAGE v2: PROMO SLIDER, ANIMATED FEATURE CARDS, SHINE CHIPS, PROMO BAR =============================== */
+/* Photos sit on a brand gradient, so the layout still looks finished if an image file is missing (img[data-optional] hides itself). */
+
+/* Shine sweep: a soft light passes across the element every few seconds */
+.shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: -20% auto -20% -60%;
+  z-index: 1;
+  width: 45%;
+  background: linear-gradient(100deg, transparent 0%, rgb(255 255 255 / 75%) 50%, transparent 100%);
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .shine::after {
+    animation: shine-sweep 3.6s ease-in-out infinite;
+    animation-delay: var(--shine-delay, 0s);
+  }
+}
+
+@keyframes shine-sweep {
+  0% {
+    left: -60%;
+  }
+
+  45%,
+  100% {
+    left: 130%;
+  }
+}
+
+/* Promo slider (ad banners) */
+.promo {
+  padding-block: 0 var(--section);
+}
+
+.promo__frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-2);
+}
+
+.promo__track {
+  display: flex;
+  transition: transform 0.8s var(--ease-out);
+}
+
+.promo-slide {
+  position: relative;
+  display: grid;
+  flex: 0 0 100%;
+  min-height: 460px;
+  overflow: hidden;
+  background: linear-gradient(115deg, #eef3ff 0%, #f6f8ff 45%, #fff3e3 100%);
+}
+
+.promo-slide--warm {
+  background: linear-gradient(115deg, #fff6e6 0%, #fffaf2 45%, #eaf6e8 100%);
+}
+
+.promo-slide--navy {
+  background: linear-gradient(115deg, var(--navy) 0%, #1a2f86 55%, #24409f 100%);
+  color: #fff;
+}
+
+@media (width >= 900px) {
+  .promo-slide {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    align-items: center;
+  }
+}
+
+.promo-slide__copy {
+  position: relative;
+  z-index: 2;
+  padding: var(--s-10) var(--s-8) var(--s-6);
+}
+
+@media (width >= 900px) {
+  .promo-slide__copy {
+    padding: var(--s-12) var(--s-6) var(--s-12) var(--s-16);
+  }
+}
+
+.promo-slide h2,
+.promo-slide h3 {
+  margin: 0 0 var(--s-3);
+  font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.875rem);
+  line-height: 1.08;
+  letter-spacing: var(--tracking-tight);
+  color: var(--navy-ink);
+}
+
+.promo-slide--navy h3 {
+  color: #fff;
+}
+
+.promo-slide h3 em {
+  font-style: normal;
+  background: var(--brand-gradient-text);
+  background-clip: text;
+  color: transparent;
+}
+
+.promo-slide--navy h3 em {
+  background: linear-gradient(100deg, var(--amber), var(--saffron));
+  background-clip: text;
+}
+
+.promo-slide p {
+  max-width: 440px;
+  margin: 0 0 var(--s-6);
+  font-size: var(--fs-19);
+  color: var(--ink-2);
+}
+
+.promo-slide--navy p {
+  color: rgb(255 255 255 / 80%);
+}
+
+.promo-slide__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-top: var(--s-6);
+  padding: 8px 14px;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow-1);
+  font-size: var(--fs-14);
+  color: var(--ink-2);
+}
+
+.promo-slide__tag strong {
+  color: var(--navy);
+}
+
+.promo-slide__media {
+  position: relative;
+  align-self: stretch;
+  min-height: 300px;
+}
+
+.promo-slide__media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (width >= 900px) {
+  .promo-slide__media img {
+    mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+  }
+}
+
+/* Floating "app" cards on the photos */
+.float-card {
+  position: absolute;
+  z-index: 3;
+  display: grid;
+  gap: 2px;
+  min-width: 190px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgb(255 255 255 / 94%);
+  box-shadow: var(--shadow-3);
+  backdrop-filter: blur(12px);
+  font-size: var(--fs-14);
+  color: var(--ink-2);
+}
+
+.float-card small {
+  font-size: var(--fs-12);
+  color: var(--ink-3);
+}
+
+.float-card strong {
+  font-size: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: var(--tracking-snug);
+  font-variant-numeric: tabular-nums;
+  color: var(--navy);
+}
+
+.float-card .ok {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--leaf-text);
+}
+
+.float-card .ok::before {
+  content: "✓";
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--leaf);
+  font-size: 12px;
+  color: #fff;
+}
+
+.float-card--a {
+  top: 14%;
+  right: 6%;
+}
+
+.float-card--b {
+  bottom: 12%;
+  left: 6%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .float-card {
+    animation: bob 5s ease-in-out infinite;
+  }
+
+  .float-card--b {
+    animation-delay: -2.5s;
+  }
+}
+
+@keyframes bob {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.call-card {
+  justify-items: center;
+  min-width: 170px;
+  text-align: center;
+}
+
+.call-card__avatar {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--brand-gradient);
+  font-weight: 800;
+  color: var(--navy-ink);
+}
+
+.call-card__btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.call-card__btns span {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--canvas-2);
+}
+
+.call-card__btns span + span {
+  background: var(--saffron);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .call-card__avatar {
+    animation: ring 1.8s ease-out infinite;
+  }
+}
+
+@keyframes ring {
+  0% {
+    box-shadow: 0 0 0 0 rgb(255 136 19 / 45%);
+  }
+
+  100% {
+    box-shadow: 0 0 0 16px rgb(255 136 19 / 0%);
+  }
+}
+
+.promo__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--s-6);
+}
+
+.promo__dots button {
+  display: grid;
+  place-items: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.promo__dots button::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: var(--r-pill);
+  background: rgb(16 33 97 / 20%);
+  transition:
+    width 0.3s,
+    background 0.3s;
+}
+
+.promo__dots button[aria-current="true"]::before {
+  width: 32px;
+  background: var(--saffron);
+}
+
+.promo__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  height: 3px;
+  background: var(--brand-gradient);
+}
+
+/* Why choose us: animated bento */
+.why {
+  display: grid;
+  gap: var(--s-5);
+}
+
+@media (width >= 1000px) {
+  .why {
+    grid-template-columns: 1.15fr 1fr 1fr;
+    grid-template-areas:
+      "expert fetch review"
+      "expert clock clock"
+      "shop shop shop";
+  }
+
+  .why__expert {
+    grid-area: expert;
+  }
+
+  .why__fetch {
+    grid-area: fetch;
+  }
+
+  .why__review {
+    grid-area: review;
+  }
+
+  .why__clock {
+    grid-area: clock;
+  }
+
+  .why__shop {
+    grid-area: shop;
+  }
+}
+
+.why-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+  padding: var(--s-8);
+  overflow: hidden;
+  border-radius: var(--r-xl);
+  background: #f3f6fd;
+  text-align: center;
+}
+
+.why-card h3 {
+  margin: 0;
+  font-size: var(--fs-h3);
+  letter-spacing: var(--tracking-snug);
+  color: var(--navy-ink);
+}
+
+.why-card h3 em {
+  font-style: normal;
+  color: var(--saffron-text);
+}
+
+.why-card p {
+  margin: 0;
+  color: var(--ink-3);
+}
+
+.why-card__visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 180px;
+}
+
+/* Expert card stack */
+.expert-stack {
+  position: relative;
+  width: 230px;
+  height: 300px;
+  margin: var(--s-4) auto 0;
+}
+
+.expert-stack__back {
+  position: absolute;
+  top: 40px;
+  width: 150px;
+  height: 200px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, #dfe6fb, #c9d4f5);
+  box-shadow: var(--shadow-2);
+}
+
+.expert-stack__back--l {
+  left: -50px;
+  transform: rotate(-12deg);
+}
+
+.expert-stack__back--r {
+  right: -50px;
+  transform: rotate(12deg);
+}
+
+.expert-stack__main {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: 22px;
+  background: linear-gradient(170deg, #d9f0d4 0%, #b9e1b0 100%);
+  box-shadow: var(--shadow-3);
+}
+
+.expert-stack__main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.expert-stack__name {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 40px 14px 14px;
+  background: linear-gradient(transparent, rgb(11 20 51 / 88%) 45%);
+  color: #fff;
+  font-size: var(--fs-14);
+  text-align: left;
+}
+
+.expert-stack__name strong {
+  display: block;
+  font-size: var(--fs-19);
+  color: #fff;
+}
+
+.expert-stack__tick {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 4px solid #fff;
+  border-radius: 50%;
+  background: var(--leaf);
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .expert-stack__back--l {
+    animation: fan-l 6s ease-in-out infinite;
+  }
+
+  .expert-stack__back--r {
+    animation: fan-r 6s ease-in-out infinite;
+  }
+
+  .expert-stack__tick {
+    animation: pop 6s ease-in-out infinite;
+  }
+}
+
+@keyframes fan-l {
+  50% {
+    transform: rotate(-18deg) translateX(-8px);
+  }
+}
+
+@keyframes fan-r {
+  50% {
+    transform: rotate(18deg) translateX(8px);
+  }
+}
+
+@keyframes pop {
+  0%,
+  20% {
+    transform: scale(0);
+  }
+
+  30%,
+  90% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+/* Fetching list */
+.fetch-list {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  max-width: 330px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.fetch-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #fff;
+  font-size: var(--fs-14);
+  color: var(--ink-2);
+  text-align: left;
+  transition:
+    transform 0.4s var(--ease-out),
+    box-shadow 0.4s;
+}
+
+.fetch-list li.is-active {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-2);
+  font-weight: 600;
+  color: var(--navy-ink);
+}
+
+.fetch-list em {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-12);
+  font-style: normal;
+  color: var(--ink-3);
+}
+
+.fetch-list em::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgb(16 33 97 / 25%);
+  border-top-color: var(--navy);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.fetch-list li.is-done em {
+  color: var(--leaf-text);
+}
+
+.fetch-list li.is-done em::after {
+  content: "✓";
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: var(--leaf);
+  font-size: 8px;
+  color: #fff;
+  animation: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mini return summary */
+.mini-sum {
+  position: relative;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+  padding: 18px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: var(--shadow-2);
+  font-size: var(--fs-12);
+  text-align: left;
+}
+
+.mini-sum b {
+  display: block;
+  margin-bottom: 10px;
+  font-size: var(--fs-14);
+  text-align: center;
+  color: var(--navy-ink);
+}
+
+.mini-sum div {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-top: 1px solid var(--hairline);
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-2);
+}
+
+.mini-sum__btn {
+  position: absolute;
+  right: -10px;
+  bottom: 18px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: var(--navy);
+  font-size: var(--fs-12);
+  font-weight: 700;
+  color: #fff;
+}
+
+.mini-sum__chip {
+  position: absolute;
+  top: -12px;
+  left: -14px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow-2);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--leaf-text);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .mini-sum__btn {
+    animation: nudge 2.4s ease-in-out infinite;
+  }
+
+  .mini-sum__chip {
+    animation: bob 4s ease-in-out infinite;
+  }
+}
+
+@keyframes nudge {
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 8px rgb(16 33 97 / 10%);
+  }
+}
+
+/* 24-hour track */
+.why-card--row {
+  text-align: left;
+}
+
+@media (width >= 700px) {
+  .why-card--row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--s-8);
+  }
+}
+
+.track24 {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0 0 0 28px;
+  list-style: none;
+}
+
+.track24::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 8px;
+  width: 3px;
+  border-radius: 3px;
+  background: rgb(16 33 97 / 12%);
+}
+
+.track24__fill {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 3px;
+  height: 0;
+  border-radius: 3px;
+  background: var(--brand-gradient);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .track24__fill {
+    animation: fill24 6s ease-in-out infinite;
+  }
+}
+
+@keyframes fill24 {
+  0% {
+    height: 0;
+  }
+
+  80%,
+  100% {
+    height: calc(100% - 16px);
+  }
+}
+
+.track24 li {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s-3);
+  font-size: var(--fs-15);
+  color: var(--ink-2);
+}
+
+.track24 li::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: -26px;
+  width: 13px;
+  height: 13px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--saffron);
+  box-shadow: 0 0 0 1px rgb(255 136 19 / 40%);
+}
+
+.track24 li small {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.big-24 {
+  margin: 0 0 var(--s-2);
+  font-size: clamp(2.5rem, 2rem + 2vw, 3.75rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+  color: var(--navy-ink);
+}
+
+.big-24 span {
+  background: var(--brand-gradient-text);
+  background-clip: text;
+  color: transparent;
+}
+
+/* Photo strip card */
+.why-card--photo {
+  min-height: 320px;
+  padding: 0;
+  background: linear-gradient(115deg, #fff6e6 0%, #fff 50%, #eef3ff 100%);
+  text-align: left;
+}
+
+@media (width >= 800px) {
+  .why-card--photo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+.why-card--photo .why-card__copy {
+  display: grid;
+  align-content: center;
+  gap: var(--s-4);
+  padding: var(--s-10);
+}
+
+.why-card--photo .promo-slide__media {
+  min-height: 320px;
+}
+
+/* Benefit chips in pricing (ClearTax-style), with shine */
+.benefits {
+  display: grid;
+  gap: 8px;
+  margin: var(--s-4) 0 var(--s-5);
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.benefits li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--canvas-3);
+  box-shadow: 0 0 0 1px var(--hairline);
+  font-size: var(--fs-14);
+  font-weight: 600;
+  color: var(--navy-ink);
+}
+
+.benefit-tag {
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: var(--navy-tint);
+  font-size: var(--fs-12);
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.benefit-tag--leaf {
+  background: var(--leaf-tint);
+  color: var(--leaf-text);
+}
+
+.benefit-tag--amber {
+  background: #fff4dc;
+  color: var(--saffron-text);
+}
+
+/* Sticky promo bar (desktop; the mobile action bar already covers phones) */
+.promo-bar {
+  position: fixed;
+  right: 0;
+  bottom: 20px;
+  left: 0;
+  z-index: 40;
+  display: none;
+  width: min(1120px, calc(100% - 2 * var(--gutter)));
+  margin: 0 auto;
+  padding: 18px 20px 18px 32px;
+  border-radius: 22px;
+  background: linear-gradient(110deg, var(--navy-deep) 0%, var(--navy) 60%, #1d3592 100%);
+  box-shadow: var(--shadow-3);
+  color: #fff;
+  transform: translateY(140%);
+  transition: transform 0.5s var(--ease-out);
+}
+
+@media (width >= 900px) {
+  .promo-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--s-6);
+  }
+}
+
+.promo-bar.is-on {
+  transform: none;
+}
+
+.promo-bar strong {
+  display: block;
+  font-size: var(--fs-21);
+  color: #fff;
+}
+
+.promo-bar span {
+  font-size: var(--fs-15);
+  color: rgb(255 255 255 / 75%);
+}
+
+.promo-bar__close {
+  margin-left: var(--s-2);
+  border: 0;
+  background: none;
+  font-size: 22px;
+  color: rgb(255 255 255 / 70%);
+  cursor: pointer;
+}
+
 </style>
     <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii00MCAwIDU2NSA1NjgiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iQmhhcmF0IGVGaWxpbmciPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJvIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0ZGODgxMyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNGQ0MyMjQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMkY2RjI3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzRFQjAzRiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHBhdGggZmlsbD0idXJsKCNvKSIgZD0iTTAgMGg0ODV2MTQySDE0MXYyODhoMzQ0djEzOEgweiIvPgogIDxwYXRoIGZpbGw9InVybCgjZykiIGQ9Ik0zMzEgMTQyaDE0OEwzMjYgMjg0bC03Mi02OHoiLz4KICA8cGF0aCBmaWxsPSIjNEVCMDNGIiBkPSJNMjU0IDIxNmw3MiA2OCAxNTcgMTQ2SDMzNmwtODItNzZ6Ii8+Cjwvc3ZnPgo=" type="image/svg+xml" />
 
@@ -4598,6 +5494,7 @@ a.card:hover {
         <ul>
           <li><a href="#live">Live dates</a></li>
           <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#why-choose">Why us</a></li>
           <li><a href="#tools">Calculators</a></li>
           <li><a href="#what-is-gst-return-filing">Overview</a></li>
           <li><a href="#due-dates">Due dates</a></li>
@@ -4629,7 +5526,7 @@ a.card:hover {
             <p class="hero__sub" data-rise style="--i: 2">Filed by GST experts. Reviewed by a Chartered Accountant.</p>
 
             <div class="btn-row" data-rise style="--i: 3">
-              <a class="btn btn--brand" href="#get-started" data-track="cta_click" data-location="hero">Start filing</a>
+              <a class="btn btn--brand shine" href="#get-started" data-track="cta_click" data-location="hero">Start filing</a>
               <a class="btn btn--ghost" href="#live" data-track="cta_click" data-location="hero-live">See my due dates</a>
             </div>
 
@@ -4688,6 +5585,60 @@ a.card:hover {
             <li><b><span data-count-to="18">18</span>%</b><span>interest a year on tax paid late</span></li>
             <li><b><span data-count-to="30">30</span> min</b><span>expert call-back in working hours</span></li>
           </ul>
+        </div>
+      </section>
+
+      <!-- ================= PROMO SLIDER (v2 ad banners). Photos: assets/img/gst-return-filing/ (see docs/SERVICE-PAGE-V2.md for prompts and sizes).
+           Figures on the floating cards are illustrations of the app, not client data. ================= -->
+      <section class="promo" aria-roledescription="carousel" aria-label="Why businesses hand us their GST returns">
+        <div class="wrap">
+          <div class="promo__frame" data-promo>
+            <div class="promo__track">
+              <article class="promo-slide" aria-roledescription="slide" aria-label="1 of 3">
+                <div class="promo-slide__copy">
+                  <span class="kicker">GSTR-1 + GSTR-3B</span>
+                  <h3>File GST returns in <em>24 hours.</em></h3>
+                  <p>Share your invoices on WhatsApp. Our experts reconcile, a CA reviews, and we file.</p>
+                  <a class="btn btn--brand shine" href="#get-started" data-modal-open data-track="cta_click" data-location="promo-1">Start filing now</a>
+                  <div class="promo-slide__tag"><svg width="16" height="16" aria-hidden="true"><use href="#i-check" /></svg><span><strong>CA-reviewed</strong> · IMS reconciled every month</span></div>
+                </div>
+                <div class="promo-slide__media">
+                  
+                  <div class="float-card float-card--a" aria-hidden="true"><small>GSTR-3B</small><span class="ok">Filed on time</span><small>ARN sent on WhatsApp</small></div>
+                  <div class="float-card float-card--b" aria-hidden="true"><small>ITC claimed</small><strong>₹1,24,560</strong><small>matched with GSTR-2B</small></div>
+                </div>
+              </article>
+              <article class="promo-slide promo-slide--warm" aria-roledescription="slide" aria-label="2 of 3">
+                <div class="promo-slide__copy">
+                  <span class="kicker">E-commerce sellers</span>
+                  <h3>Selling online? <em>Every TCS rupee</em> matched.</h3>
+                  <p>We match marketplace TCS and your e-commerce sales before every GSTR-3B.</p>
+                  <a class="btn btn--brand shine" href="#get-started" data-modal-open data-track="cta_click" data-location="promo-2" style="--shine-delay: 1.2s">Talk to an expert</a>
+                  <div class="promo-slide__tag"><svg width="16" height="16" aria-hidden="true"><use href="#i-check" /></svg><span><strong>Amazon, Flipkart, Meesho</strong> and more</span></div>
+                </div>
+                <div class="promo-slide__media">
+                  
+                  <div class="float-card float-card--a" aria-hidden="true"><small>TCS credit matched</small><strong>₹18,420</strong></div>
+                  <div class="float-card float-card--b" aria-hidden="true"><small>Orders reconciled</small><span class="ok">1,248 of 1,248</span></div>
+                </div>
+              </article>
+              <article class="promo-slide promo-slide--navy" aria-roledescription="slide" aria-label="3 of 3">
+                <div class="promo-slide__copy">
+                  <span class="kicker">Expert support</span>
+                  <h3>A real CA checks <em>every return.</em></h3>
+                  <p>Talk to your GST expert in Hindi or English. Call-back within 30 working minutes.</p>
+                  <a class="btn btn--brand shine" href="#get-started" data-modal-open data-track="cta_click" data-location="promo-3" style="--shine-delay: 2.4s">Get a free call back</a>
+                </div>
+                <div class="promo-slide__media">
+                  
+                  <div class="float-card float-card--a call-card" aria-hidden="true"><span class="call-card__avatar">CA</span><small data-call-timer>04:21</small><b>Your GST expert</b><small>On call</small><span class="call-card__btns"><span></span><span></span></span></div>
+                  <div class="float-card float-card--b" aria-hidden="true"><small>CA review</small><span class="ok">Approved to file</span></div>
+                </div>
+              </article>
+            </div>
+            <span class="promo__progress" data-promo-progress aria-hidden="true"></span>
+          </div>
+          <div class="promo__dots" data-promo-dots></div>
         </div>
       </section>
 
@@ -4796,6 +5747,11 @@ a.card:hover {
                 <li>IMS check before every GSTR-3B</li>
                 <li>WhatsApp due-date reminders</li>
               </ul>
+              <ul class="benefits" aria-label="Benefits">
+                <li class="shine" style="--shine-delay: 0.0s">Filing handled <span class="benefit-tag">end-to-end</span></li>
+                <li class="shine" style="--shine-delay: 0.5s">Instant filing <span class="benefit-tag benefit-tag--leaf">24hrs Guaranteed</span></li>
+                <li class="shine" style="--shine-delay: 1.0s">Due-date reminders <span class="benefit-tag benefit-tag--amber">WhatsApp</span></li>
+              </ul>
               <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="quarterly" data-track="select_plan" data-location="pricing-quarterly">Choose Quarterly</a>
             </div>
             <div class="plan plan--featured reveal">
@@ -4811,6 +5767,12 @@ a.card:hover {
                 <li>ITC review by a CA</li>
                 <li>Dedicated GST expert</li>
               </ul>
+              <ul class="benefits" aria-label="Benefits">
+                <li class="shine" style="--shine-delay: 0.0s">Filing handled <span class="benefit-tag">end-to-end</span></li>
+                <li class="shine" style="--shine-delay: 0.5s">Instant filing <span class="benefit-tag benefit-tag--leaf">24hrs Guaranteed</span></li>
+                <li class="shine" style="--shine-delay: 1.0s">Expert call-back <span class="benefit-tag">30 mins</span></li>
+                <li class="shine" style="--shine-delay: 1.5s">Accuracy check <span class="benefit-tag benefit-tag--amber">CA-reviewed</span></li>
+              </ul>
               <a class="btn btn--brand btn--block" href="#get-started" data-modal-open data-plan="monthly" data-track="select_plan" data-location="pricing-monthly">Choose Monthly</a>
             </div>
             <div class="plan reveal">
@@ -4825,10 +5787,94 @@ a.card:hover {
                 <li>Marketplace TCS (GSTR-8 data) matching</li>
                 <li>Priority support for GST notices</li>
               </ul>
+              <ul class="benefits" aria-label="Benefits">
+                <li class="shine" style="--shine-delay: 0.0s">Priority filing <span class="benefit-tag benefit-tag--leaf">24hrs Guaranteed</span></li>
+                <li class="shine" style="--shine-delay: 0.5s">GST notice support <span class="benefit-tag benefit-tag--amber">Priority</span></li>
+                <li class="shine" style="--shine-delay: 1.0s">Annual return <span class="benefit-tag">GSTR-9 included</span></li>
+              </ul>
               <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="business" data-track="select_plan" data-location="pricing-business">Choose Business</a>
             </div>
           </div>
-          <p class="plans-note">No hidden charges. Late fees, interest and tax are paid to the government and are not part of our fee.</p>
+          <p class="plans-note">No hidden charges. “24hrs Guaranteed” means filed within 24 hours of receiving your complete invoices and data. Late fees, interest and tax are paid to the government and are not part of our fee.</p>
+        </div>
+      </section>
+
+      <!-- ================= WHY CHOOSE US (v2, animated bento; animations run continuously, static for reduced motion) ================= -->
+      <section id="why-choose" class="section" aria-labelledby="h-why-choose">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Why Bharat e-Filing</span>
+            <h2 id="h-why-choose">Why businesses hand us their GST.</h2>
+          </div>
+          <div class="why">
+            <article class="why-card why__expert reveal">
+              <h3>Your own <em>GST expert</em></h3>
+              <p>A dedicated expert, assigned within 30 working minutes. No queues.</p>
+              <div class="expert-stack" aria-hidden="true">
+                <span class="expert-stack__back expert-stack__back--l"></span>
+                <span class="expert-stack__back expert-stack__back--r"></span>
+                <div class="expert-stack__main">
+                  
+                  <div class="expert-stack__name"><strong>Your GST expert</strong>Indirect tax · Hindi &amp; English</div>
+                </div>
+                <span class="expert-stack__tick">✓</span>
+              </div>
+            </article>
+            <article class="why-card why__fetch reveal">
+              <div class="why-card__visual" aria-hidden="true">
+                <ul class="fetch-list" data-fetch>
+                  <li><span>Sales (GSTR-1)</span><em>Fetching</em></li>
+                  <li><span>ITC (GSTR-2B)</span><em>Fetching</em></li>
+                  <li><span>IMS actions</span><em>Fetching</em></li>
+                  <li><span>Tax payable (GSTR-3B)</span><em>Fetching</em></li>
+                </ul>
+              </div>
+              <h3>Zero manual entry.</h3>
+              <p>Sales, ITC and IMS data pulled together and matched before we file.</p>
+            </article>
+            <article class="why-card why__review reveal">
+              <div class="why-card__visual" aria-hidden="true">
+                <div class="mini-sum">
+                  <b>GSTR-3B summary</b>
+                  <div><span>Outward supplies</span><span>₹12,40,000</span></div>
+                  <div><span>ITC available</span><span>₹1,24,560</span></div>
+                  <div><span>Tax payable</span><span>₹98,640</span></div>
+                  <span class="mini-sum__chip">Matched ✓</span>
+                  <span class="mini-sum__btn">Approve &amp; file</span>
+                </div>
+              </div>
+              <h3>One approval. Done.</h3>
+              <p>See the final figures once, approve, and we file. No back and forth.</p>
+            </article>
+            <article class="why-card why-card--row why__clock reveal">
+              <div>
+                <p class="big-24"><span>24</span> hrs</p>
+                <h3>From invoices to ARN.</h3>
+                <p>Once we have your complete data, your return is filed within 24 hours.</p>
+              </div>
+              <div style="position: relative">
+                <span class="track24__fill" aria-hidden="true"></span>
+                <ol class="track24" aria-label="What happens in 24 hours">
+                  <li>Invoices received<small>0 h</small></li>
+                  <li>GSTR-2B and IMS reconciled<small>6 h</small></li>
+                  <li>CA review<small>18 h</small></li>
+                  <li>Filed, ARN sent<small>24 h</small></li>
+                </ol>
+              </div>
+            </article>
+            <article class="why-card why-card--photo why__shop reveal">
+              <div class="why-card__copy">
+                <span class="kicker" style="justify-self: start">Built for Bharat</span>
+                <h3>From kirana stores to online sellers.</h3>
+                <p>WhatsApp your bills. We handle GSTR-1, GSTR-3B, IMS and reminders every month.</p>
+                <a class="btn btn--brand shine" style="justify-self: start" href="#get-started" data-modal-open data-track="cta_click" data-location="why-shop">Start filing</a>
+              </div>
+              <div class="promo-slide__media">
+                
+                <div class="float-card float-card--a" aria-hidden="true"><small>Reminder</small><b>GSTR-3B due in 3 days</b><small>Sent on WhatsApp</small></div>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -5619,6 +6665,18 @@ a.card:hover {
       <a class="btn btn--brand btn--sm" href="#get-started" data-modal-open data-track="cta_click" data-location="actionbar">Start filing</a>
     </div>
 
+    <!-- Sticky promo bar (desktop). Shows after the first screen, hides at the footer and once closed. -->
+    <aside class="promo-bar" data-promo-bar aria-label="Start your GST return filing">
+      <div>
+        <strong>GST returns filed in 24 hours, CA-reviewed.</strong>
+        <span>GSTR-1, GSTR-3B and IMS handled every month by your own expert.</span>
+      </div>
+      <div style="display: flex; align-items: center">
+        <a class="btn btn--brand shine" href="#get-started" data-modal-open data-track="cta_click" data-location="promo-bar">Start filing</a>
+        <button type="button" class="promo-bar__close" data-promo-bar-close><span class="visually-hidden">Close</span><span aria-hidden="true">×</span></button>
+      </div>
+    </aside>
+
     <script>
 /*
  * Bharat eFiling — shared product-page behaviour (no dependencies, ~3 KB).
@@ -5905,6 +6963,140 @@ a.card:hover {
       track.scrollBy({ left: Number(btn.getAttribute("data-t-scroll")) * w, behavior: calm ? "auto" : "smooth" });
     });
   });
+
+  /* ---- Optional images: hide a missing photo so its gradient panel still looks finished ---- */
+  document.querySelectorAll("img[data-optional]").forEach(function (img) {
+    var hide = function () {
+      img.hidden = true;
+    };
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) hide();
+    img.addEventListener("error", hide);
+  });
+
+  /* ---- Promo slider: autoplay, dots, progress bar, swipe; pauses on hover/focus and when off screen ---- */
+  document.querySelectorAll("[data-promo]").forEach(function (frame) {
+    var track = frame.querySelector(".promo__track");
+    var slides = Array.prototype.slice.call(track.children);
+    var dotsBox = frame.parentElement.querySelector("[data-promo-dots]");
+    var bar = frame.querySelector("[data-promo-progress]");
+    var DELAY = 5500, i = 0, t0 = performance.now(), paused = false, visible = true;
+    var dots = slides.map(function (_, n) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="visually-hidden">Show slide ' + (n + 1) + "</span>";
+      b.addEventListener("click", function () {
+        go(n);
+      });
+      dotsBox && dotsBox.appendChild(b);
+      return b;
+    });
+    function go(n) {
+      i = (n + slides.length) % slides.length;
+      track.style.transform = "translateX(" + -100 * i + "%)";
+      slides.forEach(function (sl, k) {
+        sl.setAttribute("aria-hidden", k === i ? "false" : "true");
+        if ("inert" in sl) sl.inert = k !== i;
+      });
+      dots.forEach(function (d, k) {
+        d.setAttribute("aria-current", k === i ? "true" : "false");
+      });
+      t0 = performance.now();
+    }
+    go(0);
+    if (calm) return;
+    frame.addEventListener("mouseenter", function () {
+      paused = true;
+    });
+    frame.addEventListener("mouseleave", function () {
+      paused = false;
+      t0 = performance.now() - (parseFloat(bar && bar.style.width) || 0) * DELAY / 100;
+    });
+    frame.addEventListener("focusin", function () {
+      paused = true;
+    });
+    frame.addEventListener("focusout", function () {
+      paused = false;
+    });
+    if ("IntersectionObserver" in window)
+      new IntersectionObserver(function (e) {
+        visible = e[0].isIntersecting;
+      }).observe(frame);
+    var x0 = null;
+    frame.addEventListener("touchstart", function (e) {
+      x0 = e.touches[0].clientX;
+    }, { passive: true });
+    frame.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
+    (function loop(now) {
+      if (paused || !visible) t0 += now - (loop.last || now);
+      loop.last = now;
+      var k = (now - t0) / DELAY;
+      if (k >= 1) go(i + 1);
+      else if (bar) bar.style.width = k * 100 + "%";
+      window.requestAnimationFrame(loop);
+    })(performance.now());
+  });
+
+  /* ---- "Fetching → done" loop on [data-fetch] lists ---- */
+  document.querySelectorAll("[data-fetch]").forEach(function (list) {
+    var rows = list.querySelectorAll("li");
+    var step = 0;
+    function paint() {
+      rows.forEach(function (r, k) {
+        r.classList.toggle("is-done", k < step);
+        r.classList.toggle("is-active", k === step);
+        r.querySelector("em").textContent = k < step ? "Auto-filled" : "Fetching";
+      });
+    }
+    paint();
+    if (calm) {
+      step = rows.length;
+      paint();
+      return;
+    }
+    window.setInterval(function () {
+      step = step >= rows.length + 1 ? 0 : step + 1;
+      paint();
+    }, 1100);
+  });
+
+  /* ---- Call timers: count up mm:ss ---- */
+  document.querySelectorAll("[data-call-timer]").forEach(function (el) {
+    var p = el.textContent.split(":"), sec = Number(p[0]) * 60 + Number(p[1]);
+    window.setInterval(function () {
+      sec++;
+      el.textContent = String(Math.floor(sec / 60)).padStart(2, "0") + ":" + String(sec % 60).padStart(2, "0");
+    }, 1000);
+  });
+
+  /* ---- Sticky promo bar: after the first screen, hidden over the footer and once closed (per session) ---- */
+  var promoBar = document.querySelector("[data-promo-bar]");
+  if (promoBar) {
+    var closed = false;
+    try {
+      closed = sessionStorage.getItem("bef_promo_bar") === "closed";
+    } catch (e) {}
+    var foot = document.querySelector(".footer");
+    var paintBar = function () {
+      var footTop = foot ? foot.getBoundingClientRect().top : Infinity;
+      promoBar.classList.toggle("is-on", !closed && window.scrollY > window.innerHeight * 0.9 && footTop > window.innerHeight);
+    };
+    window.addEventListener("scroll", paintBar, { passive: true });
+    paintBar();
+    var x = promoBar.querySelector("[data-promo-bar-close]");
+    x &&
+      x.addEventListener("click", function () {
+        closed = true;
+        try {
+          sessionStorage.setItem("bef_promo_bar", "closed");
+        } catch (e) {}
+        paintBar();
+      });
+  }
 
   /* ---- "In view" markers for timeline dots and the process stepper ---- */
   var inViewEls = document.querySelectorAll(".timeline__item, .stepper");

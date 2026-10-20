@@ -48,3 +48,47 @@ Everything in `PRODUCT-PAGE-STANDARD.md` still applies (SEO, AEO, GEO, schema, f
 | GST registration       | Time to GSTIN (3–7 working days)                 | —                                             | Threshold tracker (₹20/40 lakh)    |
 | ROC / company filing   | AOC-4 / MGT-7 due dates                          | ₹100/day additional fee                       | AGM deadline                       |
 | Trademark              | Objection reply window (30 days)                 | —                                             | Renewal date (10 years)            |
+
+## Photos, ad slider and motion (added 20 Oct 2026)
+
+Section order: clean hero, then live widgets, then the **promo slider** (3 ad banners, autoplay every 5.5 s, dots, swipe, pauses on hover), then the ticker and the lead form. After that come pricing (with **benefit chips** that have a shine sweep), the **"Why us" animated bento**, at a glance, and so on. A **sticky promo bar** shows on desktop after the first screen.
+
+Always-running motion:
+- slider autoplay and its progress bar;
+- floating "app" cards that bob over the photos;
+- the call timer counting up;
+- the "Fetching → Auto-filled" loop;
+- the pulsing "Approve & file" button;
+- the 24-hour track filling;
+- the expert card stack fanning out;
+- the shine sweep on buttons and chips;
+- the live clock.
+
+All motion stops for visitors who turn on reduced motion.
+
+### Image specs
+
+Photos live in `assets/img/<service-slug>/`. Each `<img>` carries `data-optional`, so a missing file hides itself and the gradient panel still looks finished.
+
+| File                          | Size (px)        | Ratio | Where it shows                               |
+| ----------------------------- | ---------------- | ----- | -------------------------------------------- |
+| `slide-*.webp` × 3            | 1680 × 944       | 16:9  | Promo slider, right half (left edge fades)   |
+| `expert-portrait.webp`        | 800 × 1000       | 4:5   | "Your own expert" card                       |
+| `<audience>-owner.webp`       | 1200 × 1200      | 1:1   | "Built for Bharat" photo card                |
+
+- Export as WebP, quality 80, under 180 KB each.
+- Keep the subject on one side, so the text side and the floating cards have room.
+- No text, logos or watermarks in the photo. Phone screens should be plain white, because the floating cards supply the "app" content.
+
+### Prompt template (Canva "generate image")
+
+> Photorealistic advertising photo, wide banner. A smiling Indian **{persona, age, clothing}** in **{setting}**, holding up a smartphone toward the camera / at a desk with a laptop, confident and happy. Soft natural daylight, shallow depth of field, **{props}** blurred behind. **{Left/right} third of frame empty for text overlay.** Premium Indian fintech ad campaign style. No text, no logos, no watermarks, phone screen plain white.
+
+GST Return Filing prompts used:
+1. **Slider 1:** a textile shop owner (woman, 35, mustard kurta) holding up a phone.
+2. **Slider 2:** an e-commerce seller (man, 30, navy shirt) in a warehouse office with a tablet.
+3. **Slider 3:** a female CA (40, navy blazer, headset) reviewing on a laptop, with the left third empty.
+4. **Expert portrait:** a man, 35, light blue shirt, on a mint studio background, 4:5.
+5. **Kirana owner:** a man, 45, white shirt, at the shop counter holding a phone, 1:1.
+
+Floating-card figures (for example ₹1,24,560 ITC) are app illustrations, not client data, and the HTML comment says so. Business claims on the page (for example "24hrs Guaranteed") must be ones the business actually honours. The pricing note defines "24hrs Guaranteed" as 24 hours from receiving complete data.

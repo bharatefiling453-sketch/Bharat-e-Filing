@@ -284,6 +284,140 @@
     });
   });
 
+  /* ---- Optional images: hide a missing photo so its gradient panel still looks finished ---- */
+  document.querySelectorAll("img[data-optional]").forEach(function (img) {
+    var hide = function () {
+      img.hidden = true;
+    };
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute("src")) hide();
+    img.addEventListener("error", hide);
+  });
+
+  /* ---- Promo slider: autoplay, dots, progress bar, swipe; pauses on hover/focus and when off screen ---- */
+  document.querySelectorAll("[data-promo]").forEach(function (frame) {
+    var track = frame.querySelector(".promo__track");
+    var slides = Array.prototype.slice.call(track.children);
+    var dotsBox = frame.parentElement.querySelector("[data-promo-dots]");
+    var bar = frame.querySelector("[data-promo-progress]");
+    var DELAY = 5500, i = 0, t0 = performance.now(), paused = false, visible = true;
+    var dots = slides.map(function (_, n) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = '<span class="visually-hidden">Show slide ' + (n + 1) + "</span>";
+      b.addEventListener("click", function () {
+        go(n);
+      });
+      dotsBox && dotsBox.appendChild(b);
+      return b;
+    });
+    function go(n) {
+      i = (n + slides.length) % slides.length;
+      track.style.transform = "translateX(" + -100 * i + "%)";
+      slides.forEach(function (sl, k) {
+        sl.setAttribute("aria-hidden", k === i ? "false" : "true");
+        if ("inert" in sl) sl.inert = k !== i;
+      });
+      dots.forEach(function (d, k) {
+        d.setAttribute("aria-current", k === i ? "true" : "false");
+      });
+      t0 = performance.now();
+    }
+    go(0);
+    if (calm) return;
+    frame.addEventListener("mouseenter", function () {
+      paused = true;
+    });
+    frame.addEventListener("mouseleave", function () {
+      paused = false;
+      t0 = performance.now() - (parseFloat(bar && bar.style.width) || 0) * DELAY / 100;
+    });
+    frame.addEventListener("focusin", function () {
+      paused = true;
+    });
+    frame.addEventListener("focusout", function () {
+      paused = false;
+    });
+    if ("IntersectionObserver" in window)
+      new IntersectionObserver(function (e) {
+        visible = e[0].isIntersecting;
+      }).observe(frame);
+    var x0 = null;
+    frame.addEventListener("touchstart", function (e) {
+      x0 = e.touches[0].clientX;
+    }, { passive: true });
+    frame.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) go(i + (dx < 0 ? 1 : -1));
+      x0 = null;
+    });
+    (function loop(now) {
+      if (paused || !visible) t0 += now - (loop.last || now);
+      loop.last = now;
+      var k = (now - t0) / DELAY;
+      if (k >= 1) go(i + 1);
+      else if (bar) bar.style.width = k * 100 + "%";
+      window.requestAnimationFrame(loop);
+    })(performance.now());
+  });
+
+  /* ---- "Fetching → done" loop on [data-fetch] lists ---- */
+  document.querySelectorAll("[data-fetch]").forEach(function (list) {
+    var rows = list.querySelectorAll("li");
+    var step = 0;
+    function paint() {
+      rows.forEach(function (r, k) {
+        r.classList.toggle("is-done", k < step);
+        r.classList.toggle("is-active", k === step);
+        r.querySelector("em").textContent = k < step ? "Auto-filled" : "Fetching";
+      });
+    }
+    paint();
+    if (calm) {
+      step = rows.length;
+      paint();
+      return;
+    }
+    window.setInterval(function () {
+      step = step >= rows.length + 1 ? 0 : step + 1;
+      paint();
+    }, 1100);
+  });
+
+  /* ---- Call timers: count up mm:ss ---- */
+  document.querySelectorAll("[data-call-timer]").forEach(function (el) {
+    var p = el.textContent.split(":"), sec = Number(p[0]) * 60 + Number(p[1]);
+    window.setInterval(function () {
+      sec++;
+      el.textContent = String(Math.floor(sec / 60)).padStart(2, "0") + ":" + String(sec % 60).padStart(2, "0");
+    }, 1000);
+  });
+
+  /* ---- Sticky promo bar: after the first screen, hidden over the footer and once closed (per session) ---- */
+  var promoBar = document.querySelector("[data-promo-bar]");
+  if (promoBar) {
+    var closed = false;
+    try {
+      closed = sessionStorage.getItem("bef_promo_bar") === "closed";
+    } catch (e) {}
+    var foot = document.querySelector(".footer");
+    var paintBar = function () {
+      var footTop = foot ? foot.getBoundingClientRect().top : Infinity;
+      promoBar.classList.toggle("is-on", !closed && window.scrollY > window.innerHeight * 0.9 && footTop > window.innerHeight);
+    };
+    window.addEventListener("scroll", paintBar, { passive: true });
+    paintBar();
+    var x = promoBar.querySelector("[data-promo-bar-close]");
+    x &&
+      x.addEventListener("click", function () {
+        closed = true;
+        try {
+          sessionStorage.setItem("bef_promo_bar", "closed");
+        } catch (e) {}
+        paintBar();
+      });
+  }
+
   /* ---- "In view" markers for timeline dots and the process stepper ---- */
   var inViewEls = document.querySelectorAll(".timeline__item, .stepper");
   if ("IntersectionObserver" in window) {

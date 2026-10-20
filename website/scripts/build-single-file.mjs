@@ -1,7 +1,7 @@
 // Builds ONE self-contained HTML file of a service page — CSS, JS, logo, favicon and fonts all embedded —
 // so it looks identical anywhere (Discord attachment, email, offline), with no other files needed.
 // Usage: node scripts/build-single-file.mjs [page-folder]   (default: gst-registration)
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -88,6 +88,18 @@ replaceOnce(
   "../assets/img/bef-mark.svg",
   dataUri("assets/img/bef-mark.svg", "image/svg+xml"),
 );
+// Page photos (img[data-optional]): embed when the file exists, otherwise drop the tag (its panel has a gradient fallback).
+const missing = [];
+html = html.replace(/<img [^>]*src="\.\.\/(assets\/img\/[^"]+)"[^>]*\/>/g, (tag, p) => {
+  if (!existsSync(resolve(root, p))) {
+    if (!/data-optional/.test(tag)) throw new Error("Missing image: " + p);
+    missing.push(p);
+    return "";
+  }
+  const mime = p.endsWith(".svg") ? "image/svg+xml" : p.endsWith(".png") ? "image/png" : p.endsWith(".jpg") ? "image/jpeg" : "image/webp";
+  return tag.replace("../" + p, dataUri(p, mime));
+});
+if (missing.length) console.warn(`Note: ${missing.length} optional photo(s) not found, left out: ${missing.join(", ")}`);
 if (/\.\.\/assets\//.test(html))
   throw new Error("A ../assets reference was left un-embedded");
 
