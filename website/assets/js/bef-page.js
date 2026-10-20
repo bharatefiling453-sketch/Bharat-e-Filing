@@ -246,6 +246,44 @@
         '<p class="form-success" role="status">Thank you! A GST expert will call you within 30 working minutes.</p>';
     });
   });
+  /* ---- Count-up numbers: [data-count-to]. The HTML already holds the final value (no-JS and SEO safe). ---- */
+  var counters = document.querySelectorAll("[data-count-to]");
+  var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (counters.length && "IntersectionObserver" in window && !calm) {
+    var countIo = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          countIo.unobserve(entry.target);
+          var el = entry.target, to = Number(el.getAttribute("data-count-to")), t0 = null;
+          var step = function (t) {
+            if (t0 === null) t0 = t;
+            var k = Math.min(1, (t - t0) / 1200);
+            el.textContent = Math.round(to * (1 - Math.pow(1 - k, 3))).toLocaleString("en-IN");
+            if (k < 1) window.requestAnimationFrame(step);
+          };
+          el.textContent = "0";
+          window.requestAnimationFrame(step);
+        });
+      },
+      { threshold: 0.6 },
+    );
+    counters.forEach(function (el) {
+      countIo.observe(el);
+    });
+  }
+
+  /* ---- Reviews carousel: [data-t-scroll="-1|1"] buttons scroll the .t-track by one card ---- */
+  document.querySelectorAll("[data-t-scroll]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var track = document.getElementById(btn.getAttribute("aria-controls"));
+      if (!track) return;
+      var card = track.firstElementChild;
+      var w = card ? card.getBoundingClientRect().width + 20 : track.clientWidth * 0.8;
+      track.scrollBy({ left: Number(btn.getAttribute("data-t-scroll")) * w, behavior: calm ? "auto" : "smooth" });
+    });
+  });
+
   /* ---- "In view" markers for timeline dots and the process stepper ---- */
   var inViewEls = document.querySelectorAll(".timeline__item, .stepper");
   if ("IntersectionObserver" in window) {
