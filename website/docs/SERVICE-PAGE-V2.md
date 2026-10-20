@@ -66,6 +66,10 @@ Always-running motion:
 
 All motion stops for visitors who turn on reduced motion.
 
+### Product mockups (default visuals)
+
+Each ad panel has a code-drawn, animated mockup under the photo slot: a WhatsApp-style filing chat (`.mock-phone` + `.chat`), a reconciliation window (`.mock-window` + `.recon`), and a CA call card (`.mock-call`). These work with no image files. A real photo, if added, covers the mockup.
+
 ### Image specs
 
 Photos live in `assets/img/<service-slug>/`. Each `<img>` carries `data-optional`, so a missing file hides itself and the gradient panel still looks finished.
