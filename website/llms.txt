@@ -19,6 +19,7 @@ Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, 
 - [ITR Filing](https://bharatefiling.com/income-tax-return-filing/)
 - [Income Tax e-Filing](https://bharatefiling.com/income-tax-e-filing/): how to e-file an ITR for FY 2025-26 (AY 2026-27), who must file, which ITR form, due dates, belated, revised and updated returns, e-verification, refunds and FAQs
 - [Business ITR Filing](https://bharatefiling.com/business-itr-filing/): ITR-3, ITR-4, ITR-5 and ITR-6 for proprietors, firms, LLPs and companies; presumptive taxation (44AD, 44ADA, 44AE), tax audit, partner remuneration and Section 194T TDS, due dates for FY 2025-26 and FAQs
+- [Partnership Firm & LLP ITR Filing](https://bharatefiling.com/partnership-llp-itr-filing/): ITR-5 for partnership firms and LLPs, 30% tax rate, partner remuneration under Section 40(b), Section 194T TDS, tax and LLP audits, LLP Form 8 and Form 11, due dates for FY 2025-26 and FAQs
 - [Income-tax Act, 2025 changes](https://bharatefiling.com/learn/income-tax-act-2025-changes/)
 
 ## Company
