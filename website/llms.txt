@@ -17,6 +17,7 @@ Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, 
 
 ## Income tax
 - [ITR Filing](https://bharatefiling.com/income-tax-return-filing/)
+- [Income Tax e-Filing](https://bharatefiling.com/income-tax-e-filing/): how to e-file an ITR for FY 2025-26 (AY 2026-27), who must file, which ITR form, due dates, belated, revised and updated returns, e-verification, refunds and FAQs
 - [Income-tax Act, 2025 changes](https://bharatefiling.com/learn/income-tax-act-2025-changes/)
 
 ## Company
