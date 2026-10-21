@@ -1,0 +1,989 @@
+    <!-- ================= ANNOUNCEMENT ================= -->
+    <p class="ribbon">
+      GST registration cancelled by the officer? You have 90 days from the order to apply for revocation.
+      <a href="#tools" data-track="cta_click" data-location="ribbon">Check your deadline ›</a>
+    </p>
+
+<!--GLOBALNAV-->
+    <!-- ================= LOCAL NAV (sticky, Apple-style) ================= -->
+    <nav class="localnav" aria-label="On this page">
+      <div class="wrap">
+        <span class="localnav__title">GST Revocation</span>
+        <ul>
+          <li><a href="#live">Live dates</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#why-choose">Why us</a></li>
+          <li><a href="#tools">Revocation checker</a></li>
+          <li><a href="#who-can-apply">Eligibility</a></li>
+          <li><a href="#documents">Documents</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#deadline-passed">Missed 90 days?</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+        </ul>
+        <a class="btn btn--brand btn--sm" href="#get-started" data-modal-open data-track="cta_click" data-location="localnav">Restore my GSTIN</a>
+      </div>
+    </nav>
+
+    <main id="main">
+      <!-- ================= HERO (v2: clean first screen. No form, under 25 words. Lead form is in #get-started) ================= -->
+      <section class="hero hero--clean" aria-labelledby="page-title">
+        <div class="hero__aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="wrap hero-clean">
+            <nav class="crumbs" aria-label="Breadcrumb" data-rise style="--i: 0">
+              <ol>
+                <li><a href="https://bharatefiling.com/">Home</a></li>
+                <li><a href="https://bharatefiling.com/product-category/gst/">GST Services</a></li>
+                <li aria-current="page">GST Revocation</li>
+              </ol>
+            </nav>
+
+            <h1 id="page-title" data-rise style="--i: 1">GST Revocation of Cancellation, <span class="text-gradient">back in business.</span></h1>
+
+            <p class="hero__sub" data-rise style="--i: 2">Pending returns, dues and REG-21 handled by GST experts, checked by a Chartered Accountant.</p>
+
+            <div class="btn-row" data-rise style="--i: 3">
+              <a class="btn btn--brand shine" href="#get-started" data-track="cta_click" data-location="hero">Restore my GSTIN</a>
+              <a class="btn btn--ghost" href="#tools" data-track="cta_click" data-location="hero-check">Can I still revoke?</a>
+            </div>
+
+            <p class="hero-live" data-rise style="--i: 4"><span class="chip chip--live">Live</span><span>Cancelled today? Apply in REG-21 by <strong data-reg21-by>90 days from today</strong></span></p>
+        </div>
+      </section>
+
+      <!-- ================= LIVE WIDGETS (v2). Dates are computed from today and Rule 23; no invented business stats. ================= -->
+      <section id="live" class="live" aria-labelledby="h-live">
+        <div class="wrap">
+          <div class="live__head reveal">
+            <h2 id="h-live"><span class="chip chip--live">Live</span>Your revocation clock</h2>
+            <p>Updates every second. Check your own order date in the <a href="#tools">deadline planner</a>.</p>
+          </div>
+          <div class="live-grid">
+            <article class="live-card reveal" aria-labelledby="lv-1">
+              <p class="live-card__label" id="lv-1">Cancelled today?</p>
+              <p class="live-card__for">Your 90-day window to file REG-21 closes in</p>
+              <div class="cd" data-cd="reg21" role="timer" aria-live="off">
+                <span><b>--</b><small>days</small></span><span><b>--</b><small>hrs</small></span><span><b>--</b><small>min</small></span><span><b>--</b><small>sec</small></span>
+              </div>
+              <p class="live-card__sub">Last date: <strong data-reg21-by>—</strong></p>
+              <p class="live-card__foot">Rule 23(1), CGST Rules · <a href="#get-started" data-modal-open data-track="cta_click" data-location="live-apply">Start now</a></p>
+            </article>
+            <article class="live-card reveal" aria-labelledby="lv-2">
+              <p class="live-card__label" id="lv-2">With an extension</p>
+              <p class="live-card__for">The Commissioner can allow 180 more days, up to</p>
+              <p class="live-card__big" data-ext-by>—</p>
+              <p class="live-card__sub">Only on sufficient cause, recorded in writing. Not automatic.</p>
+              <p class="live-card__foot">Proviso to Rule 23(1).</p>
+            </article>
+            <article class="live-card live-card--warn reveal" aria-labelledby="lv-3">
+              <p class="live-card__label" id="lv-3">Time-barred returns</p>
+              <p class="live-card__for">Returns due before this date can no longer be filed</p>
+              <p class="live-card__big" data-barred-before>—</p>
+              <p class="live-card__sub">If one is pending, it can block revocation. Act before more returns cross the 3-year line.</p>
+              <div class="meter" aria-hidden="true"><span style="width: 100%"></span></div>
+              <p class="live-card__foot">3-year limit, enforced on the GST portal.</p>
+            </article>
+            <article class="live-card live-card--navy reveal" aria-labelledby="lv-4">
+              <p class="live-card__label" id="lv-4">After revocation</p>
+              <p class="live-card__for">Revoked today? File the gap-period returns by</p>
+              <p class="live-card__big"><span data-gap-by>—</span></p>
+              <p class="live-card__sub">Returns from the date of cancellation to the date of revocation, within 30 days of REG-22.</p>
+              <div class="meter" aria-hidden="true"><span style="width: 100%"></span></div>
+              <p class="live-card__foot">Rule 23, CGST Rules.</p>
+            </article>
+          </div>
+          <ul class="stat-strip" aria-label="GST revocation numbers to remember">
+            <li><b><span data-count-to="90">90</span> days</b><span>to apply in REG-21 after the order</span></li>
+            <li><b>+<span data-count-to="180">180</span> days</b><span>possible extension by the Commissioner</span></li>
+            <li><b><span data-count-to="30">30</span> days</b><span>for the officer to decide (REG-22)</span></li>
+            <li><b><span data-count-to="7">7</span> days</b><span>working days to answer a REG-23 notice</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= PROMO SLIDER (v2 ad banners, code-drawn product mockups; no photos).
+           Figures and references on the mockups are illustrations. ================= -->
+      <section class="promo" aria-roledescription="carousel" aria-label="Why businesses restore their GST registration with us">
+        <div class="wrap">
+          <div class="promo__frame" data-promo>
+            <div class="promo__track">
+              <article class="promo-slide" aria-roledescription="slide" aria-label="1 of 3">
+                <div class="promo-slide__copy">
+                  <span class="kicker">GSTIN cancelled?</span>
+                  <h3>Get your GSTIN <em>back.</em></h3>
+                  <p>Send the cancellation order on WhatsApp. We file pending returns, clear dues and apply in REG-21.</p>
+                  <a class="btn btn--brand shine" href="#get-started" data-modal-open data-track="cta_click" data-location="promo-1">Restore my GSTIN</a>
+                  <div class="promo-slide__tag"><svg width="16" height="16" aria-hidden="true"><use href="#i-check" /></svg><span><strong>CA-reviewed</strong> · REG-23 replies included</span></div>
+                </div>
+                <div class="promo-slide__media">
+                  <div class="mock-stage mock-stage--right" aria-hidden="true">
+                    <div class="mock-phone"><div class="mock-phone__screen">
+                      <div class="mock-phone__bar"><i>BeF</i><span>Bharat e-Filing<small>GST expert · online</small></span></div>
+                      <div class="chat">
+                        <p class="me file pdf" data-step style="--d: 0">REG-19_order.pdf</p>
+                        <p class="me" data-step style="--d: 0.9">My GST got cancelled 😟</p>
+                        <p data-step style="--d: 2">You’re within 90 days. First we file the 6 pending returns.</p>
+                        <p class="typing" data-step style="--d: 3.2"><span></span><span></span><span></span></p>
+                        <p data-step style="--d: 4.4"><b>Returns filed ✓ REG-21 filed ✓</b><br />ARN sent on WhatsApp</p>
+                        <p data-step style="--d: 6"><b>Revoked ✓</b><br />GSTIN active again</p>
+                      </div>
+                    </div></div>
+                  </div>
+                  <div class="float-card float-card--c" aria-hidden="true"><small>Window</small><span class="ok">Within 90 days</span><small>Rule 23(1)</small></div>
+                  <div class="float-card float-card--b" aria-hidden="true"><small>Apply by</small><strong data-reg21-by>in 90 days</strong></div>
+                </div>
+              </article>
+              <article class="promo-slide promo-slide--warm" aria-roledescription="slide" aria-label="2 of 3">
+                <div class="promo-slide__copy">
+                  <span class="kicker">Pending returns</span>
+                  <h3>Clear the backlog. <em>Then revoke.</em></h3>
+                  <p>Every pending return filed and every rupee of tax, interest and late fee worked out before we apply.</p>
+                  <a class="btn btn--brand shine" href="#get-started" data-modal-open data-track="cta_click" data-location="promo-2" style="--shine-delay: 1.2s">Talk to an expert</a>
+                  <div class="promo-slide__tag"><svg width="16" height="16" aria-hidden="true"><use href="#i-check" /></svg><span><strong>GSTR-1, GSTR-3B</strong> and dues in one plan</span></div>
+                </div>
+                <div class="promo-slide__media">
+                  <div class="mock-stage" aria-hidden="true">
+                    <div class="mock-window">
+                      <div class="mock-window__top"><span></span><span></span><span></span><b>Before revocation · checklist</b></div>
+                      <div class="mock-window__body">
+                        <h4>Pending items cleared</h4>
+                        <ul class="recon">
+                          <li><i style="background: #102161">3B</i><span>6 × GSTR-3B</span><span>Filed</span><span class="tick" style="--d: 0">✓</span></li>
+                          <li><i style="background: #3c8c31">G1</i><span>6 × GSTR-1</span><span>Filed</span><span class="tick" style="--d: 1">✓</span></li>
+                          <li><i style="background: #ff8813">₹</i><span>Tax, interest, late fee</span><span>Paid</span><span class="tick" style="--d: 2">✓</span></li>
+                        </ul>
+                        <div class="recon__total"><span>Ready for REG-21</span><span>Yes</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <article class="promo-slide promo-slide--navy" aria-roledescription="slide" aria-label="3 of 3">
+                <div class="promo-slide__copy">
+                  <span class="kicker">Officer notice?</span>
+                  <h3>REG-23 received? <em>We reply for you.</em></h3>
+                  <p>Show cause notices answered in REG-24 within 7 working days, by your GST expert in Hindi or English.</p>
+                  <a class="btn btn--brand shine" href="#get-started" data-modal-open data-track="cta_click" data-location="promo-3" style="--shine-delay: 2.4s">Get a free call back</a>
+                </div>
+                <div class="promo-slide__media">
+                  <div class="mock-stage" aria-hidden="true">
+                    <div class="mock-call">
+                      <span class="mock-call__avatar">GST</span>
+                      <b>Your GST expert</b>
+                      <small>On call · <span class="mock-call__timer" data-call-timer>04:21</span> · replying to your REG-23 notice</small>
+                      <span class="wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+                      <ul class="mock-checks">
+                        <li style="--d: 0">Proof of returns and payment attached</li>
+                        <li style="--d: 1">Reply filed in REG-24</li>
+                        <li style="--d: 2">Revocation order REG-22</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <span class="promo__progress" data-promo-progress aria-hidden="true"></span>
+          </div>
+          <div class="promo__dots" data-promo-dots></div>
+        </div>
+      </section>
+
+      <!-- ================= LIVE UPDATES TICKER ================= -->
+      <section class="ticker" aria-label="Latest GST revocation updates" tabindex="0">
+        <ul class="ticker__track">
+          <li><time datetime="2025-10-29">Oct 2025</time>GSTN: returns barred 3 years after their due date</li>
+          <li><time datetime="2026-04-01">1 Apr 2026</time>Income-tax Act, 2025 in force</li>
+          <li><time>Rule 23</time>Apply in REG-21 within 90 days of the cancellation order</li>
+          <li><time>Extension</time>Up to 180 more days with the Commissioner’s approval</li>
+          <li><time>REG-22</time>Officer decides within 30 days of the application</li>
+          <li><time>After revocation</time>File gap-period returns within 30 days</li>
+          <li aria-hidden="true"><time>Oct 2025</time>GSTN: returns barred 3 years after their due date</li>
+          <li aria-hidden="true"><time>1 Apr 2026</time>Income-tax Act, 2025 in force</li>
+          <li aria-hidden="true"><time>Rule 23</time>Apply in REG-21 within 90 days of the cancellation order</li>
+          <li aria-hidden="true"><time>Extension</time>Up to 180 more days with the Commissioner’s approval</li>
+          <li aria-hidden="true"><time>REG-22</time>Officer decides within 30 days of the application</li>
+          <li aria-hidden="true"><time>After revocation</time>File gap-period returns within 30 days</li>
+        </ul>
+      </section>
+
+      <!-- ================= LEAD FORM (v2: below the first screen) ================= -->
+      <section id="get-started" class="section lead-split" aria-labelledby="h-start">
+        <div class="wrap lead-split__grid">
+          <div class="lead-split__copy reveal">
+            <span class="kicker">Get started</span>
+            <h2 id="h-start">Restore your GST registration.</h2>
+            <p>Leave your number. A GST expert calls you back within 30 working minutes.</p>
+            <ol class="next-steps">
+              <li><b>1</b><div><strong>Free case review</strong><span>Your 90-day deadline, pending returns and the best route.</span></div></li>
+              <li><b>2</b><div><strong>Clear the backlog</strong><span>Pending returns filed and tax, interest and late fee paid.</span></div></li>
+              <li><b>3</b><div><strong>We apply, a CA reviews</strong><span>REG-21 filed, any REG-23 answered, GSTIN restored.</span></div></li>
+            </ol>
+            <ul class="assurances">
+              <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check" /></svg>CA-reviewed</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check" /></svg>Notice replies included</li>
+              <li><svg width="18" height="18" aria-hidden="true"><use href="#i-check" /></svg>Hindi &amp; English</li>
+            </ul>
+          </div>
+
+          <div class="form-card reveal">
+            <h2>Get a free call back</h2>
+            <p>Pick a plan. No payment now.</p>
+            <form id="revoke-lead-form" data-lead-form novalidate>
+              <!-- PRICES ARE PLACEHOLDERS — confirm with management and keep in sync with the pricing section, pop-up and JSON-LD offers -->
+              <fieldset class="plan-picker">
+                <legend>Choose a plan</legend>
+                <div class="plan-picker__options">
+                  <label><input type="radio" name="plan" value="revocation" data-price="2999" /><span>Revocation</span><strong>₹2,999</strong></label>
+                  <label><input type="radio" name="plan" value="returns" data-price="5999" checked /><span>+ Returns</span><strong>₹5,999</strong></label>
+                  <label><input type="radio" name="plan" value="complex" data-price="9999" /><span>Complex</span><strong>₹9,999</strong></label>
+                </div>
+                <p class="plan-picker__hint">Per GSTIN + 18% GST. <a href="#pricing">Compare what’s included</a></p>
+              </fieldset>
+              <div class="field">
+                <label for="f-name">Full name</label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-err" />
+                <p class="field__error" id="f-name-err" aria-live="polite"></p>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="f-phone">Mobile number</label>
+                  <input id="f-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="16" required aria-describedby="f-phone-err" />
+                  <p class="field__error" id="f-phone-err" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="f-email">Email</label>
+                  <input id="f-email" name="email" type="email" autocomplete="email" required aria-describedby="f-email-err" />
+                  <p class="field__error" id="f-email-err" aria-live="polite"></p>
+                </div>
+              </div>
+              <input type="hidden" name="service" value="gst-revocation" />
+              <input type="hidden" name="utm_source" />
+              <input type="hidden" name="utm_medium" />
+              <input type="hidden" name="utm_campaign" />
+              <input type="hidden" name="utm_term" />
+              <input type="hidden" name="utm_content" />
+              <input type="hidden" name="gclid" />
+              <input type="hidden" name="fbclid" />
+              <input type="hidden" name="msclkid" />
+              <button class="btn btn--primary btn--block" type="submit">Get free case review</button>
+              <p class="form-note">Protected under the DPDP Act, 2023. <a href="https://bharatefiling.com/privacy-policy/">Privacy policy</a></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PRICING ================= -->
+      <section id="pricing" class="section" aria-labelledby="h-pricing">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Pricing</span>
+            <h2 id="h-pricing">One clear fee per GSTIN.</h2>
+            <p>Our professional fee, shown before you start. Any tax, interest or late fee is paid to the government and is not part of it.</p>
+          </div>
+          <!-- PRICES ARE PLACEHOLDERS — confirm with management and keep in sync with the form, pop-up and JSON-LD offers -->
+          <div class="plans">
+            <div class="plan reveal">
+              <h3>Revocation</h3>
+              <p class="plan__for">Returns already filed, within 90 days</p>
+              <p class="plan__price">₹2,999</p>
+              <p class="plan__tax">+ 18% GST · per GSTIN</p>
+              <ul class="ticks">
+                <li>Case review and deadline check</li>
+                <li>Reasons drafted with evidence</li>
+                <li>REG-21 filed with DSC or EVC</li>
+                <li>Revocation order (REG-22) shared</li>
+              </ul>
+              <ul class="benefits" aria-label="Benefits">
+                <li class="shine" style="--shine-delay: 0.0s">Application <span class="benefit-tag">end-to-end</span></li>
+                <li class="shine" style="--shine-delay: 0.5s">REG-21 filed <span class="benefit-tag benefit-tag--leaf">24hrs Guaranteed</span></li>
+                <li class="shine" style="--shine-delay: 1.0s">Accuracy check <span class="benefit-tag benefit-tag--amber">CA-reviewed</span></li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="revocation" data-track="select_plan" data-location="pricing-revocation">Choose Revocation</a>
+            </div>
+            <div class="plan plan--featured reveal">
+              <span class="plan__badge">Most chosen</span>
+              <h3>Revocation + Returns</h3>
+              <p class="plan__for">Cancelled for not filing returns</p>
+              <p class="plan__price">₹5,999</p>
+              <p class="plan__tax">+ 18% GST · up to 6 months of returns</p>
+              <ul class="ticks">
+                <li>Everything in Revocation</li>
+                <li>Pending GSTR-1 and GSTR-3B filed</li>
+                <li>Tax, interest and late fee computed</li>
+                <li>Gap-period returns after REG-22</li>
+                <li>Dedicated GST expert</li>
+              </ul>
+              <ul class="benefits" aria-label="Benefits">
+                <li class="shine" style="--shine-delay: 0.0s">Backlog cleared <span class="benefit-tag">end-to-end</span></li>
+                <li class="shine" style="--shine-delay: 0.5s">Case review <span class="benefit-tag benefit-tag--leaf">24hrs Guaranteed</span></li>
+                <li class="shine" style="--shine-delay: 1.0s">Expert call-back <span class="benefit-tag">30 mins</span></li>
+                <li class="shine" style="--shine-delay: 1.5s">REG-23 reply <span class="benefit-tag benefit-tag--amber">Included</span></li>
+              </ul>
+              <a class="btn btn--brand btn--block" href="#get-started" data-modal-open data-plan="returns" data-track="select_plan" data-location="pricing-returns">Choose + Returns</a>
+            </div>
+            <div class="plan reveal">
+              <h3>Complex Cases</h3>
+              <p class="plan__for">Past 90 days, rejected or time-barred returns</p>
+              <p class="plan__price">₹9,999</p>
+              <p class="plan__tax">+ 18% GST · per GSTIN</p>
+              <ul class="ticks">
+                <li>Extension request to the Commissioner</li>
+                <li>Appeal in APL-01 if needed</li>
+                <li>Personal hearing representation</li>
+                <li>Advice on fresh registration</li>
+              </ul>
+              <ul class="benefits" aria-label="Benefits">
+                <li class="shine" style="--shine-delay: 0.0s">Priority review <span class="benefit-tag benefit-tag--leaf">24hrs Guaranteed</span></li>
+                <li class="shine" style="--shine-delay: 0.5s">Extension <span class="benefit-tag benefit-tag--amber">Up to 180 days</span></li>
+                <li class="shine" style="--shine-delay: 1.0s">Appeal <span class="benefit-tag">APL-01</span></li>
+              </ul>
+              <a class="btn btn--ghost btn--block" href="#get-started" data-modal-open data-plan="complex" data-track="select_plan" data-location="pricing-complex">Choose Complex</a>
+            </div>
+          </div>
+          <p class="plans-note">No hidden charges. “24hrs Guaranteed” means we review your case and file REG-21 within 24 hours once returns are filed and documents are complete. Revocation is decided by the GST officer under Rule 23.</p>
+        </div>
+      </section>
+
+      <!-- ================= WHY CHOOSE US (v2, animated bento) ================= -->
+      <section id="why-choose" class="section" aria-labelledby="h-why-choose">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Why Bharat e-Filing</span>
+            <h2 id="h-why-choose">Why businesses restore their GSTIN with us.</h2>
+          </div>
+          <div class="why">
+            <article class="why-card why__expert reveal">
+              <h3>Your own <em>GST expert</em></h3>
+              <p>A dedicated expert, assigned within 30 working minutes, who stays with your case until the GSTIN is active.</p>
+              <div class="expert-stack" aria-hidden="true">
+                <span class="expert-stack__back expert-stack__back--l"></span>
+                <span class="expert-stack__back expert-stack__back--r"></span>
+                <div class="expert-stack__main">
+                  <span class="expert-mono"><span>GST</span></span>
+                  <div class="expert-stack__name"><strong>Your GST expert</strong>Revocation · Hindi &amp; English</div>
+                </div>
+                <span class="expert-stack__tick">✓</span>
+              </div>
+            </article>
+            <article class="why-card why__fetch reveal">
+              <div class="why-card__visual" aria-hidden="true">
+                <ul class="fetch-list" data-fetch>
+                  <li><span>Cancellation order</span><em>Fetching</em></li>
+                  <li><span>Pending GSTR-3B</span><em>Fetching</em></li>
+                  <li><span>Pending GSTR-1</span><em>Fetching</em></li>
+                  <li><span>Dues and late fee</span><em>Fetching</em></li>
+                </ul>
+              </div>
+              <h3>Backlog cleared first.</h3>
+              <p>REG-21 isn’t accepted while returns are pending. We clear them before applying, so it isn’t rejected.</p>
+            </article>
+            <article class="why-card why__review reveal">
+              <div class="why-card__visual" aria-hidden="true">
+                <div class="mini-sum">
+                  <b>REG-21 summary</b>
+                  <div><span>Order served</span><span>2 Oct 2026</span></div>
+                  <div><span>Returns pending</span><span>0</span></div>
+                  <div><span>Dues paid</span><span>Yes</span></div>
+                  <span class="mini-sum__chip">Ready ✓</span>
+                  <span class="mini-sum__btn">Approve &amp; file</span>
+                </div>
+              </div>
+              <h3>One approval. Done.</h3>
+              <p>Read the application once, approve it, and we file. The ARN reaches you on WhatsApp.</p>
+            </article>
+            <article class="why-card why-card--row why__clock reveal">
+              <div>
+                <p class="big-24"><span>24</span> hrs</p>
+                <h3>From case review to REG-21.</h3>
+                <p>Once returns are filed and documents are ready, your REG-21 is filed within 24 hours. The officer then decides within 30 days.</p>
+              </div>
+              <div style="position: relative">
+                <span class="track24__fill" aria-hidden="true"></span>
+                <ol class="track24" aria-label="From case review to revocation">
+                  <li>Case reviewed<small>0 h</small></li>
+                  <li>Reasons and evidence ready<small>12 h</small></li>
+                  <li>REG-21 filed, ARN sent<small>24 h</small></li>
+                  <li>Officer decision (REG-22)<small>30 days</small></li>
+                </ol>
+              </div>
+            </article>
+            <article class="why-card why-card--photo why__shop reveal">
+              <div class="why-card__copy">
+                <span class="kicker" style="justify-self: start">Built for Bharat</span>
+                <h3>From missed returns to an active GSTIN.</h3>
+                <p>Illness, travel or a bad patch: most cancellations come from missed returns. We fix the backlog and the registration together.</p>
+                <a class="btn btn--brand shine" style="justify-self: start" href="#get-started" data-modal-open data-track="cta_click" data-location="why-shop">Restore my GSTIN</a>
+              </div>
+              <div class="promo-slide__media">
+                <div class="mock-stage" aria-hidden="true">
+                  <div class="mock-phone"><div class="mock-phone__screen">
+                    <div class="mock-phone__bar"><i>BeF</i><span>Bharat e-Filing<small>GST expert · online</small></span></div>
+                    <div class="chat">
+                      <p data-step style="--d: 0">Namaste 🙏 Your GSTIN was cancelled on 2 Oct. You have <b>90 days</b>.</p>
+                      <p data-step style="--d: 1.4">We’ll file the pending returns first.</p>
+                      <p class="me" data-step style="--d: 2.8">Please go ahead!</p>
+                      <p data-step style="--d: 4.2">REG-21 filed ✓ ARN sent</p>
+                    </div>
+                  </div></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= AT A GLANCE (bento) ================= -->
+      <section class="section" aria-labelledby="h-glance">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <h2 id="h-glance">Everything about GST revocation. At a glance.</h2>
+            <p>The rules that matter, checked against Section 30 of the CGST Act and Rule 23 of the CGST Rules.</p>
+          </div>
+          <div class="bento">
+            <div class="tile tile--wide tile--navy reveal">
+              <h3>Before you apply</h3>
+              <p>An application in REG-21 is accepted only when all of this is done.</p>
+              <ul class="ticks" style="margin-top: var(--s-4)">
+                <li>Every pending return up to the cancellation date filed</li>
+                <li>Tax, interest, late fee and any penalty paid</li>
+                <li>Reason for the default explained with evidence</li>
+              </ul>
+            </div>
+            <div class="tile tile--brand reveal">
+              <span class="tile__stat">90</span>
+              <h3>Days to apply</h3>
+              <p>From the date the cancellation order was served (Rule 23).</p>
+            </div>
+            <div class="tile reveal">
+              <span class="tile__stat">Officer</span>
+              <h3>Only if they cancelled</h3>
+              <p>Cancelled it yourself? Revocation doesn’t apply; register afresh.</p>
+            </div>
+            <div class="tile tile--leaf reveal">
+              <span class="tile__stat">CA</span>
+              <h3>Reviewed filing</h3>
+              <p>Every revocation application is checked by a Chartered Accountant.</p>
+            </div>
+            <div class="tile reveal">
+              <span class="tile__stat">हिं · En</span>
+              <h3>Your language</h3>
+              <p>Talk to a GST expert in Hindi or English by call or WhatsApp.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FREE TOOLS ================= -->
+      <section id="tools" class="section section--glow" aria-labelledby="h-tools">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Free tools</span>
+            <h2 id="h-tools">Can you still revoke? Find out now.</h2>
+            <p>Check your route back to an active GSTIN and every deadline from your order date.</p>
+          </div>
+          <div class="tools">
+            <section class="tool reveal" id="revoke-check" aria-labelledby="h-revoke-tool">
+              <div class="tool__head">
+                <span class="tool__icon" aria-hidden="true">🔓</span>
+                <div>
+                  <h3 id="h-revoke-tool">Revocation checker</h3>
+                  <p>Section 30, Rule 23 and Section 107 of the CGST Act.</p>
+                </div>
+              </div>
+              <fieldset class="seg">
+                <legend>Who cancelled the registration?</legend>
+                <label><input type="radio" name="who" value="officer" checked />GST officer</label>
+                <label><input type="radio" name="who" value="self" />I applied for it</label>
+              </fieldset>
+              <div class="field">
+                <label for="rc-days">Days since the cancellation order was served</label>
+                <input id="rc-days" name="days" type="number" inputmode="numeric" min="0" max="2000" value="20" />
+              </div>
+              <fieldset class="checks-inline">
+                <legend>Tick what applies</legend>
+                <label><input type="checkbox" name="pending" checked />Some returns are still pending</label>
+                <label><input type="checkbox" name="barred" />A pending return is more than 3 years old</label>
+              </fieldset>
+              <div class="result" aria-live="polite">
+                <p class="result__verdict" id="rc-verdict"></p>
+                <dl class="result__rows" id="rc-out"></dl>
+                <p class="result__note" id="rc-note"></p>
+              </div>
+            </section>
+            <section class="tool reveal" id="revoke-plan" aria-labelledby="h-plan-tool">
+              <div class="tool__head">
+                <span class="tool__icon" aria-hidden="true">📅</span>
+                <div>
+                  <h3 id="h-plan-tool">Revocation deadline planner</h3>
+                  <p>Rule 23 and Section 107 timelines. Estimates only.</p>
+                </div>
+              </div>
+              <div class="field">
+                <label for="rp-date">Date the cancellation order was served</label>
+                <input id="rp-date" name="date" type="date" />
+              </div>
+              <div class="result" aria-live="polite">
+                <dl class="result__rows" id="rp-out"></dl>
+                <p class="result__note">The date on your REG-19 order and the portal always prevail.</p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= GUIDE + RELATED BLOGS COLUMN (v2) ================= -->
+      <div class="section">
+        <div class="wrap guide-split">
+        <article>
+          <section id="what-is-revocation" class="chapter prose reveal" aria-labelledby="h-what">
+            <span class="kicker">Overview</span>
+            <h2 id="h-what">What is GST revocation?</h2>
+            <!-- AEO: 40–60-word direct answer -->
+            <p class="answer">
+              <strong>GST revocation</strong> restores a registration that the <strong>GST officer cancelled</strong>, usually for not filing returns. You
+              apply in <strong>Form GST REG-21</strong> within <strong>90 days</strong> of the cancellation order, after filing all pending returns and paying
+              dues. The officer decides within <strong>30 days</strong>, and your old GSTIN becomes active again.
+            </p>
+            <p class="lede">
+              A cancelled GSTIN stops you from charging GST, issuing tax invoices and generating e-way bills, and your buyers lose input tax credit.
+              Revocation is the fastest way back.
+            </p>
+            <p>
+              It is governed by <strong>Section 30 of the CGST Act, 2017</strong> and <strong>Rule 23 of the CGST Rules</strong>. The officer revokes in
+              <strong>REG-22</strong>, may issue a show cause notice in <strong>REG-23</strong> (you reply in <strong>REG-24</strong>), and can reject the
+              application in <strong>REG-05</strong>.
+            </p>
+          </section>
+
+          <section id="who-can-apply" class="chapter prose reveal" aria-labelledby="h-who">
+            <span class="kicker">Eligibility</span>
+            <h2 id="h-who">Who can apply for revocation?</h2>
+            <p>You can apply when <strong>the proper officer cancelled your registration on their own motion</strong>, commonly for:</p>
+            <ul>
+              <li>Not filing returns for a continuous period (Section 29(2))</li>
+              <li>Not conducting business from the declared place of business</li>
+              <li>Not starting business within six months of voluntary registration</li>
+              <li>Contravention of the Act or Rules, as stated in the REG-17 notice</li>
+            </ul>
+            <div class="note">
+              <span class="note__title">Revocation does not apply if you cancelled it yourself</span>
+              <p>
+                If you applied for cancellation in REG-16 and it was approved, Section 30 does not apply. To resume business you apply for a
+                <strong>fresh registration</strong>.
+              </p>
+            </div>
+            <div class="example">
+              <span class="example__label">Example · Non-filing</span>
+              <p>
+                <strong>Arif runs a mobile repair shop in Bhopal.</strong> He missed six months of returns while unwell, and his registration was cancelled
+                by an order served on 2 October 2026. He has until 31 December 2026 to apply. We file all twelve pending returns, pay the tax and late
+                fee, and file REG-21 with his medical records as the reason. The officer revokes the cancellation in REG-22.
+              </p>
+            </div>
+            <div class="example">
+              <span class="example__label">Example · Address not verified</span>
+              <p>
+                <strong>A Kolkata trading firm</strong> moved premises without amending its registration, and the officer cancelled it after a failed
+                physical verification. We file REG-21 with the new rent agreement and photographs, and amend the address once the registration is restored.
+              </p>
+            </div>
+          </section>
+
+          <section id="whats-new" class="chapter prose" aria-labelledby="h-new">
+            <span class="kicker reveal">What’s new</span>
+            <h2 id="h-new" class="reveal">Latest changes that affect revocation</h2>
+            <p class="reveal">Updates that matter for cancelled registrations, newest first.</p>
+            <ol class="timeline">
+              <li class="timeline__item">
+                <time datetime="2026-04-01">1 April 2026</time>
+                <h3>Income-tax Act, 2025 in force</h3>
+                <p>Returns filed for the cancelled period should reconcile with the turnover in your income-tax return.</p>
+              </li>
+              <li class="timeline__item">
+                <time datetime="2025-10-29">October 2025</time>
+                <h3>3-year limit on returns <span class="tag">Act now</span></h3>
+                <p>GSTN enforced the rule that returns cannot be filed more than three years after their due date. An old pending return can now block a revocation, so act early.</p>
+              </li>
+              <li class="timeline__item">
+                <time datetime="2023">2023</time>
+                <h3>90 days to apply <span class="tag tag--leaf">Law change</span></h3>
+                <p>Rule 23 was amended to give 90 days from the cancellation order (earlier 30 days), with a further extension of up to 180 days by the Commissioner on sufficient cause.</p>
+              </li>
+            </ol>
+          </section>
+
+          <section id="documents" class="chapter prose reveal" aria-labelledby="h-docs">
+            <span class="kicker">Checklist</span>
+            <h2 id="h-docs">Documents required for GST revocation</h2>
+            <div class="table" tabindex="0">
+              <table>
+                <caption>What we need from you</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Document</th>
+                    <th scope="col">Why it is needed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Cancellation order (REG-19)</th><td>Date of service, reason and effective date</td></tr>
+                  <tr><th scope="row">Show cause notice (REG-17)</th><td>The ground for cancellation to be cured</td></tr>
+                  <tr><th scope="row">Sales and purchase data</th><td>To file the pending returns</td></tr>
+                  <tr><th scope="row">Proof of the reason</th><td>Medical, travel or other evidence for the default</td></tr>
+                  <tr><th scope="row">Address proof</th><td>If cancelled after a failed physical verification</td></tr>
+                  <tr><th scope="row">Portal access and DSC/EVC</th><td>To file REG-21 and any REG-24 reply</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </article>
+
+        <!-- PLANNED POSTS: publish each blog below at its URL before go-live, or remove the link. -->
+        <aside class="reads" aria-labelledby="h-reads">
+          <div class="reads__box">
+            <h2 class="reads__title" id="h-reads">Related blogs</h2>
+            <ul class="reads__list">
+              <li><a href="https://bharatefiling.com/blog/gst-revocation-reg-21-guide/" data-track="related_blog" data-location="guide-column"><span>GST</span><strong>REG-21 step by step: restoring a cancelled GSTIN</strong><small>6 min read</small></a></li>
+              <li><a href="https://bharatefiling.com/blog/gst-revocation-after-90-days/" data-track="related_blog" data-location="guide-column"><span>GST</span><strong>Missed the 90 days? Extension, appeal or new GSTIN</strong><small>6 min read</small></a></li>
+              <li><a href="https://bharatefiling.com/blog/reg-17-cancellation-notice-reply/" data-track="related_blog" data-location="guide-column"><span>GST</span><strong>Got a REG-17? Reply before it becomes a cancellation</strong><small>5 min read</small></a></li>
+              <li><a href="https://bharatefiling.com/blog/gst-3-year-time-limit-returns/" data-track="related_blog" data-location="guide-column"><span>GST</span><strong>The 3-year time limit on GST returns, explained</strong><small>4 min read</small></a></li>
+              <li><a href="https://bharatefiling.com/blog/business-after-gst-cancellation/" data-track="related_blog" data-location="guide-column"><span>GST</span><strong>Selling while your GSTIN is cancelled: the risks</strong><small>4 min read</small></a></li>
+              <li><a href="https://bharatefiling.com/blog/tax-audit-due-date-extended-ay-2026-27/" data-track="related_blog" data-location="guide-column"><span>Income tax</span><strong>Tax audit due date extended to 21 Oct 2026</strong><small>6 min read</small></a></li>
+            </ul>
+            <a class="link-arrow" href="https://bharatefiling.com/blog/">All blogs</a>
+          </div>
+          <div class="reads__cta">
+            <strong>GSTIN cancelled recently?</strong>
+            <p>The 90-day clock is running. We can start today.</p>
+            <a class="btn btn--brand btn--sm" href="#get-started" data-modal-open data-track="cta_click" data-location="guide-column">Talk to an expert</a>
+          </div>
+        </aside>
+        </div>
+      </div>
+
+      <!-- ================= PROCESS (animated stepper) ================= -->
+      <section id="process" class="section section--glow" aria-labelledby="h-process">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Process</span>
+            <h2 id="h-process">From cancelled to active in five steps.</h2>
+            <p>We clear the backlog, apply and handle the officer. You approve once.</p>
+          </div>
+          <ol class="stepper">
+            <li style="--i: 0">
+              <span class="when">Day 0</span>
+              <h3>Free case review</h3>
+              <p>Order date, reason, pending returns and your 90-day deadline.</p>
+            </li>
+            <li style="--i: 1">
+              <span class="when">Days 1–5</span>
+              <h3>Clear the backlog</h3>
+              <p>Pending returns filed; tax, interest and late fee paid.</p>
+            </li>
+            <li style="--i: 2">
+              <span class="when">Within 24 hours of that</span>
+              <h3>REG-21 filed</h3>
+              <p>Reasons and evidence attached, checked by a CA, signed with DSC or EVC.</p>
+            </li>
+            <li style="--i: 3">
+              <span class="when">Within 30 days</span>
+              <h3>Officer decision</h3>
+              <p>Any REG-23 notice answered in REG-24 within 7 working days.</p>
+            </li>
+            <li style="--i: 4">
+              <span class="when">Within 30 days of REG-22</span>
+              <h3>Back to regular filing</h3>
+              <p>Gap-period returns filed and monthly filing restarted.</p>
+            </li>
+          </ol>
+          <div class="wrap--read" style="margin: var(--s-12) auto 0; padding: 0">
+            <div class="note note--law reveal">
+              <span class="note__title">The officer must hear you (Rule 23(3))</span>
+              <p>
+                Before rejecting a revocation application, the officer must issue a show cause notice in <strong>REG-23</strong>. Reply in
+                <strong>REG-24</strong> within 7 working days; the officer then decides within 30 days of your reply.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= GUIDE CONTINUED ================= -->
+      <div class="section">
+        <article class="wrap wrap--read">
+          <section id="deadline-passed" class="chapter prose reveal" aria-labelledby="h-passed">
+            <span class="kicker">Watch out</span>
+            <h2 id="h-passed">If the 90 days have passed</h2>
+            <ul>
+              <li><strong>Days 91 to 270:</strong> ask the Commissioner, or an officer not below Joint or Additional Commissioner, to extend the time for sufficient cause.</li>
+              <li><strong>Appeal:</strong> appeal against the cancellation order in <strong>APL-01</strong> within 3 months of the order, extendable by 1 month (Section 107).</li>
+              <li><strong>High Court:</strong> in suitable cases, courts have allowed restoration through writ petitions.</li>
+              <li><strong>Fresh registration:</strong> the last option, but past dues on the old GSTIN still have to be settled.</li>
+            </ul>
+            <p>
+              While the registration stays cancelled you cannot collect GST or issue tax invoices, and making taxable supplies without registration can
+              attract tax, interest and penalty.
+            </p>
+            <p>
+              Need help with income tax too? <a href="https://bharatefiling.com/product/itr-for-sole-proprietorship/">File your ITR with Bharat e-Filing</a>
+              or read our guide to <a href="https://bharatefiling.com/learn/income-tax-act-2025-changes/">Income-tax Act, 2025 changes</a>.
+            </p>
+          </section>
+
+          <section id="after-revocation" class="chapter prose reveal" aria-labelledby="h-after">
+            <span class="kicker">After revocation</span>
+            <h2 id="h-after">What to do after your GSTIN is restored</h2>
+            <ol>
+              <li><strong>File the gap-period returns</strong> from cancellation to revocation within 30 days of REG-22.</li>
+              <li><strong>Restart monthly filing</strong> of GSTR-1 and GSTR-3B on time.</li>
+              <li><strong>Update your details</strong> through an amendment if the address or contacts changed.</li>
+              <li><strong>Tell your buyers</strong> your GSTIN is active, so they can claim input tax credit again.</li>
+              <li><strong>Set reminders</strong> so returns are never missed again.</li>
+            </ol>
+          </section>
+
+          <section id="income-tax-link" class="chapter prose reveal" aria-labelledby="h-ita">
+            <span class="kicker">Income tax</span>
+            <h2 id="h-ita">GST revocation and the Income-tax Act, 2025</h2>
+            <p>
+              Revocation is a GST process and is unchanged. From <strong>1 April 2026</strong> the <strong>Income-tax Act, 2025</strong> replaces the 1961
+              Act, and turnover in the returns you file for the gap period is compared with your income-tax return.
+            </p>
+            <div class="table" tabindex="0">
+              <table>
+                <caption>References that often come up</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Topic</th>
+                    <th scope="col">Income-tax Act, 1961</th>
+                    <th scope="col">Income-tax Act, 2025</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Year of income</th><td>Previous year / assessment year</td><td>Tax year</td></tr>
+                  <tr><th scope="row">Presumptive taxation</th><td>Sections 44AD, 44ADA</td><td>Section 58</td></tr>
+                  <tr><th scope="row">Tax audit</th><td>Section 44AB</td><td>Section 63</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="why-us" class="chapter prose reveal" aria-labelledby="h-why">
+            <span class="kicker">Why Bharat e-Filing</span>
+            <h2 id="h-why">Doing it yourself vs. with us</h2>
+            <div class="table compare" tabindex="0">
+              <table>
+                <caption>Comparison</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">What matters</th>
+                    <th scope="col">DIY on the GST portal</th>
+                    <th scope="col">Bharat e-Filing</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Pending returns and dues</th><td>You work them out</td><td class="yes">Filed and computed for you</td></tr>
+                  <tr><th scope="row">Reasons and evidence</th><td>Often too thin</td><td class="yes">Drafted to the rule</td></tr>
+                  <tr><th scope="row">REG-23 show cause notice</th><td>You draft</td><td class="yes">Answered in REG-24</td></tr>
+                  <tr><th scope="row">Past 90 days</th><td>Hard to know options</td><td class="yes">Extension or appeal advised</td></tr>
+                  <tr><th scope="row">Gap-period returns</th><td>Easy to miss</td><td class="yes">Filed within 30 days</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </article>
+      </div>
+
+      <!-- ================= TESTIMONIALS (v2) =================
+           REAL REVIEWS ONLY. Replace each data-sample card with a Google Business Profile review, copied word for word with the
+           client's permission, then delete data-sample. Never write, edit or invent reviews (CCPA Guidelines on fake reviews, 2025).
+           Point the rating badge at the Google Business Profile reviews link. Add Review / AggregateRating schema only once every card is real. -->
+      <section id="reviews" class="section" aria-labelledby="h-reviews">
+        <div class="wrap">
+          <div class="reviews-head reveal">
+            <div>
+              <span class="kicker">Client reviews</span>
+              <h2 id="h-reviews">What our clients say.</h2>
+            </div>
+            <div class="reviews-head__side">
+              <a class="rating-badge" href="https://bharatefiling.com/reviews/" rel="noopener" data-track="reviews_click" data-location="reviews"
+                ><span class="rating-badge__g" aria-hidden="true">G</span><span><strong aria-hidden="true">★★★★★</strong>Read all reviews on Google</span></a
+              >
+              <div class="t-nav">
+                <button type="button" data-t-scroll="-1" aria-controls="t-track"><span class="visually-hidden">Previous reviews</span><span aria-hidden="true">‹</span></button>
+                <button type="button" data-t-scroll="1" aria-controls="t-track"><span class="visually-hidden">Next reviews</span><span aria-hidden="true">›</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="t-track" id="t-track" tabindex="0" aria-label="Client reviews, scroll sideways">
+            <figure class="review" data-sample>
+              <div class="review__stars" aria-hidden="true">★★★★★</div>
+              <blockquote><p>Paste a real Google review here, word for word, with the client’s permission. Two to four lines keeps the cards even.</p></blockquote>
+              <figcaption><span class="t-avatar" aria-hidden="true">CN</span><span><strong>Client name 1</strong>City · GST Revocation</span></figcaption>
+            </figure>
+            <figure class="review" data-sample>
+              <div class="review__stars" aria-hidden="true">★★★★★</div>
+              <blockquote><p>Paste a real Google review here, word for word, with the client’s permission. Two to four lines keeps the cards even.</p></blockquote>
+              <figcaption><span class="t-avatar" aria-hidden="true">CN</span><span><strong>Client name 2</strong>City · GST Revocation</span></figcaption>
+            </figure>
+            <figure class="review" data-sample>
+              <div class="review__stars" aria-hidden="true">★★★★★</div>
+              <blockquote><p>Paste a real Google review here, word for word, with the client’s permission. Two to four lines keeps the cards even.</p></blockquote>
+              <figcaption><span class="t-avatar" aria-hidden="true">CN</span><span><strong>Client name 3</strong>City · GST Revocation</span></figcaption>
+            </figure>
+            <figure class="review" data-sample>
+              <div class="review__stars" aria-hidden="true">★★★★★</div>
+              <blockquote><p>Paste a real Google review here, word for word, with the client’s permission. Two to four lines keeps the cards even.</p></blockquote>
+              <figcaption><span class="t-avatar" aria-hidden="true">CN</span><span><strong>Client name 4</strong>City · GST Revocation</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= RELATED ================= -->
+      <section id="related" class="section" aria-labelledby="h-related">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">Do more, pay less</span>
+            <h2 id="h-related">Related GST services.</h2>
+          </div>
+          <div class="grid grid--3">
+            <a class="card reveal" href="https://bharatefiling.com/gst-return-filing/"><span class="tag">Never again</span><h3>GST Return Filing</h3><p>Monthly returns filed on time, so cancellation doesn’t repeat.</p></a>
+            <a class="card reveal" href="https://bharatefiling.com/gst-notice-reply/"><h3>GST Notice Reply</h3><p>REG-17 and other notices answered before they escalate.</p></a>
+            <a class="card reveal" href="https://bharatefiling.com/gst-registration/"><h3>GST Registration</h3><p>Fresh GSTIN when revocation isn’t possible.</p></a>
+            <a class="card reveal" href="https://bharatefiling.com/gst-registration-amendment/"><h3>GST Amendment</h3><p>Update address or partners after restoration.</p></a>
+            <a class="card reveal" href="https://bharatefiling.com/gst-annual-return-filing/"><h3>GST Annual Return</h3><p>GSTR-9 and GSTR-9C filed by experts.</p></a>
+            <a class="card reveal" href="https://bharatefiling.com/gst-lut-filing/"><h3>GST LUT Filing</h3><p>Export without paying IGST (Form RFD-11).</p></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= REVIEWER & SOURCES (E-E-A-T) ================= -->
+      <section class="wrap wrap--read" aria-label="About this page">
+        <div class="reviewer reveal">
+          <div class="reviewer__avatar" aria-hidden="true">CA</div>
+          <div>
+            <p><strong>Reviewed by REPLACE_CA_NAME, Chartered Accountant</strong> · ICAI M. No. REPLACE</p>
+            <p class="muted">REPLACE: one line on GST registration and litigation experience.</p>
+            <div class="meta">
+              <span>Published <time datetime="2026-10-21">21 Oct 2026</time></span>
+              <span>Last fact-checked <time datetime="2026-10-21">21 Oct 2026</time></span>
+              <a href="https://bharatefiling.com/editorial-policy/">Editorial policy</a>
+            </div>
+          </div>
+        </div>
+        <h2 class="mt-16" style="font-size: var(--fs-19)">Sources and official references</h2>
+        <ul class="sources">
+          <li><a href="https://www.gst.gov.in/" rel="noopener" target="_blank">GST Portal — gst.gov.in</a></li>
+          <li><a href="https://taxinformation.cbic.gov.in/content/html/tax_repository/gst/rules/cgst_rules/active/chapter3/rule23_v1.00.html" rel="noopener" target="_blank">CBIC — Rule 23, revocation of cancellation of registration</a></li>
+          <li><a href="https://cbic-gst.gov.in/" rel="noopener" target="_blank">CBIC — CGST Act (Sections 29, 30, 107)</a></li>
+          <li><a href="https://tutorial.gst.gov.in/userguide/registration/index.htm" rel="noopener" target="_blank">GST Portal manual — Revocation of cancelled registration</a></li>
+          <li><a href="https://gstcouncil.gov.in/" rel="noopener" target="_blank">GST Council</a></li>
+          <li><a href="https://www.incometaxindia.gov.in/" rel="noopener" target="_blank">Income Tax Department — Income-tax Act, 2025</a></li>
+        </ul>
+      </section>
+
+      <!-- ================= FAQ ================= -->
+      <!-- Visible FAQ text MUST match the FAQPage JSON-LD word for word (generated from one list in src/gst-revocation/build.py). -->
+      <section id="faqs" class="section" aria-labelledby="h-faq">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <span class="kicker">FAQs</span>
+            <h2 id="h-faq">Questions? Answered.</h2>
+          </div>
+          <div class="faq">
+<!--FAQ-ITEMS-->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <section class="wrap" aria-labelledby="h-cta" style="padding-bottom: var(--section)">
+        <div class="cta reveal">
+          <h2 id="h-cta">Get your GSTIN back before the 90 days run out.</h2>
+          <p>Start with a GST expert in Hindi or English. Free case review, no obligation.</p>
+          <div class="btn-row">
+            <a class="btn btn--brand" href="#get-started" data-modal-open data-track="cta_click" data-location="cta-band">Restore my GSTIN</a>
+            <a class="btn btn--outline-light" href="tel:+910000000000" data-track="click_call" data-location="cta-band"
+              ><svg width="16" height="16" aria-hidden="true"><use href="#i-phone" /></svg>&nbsp;Call&nbsp;us</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+<!--FOOTER-->
+    <!-- ================= LEAD POP-UP ================= -->
+    <dialog class="modal" id="lead-modal" aria-labelledby="modal-title">
+      <button type="button" class="modal__close" data-modal-close><span class="visually-hidden">Close</span><span aria-hidden="true">×</span></button>
+      <div class="modal__grid">
+        <div class="modal__aside">
+          <img src="../assets/img/bef-mark.svg" width="44" height="44" alt="" />
+          <h2>Talk to a GST expert today</h2>
+          <p>Free case review. No obligation.</p>
+          <ul class="ticks">
+            <li>Call-back within 30 working minutes</li>
+            <li>Every application reviewed by a CA</li>
+            <li>Pending returns filed for you</li>
+          </ul>
+        </div>
+        <div class="modal__body">
+          <h2 id="modal-title">Restore your GST registration</h2>
+          <p>Leave your number and we’ll call you back.</p>
+          <form id="revoke-popup-form" data-lead-form novalidate>
+            <div class="field">
+              <label for="m-name">Full name</label>
+              <input id="m-name" name="name" type="text" autocomplete="name" required aria-describedby="m-name-err" />
+              <p class="field__error" id="m-name-err" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="m-phone">Mobile number</label>
+              <input id="m-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="16" required aria-describedby="m-phone-err" />
+              <p class="field__error" id="m-phone-err" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="m-plan">Plan</label>
+              <select id="m-plan" name="plan">
+                <option value="revocation" data-price="2999">Revocation · ₹2,999</option>
+                <option value="returns" data-price="5999" selected>Revocation + Returns · ₹5,999</option>
+                <option value="complex" data-price="9999">Complex Cases · ₹9,999</option>
+                <option value="unsure" data-price="0">Not sure yet</option>
+              </select>
+            </div>
+            <input type="hidden" name="service" value="gst-revocation" />
+            <input type="hidden" name="utm_source" />
+            <input type="hidden" name="utm_medium" />
+            <input type="hidden" name="utm_campaign" />
+            <input type="hidden" name="gclid" />
+            <input type="hidden" name="fbclid" />
+            <input type="hidden" name="msclkid" />
+            <button class="btn btn--brand btn--block" type="submit">Request a call-back</button>
+            <p class="form-note">Protected under the DPDP Act, 2023.</p>
+          </form>
+        </div>
+      </div>
+    </dialog>
+
+    <!-- Mobile action bar -->
+    <div class="actionbar">
+      <a class="btn btn--ghost btn--sm" href="https://wa.me/910000000000?text=Hi%2C%20my%20GST%20registration%20was%20cancelled" rel="noopener" target="_blank" data-track="click_whatsapp" data-location="actionbar"
+        ><svg width="16" height="16" aria-hidden="true"><use href="#i-wa" /></svg> WhatsApp</a
+      >
+      <a class="btn btn--brand btn--sm" href="#get-started" data-modal-open data-track="cta_click" data-location="actionbar">Restore GSTIN</a>
+    </div>
+
+    <!-- Sticky promo bar (desktop). Shows after the first screen, hides at the footer and once closed. -->
+    <aside class="promo-bar" data-promo-bar aria-label="Restore your GST registration">
+      <div>
+        <strong>GST revocation filed in 24 hours, CA-reviewed.</strong>
+        <span>Pending returns, dues, REG-21 and officer replies handled for you.</span>
+      </div>
+      <div style="display: flex; align-items: center">
+        <a class="btn btn--brand shine" href="#get-started" data-modal-open data-track="cta_click" data-location="promo-bar">Restore my GSTIN</a>
+        <button type="button" class="promo-bar__close" data-promo-bar-close><span class="visually-hidden">Close</span><span aria-hidden="true">×</span></button>
+      </div>
+    </aside>
+
+    <script src="../assets/js/bef-page.js" defer></script>
+<!--PAGE-SCRIPT-->
+  </body>
+</html>
