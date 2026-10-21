@@ -8,6 +8,7 @@ Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, 
 - [GST Registration](https://bharatefiling.com/gst-registration/): eligibility, turnover limits, Rule 14A 3-day registration, documents, process, fees, penalties and FAQs
 - [GST LUT Filing](https://bharatefiling.com/gst-lut-filing/): Letter of Undertaking in Form GST RFD-11, eligibility, validity, Rule 96A export deadlines, documents, process, refunds and FAQs
 - [GST Return Filing](https://bharatefiling.com/gst-return-filing/): GSTR-1, GSTR-3B, GSTR-9 filing
+- [GST Registration Amendment](https://bharatefiling.com/gst-registration-amendment/): core vs non-core fields, Form REG-14, 15-day time limit, documents, when a new GSTIN is needed and FAQs
 - [GST Annual Return Filing (GSTR-9)](https://bharatefiling.com/gst-annual-return-filing/): GSTR-9 and GSTR-9C applicability by turnover, FY 2025-26 due date, late fee, missed-ITC deadline, tables, documents and FAQs
 - [GST Notice Reply](https://bharatefiling.com/gst-notice-reply/): types of GST notices (ASMT-10, DRC-01, DRC-01B/01C, GSTR-3A, REG-17), reply forms and deadlines, Section 74A penalty relief, appeals and FAQs
 - [GST LUT Filing](https://bharatefiling.com/gst-lut-filing/): export without paying IGST
