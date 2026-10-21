@@ -5519,3 +5519,48 @@ img[hidden] {
 .expert-stack__main:has(> img:not([hidden])) .expert-mono {
   display: none;
 }
+
+/* Eligibility checker: inline checkboxes and a verdict line */
+.checks-inline {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 var(--s-5);
+  padding: 0;
+  border: 0;
+}
+
+.checks-inline legend {
+  margin-bottom: 8px;
+  font-size: var(--fs-14);
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.checks-inline label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-15);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.checks-inline input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--navy);
+}
+
+.result__verdict {
+  margin: 0 0 var(--s-3);
+  font-size: var(--fs-19);
+  font-weight: 700;
+}
+
+.result__verdict.is-yes {
+  color: var(--amber);
+}
+
+.result__verdict.is-no {
+  color: #8fe388;
+}

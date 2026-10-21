@@ -5603,6 +5603,51 @@ img[hidden] {
   display: none;
 }
 
+/* Eligibility checker: inline checkboxes and a verdict line */
+.checks-inline {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 var(--s-5);
+  padding: 0;
+  border: 0;
+}
+
+.checks-inline legend {
+  margin-bottom: 8px;
+  font-size: var(--fs-14);
+  font-weight: 500;
+  color: var(--ink-2);
+}
+
+.checks-inline label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-15);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.checks-inline input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--navy);
+}
+
+.result__verdict {
+  margin: 0 0 var(--s-3);
+  font-size: var(--fs-19);
+  font-weight: 700;
+}
+
+.result__verdict.is-yes {
+  color: var(--amber);
+}
+
+.result__verdict.is-no {
+  color: #8fe388;
+}
+
 </style>
     <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii00MCAwIDU2NSA1NjgiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iQmhhcmF0IGVGaWxpbmciPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJvIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0ZGODgxMyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNGQ0MyMjQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMkY2RjI3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzRFQjAzRiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHBhdGggZmlsbD0idXJsKCNvKSIgZD0iTTAgMGg0ODV2MTQySDE0MXYyODhoMzQ0djEzOEgweiIvPgogIDxwYXRoIGZpbGw9InVybCgjZykiIGQ9Ik0zMzEgMTQyaDE0OEwzMjYgMjg0bC03Mi02OHoiLz4KICA8cGF0aCBmaWxsPSIjNEVCMDNGIiBkPSJNMjU0IDIxNmw3MiA2OCAxNTcgMTQ2SDMzNmwtODItNzZ6Ii8+Cjwvc3ZnPgo=" type="image/svg+xml" />
 

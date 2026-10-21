@@ -1,6 +1,6 @@
 # Service page design v2 ("new adopted design")
 
-Status: **draft, waiting for approval.** Reference build: `gst-return-filing/index.html`.
+Status: **draft, waiting for approval.** Reference builds: `gst-return-filing/index.html` and `gst-registration/index.html` (rebuilt in v2 on 21 Oct 2026, with an eligibility checker and a registration date planner).
 Once it's approved, "create the new adopted design for <service>" means: build that service page in this layout, with no extra questions.
 Everything in `PRODUCT-PAGE-STANDARD.md` still applies (SEO, AEO, GEO, schema, fact-checking, Income-tax Act 2025 references, no government-fee mentions, "Bharat e-Filing" spelling), except for the section order below.
 
