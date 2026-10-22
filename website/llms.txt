@@ -34,6 +34,7 @@ Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, 
 - [OPC Compliance](https://bharatefiling.com/opc-compliance/): annual compliance for One Person Companies: no AGM, AOC-4 within 180 days, MGT-7A, audit, board meeting relief, nominee changes (INC-3, INC-4), conversion (INC-6), ITR-6, late fees and FAQs
 - [Company Name Change](https://bharatefiling.com/company-name-change/): changing the name of a private limited company, OPC or LLP: name rules, RUN, special resolution, MGT-14, INC-24 and INC-25, LLP Form 5 and Form 3, Rule 29 bar, former name for two years, PAN, TAN and GST updates and FAQs
 - [Registered Office Change](https://bharatefiling.com/registered-office-change/): shifting the registered office of a company, OPC or LLP: same city (board resolution, INC-22), same state (special resolution, MGT-14), another ROC or state (INC-23, INC-26, INC-28), LLP Form 15, GST and PAN updates, penalties and FAQs
+- [DIN eKYC Filing](https://bharatefiling.com/din-ekyc-filing/): DIR-3 KYC Web for DIN holders under the three-year cycle from 31 March 2026 (due by 30 June), 30-day updates for mobile, email or address, DIR-6, deactivated DIN reactivation with the ₹5,000 late fee and FAQs
 
 ## Company
 - [About](https://bharatefiling.com/about-us/)
