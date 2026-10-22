@@ -25,6 +25,7 @@ Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, 
 - [TAN Registration](https://bharatefiling.com/tan-registration/): applying for TAN in Form 49B, who needs a TAN and the PAN-based exceptions (26QB, 26QC, 26QD), TDS deposit and quarterly return dates, penalties and FAQs
 - [TDS Return Filing](https://bharatefiling.com/tds-return-filing/): quarterly TDS and TCS returns (24Q, 26Q, 27Q, 27EQ), due dates, Form 16 and 16A, Section 234E late fee and 271H penalty, TRACES defaults and corrections, TDS rates and thresholds from April 2025, and FAQs
 - [Income Tax Notice Reply](https://bharatefiling.com/income-tax-notice/): what income tax notices under Sections 139(9), 143(1)(a), 143(2), 142(1), 148A, 156, 245 and 270A mean, reply deadlines, DIN verification, demand interest, penalties, rectification and appeals, and FAQs
+- [Revised & Updated Return (ITR-U)](https://bharatefiling.com/updated-return-itr-u/): revised returns under Section 139(5) and updated returns under Section 139(8A), the 48-month window, 25% to 70% additional tax, when ITR-U is barred, other routes, and FAQs
 - [Income-tax Act, 2025 changes](https://bharatefiling.com/learn/income-tax-act-2025-changes/)
 
 ## Company
