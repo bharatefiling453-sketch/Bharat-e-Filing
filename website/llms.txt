@@ -21,6 +21,7 @@ Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, 
 - [Business ITR Filing](https://bharatefiling.com/business-itr-filing/): ITR-3, ITR-4, ITR-5 and ITR-6 for proprietors, firms, LLPs and companies; presumptive taxation (44AD, 44ADA, 44AE), tax audit, partner remuneration and Section 194T TDS, due dates for FY 2025-26 and FAQs
 - [Partnership Firm & LLP ITR Filing](https://bharatefiling.com/partnership-llp-itr-filing/): ITR-5 for partnership firms and LLPs, 30% tax rate, partner remuneration under Section 40(b), Section 194T TDS, tax and LLP audits, LLP Form 8 and Form 11, due dates for FY 2025-26 and FAQs
 - [Company ITR Filing](https://bharatefiling.com/company-itr-filing/): ITR-6 for companies, Section 115BAA vs normal tax and MAT, Form 10-IC, losses and Section 79, Section 80-IAC startups, ROC filings AOC-4 and MGT-7, due dates for FY 2025-26 and FAQs
+- [Trust & NGO Tax Filing](https://bharatefiling.com/trust-ngo-itr-filing/): ITR-7 for trusts, societies and Section 8 companies; 85% application, Form 10 and 9A, Form 10B/10BB audit, corpus and anonymous donations, 80G Form 10BD/10BE, 12AB renewal, FCRA FC-4, due dates for FY 2025-26 and FAQs
 - [Income-tax Act, 2025 changes](https://bharatefiling.com/learn/income-tax-act-2025-changes/)
 
 ## Company
