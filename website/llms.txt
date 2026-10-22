@@ -36,6 +36,7 @@ Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, 
 - [Registered Office Change](https://bharatefiling.com/registered-office-change/): shifting the registered office of a company, OPC or LLP: same city (board resolution, INC-22), same state (special resolution, MGT-14), another ROC or state (INC-23, INC-26, INC-28), LLP Form 15, GST and PAN updates, penalties and FAQs
 - [DIN eKYC Filing](https://bharatefiling.com/din-ekyc-filing/): DIR-3 KYC Web for DIN holders under the three-year cycle from 31 March 2026 (due by 30 June), 30-day updates for mobile, email or address, DIR-6, deactivated DIN reactivation with the ₹5,000 late fee and FAQs
 - [DIN Reactivation](https://bharatefiling.com/din-reactivation/): reactivating a DIN deactivated for missed DIR-3 KYC (DIR-3 KYC Web with the flat ₹5,000 late fee), DIN statuses, Section 164(2) disqualification and its five-year period, surrendered DINs, PAN and DSC checks and FAQs
+- [Director Change](https://bharatefiling.com/director-change/): appointment, resignation and removal of company directors: DIR-2, DIR-8, additional directors (Section 161), resignation (Section 168, DIR-11), removal by special notice (Section 169), DIR-12 within 30 days, minimum and resident directors, LLP Form 4, GST and bank updates and FAQs
 
 ## Company
 - [About](https://bharatefiling.com/about-us/)
