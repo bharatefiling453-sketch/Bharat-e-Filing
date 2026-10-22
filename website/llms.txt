@@ -38,6 +38,7 @@ Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, 
 - [DIN Reactivation](https://bharatefiling.com/din-reactivation/): reactivating a DIN deactivated for missed DIR-3 KYC (DIR-3 KYC Web with the flat ₹5,000 late fee), DIN statuses, Section 164(2) disqualification and its five-year period, surrendered DINs, PAN and DSC checks and FAQs
 - [Director Change](https://bharatefiling.com/director-change/): appointment, resignation and removal of company directors: DIR-2, DIR-8, additional directors (Section 161), resignation (Section 168, DIR-11), removal by special notice (Section 169), DIR-12 within 30 days, minimum and resident directors, LLP Form 4, GST and bank updates and FAQs
 - [Remove a Director](https://bharatefiling.com/remove-director/): removing a company director under Section 169 (special notice under Section 115 and Rule 23, right to be heard, ordinary resolution, DIR-12), EGM requisition under Section 100, automatic vacation under Section 167, removing your own name with DIR-11, and FAQs
+- [ADT-1 Filing](https://bharatefiling.com/adt-1-filing/): filing ADT-1 within 15 days of appointing a company auditor: first auditor (Section 139(6)), five-year appointment at the AGM, casual vacancy, consent and Section 141 certificate, rotation rules, ADT-2 and ADT-3, and FAQs
 
 ## Company
 - [About](https://bharatefiling.com/about-us/)
