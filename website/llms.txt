@@ -30,6 +30,7 @@ Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, 
 
 ## Compliance
 - [Company Compliance](https://bharatefiling.com/company-compliance/): annual ROC compliance for private limited companies and OPCs: board meetings, AGM, AOC-4, MGT-7/7A, ADT-1, DPT-3, MSME-1, DIR-3 KYC (every three years from 2026), small company limits, late fees and FAQs
+- [LLP Compliance](https://bharatefiling.com/llp-compliance/): annual LLP compliance: Form 11 by 30 May, Form 8 by 30 October, ITR-5, audit thresholds, Form 3 and Form 4 for partner changes, DIR-3 KYC for designated partners, ₹100 a day late fees and FAQs
 
 ## Company
 - [About](https://bharatefiling.com/about-us/)
