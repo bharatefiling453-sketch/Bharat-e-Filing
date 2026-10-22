@@ -3,7 +3,7 @@
       (function () {
         "use strict";
         var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-        /* DIR-12: 30 days (Section 170(2), Rule 18); DIR-11: 30 days (Section 168(1)); special notice: at least 14 days before the meeting (Section 115);
+        /* DIR-12: 30 days (Section 170(2), Rule 18); DIR-11: 30 days (Section 168(1)); special notice: at least 14 clear days before the meeting, excluding both days (Section 115, Rule 23);
            additional director holds office until the next AGM, latest 30 Sep (Section 161(1), Section 96); minimum directors: Section 149(1) */
         var MIN = { pvt: 2, pub: 3, opc: 1 };
         function addDays(from, n) {
@@ -52,7 +52,7 @@
           var end = new Date(due.getFullYear(), due.getMonth(), due.getDate(), 23, 59, 59);
           setText("[data-dir12-by]", dmy(due));
           setText("[data-dir11-by]", dmy(due));
-          setText("[data-meeting-from]", dmy(addDays(today, 14)));
+          setText("[data-meeting-from]", dmy(addDays(today, 15)));
           setText("[data-agm-by]", dmy(nextAgm(today)));
           var ms = Math.max(0, end - now);
           var parts = [Math.floor(ms / 86400000), Math.floor(ms / 3600000) % 24, Math.floor(ms / 60000) % 60, Math.floor(ms / 1000) % 60];
@@ -131,10 +131,10 @@
               rows.push(row("DIR-12 by", dmy(addDays(d, 30)), true));
               v.textContent = "The company files DIR-12 within 30 days.";
             } else {
-              var meet = addDays(d, 14);
+              var meet = addDays(d, 15);
               rows.push(row("Meeting no earlier than", dmy(meet)));
               rows.push(row("DIR-12 by (if held then)", dmy(addDays(meet, 30)), true));
-              v.textContent = "Hold the meeting at least 14 days after the special notice.";
+              v.textContent = "Leave 14 clear days between the special notice and the meeting.";
             }
             v.className = "result__verdict is-no";
             document.getElementById("cp-out").innerHTML = rows.join("");
