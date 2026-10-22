@@ -24,6 +24,7 @@ Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, 
 - [Trust & NGO Tax Filing](https://bharatefiling.com/trust-ngo-itr-filing/): ITR-7 for trusts, societies and Section 8 companies; 85% application, Form 10 and 9A, Form 10B/10BB audit, corpus and anonymous donations, 80G Form 10BD/10BE, 12AB renewal, FCRA FC-4, due dates for FY 2025-26 and FAQs
 - [TAN Registration](https://bharatefiling.com/tan-registration/): applying for TAN in Form 49B, who needs a TAN and the PAN-based exceptions (26QB, 26QC, 26QD), TDS deposit and quarterly return dates, penalties and FAQs
 - [TDS Return Filing](https://bharatefiling.com/tds-return-filing/): quarterly TDS and TCS returns (24Q, 26Q, 27Q, 27EQ), due dates, Form 16 and 16A, Section 234E late fee and 271H penalty, TRACES defaults and corrections, TDS rates and thresholds from April 2025, and FAQs
+- [Income Tax Notice Reply](https://bharatefiling.com/income-tax-notice/): what income tax notices under Sections 139(9), 143(1)(a), 143(2), 142(1), 148A, 156, 245 and 270A mean, reply deadlines, DIN verification, demand interest, penalties, rectification and appeals, and FAQs
 - [Income-tax Act, 2025 changes](https://bharatefiling.com/learn/income-tax-act-2025-changes/)
 
 ## Company
