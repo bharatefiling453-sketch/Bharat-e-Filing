@@ -28,6 +28,9 @@ Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, 
 - [Revised & Updated Return (ITR-U)](https://bharatefiling.com/updated-return-itr-u/): revised returns under Section 139(5) and updated returns under Section 139(8A), the 48-month window, 25% to 70% additional tax, when ITR-U is barred, other routes, and FAQs
 - [Income-tax Act, 2025 changes](https://bharatefiling.com/learn/income-tax-act-2025-changes/)
 
+## Compliance
+- [Company Compliance](https://bharatefiling.com/company-compliance/): annual ROC compliance for private limited companies and OPCs: board meetings, AGM, AOC-4, MGT-7/7A, ADT-1, DPT-3, MSME-1, DIR-3 KYC (every three years from 2026), small company limits, late fees and FAQs
+
 ## Company
 - [About](https://bharatefiling.com/about-us/)
 - [Contact](https://bharatefiling.com/contact-us/)
