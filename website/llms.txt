@@ -47,6 +47,7 @@ Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, 
 - [Authorised Capital Increase](https://bharatefiling.com/authorised-capital-increase/): increasing authorised share capital under Section 61 by ordinary resolution (articles permitting) and SH-7 within 30 days, sizing the new limit, share split and consolidation, follow-on allotment with PAS-3 in 15 days, and FAQs
 - [Share Transfer](https://bharatefiling.com/share-transfer/): transferring shares in a private company: SH-4 lodged within 60 days, articles and ROFR, board approval, certificate within one month, refusal and appeal, Rule 9B demat, BEN-2 and FC-TRS, transmission, capital gains on unlisted shares, and FAQs
 - [Demat of Shares](https://bharatefiling.com/demat-of-shares/): dematerialising company shares under Rules 9A and 9B: who is covered (private companies other than small companies, unlisted public companies), the 30 June 2025 and 18-month deadlines, ISIN with NSDL and CDSL, shareholder demat requests, half-yearly PAS-6, and FAQs
+- [LLP Winding Up](https://bharatefiling.com/llp-winding-up/): closing an LLP: strike off in Form 24 under Section 75 and Rule 37 (no business for a year, nil assets and liabilities, partners' consent), catching up pending Form 8 and Form 11, voluntary liquidation of solvent LLPs under IBC Section 59, winding up by the Tribunal, GST and tax closure, restoration, and FAQs
 
 ## Company
 - [About](https://bharatefiling.com/about-us/)
