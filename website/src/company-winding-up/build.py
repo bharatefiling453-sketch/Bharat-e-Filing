@@ -1,4 +1,4 @@
-# Builds llp-winding-up/index.html from the v2 service-page layout (gst-registration/index.html supplies the shared
+# Builds company-winding-up/index.html from the v2 service-page layout (gst-registration/index.html supplies the shared
 # head boilerplate, icon sprite, global nav and footer). Run from website/: python3 src/company-winding-up/build.py
 import json, html, os
 T = open("gst-registration/index.html").read()
