@@ -46,6 +46,7 @@ Pages are reviewed by Chartered Accountants and updated for the CGST Act, 2017, 
 - [AOA Amendment](https://bharatefiling.com/aoa-amendment/): altering the articles of association under Section 14: special resolution and MGT-14 within 30 days, new Table F articles, investor rights from shareholders agreements, entrenchment (Section 5), private-public conversion (INC-27), and FAQs
 - [Authorised Capital Increase](https://bharatefiling.com/authorised-capital-increase/): increasing authorised share capital under Section 61 by ordinary resolution (articles permitting) and SH-7 within 30 days, sizing the new limit, share split and consolidation, follow-on allotment with PAS-3 in 15 days, and FAQs
 - [Share Transfer](https://bharatefiling.com/share-transfer/): transferring shares in a private company: SH-4 lodged within 60 days, articles and ROFR, board approval, certificate within one month, refusal and appeal, Rule 9B demat, BEN-2 and FC-TRS, transmission, capital gains on unlisted shares, and FAQs
+- [Demat of Shares](https://bharatefiling.com/demat-of-shares/): dematerialising company shares under Rules 9A and 9B: who is covered (private companies other than small companies, unlisted public companies), the 30 June 2025 and 18-month deadlines, ISIN with NSDL and CDSL, shareholder demat requests, half-yearly PAS-6, and FAQs
 
 ## Company
 - [About](https://bharatefiling.com/about-us/)
