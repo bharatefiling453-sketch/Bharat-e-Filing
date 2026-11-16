@@ -1277,7 +1277,81 @@ p {
 }
 @media (min-width: 1001px) {
   .plan__for {
-    min-height: 3em;
+    min-height: 3.2em;
+  }
+}
+
+/* ---------------- v3.1: centred hero, exact WhatsApp, highlights, subtle brand lines ---------------- */
+:root {
+  --wa: #25d366; /* official WhatsApp green */
+  --wa-hover: #1fbd59;
+  --wa-ink: #0b2e17; /* dark label keeps the text readable on the bright green */
+  --saffron-line: rgba(255, 136, 19, 0.75);
+  --leaf-line: rgba(60, 140, 49, 0.7);
+}
+.btn--wa {
+  background: var(--wa);
+  color: var(--wa-ink);
+}
+.btn--wa svg {
+  color: #fff;
+  filter: drop-shadow(0 0 0.6px rgba(11, 46, 23, 0.55));
+}
+.btn--wa:hover {
+  background: var(--wa-hover);
+  color: var(--wa-ink);
+}
+
+/* One accent, used sparingly to highlight what matters */
+.hl {
+  color: var(--accent);
+}
+
+/* Centred heading and direct answer */
+.hero .wrap {
+  text-align: center;
+}
+.hero .crumbs ol {
+  justify-content: center;
+}
+.hero h1 {
+  max-width: 880px;
+  margin: 0 auto;
+}
+.hero .answer {
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero .btn-row {
+  justify-content: center;
+}
+
+/* Subtle brand lines: saffron and leaf, only on pricing, guides and tables */
+.plans .plan:first-child {
+  box-shadow: inset 0 3px 0 var(--saffron-line);
+}
+.plans .plan:last-child {
+  box-shadow: inset 0 3px 0 var(--leaf-line);
+}
+.posts .post {
+  box-shadow: inset 0 2px 0 var(--saffron-line);
+}
+.posts .post:nth-child(even) {
+  box-shadow: inset 0 2px 0 var(--leaf-line);
+}
+.posts .post:hover {
+  box-shadow: inset 0 2px 0 var(--saffron-line), 0 8px 28px rgba(0, 0, 0, 0.06);
+}
+.posts .post:nth-child(even):hover {
+  box-shadow: inset 0 2px 0 var(--leaf-line), 0 8px 28px rgba(0, 0, 0, 0.06);
+}
+.table thead th {
+  border-bottom: 2px solid var(--leaf-line);
+}
+
+@media (max-width: 640px) {
+  .wa-desktop {
+    display: none;
   }
 }
 
@@ -1658,6 +1732,11 @@ p {
       <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.8 8 10.2h-6.3l-4.9-6.4L5.3 21H2.2l7.3-8.3L1.8 3h6.4l4.4 5.9zm-1.1 16.2h1.7L7.4 4.7H5.5z" /></symbol>
     </svg>
 
+    <!-- Official WhatsApp logo -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-wa-logo" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" /></symbol>
+    </svg>
+
     <!-- ================= HEADER ================= -->
     <header class="site-header">
       <div class="wrap">
@@ -1676,8 +1755,8 @@ p {
         </nav>
         <div class="nav-actions">
           <a class="login" href="https://bharatefiling.com/my-account/" data-track="login_click" data-location="header">Log in</a>
-          <a class="btn btn--wa btn--sm" href="https://wa.me/910000000000?text=Hi%2C%20my%20GST%20registration%20was%20cancelled" rel="noopener" target="_blank" data-track="click_whatsapp" data-location="header"
-            ><svg width="18" height="18" aria-hidden="true"><use href="#i-wa" /></svg>WhatsApp</a
+          <a class="btn btn--wa btn--sm wa-desktop" href="https://wa.me/910000000000?text=Hi%2C%20my%20GST%20registration%20was%20cancelled" rel="noopener" target="_blank" data-track="click_whatsapp" data-location="header"
+            ><svg width="18" height="18" aria-hidden="true"><use href="#i-wa-logo" /></svg>WhatsApp</a
           >
         </div>
         <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
@@ -1699,7 +1778,7 @@ p {
             </ol>
           </nav>
           <span class="eyebrow">GST Revocation</span>
-          <h1 id="page-title">How to restore a cancelled GST registration</h1>
+          <h1 id="page-title">How to restore a <span class="hl">cancelled GST registration</span></h1>
           <!-- AEO: the direct answer to the heading -->
           <p class="answer">
             If the GST officer cancelled your registration, file your pending returns, pay the dues, and apply for revocation in Form GST REG-21
@@ -1707,9 +1786,7 @@ p {
           </p>
           <div class="btn-row">
             <a class="btn btn--primary" href="#contact" data-track="cta_click" data-location="hero">Get a free call back</a>
-            <a class="btn btn--wa" href="https://wa.me/910000000000?text=Hi%2C%20my%20GST%20registration%20was%20cancelled" rel="noopener" target="_blank" data-track="click_whatsapp" data-location="hero"
-              ><svg width="20" height="20" aria-hidden="true"><use href="#i-wa" /></svg>Chat on WhatsApp</a
-            >
+            <a class="btn btn--outline" href="#pricing" data-track="cta_click" data-location="hero-pricing">See pricing</a>
           </div>
           <p class="hero__meta">Reviewed by a Chartered Accountant · Updated <time datetime="2026-11-16">16 Nov 2026</time></p>
         </div>
@@ -1730,7 +1807,7 @@ p {
             <div class="contact__alt">
               <span>Prefer to chat?</span>
               <a class="btn btn--wa btn--sm" href="https://wa.me/910000000000?text=Hi%2C%20my%20GST%20registration%20was%20cancelled" rel="noopener" target="_blank" data-track="click_whatsapp" data-location="contact"
-                ><svg width="18" height="18" aria-hidden="true"><use href="#i-wa" /></svg>WhatsApp us</a
+                ><svg width="18" height="18" aria-hidden="true"><use href="#i-wa-logo" /></svg>WhatsApp us</a
               >
               <a href="tel:+910000000000" data-track="click_call" data-location="contact">+91&nbsp;00000&nbsp;00000</a>
             </div>
@@ -1787,7 +1864,7 @@ p {
         <div class="wrap">
           <div class="section-head section-head--center">
             <span class="eyebrow">Pricing</span>
-            <h2 id="h-pricing">Simple, fair pricing.</h2>
+            <h2 id="h-pricing">Simple, <span class="hl">fair</span> pricing.</h2>
             <p>One fixed fee per GSTIN. You know the cost before we start.</p>
           </div>
           <div class="plans">
@@ -2113,13 +2190,11 @@ p {
       <!-- ================= CLOSING CTA ================= -->
       <section class="section" aria-labelledby="h-cta">
         <div class="wrap cta">
-          <h2 id="h-cta">Get your GSTIN back.</h2>
+          <h2 id="h-cta">Get your <span class="hl">GSTIN</span> back.</h2>
           <p>Start with a free case review in Hindi or English.</p>
           <div class="btn-row">
             <a class="btn btn--primary" href="#contact" data-track="cta_click" data-location="cta-band">Get a free call back</a>
-            <a class="btn btn--wa" href="https://wa.me/910000000000?text=Hi%2C%20my%20GST%20registration%20was%20cancelled" rel="noopener" target="_blank" data-track="click_whatsapp" data-location="cta-band"
-              ><svg width="20" height="20" aria-hidden="true"><use href="#i-wa" /></svg>Chat on WhatsApp</a
-            >
+            <a class="btn btn--outline" href="tel:+910000000000" data-track="click_call" data-location="cta-band">Call&nbsp;+91&nbsp;00000&nbsp;00000</a>
           </div>
         </div>
       </section>
@@ -2190,7 +2265,7 @@ p {
     <!-- Mobile action bar -->
     <div class="actionbar">
       <a class="btn btn--wa" href="https://wa.me/910000000000?text=Hi%2C%20my%20GST%20registration%20was%20cancelled" rel="noopener" target="_blank" data-track="click_whatsapp" data-location="actionbar"
-        ><svg width="20" height="20" aria-hidden="true"><use href="#i-wa" /></svg>WhatsApp</a
+        ><svg width="20" height="20" aria-hidden="true"><use href="#i-wa-logo" /></svg>WhatsApp</a
       >
       <a class="btn btn--primary" href="#contact" data-track="cta_click" data-location="actionbar">Call back</a>
     </div>
