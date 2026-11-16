@@ -1557,10 +1557,7 @@ html {
   }
 }
 
-/* No bottom action bar any more */
-.actionbar {
-  display: none !important;
-}
+
 @media (max-width: 640px) {
   body {
     padding-bottom: 0;
@@ -2107,4 +2104,41 @@ body.footer-in-view .wa-card__close {
 }
 body.footer-in-view .wa-bubble {
   display: grid;
+}
+
+/* ---------------- v3.6: mobile action bar (WhatsApp + Restore my GSTIN) ---------------- */
+.actionbar {
+  position: fixed;
+  inset: auto 12px calc(12px + env(safe-area-inset-bottom));
+  z-index: 70;
+  display: none;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: var(--shadow-3);
+  border-top: 0;
+}
+.actionbar .btn {
+  flex: 1;
+  min-height: 46px;
+  padding: 0 12px;
+  font-size: 15px;
+}
+.actionbar .wa-ico {
+  color: #25d366;
+}
+@media (max-width: 767px) {
+  .actionbar {
+    display: flex;
+  }
+  body {
+    padding-bottom: 88px;
+  }
+  /* the action bar carries WhatsApp on phones */
+  .wa-float {
+    display: none;
+  }
 }
