@@ -1752,13 +1752,62 @@ html {
   }
 }
 
-/* ---------------- v3.4: footer tone, smaller QR card, related split ---------------- */
-.site-footer {
-  background: #f5f5f7; /* light grey so the footer separates from the white closing section */
-  border-top: 0;
+/* ---------------- v3.4: login box, smaller QR card, coloured closing band, grey footer, services box ---------------- */
+/* Log in: highlighted box with a line that keeps travelling left to right */
+.nav-actions .login.login--box {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 136, 19, 0.45);
+  border-radius: 10px;
+  background: #fff6ec;
+  color: var(--text);
+  font-weight: 600;
 }
-.site-footer .footer__disclaimer {
-  border-top-color: var(--line-2);
+.login--box::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40%;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--saffron), transparent);
+  animation: login-line 2.4s linear infinite;
+}
+@keyframes login-line {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}
+.login--box:hover {
+  border-color: var(--saffron);
+  text-decoration: none;
+}
+@media (max-width: 860px) {
+  .nav-actions .login.login--box {
+    display: inline-flex;
+    min-height: 36px;
+    padding: 0 14px;
+    font-size: 14px;
+  }
+  .menu .menu__login {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .login--box::after {
+    left: 0;
+    width: 100%;
+    background: var(--saffron);
+    transform: none;
+  }
 }
 
 /* Smaller WhatsApp card */
@@ -1799,143 +1848,65 @@ html {
   font-size: 14px;
 }
 
-/* Related services (left) with blogs and an expert CTA (right) */
-.related-split {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
-  gap: clamp(40px, 6vw, 72px);
-  align-items: start;
+/* Closing call-to-action on the logo's navy */
+.cta-band {
+  background: var(--accent);
+  border-top: 0 !important;
 }
-.svc-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.cta-band h2 {
+  color: #fff;
 }
-.svc {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: #fff;
-  color: var(--text);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+.cta-band .hl {
+  color: #ffb25e;
 }
-.svc:hover {
-  border-color: var(--line-2);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
-  text-decoration: none;
-  transform: translateY(-2px);
+.cta-band p {
+  color: rgba(255, 255, 255, 0.78);
 }
-.svc h3 {
-  font-size: 18px;
+.btn--light {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  color: #fff;
 }
-.svc p {
-  margin-top: 6px;
-  color: var(--text-3);
-  font-size: 15px;
+.btn--light:hover {
+  border-color: #fff;
+  color: #fff;
 }
-.svc__go {
-  margin-top: auto;
-  padding-top: 16px;
-  color: var(--accent);
-  font-size: 14px;
-  font-weight: 600;
-}
-.svc__go::after {
-  content: " →";
-  color: var(--saffron);
-}
-.side {
-  position: sticky;
-  top: 84px;
-  display: grid;
-  gap: 20px;
-}
-.side-box {
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: inset 0 2px 0 var(--leaf-line);
-}
-.side-title {
-  font-size: 18px;
-}
-.side-posts {
-  margin: 12px 0 0;
-  padding: 0;
-  list-style: none;
-}
-.side-posts a {
-  display: block;
-  padding: 14px 0;
-  border-top: 1px solid var(--line);
-  color: var(--text);
-}
-.side-posts li:first-child a {
+
+/* Footer on light grey */
+.site-footer {
+  background: #f5f5f7;
   border-top: 0;
 }
-.side-posts a:hover {
-  text-decoration: none;
-}
-.side-posts a:hover strong {
-  color: var(--accent);
-}
-.side-posts .post__cat {
-  display: block;
-  font-size: 11px;
-}
-.side-posts strong {
-  display: block;
-  margin-top: 4px;
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.4;
-}
-.side-posts small {
-  display: block;
-  margin-top: 4px;
-  color: var(--text-3);
-  font-size: 13px;
-}
-.side .link-arrow {
-  margin-top: 8px;
-  font-size: 15px;
-}
-.side-cta {
-  padding: 24px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  box-shadow: inset 0 3px 0 var(--saffron-line);
-}
-.side-cta h3 {
-  font-size: 20px;
-}
-.side-cta p {
-  margin: 8px 0 20px;
-  color: var(--text-3);
-  font-size: 15px;
-}
-@media (max-width: 1000px) {
-  .related-split {
-    grid-template-columns: 1fr;
-  }
-  .side {
-    position: static;
-  }
-}
-@media (max-width: 560px) {
-  .svc-grid {
-    grid-template-columns: 1fr;
-  }
+.site-footer .footer__disclaimer {
+  border-top-color: var(--line-2);
 }
 @media (min-width: 901px) {
   .site-footer {
     padding-bottom: 128px; /* room for the floating WhatsApp card */
+  }
+}
+
+/* Related services inside one box */
+.services-box {
+  padding: 8px 32px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: inset 0 3px 0 var(--saffron-line);
+}
+.services-box .services li:nth-child(-n + 3) a {
+  border-top: 0;
+}
+@media (max-width: 1000px) {
+  .services-box .services li:nth-child(3) a {
+    border-top: 1px solid var(--line);
+  }
+}
+@media (max-width: 640px) {
+  .services-box {
+    padding: 4px 20px;
+  }
+  .services-box .services li:nth-child(2) a {
+    border-top: 1px solid var(--line);
   }
 }
 
@@ -2338,7 +2309,7 @@ html {
           </ul>
         </nav>
         <div class="nav-actions">
-          <a class="login" href="https://bharatefiling.com/my-account/" data-track="login_click" data-location="header">Log in</a>
+          <a class="login login--box" href="https://bharatefiling.com/my-account/" data-track="login_click" data-location="header">Log in</a>
         </div>
         <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
           <span class="visually-hidden">Menu</span>
@@ -2357,7 +2328,7 @@ html {
           <li><a href="#process">Process</a></li>
           <li><a href="#deadlines">Deadlines</a></li>
           <li><a href="#deadline-passed">Missed 90 days?</a></li>
-          <li><a href="#related">Related</a></li>
+          <li><a href="#guides">Guides</a></li>
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#faqs">FAQs</a></li>
         </ul>
@@ -2640,43 +2611,23 @@ html {
         </div>
       </section>
 
-      <!-- ================= 5. RELATED SERVICES (left) + RELATED BLOGS and EXPERT CTA (right) ================= -->
+      <!-- ================= 5. GUIDES (BLOGS), after the article ================= -->
       <!-- PLANNED POSTS: publish each blog below at its URL before go-live, or remove the link. -->
-      <section id="related" class="section" aria-labelledby="h-related">
-        <div class="wrap related-split">
-          <div>
-            <div class="section-head">
-              <span class="eyebrow">More GST help</span>
-              <h2 id="h-related">Related GST services</h2>
-            </div>
-            <ul class="svc-grid">
-            <li><a class="svc" href="https://bharatefiling.com/gst-return-filing/"><h3>GST Return Filing</h3><p>GSTR-1 and GSTR-3B, every month.</p><span class="svc__go">View service</span></a></li>
-            <li><a class="svc" href="https://bharatefiling.com/gst-notice-reply/"><h3>GST Notice Reply</h3><p>Replies to REG-17 and other notices.</p><span class="svc__go">View service</span></a></li>
-            <li><a class="svc" href="https://bharatefiling.com/gst-registration/"><h3>GST Registration</h3><p>A new GSTIN, filed by experts.</p><span class="svc__go">View service</span></a></li>
-            <li><a class="svc" href="https://bharatefiling.com/gst-registration-amendment/"><h3>GST Amendment</h3><p>Change your address or details.</p><span class="svc__go">View service</span></a></li>
-            <li><a class="svc" href="https://bharatefiling.com/gst-annual-return-filing/"><h3>GST Annual Return</h3><p>GSTR-9 and GSTR-9C.</p><span class="svc__go">View service</span></a></li>
-            <li><a class="svc" href="https://bharatefiling.com/gstr-10-filing/"><h3>GSTR-10 Filing</h3><p>The final return after cancellation.</p><span class="svc__go">View service</span></a></li>
-            </ul>
+      <section id="guides" class="section" aria-labelledby="h-guides">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Guides</span>
+            <h2 id="h-guides">Read before you apply.</h2>
           </div>
-          <aside class="side" aria-labelledby="h-side-blogs">
-            <div class="side-box">
-              <h2 class="side-title" id="h-side-blogs">Related blogs</h2>
-              <ul class="side-posts">
-              <li><a href="https://bharatefiling.com/blog/gst-reg-21-revocation-step-by-step/" data-track="related_blog" data-location="related-aside"><span class="post__cat">GST</span><strong>REG-21 step by step: restoring a cancelled GSTIN</strong><small>6 min read</small></a></li>
-              <li><a href="https://bharatefiling.com/blog/gst-revocation-after-90-days/" data-track="related_blog" data-location="related-aside"><span class="post__cat">GST</span><strong>Missed the 90 days? Extension, appeal or a new GSTIN</strong><small>6 min read</small></a></li>
-              <li><a href="https://bharatefiling.com/blog/gst-reg-17-show-cause-notice-reply/" data-track="related_blog" data-location="related-aside"><span class="post__cat">GST</span><strong>Got a REG-17? Reply before it becomes a cancellation</strong><small>5 min read</small></a></li>
-              <li><a href="https://bharatefiling.com/blog/gst-return-3-year-time-limit/" data-track="related_blog" data-location="related-aside"><span class="post__cat">GST</span><strong>The 3-year time limit on GST returns, explained</strong><small>4 min read</small></a></li>
-              <li><a href="https://bharatefiling.com/blog/selling-with-cancelled-gstin/" data-track="related_blog" data-location="related-aside"><span class="post__cat">GST</span><strong>Selling while your GSTIN is cancelled: the risks</strong><small>4 min read</small></a></li>
-              <li><a href="https://bharatefiling.com/blog/tax-audit-due-date-extended-ay-2026-27/" data-track="related_blog" data-location="related-aside"><span class="post__cat">Income tax</span><strong>Tax audit due date extended to 21 Oct 2026</strong><small>6 min read</small></a></li>
-              </ul>
-              <a class="link-arrow" href="https://bharatefiling.com/blog/">All guides</a>
-            </div>
-            <div class="side-cta">
-              <h3>Need help with <span class="hl">GST revocation</span>?</h3>
-              <p>Talk to our expert today. Your first case review is free.</p>
-              <a class="btn btn--primary btn--block" href="#contact" data-modal-open data-track="cta_click" data-location="related-aside">Talk to our expert</a>
-            </div>
-          </aside>
+          <div class="posts">
+            <a class="post" href="https://bharatefiling.com/blog/gst-reg-21-revocation-step-by-step/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>REG-21 step by step: restoring a cancelled GSTIN</h3><span class="post__meta">6 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/gst-revocation-after-90-days/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Missed the 90 days? Extension, appeal or a new GSTIN</h3><span class="post__meta">6 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/gst-reg-17-show-cause-notice-reply/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Got a REG-17? Reply before it becomes a cancellation</h3><span class="post__meta">5 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/gst-return-3-year-time-limit/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>The 3-year time limit on GST returns, explained</h3><span class="post__meta">4 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/selling-with-cancelled-gstin/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Selling while your GSTIN is cancelled: the risks</h3><span class="post__meta">4 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/tax-audit-due-date-extended-ay-2026-27/" data-track="related_blog" data-location="guides"><span class="post__cat">Income tax</span><h3>Tax audit due date extended to 21 Oct 2026</h3><span class="post__meta">6 min read</span></a>
+          </div>
+          <a class="link-arrow" href="https://bharatefiling.com/blog/">All guides</a>
         </div>
       </section>
 
@@ -2770,6 +2721,25 @@ html {
         </div>
       </section>
 
+      <!-- ================= RELATED SERVICES ================= -->
+      <section id="related" class="section" aria-labelledby="h-related">
+        <div class="wrap">
+          <div class="section-head">
+            <h2 id="h-related">Related services</h2>
+          </div>
+          <div class="services-box">
+          <ul class="services">
+            <li><a href="https://bharatefiling.com/gst-return-filing/">GST Return Filing <span>Monthly</span></a></li>
+            <li><a href="https://bharatefiling.com/gst-notice-reply/">GST Notice Reply <span>Any notice</span></a></li>
+            <li><a href="https://bharatefiling.com/gst-registration/">GST Registration <span>New GSTIN</span></a></li>
+            <li><a href="https://bharatefiling.com/gst-registration-amendment/">GST Amendment <span>Address, details</span></a></li>
+            <li><a href="https://bharatefiling.com/gst-annual-return-filing/">GST Annual Return <span>GSTR-9</span></a></li>
+            <li><a href="https://bharatefiling.com/gstr-10-filing/">GSTR-10 Filing <span>Final return</span></a></li>
+          </ul>
+          </div>
+        </div>
+      </section>
+
       <!-- ================= REVIEWER & SOURCES (E-E-A-T) ================= -->
       <section class="section" aria-label="About this page">
         <div class="wrap">
@@ -2790,13 +2760,13 @@ html {
       </section>
 
       <!-- ================= CLOSING CTA ================= -->
-      <section class="section" aria-labelledby="h-cta">
+      <section class="section cta-band" aria-labelledby="h-cta">
         <div class="wrap cta">
           <h2 id="h-cta">Get your <span class="hl">GSTIN</span> back.</h2>
           <p>Start with a free case review in Hindi or English.</p>
           <div class="btn-row">
-            <a class="btn btn--primary" href="#contact" data-modal-open data-track="cta_click" data-location="cta-band">Get a free call back</a>
-            <a class="btn btn--outline" href="tel:+910000000000" data-track="click_call" data-location="cta-band">Call&nbsp;+91&nbsp;00000&nbsp;00000</a>
+            <a class="btn btn--cta" href="#contact" data-modal-open data-track="cta_click" data-location="cta-band">Get a free call back</a>
+            <a class="btn btn--light" href="tel:+910000000000" data-track="click_call" data-location="cta-band">Call&nbsp;+91&nbsp;00000&nbsp;00000</a>
           </div>
         </div>
       </section>
