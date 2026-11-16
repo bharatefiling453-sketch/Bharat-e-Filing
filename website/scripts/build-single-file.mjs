@@ -67,10 +67,16 @@ html = html.replace(
   /\s*<link\s+rel="stylesheet"\s+href="https:\/\/fonts\.googleapis\.com[^"]*"\s*\/>/,
   "",
 );
-replaceOnce(
-  '<link rel="stylesheet" href="../assets/css/bef-design-system.css" />',
-  `<style>\n${fontCss}\n${css}\n</style>`,
-);
+// v3 clean pages use bef-clean.css; every other page uses the design system.
+const cleanLink = '<link rel="stylesheet" href="../assets/css/bef-clean.css" />';
+if (html.includes(cleanLink)) {
+  replaceOnce(cleanLink, `<style>\n${fontCss}\n${read("assets/css/bef-clean.css").toString()}\n</style>`);
+} else {
+  replaceOnce(
+    '<link rel="stylesheet" href="../assets/css/bef-design-system.css" />',
+    `<style>\n${fontCss}\n${css}\n</style>`,
+  );
+}
 replaceOnce(
   '<script src="../assets/js/bef-page.js" defer></script>',
   `<script>\n${js}\n</script>`,

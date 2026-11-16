@@ -1,5 +1,5 @@
-# Builds gst-revocation/index.html from the v2 service-page layout (gst-registration/index.html supplies the shared
-# head boilerplate, icon sprite, global nav and footer). Run from website/: python3 src/gst-revocation/build.py
+# Builds gst-revocation/index.html in the v3 clean layout (assets/css/bef-clean.css). gst-registration/index.html supplies
+# the shared head boilerplate and icon sprite; the header and footer live in main.html. Run from website/: python3 src/gst-revocation/build.py
 import json, html, os
 T = open("gst-registration/index.html").read()
 def cut(a, b, src=T, incl_b=False):
@@ -11,6 +11,7 @@ TITLE = "GST Revocation of Cancellation Online | Bharat e-Filing"
 DESC = "GST registration cancelled by the officer? Apply for revocation in REG-21 within 90 days. Pending returns, dues, officer replies and appeals handled by experts."
 OG = "https://bharatefiling.com/wp-content/uploads/og/gst-revocation-1200x630.jpg"
 PUB = "2026-10-21"
+MOD = "2026-11-16"
 SLUG = "gst-revocation"
 
 FAQ = [
@@ -36,7 +37,7 @@ org["image"] = OG
 graph = [org, site,
  {"@type": "WebPage", "@id": URL + "#webpage", "url": URL, "name": TITLE, "description": DESC, "inLanguage": "en-IN",
   "isPartOf": {"@id": "https://bharatefiling.com/#website"}, "about": {"@id": URL + "#service"}, "breadcrumb": {"@id": URL + "#breadcrumb"},
-  "datePublished": PUB, "dateModified": PUB, "author": {"@id": "https://bharatefiling.com/#organization"},
+  "datePublished": PUB, "dateModified": MOD, "author": {"@id": "https://bharatefiling.com/#organization"},
   "reviewedBy": {"@type": "Person", "name": "REPLACE_CA_NAME", "jobTitle": "Chartered Accountant", "url": "https://bharatefiling.com/team/REPLACE_CA_SLUG/"},
   "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".answer", "#what-is-revocation p:first-of-type"]}, "primaryImageOfPage": OG},
  {"@type": "BreadcrumbList", "@id": URL + "#breadcrumb", "itemListElement": [
@@ -109,15 +110,14 @@ seo = f'''<!DOCTYPE html>
 
 '''
 boiler = cut("    <!-- ===== SEARCH ENGINE VERIFICATION", "    <!-- ===== STRUCTURED DATA").replace(
-    'service: "gst-registration"', 'service: "gst-revocation"')
-assert 'service: "gst-revocation"' in boiler
+    'service: "gst-registration"', 'service: "gst-revocation"').replace(
+    '<link rel="stylesheet" href="../assets/css/bef-design-system.css" />', '<link rel="stylesheet" href="../assets/css/bef-clean.css" />')
+assert 'service: "gst-revocation"' in boiler and "bef-clean.css" in boiler
 sprite = cut("  <body", "    <!-- ================= ANNOUNCEMENT").replace('data-service="gst-registration"', 'data-service="gst-revocation"')
-globalnav = cut("    <!-- ================= GLOBAL NAV", "    <!-- ================= LOCAL NAV")
-footer = cut("    <!-- ================= FOOTER", "    <!-- ================= LEAD POP-UP")
 
 body = open(os.path.join(os.path.dirname(__file__), "main.html")).read()
 faq_html = "\n".join(
-    f'''            <details{" open" if i == 0 else ""}>
+    f'''            <details>
               <summary>{html.escape(q, quote=False)}</summary>
               <div class="faq__a"><p>{html.escape(a, quote=False)}</p></div>
             </details>''' for i, (q, a) in enumerate(FAQ))
@@ -125,8 +125,7 @@ body = body.replace("<!--FAQ-ITEMS-->", faq_html)
 script = open(os.path.join(os.path.dirname(__file__), "page.js")).read()
 
 out = (seo + boiler + "    <!-- ===== STRUCTURED DATA (one @graph) ===== -->\n    <script type=\"application/ld+json\">\n" + schema_json +
-       "\n    </script>\n  </head>\n\n" + sprite + body.replace("<!--GLOBALNAV-->", globalnav.rstrip() + "\n").replace("<!--FOOTER-->", footer.rstrip() + "\n")
-       .replace("<!--PAGE-SCRIPT-->", script.rstrip()))
+       "\n    </script>\n  </head>\n\n" + sprite + body.replace("<!--PAGE-SCRIPT-->", script.rstrip()))
 os.makedirs(SLUG, exist_ok=True)
 open(SLUG + "/index.html", "w").write(out)
 print("built " + SLUG + "/index.html", len(out))
