@@ -481,7 +481,9 @@
           </ul>
         </nav>
         <div class="nav-actions">
-          <a class="login login--box" href="https://bharatefiling.com/my-account/" data-track="login_click" data-location="header">Log in</a>
+          <a class="btn btn--ghost btn--sm shine login-btn" href="https://bharatefiling.com/my-account/" data-track="login_click" data-location="header"
+            ><svg width="16" height="16" aria-hidden="true"><use href="#i-user" /></svg>Log in</a
+          >
         </div>
         <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
           <span class="visually-hidden">Menu</span>
@@ -504,7 +506,7 @@
           <li><a href="#reviews">Reviews</a></li>
           <li><a href="#faqs">FAQs</a></li>
         </ul>
-        <a class="btn btn--cta btn--sm" href="#contact" data-modal-open data-track="cta_click" data-location="localnav">Restore my GSTIN</a>
+        <a class="btn btn--cta btn--sm shine" href="#contact" data-modal-open data-track="cta_click" data-location="localnav" style="--shine-delay: 1.2s">Restore my GSTIN</a>
       </div>
     </nav>
 
@@ -806,29 +808,44 @@
       <!-- ================= REVIEWS (real reviews only) ================= -->
       <section id="reviews" class="section" aria-labelledby="h-reviews">
         <div class="wrap">
-          <div class="section-head">
-            <span class="eyebrow">Client reviews</span>
-            <h2 id="h-reviews">What our clients say.</h2>
+          <div class="reviews-head">
+            <div>
+              <span class="pill">Client reviews</span>
+              <h2 id="h-reviews">What our clients say.</h2>
+            </div>
+            <div class="reviews-head__side">
+              <a class="rating-badge" href="https://bharatefiling.com/reviews/" rel="noopener" data-track="reviews_click" data-location="reviews"
+                ><span class="rating-badge__g" aria-hidden="true">G</span><span><strong aria-hidden="true">★★★★★</strong>Read all reviews on Google</span></a
+              >
+              <div class="t-nav">
+                <button type="button" data-t-scroll="-1" aria-controls="t-track"><span class="visually-hidden">Previous reviews</span><span aria-hidden="true">‹</span></button>
+                <button type="button" data-t-scroll="1" aria-controls="t-track"><span class="visually-hidden">Next reviews</span><span aria-hidden="true">›</span></button>
+              </div>
+            </div>
           </div>
           <!-- Paste real Google reviews word for word, with the client’s permission, and remove data-sample. Do not add rating markup. -->
-          <div class="reviews">
+          <div class="t-track" id="t-track" tabindex="0" aria-label="Client reviews, scroll sideways">
             <figure class="review" data-sample>
               <div class="review__stars" aria-hidden="true">★★★★★</div>
               <blockquote><p>Paste a real Google review here, word for word, with the client’s permission.</p></blockquote>
-              <figcaption><strong>Client name</strong>City · GST Revocation</figcaption>
+              <figcaption><span class="t-avatar" aria-hidden="true">CN</span><span><strong>Client name</strong>City · GST Revocation</span></figcaption>
             </figure>
             <figure class="review" data-sample>
               <div class="review__stars" aria-hidden="true">★★★★★</div>
               <blockquote><p>Paste a real Google review here, word for word, with the client’s permission.</p></blockquote>
-              <figcaption><strong>Client name</strong>City · GST Revocation</figcaption>
+              <figcaption><span class="t-avatar" aria-hidden="true">CN</span><span><strong>Client name</strong>City · GST Revocation</span></figcaption>
             </figure>
             <figure class="review" data-sample>
               <div class="review__stars" aria-hidden="true">★★★★★</div>
               <blockquote><p>Paste a real Google review here, word for word, with the client’s permission.</p></blockquote>
-              <figcaption><strong>Client name</strong>City · GST Revocation</figcaption>
+              <figcaption><span class="t-avatar" aria-hidden="true">CN</span><span><strong>Client name</strong>City · GST Revocation</span></figcaption>
+            </figure>
+            <figure class="review" data-sample>
+              <div class="review__stars" aria-hidden="true">★★★★★</div>
+              <blockquote><p>Paste a real Google review here, word for word, with the client’s permission.</p></blockquote>
+              <figcaption><span class="t-avatar" aria-hidden="true">CN</span><span><strong>Client name</strong>City · GST Revocation</span></figcaption>
             </figure>
           </div>
-          <a class="link-arrow" href="https://bharatefiling.com/reviews/" rel="noopener" data-track="reviews_click" data-location="reviews">Read all reviews on Google</a>
         </div>
       </section>
 
@@ -899,15 +916,13 @@
           <div class="section-head">
             <h2 id="h-related">Related services</h2>
           </div>
-          <div class="services-box">
-          <ul class="services">
-            <li><a href="https://bharatefiling.com/gst-return-filing/">GST Return Filing <span>Monthly</span></a></li>
-            <li><a href="https://bharatefiling.com/gst-notice-reply/">GST Notice Reply <span>Any notice</span></a></li>
-            <li><a href="https://bharatefiling.com/gst-registration/">GST Registration <span>New GSTIN</span></a></li>
-            <li><a href="https://bharatefiling.com/gst-registration-amendment/">GST Amendment <span>Address, details</span></a></li>
-            <li><a href="https://bharatefiling.com/gst-annual-return-filing/">GST Annual Return <span>GSTR-9</span></a></li>
-            <li><a href="https://bharatefiling.com/gstr-10-filing/">GSTR-10 Filing <span>Final return</span></a></li>
-          </ul>
+          <div class="svc-cards">
+            <a class="svc-card" href="https://bharatefiling.com/gst-return-filing/"><span class="tag">Monthly</span><h3>GST Return Filing</h3></a>
+            <a class="svc-card" href="https://bharatefiling.com/gst-notice-reply/"><span class="tag">Any notice</span><h3>GST Notice Reply</h3></a>
+            <a class="svc-card" href="https://bharatefiling.com/gst-registration/"><span class="tag">New GSTIN</span><h3>GST Registration</h3></a>
+            <a class="svc-card" href="https://bharatefiling.com/gst-registration-amendment/"><span class="tag">Address, details</span><h3>GST Amendment</h3></a>
+            <a class="svc-card" href="https://bharatefiling.com/gst-annual-return-filing/"><span class="tag">GSTR-9</span><h3>GST Annual Return</h3></a>
+            <a class="svc-card" href="https://bharatefiling.com/gstr-10-filing/"><span class="tag">Final return</span><h3>GSTR-10 Filing</h3></a>
           </div>
         </div>
       </section>
@@ -922,7 +937,7 @@
               <a href="https://bharatefiling.com/editorial-policy/">Editorial policy</a>
             </p>
             <h2>Sources</h2>
-            <ul>
+            <ul class="sources">
               <li><a href="https://cbic-gst.gov.in/" rel="noopener" target="_blank">CBIC — CGST Act, 2017, Section 30 and Section 107</a></li>
               <li><a href="https://cbic-gst.gov.in/" rel="noopener" target="_blank">CBIC — CGST Rules, 2017, Rule 23</a></li>
               <li><a href="https://tutorial.gst.gov.in/" rel="noopener" target="_blank">GST Portal — user manual for revocation of cancellation</a></li>
@@ -932,20 +947,24 @@
       </section>
 
       <!-- ================= CLOSING CTA ================= -->
-      <section class="section cta-band" aria-labelledby="h-cta">
-        <div class="wrap cta">
+      <section class="section cta-section" aria-labelledby="h-cta">
+        <div class="wrap">
+          <div class="cta cta-box">
           <h2 id="h-cta">Get your <span class="hl">GSTIN</span> back.</h2>
           <p>Start with a free case review in Hindi or English.</p>
           <div class="btn-row">
-            <a class="btn btn--cta" href="#contact" data-modal-open data-track="cta_click" data-location="cta-band">Get a free call back</a>
-            <a class="btn btn--light" href="tel:+910000000000" data-track="click_call" data-location="cta-band">Call&nbsp;+91&nbsp;00000&nbsp;00000</a>
+            <a class="btn btn--cta shine" href="#contact" data-modal-open data-track="cta_click" data-location="cta-band">Get a free call back</a>
+            <a class="btn btn--light" href="tel:+910000000000" data-track="click_call" data-location="cta-band"
+              ><svg width="16" height="16" aria-hidden="true"><use href="#i-phone" /></svg>Call&nbsp;+91&nbsp;00000&nbsp;00000</a
+            >
+          </div>
           </div>
         </div>
       </section>
     </main>
 
     <!-- ================= FOOTER ================= -->
-    <footer class="site-footer">
+    <footer class="site-footer footer">
       <div class="wrap">
         <div class="footer__top">
           <div class="footer__brand">
@@ -1024,6 +1043,18 @@
         ><span class="visually-hidden">Chat on WhatsApp</span><svg width="30" height="30" aria-hidden="true"><use href="#i-wa-logo" /></svg></a
       >
     </div>
+
+    <!-- ================= STICKY PROMO BAR (desktop): after the first screen, hidden at the footer and once closed ================= -->
+    <aside class="promo-bar" data-promo-bar aria-label="Restore your GSTIN">
+      <div>
+        <strong>REG-21 filed within 24 hours, checked by a CA.</strong>
+        <span>Pending returns, dues and officer replies handled for you.</span>
+      </div>
+      <div class="promo-bar__actions">
+        <a class="btn btn--cta shine" href="#contact" data-modal-open data-track="cta_click" data-location="promo-bar" style="--shine-delay: 2.4s">Restore my GSTIN</a>
+        <button type="button" class="promo-bar__close" data-promo-bar-close><span class="visually-hidden">Close</span><span aria-hidden="true">×</span></button>
+      </div>
+    </aside>
 
     <!-- ================= LEAD POP-UP (opens from buttons, on exit intent, or after 45 s once per session) ================= -->
     <dialog class="modal" id="lead-modal" aria-labelledby="modal-title">
@@ -1150,6 +1181,22 @@
                 /* ignore */
               }
             });
+        }
+
+        /* ---- Hide the promo bar while the closing call-to-action box is on screen ---- */
+        var ctaBox = document.querySelector(".cta-box");
+        if (ctaBox && "IntersectionObserver" in window) {
+          new IntersectionObserver(function (entries) {
+            document.body.classList.toggle("cta-in-view", entries[0].isIntersecting);
+          }).observe(ctaBox);
+        }
+
+        /* ---- Over the footer, the WhatsApp card shrinks to the round button so it doesn't cover the links ---- */
+        var foot = document.querySelector(".site-footer");
+        if (foot && "IntersectionObserver" in window) {
+          new IntersectionObserver(function (entries) {
+            document.body.classList.toggle("footer-in-view", entries[0].isIntersecting);
+          }).observe(foot);
         }
 
         /* ---- Pricing buttons pre-select the plan in the contact form ---- */

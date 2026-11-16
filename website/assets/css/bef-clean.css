@@ -1671,63 +1671,6 @@ html {
 }
 
 /* ---------------- v3.4: login box, smaller QR card, coloured closing band, grey footer, services box ---------------- */
-/* Log in: highlighted box with a line that keeps travelling left to right */
-.nav-actions .login.login--box {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  min-height: 40px;
-  padding: 0 20px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 136, 19, 0.45);
-  border-radius: 10px;
-  background: #fff6ec;
-  color: var(--text);
-  font-weight: 600;
-}
-.login--box::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 40%;
-  height: 2px;
-  border-radius: 2px;
-  background: linear-gradient(90deg, transparent, var(--saffron), transparent);
-  animation: login-line 2.4s linear infinite;
-}
-@keyframes login-line {
-  from {
-    transform: translateX(-100%);
-  }
-  to {
-    transform: translateX(250%);
-  }
-}
-.login--box:hover {
-  border-color: var(--saffron);
-  text-decoration: none;
-}
-@media (max-width: 860px) {
-  .nav-actions .login.login--box {
-    display: inline-flex;
-    min-height: 36px;
-    padding: 0 14px;
-    font-size: 14px;
-  }
-  .menu .menu__login {
-    display: none;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .login--box::after {
-    left: 0;
-    width: 100%;
-    background: var(--saffron);
-    transform: none;
-  }
-}
-
 /* Smaller WhatsApp card */
 .wa-card {
   width: 268px;
@@ -1766,30 +1709,6 @@ html {
   font-size: 14px;
 }
 
-/* Closing call-to-action on the logo's navy */
-.cta-band {
-  background: var(--accent);
-  border-top: 0 !important;
-}
-.cta-band h2 {
-  color: #fff;
-}
-.cta-band .hl {
-  color: #ffb25e;
-}
-.cta-band p {
-  color: rgba(255, 255, 255, 0.78);
-}
-.btn--light {
-  border-color: rgba(255, 255, 255, 0.5);
-  background: transparent;
-  color: #fff;
-}
-.btn--light:hover {
-  border-color: #fff;
-  color: #fff;
-}
-
 /* Footer on light grey */
 .site-footer {
   background: #f5f5f7;
@@ -1804,26 +1723,388 @@ html {
   }
 }
 
-/* Related services inside one box */
-.services-box {
-  padding: 8px 32px;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  box-shadow: inset 0 3px 0 var(--saffron-line);
+
+/* ---------------- v3.5: shine buttons, ghost Log in, service cards, reviews carousel, CTA box, promo bar ---------------- */
+:root {
+  --navy-deep: #0a1640;
+  --navy-tint: #eef1fb;
+  --saffron-text: #b45309; /* saffron dark enough for small text on white */
+  --shadow-1: 0 1px 2px rgba(16, 33, 97, 0.04), 0 2px 8px rgba(16, 33, 97, 0.04);
+  --shadow-2: 0 2px 6px rgba(16, 33, 97, 0.04), 0 12px 32px rgba(16, 33, 97, 0.08);
+  --shadow-3: 0 4px 12px rgba(16, 33, 97, 0.06), 0 30px 60px rgba(16, 33, 97, 0.14);
 }
-.services-box .services li:nth-child(-n + 3) a {
-  border-top: 0;
+
+/* Shine sweep: a soft light passes across the button every few seconds */
+.shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: -20% auto -20% -60%;
+  z-index: 1;
+  width: 45%;
+  background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.75) 50%, transparent 100%);
+  transform: skewX(-18deg);
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .shine::after {
+    animation: shine-sweep 3.6s ease-in-out infinite;
+    animation-delay: var(--shine-delay, 0s);
+  }
+}
+@keyframes shine-sweep {
+  0% {
+    left: -60%;
+  }
+  45%,
+  100% {
+    left: 130%;
+  }
+}
+
+/* Log in: soft navy box with a user icon */
+.btn--ghost {
+  background: rgba(16, 33, 97, 0.06);
+  color: var(--accent);
+}
+.btn--ghost:hover {
+  background: rgba(16, 33, 97, 0.1);
+  color: var(--accent);
+}
+@media (max-width: 860px) {
+  .nav-actions .login-btn {
+    display: inline-flex;
+    min-height: 38px;
+    padding: 0 14px;
+    font-size: 14px;
+  }
+  .menu .menu__login {
+    display: none;
+  }
+}
+
+/* Small pills and tags */
+.pill,
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 136, 19, 0.12);
+  color: var(--saffron-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+.pill {
+  margin-bottom: 14px;
+}
+
+/* Related services as soft cards */
+.svc-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+.svc-card {
+  display: block;
+  min-height: 150px;
+  padding: 28px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line), var(--shadow-1);
+  color: var(--text);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.svc-card:hover {
+  box-shadow: 0 0 0 1px var(--line), var(--shadow-2);
+  text-decoration: none;
+  transform: translateY(-4px);
+}
+.svc-card h3 {
+  margin-top: 14px;
+  font-size: 19px;
 }
 @media (max-width: 1000px) {
-  .services-box .services li:nth-child(3) a {
-    border-top: 1px solid var(--line);
+  .svc-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-@media (max-width: 640px) {
-  .services-box {
-    padding: 4px 20px;
+@media (max-width: 560px) {
+  .svc-cards {
+    grid-template-columns: 1fr;
   }
-  .services-box .services li:nth-child(2) a {
-    border-top: 1px solid var(--line);
+  .svc-card {
+    min-height: 0;
   }
+}
+
+/* Reviews carousel (real reviews only; data-sample cards are placeholders) */
+.reviews-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+.reviews-head__side {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px 8px 8px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line), var(--shadow-1);
+  color: var(--text-2);
+  font-size: 14px;
+}
+.rating-badge:hover {
+  text-decoration: none;
+  box-shadow: 0 0 0 1px var(--line-2), var(--shadow-2);
+}
+.rating-badge__g {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--navy-tint);
+  color: var(--accent);
+  font-weight: 800;
+}
+.rating-badge strong {
+  display: block;
+  color: #f5a524;
+  letter-spacing: 1px;
+}
+.t-nav {
+  display: flex;
+  gap: 8px;
+}
+.t-nav button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line-2);
+  color: var(--accent);
+  font-size: 20px;
+  cursor: pointer;
+}
+.t-nav button:hover {
+  box-shadow: 0 0 0 1px var(--accent);
+}
+.t-track {
+  display: grid;
+  grid-auto-columns: min(86%, 380px);
+  grid-auto-flow: column;
+  gap: 20px;
+  margin: 0 calc(-1 * var(--gutter));
+  padding: 4px var(--gutter) 16px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-padding-inline: var(--gutter);
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.t-track::-webkit-scrollbar {
+  display: none;
+}
+.t-track .review {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 28px;
+  border: 0;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--line), var(--shadow-1);
+  scroll-snap-align: start;
+}
+.t-track .review__stars {
+  color: #f5a524;
+  font-size: 19px;
+  letter-spacing: 2px;
+}
+.t-track .review blockquote {
+  margin: 14px 0 20px;
+  color: var(--text-2);
+  font-size: 16px;
+}
+.t-track .review figcaption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+}
+.t-track .review figcaption span:last-child {
+  display: grid;
+}
+.t-avatar {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--navy-tint);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+}
+.review[data-sample]::after {
+  content: "Sample";
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #f2f2f4;
+  color: var(--text-3);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* Sources in two columns */
+.about ul.sources {
+  columns: 2 280px;
+  column-gap: 48px;
+  margin-top: 16px;
+  padding: 0;
+  list-style: none;
+}
+.about ul.sources li {
+  break-inside: avoid;
+  margin: 0 0 12px;
+}
+.about ul.sources a {
+  color: var(--accent);
+  font-size: 15px;
+  text-decoration: underline;
+  text-decoration-color: rgba(16, 33, 97, 0.3);
+  text-underline-offset: 4px;
+}
+.about ul.sources a:hover {
+  text-decoration-color: var(--accent);
+}
+
+/* Closing CTA: rounded navy box with soft logo-colour glows */
+.cta-section {
+  border-top: 0 !important;
+}
+.cta-box {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(48px, 6vw, 88px) var(--gutter);
+  border-radius: 28px;
+  background:
+    radial-gradient(70% 90% at 100% 0%, rgba(255, 136, 19, 0.35), transparent 60%),
+    radial-gradient(60% 80% at 0% 100%, rgba(78, 176, 63, 0.22), transparent 60%),
+    var(--navy-deep);
+  color: #c7cde0;
+}
+.cta-box h2 {
+  color: #fff;
+}
+.cta-box .hl {
+  color: #ffb25e;
+}
+.cta-box p {
+  color: #c7cde0;
+}
+.btn--light {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  color: #fff;
+}
+.btn--light:hover {
+  border-color: #fff;
+  color: #fff;
+}
+
+/* Sticky promo bar (desktop) */
+.promo-bar {
+  position: fixed;
+  right: 0;
+  bottom: 20px;
+  left: 0;
+  z-index: 65;
+  display: none;
+  width: min(1120px, calc(100% - 2 * var(--gutter)));
+  margin: 0 auto;
+  padding: 18px 20px 18px 32px;
+  border-radius: 22px;
+  background: linear-gradient(110deg, var(--navy-deep) 0%, var(--accent) 60%, #1d3592 100%);
+  box-shadow: var(--shadow-3);
+  color: #fff;
+  transform: translateY(140%);
+  transition: transform 0.5s ease-out;
+}
+@media (min-width: 901px) {
+  .promo-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+}
+.promo-bar.is-on {
+  transform: none;
+}
+.promo-bar strong {
+  display: block;
+  color: #fff;
+  font-size: 20px;
+}
+.promo-bar span {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 15px;
+}
+.promo-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.promo-bar__close {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 22px;
+  cursor: pointer;
+}
+/* Lift the WhatsApp card while the promo bar is showing */
+.wa-float {
+  transition: bottom 0.4s ease-out;
+}
+body:has(.promo-bar.is-on) .wa-float {
+  bottom: 128px;
+}
+body.cta-in-view .promo-bar.is-on {
+  transform: translateY(140%);
+}
+body.cta-in-view .wa-float {
+  bottom: 24px;
+}
+body.footer-in-view .wa-card,
+body.footer-in-view .wa-card__close {
+  display: none;
+}
+body.footer-in-view .wa-bubble {
+  display: grid;
 }

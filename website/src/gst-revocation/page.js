@@ -74,6 +74,22 @@
             });
         }
 
+        /* ---- Hide the promo bar while the closing call-to-action box is on screen ---- */
+        var ctaBox = document.querySelector(".cta-box");
+        if (ctaBox && "IntersectionObserver" in window) {
+          new IntersectionObserver(function (entries) {
+            document.body.classList.toggle("cta-in-view", entries[0].isIntersecting);
+          }).observe(ctaBox);
+        }
+
+        /* ---- Over the footer, the WhatsApp card shrinks to the round button so it doesn't cover the links ---- */
+        var foot = document.querySelector(".site-footer");
+        if (foot && "IntersectionObserver" in window) {
+          new IntersectionObserver(function (entries) {
+            document.body.classList.toggle("footer-in-view", entries[0].isIntersecting);
+          }).observe(foot);
+        }
+
         /* ---- Pricing buttons pre-select the plan in the contact form ---- */
         var planSelect = document.getElementById("f-plan");
         document.querySelectorAll("a[data-plan]").forEach(function (a) {
