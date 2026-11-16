@@ -20,8 +20,8 @@
           d.setDate(Math.min(from.getDate(), last));
           return d;
         }
-        function row(label, value, total) {
-          return "<div" + (total ? ' class="is-total"' : "") + "><dt>" + label + "</dt><dd>" + value + "</dd></div>";
+        function row(label, value, cls) {
+          return "<div" + (cls ? ' class="' + cls + '"' : "") + "><dt>" + label + "</dt><dd>" + value + "</dd></div>";
         }
         var used = false;
 
@@ -36,10 +36,10 @@
             if (p.length < 3) return;
             var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
             document.getElementById("rp-out").innerHTML = [
-              row("Apply in REG-21 by", dmy(addDays(d, 90)), true),
-              row("With an extension, by", dmy(addDays(d, 270))),
-              row("Appeal in APL-01 by", dmy(addMonths(d, 3))),
-              row("Late appeal, by", dmy(addMonths(d, 4))),
+              row("Apply in REG-21 by", dmy(addDays(d, 90)), "is-total mark-leaf"),
+              row("With an extension, by", dmy(addDays(d, 270)), "mark-saffron"),
+              row("Appeal in APL-01 by", dmy(addMonths(d, 3)), "mark-line"),
+              row("Late appeal, by", dmy(addMonths(d, 4)), "mark-line"),
             ].join("");
           };
           rp.addEventListener("input", function () {

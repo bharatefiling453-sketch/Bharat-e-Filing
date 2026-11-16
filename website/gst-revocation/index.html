@@ -644,27 +644,7 @@
         </div>
       </section>
 
-      <!-- ================= 4. GUIDES (BLOGS) ================= -->
-      <!-- PLANNED POSTS: publish each blog below at its URL before go-live, or remove the link. -->
-      <section id="guides" class="section" aria-labelledby="h-guides">
-        <div class="wrap">
-          <div class="section-head">
-            <span class="eyebrow">Guides</span>
-            <h2 id="h-guides">Read before you apply.</h2>
-          </div>
-          <div class="posts">
-            <a class="post" href="https://bharatefiling.com/blog/gst-reg-21-revocation-step-by-step/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>REG-21 step by step: restoring a cancelled GSTIN</h3><span class="post__meta">6 min read</span></a>
-            <a class="post" href="https://bharatefiling.com/blog/gst-revocation-after-90-days/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Missed the 90 days? Extension, appeal or a new GSTIN</h3><span class="post__meta">6 min read</span></a>
-            <a class="post" href="https://bharatefiling.com/blog/gst-reg-17-show-cause-notice-reply/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Got a REG-17? Reply before it becomes a cancellation</h3><span class="post__meta">5 min read</span></a>
-            <a class="post" href="https://bharatefiling.com/blog/gst-return-3-year-time-limit/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>The 3-year time limit on GST returns, explained</h3><span class="post__meta">4 min read</span></a>
-            <a class="post" href="https://bharatefiling.com/blog/selling-with-cancelled-gstin/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Selling while your GSTIN is cancelled: the risks</h3><span class="post__meta">4 min read</span></a>
-            <a class="post" href="https://bharatefiling.com/blog/tax-audit-due-date-extended-ay-2026-27/" data-track="related_blog" data-location="guides"><span class="post__cat">Income tax</span><h3>Tax audit due date extended to 21 Oct 2026</h3><span class="post__meta">6 min read</span></a>
-          </div>
-          <a class="link-arrow" href="https://bharatefiling.com/blog/">All guides</a>
-        </div>
-      </section>
-
-      <!-- ================= 5. EVERYTHING ELSE ================= -->
+      <!-- ================= 4. EVERYTHING ELSE ================= -->
       <section class="section" aria-label="GST revocation guide">
         <div class="wrap">
           <article class="prose">
@@ -785,6 +765,26 @@
               </ul>
             </section>
           </article>
+        </div>
+      </section>
+
+      <!-- ================= 5. GUIDES (BLOGS), after the article ================= -->
+      <!-- PLANNED POSTS: publish each blog below at its URL before go-live, or remove the link. -->
+      <section id="guides" class="section" aria-labelledby="h-guides">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Guides</span>
+            <h2 id="h-guides">Read before you apply.</h2>
+          </div>
+          <div class="posts">
+            <a class="post" href="https://bharatefiling.com/blog/gst-reg-21-revocation-step-by-step/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>REG-21 step by step: restoring a cancelled GSTIN</h3><span class="post__meta">6 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/gst-revocation-after-90-days/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Missed the 90 days? Extension, appeal or a new GSTIN</h3><span class="post__meta">6 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/gst-reg-17-show-cause-notice-reply/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Got a REG-17? Reply before it becomes a cancellation</h3><span class="post__meta">5 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/gst-return-3-year-time-limit/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>The 3-year time limit on GST returns, explained</h3><span class="post__meta">4 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/selling-with-cancelled-gstin/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Selling while your GSTIN is cancelled: the risks</h3><span class="post__meta">4 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/tax-audit-due-date-extended-ay-2026-27/" data-track="related_blog" data-location="guides"><span class="post__cat">Income tax</span><h3>Tax audit due date extended to 21 Oct 2026</h3><span class="post__meta">6 min read</span></a>
+          </div>
+          <a class="link-arrow" href="https://bharatefiling.com/blog/">All guides</a>
         </div>
       </section>
 
@@ -1020,8 +1020,8 @@
           d.setDate(Math.min(from.getDate(), last));
           return d;
         }
-        function row(label, value, total) {
-          return "<div" + (total ? ' class="is-total"' : "") + "><dt>" + label + "</dt><dd>" + value + "</dd></div>";
+        function row(label, value, cls) {
+          return "<div" + (cls ? ' class="' + cls + '"' : "") + "><dt>" + label + "</dt><dd>" + value + "</dd></div>";
         }
         var used = false;
 
@@ -1036,10 +1036,10 @@
             if (p.length < 3) return;
             var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
             document.getElementById("rp-out").innerHTML = [
-              row("Apply in REG-21 by", dmy(addDays(d, 90)), true),
-              row("With an extension, by", dmy(addDays(d, 270))),
-              row("Appeal in APL-01 by", dmy(addMonths(d, 3))),
-              row("Late appeal, by", dmy(addMonths(d, 4))),
+              row("Apply in REG-21 by", dmy(addDays(d, 90)), "is-total mark-leaf"),
+              row("With an extension, by", dmy(addDays(d, 270)), "mark-saffron"),
+              row("Appeal in APL-01 by", dmy(addMonths(d, 3)), "mark-line"),
+              row("Late appeal, by", dmy(addMonths(d, 4)), "mark-line"),
             ].join("");
           };
           rp.addEventListener("input", function () {

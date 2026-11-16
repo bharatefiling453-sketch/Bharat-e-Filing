@@ -1355,6 +1355,84 @@ p {
   }
 }
 
+/* ---------------- v3.2: logo orange in small, decorative touches ---------------- */
+:root {
+  --saffron: #ff8813; /* decorative only: lines, dots and fills, never small text on white */
+}
+/* 1. Eyebrow labels carry a short saffron dash */
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  margin-right: 10px;
+  border-radius: 2px;
+  background: var(--saffron);
+  vertical-align: middle;
+}
+/* 2. Contact steps: saffron rings */
+.steps-mini li::before {
+  border-color: var(--saffron);
+}
+/* 3. "Most chosen" badge in logo orange with dark text */
+.plan__badge {
+  background: var(--saffron);
+  color: var(--text);
+}
+/* 4. Notes that need attention */
+.callout {
+  border-left-color: var(--saffron);
+}
+/* 5. Process: the line joining the steps */
+.steps li::after {
+  background: linear-gradient(var(--saffron-line), rgba(255, 136, 19, 0.15));
+}
+/* 6. Arrow on "All guides" and "Read all reviews" links */
+.link-arrow::after {
+  color: var(--saffron);
+}
+/* 7. Example box: saffron top hairline */
+.example {
+  box-shadow: inset 0 2px 0 var(--saffron-line);
+}
+
+/* Deadline checker: subtle leaf and saffron markers */
+.tool {
+  box-shadow: inset 0 3px 0 var(--leaf-line);
+}
+.result dl > div[class*="mark-"] dt {
+  position: relative;
+  padding-left: 18px;
+}
+.result dl > div[class*="mark-"] dt::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: var(--line-2);
+}
+.result .mark-leaf dt::before {
+  background: #3c8c31 !important;
+}
+.result .mark-saffron dt::before {
+  background: var(--saffron) !important;
+}
+.result .mark-leaf {
+  margin: 0 -14px;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+  border-radius: 10px;
+  border-top-color: transparent !important;
+  background: rgba(60, 140, 49, 0.07);
+}
+.result .mark-leaf + div {
+  border-top-color: transparent;
+}
+
 </style>
     <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii00MCAwIDU2NSA1NjgiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iQmhhcmF0IGVGaWxpbmciPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJvIiB4MT0iMCIgeTE9IjAiIHgyPSIwIiB5Mj0iMSI+CiAgICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI0ZGODgxMyIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNGQ0MyMjQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMkY2RjI3Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzRFQjAzRiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHBhdGggZmlsbD0idXJsKCNvKSIgZD0iTTAgMGg0ODV2MTQySDE0MXYyODhoMzQ0djEzOEgweiIvPgogIDxwYXRoIGZpbGw9InVybCgjZykiIGQ9Ik0zMzEgMTQyaDE0OEwzMjYgMjg0bC03Mi02OHoiLz4KICA8cGF0aCBmaWxsPSIjNEVCMDNGIiBkPSJNMjU0IDIxNmw3MiA2OCAxNTcgMTQ2SDMzNmwtODItNzZ6Ii8+Cjwvc3ZnPgo=" type="image/svg+xml" />
 
@@ -1917,27 +1995,7 @@ p {
         </div>
       </section>
 
-      <!-- ================= 4. GUIDES (BLOGS) ================= -->
-      <!-- PLANNED POSTS: publish each blog below at its URL before go-live, or remove the link. -->
-      <section id="guides" class="section" aria-labelledby="h-guides">
-        <div class="wrap">
-          <div class="section-head">
-            <span class="eyebrow">Guides</span>
-            <h2 id="h-guides">Read before you apply.</h2>
-          </div>
-          <div class="posts">
-            <a class="post" href="https://bharatefiling.com/blog/gst-reg-21-revocation-step-by-step/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>REG-21 step by step: restoring a cancelled GSTIN</h3><span class="post__meta">6 min read</span></a>
-            <a class="post" href="https://bharatefiling.com/blog/gst-revocation-after-90-days/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Missed the 90 days? Extension, appeal or a new GSTIN</h3><span class="post__meta">6 min read</span></a>
-            <a class="post" href="https://bharatefiling.com/blog/gst-reg-17-show-cause-notice-reply/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Got a REG-17? Reply before it becomes a cancellation</h3><span class="post__meta">5 min read</span></a>
-            <a class="post" href="https://bharatefiling.com/blog/gst-return-3-year-time-limit/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>The 3-year time limit on GST returns, explained</h3><span class="post__meta">4 min read</span></a>
-            <a class="post" href="https://bharatefiling.com/blog/selling-with-cancelled-gstin/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Selling while your GSTIN is cancelled: the risks</h3><span class="post__meta">4 min read</span></a>
-            <a class="post" href="https://bharatefiling.com/blog/tax-audit-due-date-extended-ay-2026-27/" data-track="related_blog" data-location="guides"><span class="post__cat">Income tax</span><h3>Tax audit due date extended to 21 Oct 2026</h3><span class="post__meta">6 min read</span></a>
-          </div>
-          <a class="link-arrow" href="https://bharatefiling.com/blog/">All guides</a>
-        </div>
-      </section>
-
-      <!-- ================= 5. EVERYTHING ELSE ================= -->
+      <!-- ================= 4. EVERYTHING ELSE ================= -->
       <section class="section" aria-label="GST revocation guide">
         <div class="wrap">
           <article class="prose">
@@ -2058,6 +2116,26 @@ p {
               </ul>
             </section>
           </article>
+        </div>
+      </section>
+
+      <!-- ================= 5. GUIDES (BLOGS), after the article ================= -->
+      <!-- PLANNED POSTS: publish each blog below at its URL before go-live, or remove the link. -->
+      <section id="guides" class="section" aria-labelledby="h-guides">
+        <div class="wrap">
+          <div class="section-head">
+            <span class="eyebrow">Guides</span>
+            <h2 id="h-guides">Read before you apply.</h2>
+          </div>
+          <div class="posts">
+            <a class="post" href="https://bharatefiling.com/blog/gst-reg-21-revocation-step-by-step/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>REG-21 step by step: restoring a cancelled GSTIN</h3><span class="post__meta">6 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/gst-revocation-after-90-days/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Missed the 90 days? Extension, appeal or a new GSTIN</h3><span class="post__meta">6 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/gst-reg-17-show-cause-notice-reply/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Got a REG-17? Reply before it becomes a cancellation</h3><span class="post__meta">5 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/gst-return-3-year-time-limit/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>The 3-year time limit on GST returns, explained</h3><span class="post__meta">4 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/selling-with-cancelled-gstin/" data-track="related_blog" data-location="guides"><span class="post__cat">GST</span><h3>Selling while your GSTIN is cancelled: the risks</h3><span class="post__meta">4 min read</span></a>
+            <a class="post" href="https://bharatefiling.com/blog/tax-audit-due-date-extended-ay-2026-27/" data-track="related_blog" data-location="guides"><span class="post__cat">Income tax</span><h3>Tax audit due date extended to 21 Oct 2026</h3><span class="post__meta">6 min read</span></a>
+          </div>
+          <a class="link-arrow" href="https://bharatefiling.com/blog/">All guides</a>
         </div>
       </section>
 
@@ -2835,8 +2913,8 @@ p {
           d.setDate(Math.min(from.getDate(), last));
           return d;
         }
-        function row(label, value, total) {
-          return "<div" + (total ? ' class="is-total"' : "") + "><dt>" + label + "</dt><dd>" + value + "</dd></div>";
+        function row(label, value, cls) {
+          return "<div" + (cls ? ' class="' + cls + '"' : "") + "><dt>" + label + "</dt><dd>" + value + "</dd></div>";
         }
         var used = false;
 
@@ -2851,10 +2929,10 @@ p {
             if (p.length < 3) return;
             var d = new Date(Number(p[0]), Number(p[1]) - 1, Number(p[2]));
             document.getElementById("rp-out").innerHTML = [
-              row("Apply in REG-21 by", dmy(addDays(d, 90)), true),
-              row("With an extension, by", dmy(addDays(d, 270))),
-              row("Appeal in APL-01 by", dmy(addMonths(d, 3))),
-              row("Late appeal, by", dmy(addMonths(d, 4))),
+              row("Apply in REG-21 by", dmy(addDays(d, 90)), "is-total mark-leaf"),
+              row("With an extension, by", dmy(addDays(d, 270)), "mark-saffron"),
+              row("Appeal in APL-01 by", dmy(addMonths(d, 3)), "mark-line"),
+              row("Late appeal, by", dmy(addMonths(d, 4)), "mark-line"),
             ].join("");
           };
           rp.addEventListener("input", function () {

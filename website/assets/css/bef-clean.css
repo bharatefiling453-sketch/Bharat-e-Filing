@@ -1272,3 +1272,81 @@ p {
     display: none;
   }
 }
+
+/* ---------------- v3.2: logo orange in small, decorative touches ---------------- */
+:root {
+  --saffron: #ff8813; /* decorative only: lines, dots and fills, never small text on white */
+}
+/* 1. Eyebrow labels carry a short saffron dash */
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  margin-right: 10px;
+  border-radius: 2px;
+  background: var(--saffron);
+  vertical-align: middle;
+}
+/* 2. Contact steps: saffron rings */
+.steps-mini li::before {
+  border-color: var(--saffron);
+}
+/* 3. "Most chosen" badge in logo orange with dark text */
+.plan__badge {
+  background: var(--saffron);
+  color: var(--text);
+}
+/* 4. Notes that need attention */
+.callout {
+  border-left-color: var(--saffron);
+}
+/* 5. Process: the line joining the steps */
+.steps li::after {
+  background: linear-gradient(var(--saffron-line), rgba(255, 136, 19, 0.15));
+}
+/* 6. Arrow on "All guides" and "Read all reviews" links */
+.link-arrow::after {
+  color: var(--saffron);
+}
+/* 7. Example box: saffron top hairline */
+.example {
+  box-shadow: inset 0 2px 0 var(--saffron-line);
+}
+
+/* Deadline checker: subtle leaf and saffron markers */
+.tool {
+  box-shadow: inset 0 3px 0 var(--leaf-line);
+}
+.result dl > div[class*="mark-"] dt {
+  position: relative;
+  padding-left: 18px;
+}
+.result dl > div[class*="mark-"] dt::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  border-radius: 50%;
+  background: var(--line-2);
+}
+.result .mark-leaf dt::before {
+  background: #3c8c31 !important;
+}
+.result .mark-saffron dt::before {
+  background: var(--saffron) !important;
+}
+.result .mark-leaf {
+  margin: 0 -14px;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+  border-radius: 10px;
+  border-top-color: transparent !important;
+  background: rgba(60, 140, 49, 0.07);
+}
+.result .mark-leaf + div {
+  border-top-color: transparent;
+}
