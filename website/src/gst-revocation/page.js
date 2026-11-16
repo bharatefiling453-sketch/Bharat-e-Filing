@@ -54,6 +54,26 @@
           render();
         }
 
+        /* ---- Floating WhatsApp card: minimise to the round button (remembered for the session) ---- */
+        var waFloat = document.querySelector("[data-wa-float]");
+        if (waFloat) {
+          try {
+            if (sessionStorage.getItem("bef_wa_min") === "1") waFloat.classList.add("is-min");
+          } catch (err) {
+            /* storage blocked: card stays open */
+          }
+          var minBtn = waFloat.querySelector("[data-wa-min]");
+          if (minBtn)
+            minBtn.addEventListener("click", function () {
+              waFloat.classList.add("is-min");
+              try {
+                sessionStorage.setItem("bef_wa_min", "1");
+              } catch (err) {
+                /* ignore */
+              }
+            });
+        }
+
         /* ---- Pricing buttons pre-select the plan in the contact form ---- */
         var planSelect = document.getElementById("f-plan");
         document.querySelectorAll("a[data-plan]").forEach(function (a) {

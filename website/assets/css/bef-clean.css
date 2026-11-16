@@ -1350,3 +1350,322 @@ p {
 .result .mark-leaf + div {
   border-top-color: transparent;
 }
+
+/* ---------------- v3.3: section nav, floating WhatsApp, pop-up ---------------- */
+/* The site header scrolls away; the section nav stays */
+.site-header {
+  position: relative;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  background: #fff;
+}
+html {
+  scroll-padding-top: 72px;
+}
+
+.localnav {
+  position: sticky;
+  top: 0;
+  z-index: 45;
+  background: rgba(255, 255, 255, 0.94);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid var(--line);
+}
+.localnav .wrap {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  min-height: 60px;
+}
+.localnav__title {
+  flex: none;
+  color: var(--text);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+.localnav__title:hover {
+  text-decoration: none;
+}
+.localnav ul {
+  display: flex;
+  gap: 22px;
+  margin: 0 0 0 auto;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.localnav ul::-webkit-scrollbar {
+  display: none;
+}
+.localnav ul a {
+  position: relative;
+  display: block;
+  padding: 19px 0;
+  color: var(--text-2);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.localnav ul a:hover {
+  color: var(--text);
+  text-decoration: none;
+}
+.localnav ul a.is-active {
+  color: var(--accent);
+}
+.localnav ul a.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--saffron);
+}
+/* Call-to-action in logo orange, dark text for contrast */
+.btn--cta {
+  flex: none;
+  background: linear-gradient(135deg, #ff8813, #fcc224);
+  color: var(--text);
+  box-shadow: 0 2px 8px rgba(255, 136, 19, 0.25);
+}
+.btn--cta:hover {
+  background: linear-gradient(135deg, #f47d0a, #f5b915);
+  color: var(--text);
+}
+
+/* Floating WhatsApp: QR card on large screens, round button otherwise */
+.wa-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 70;
+}
+.wa-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 340px;
+  padding: 14px 40px 14px 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  color: var(--text);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.wa-card:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.16);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+.wa-card__qr {
+  position: relative;
+  flex: none;
+  padding: 6px;
+  border-radius: 10px;
+  background: #fff;
+}
+.wa-card__qr img {
+  width: 88px;
+  height: 88px;
+}
+.wa-card__logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin: -14px 0 0 -14px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--wa);
+  color: #fff;
+}
+.wa-card__kicker {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-3);
+  font-size: 12px;
+  font-weight: 600;
+}
+.wa-card__text strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.wa-card__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #f2f2f4;
+  color: var(--text-2);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+.wa-card__close:hover {
+  background: var(--line);
+}
+.wa-bubble {
+  display: none;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--wa);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+  transition: transform 0.2s ease;
+}
+.wa-bubble:hover {
+  transform: scale(1.06);
+}
+.wa-float.is-min .wa-card,
+.wa-float.is-min .wa-card__close {
+  display: none;
+}
+.wa-float.is-min .wa-bubble {
+  display: grid;
+}
+@media (max-width: 900px) {
+  .wa-card,
+  .wa-card__close {
+    display: none;
+  }
+  .wa-bubble {
+    display: grid;
+  }
+  .wa-float {
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+  }
+}
+
+/* No bottom action bar any more */
+.actionbar {
+  display: none !important;
+}
+@media (max-width: 640px) {
+  body {
+    padding-bottom: 0;
+  }
+  .localnav .wrap {
+    gap: 12px;
+    min-height: 56px;
+  }
+  .localnav ul {
+    display: none;
+  }
+  .localnav__title {
+    margin-right: auto;
+    font-size: 17px;
+  }
+}
+@media (min-width: 641px) and (max-width: 1100px) {
+  .localnav__title {
+    display: none;
+  }
+  .localnav ul {
+    margin-left: 0;
+  }
+}
+
+/* Lead pop-up */
+.modal {
+  width: min(760px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: #fff;
+  color: var(--text);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+}
+.modal::backdrop {
+  background: rgba(16, 20, 33, 0.45);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+.modal[open] {
+  animation: modal-in 0.25s ease-out;
+}
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+}
+.modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #f2f2f4;
+  color: var(--text-2);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.modal__grid {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+}
+.modal__aside {
+  padding: 40px 32px;
+  border-right: 1px solid var(--line);
+  box-shadow: inset 0 3px 0 var(--saffron-line);
+}
+.modal__kicker {
+  margin-top: 20px;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 700;
+}
+.modal__aside .checks {
+  margin: 16px 0 0;
+  padding: 16px 0 0;
+}
+.modal__body {
+  padding: 40px 36px 32px;
+}
+.modal__body h2 {
+  font-size: 26px;
+}
+.modal__body > p {
+  margin: 8px 0 24px;
+  color: var(--text-3);
+  font-size: 15px;
+}
+@media (max-width: 680px) {
+  .modal__grid {
+    grid-template-columns: 1fr;
+  }
+  .modal__aside {
+    display: none;
+  }
+  .modal__body {
+    padding: 36px 22px 24px;
+  }
+}
